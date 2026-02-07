@@ -1,0 +1,44 @@
+// generated from rosidl_generator_c/resource/idl__struct.h.em
+// with input from more_interfaces:msg/MavlinkPacket.idl
+// generated code does not contain a copyright notice
+
+#ifndef MORE_INTERFACES__MSG__DETAIL__MAVLINK_PACKET__STRUCT_H_
+#define MORE_INTERFACES__MSG__DETAIL__MAVLINK_PACKET__STRUCT_H_
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+
+
+// Constants defined in the message
+
+// Include directives for member types
+// Member 'payload'
+#include "rosidl_runtime_c/primitives_sequence.h"
+
+// Struct defined in msg/MavlinkPacket in the package more_interfaces.
+typedef struct more_interfaces__msg__MavlinkPacket
+{
+  rosidl_runtime_c__uint8__Sequence payload;
+} more_interfaces__msg__MavlinkPacket;
+
+// Struct for a sequence of more_interfaces__msg__MavlinkPacket.
+typedef struct more_interfaces__msg__MavlinkPacket__Sequence
+{
+  more_interfaces__msg__MavlinkPacket * data;
+  /// The number of valid items in data
+  size_t size;
+  /// The number of allocated items in data
+  size_t capacity;
+} more_interfaces__msg__MavlinkPacket__Sequence;
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif  // MORE_INTERFACES__MSG__DETAIL__MAVLINK_PACKET__STRUCT_H_

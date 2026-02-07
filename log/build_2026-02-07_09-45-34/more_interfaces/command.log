@@ -1,0 +1,6 @@
+Invoking command in '/home/sirius2beta/cetus/build/more_interfaces': CMAKE_PREFIX_PATH=/opt/ros/foxy /home/sirius2beta/.local/bin/cmake /home/sirius2beta/cetus/src/more_interfaces -DCMAKE_INSTALL_PREFIX=/home/sirius2beta/cetus/install/more_interfaces
+Invoked command in '/home/sirius2beta/cetus/build/more_interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /home/sirius2beta/.local/bin/cmake /home/sirius2beta/cetus/src/more_interfaces -DCMAKE_INSTALL_PREFIX=/home/sirius2beta/cetus/install/more_interfaces
+Invoking command in '/home/sirius2beta/cetus/build/more_interfaces': CMAKE_PREFIX_PATH=/opt/ros/foxy /home/sirius2beta/.local/bin/cmake --build /home/sirius2beta/cetus/build/more_interfaces -- -j4 -l4
+Invoked command in '/home/sirius2beta/cetus/build/more_interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /home/sirius2beta/.local/bin/cmake --build /home/sirius2beta/cetus/build/more_interfaces -- -j4 -l4
+Invoking command in '/home/sirius2beta/cetus/build/more_interfaces': CMAKE_PREFIX_PATH=/opt/ros/foxy /home/sirius2beta/.local/bin/cmake --install /home/sirius2beta/cetus/build/more_interfaces
+Invoked command in '/home/sirius2beta/cetus/build/more_interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /home/sirius2beta/.local/bin/cmake --install /home/sirius2beta/cetus/build/more_interfaces

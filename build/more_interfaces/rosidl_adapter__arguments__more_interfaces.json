@@ -1,0 +1,7 @@
+{
+  "package_name": "more_interfaces",
+  "non_idl_tuples": [
+    "/home/sirius2beta/cetus/src/more_interfaces:msg/MarinelinkPacket.msg",
+    "/home/sirius2beta/cetus/src/more_interfaces:msg/MavlinkPacket.msg"
+  ]
+}

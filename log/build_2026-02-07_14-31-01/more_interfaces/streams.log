@@ -1,0 +1,135 @@
+[0.060s] Invoking command in '/home/sirius2beta/cetus/build/more_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sirius2beta/cetus/install/video_control:/opt/ros/foxy /home/sirius2beta/.local/bin/cmake --build /home/sirius2beta/cetus/build/more_interfaces -- -j4 -l4
+[0.385s] [  2%] Built target more_interfaces__cpp
+[0.399s] [ 12%] Built target more_interfaces__rosidl_generator_c
+[0.461s] [ 23%] Built target more_interfaces__rosidl_typesupport_cpp
+[0.474s] [ 33%] Built target more_interfaces__rosidl_typesupport_introspection_cpp
+[0.481s] [ 43%] Built target more_interfaces__rosidl_typesupport_fastrtps_cpp
+[0.488s] [ 53%] Built target more_interfaces__rosidl_typesupport_introspection_c
+[0.515s] [ 64%] Built target more_interfaces__rosidl_typesupport_c
+[0.554s] [ 74%] Built target more_interfaces__rosidl_typesupport_fastrtps_c
+[0.590s] [ 74%] Built target more_interfaces
+[0.633s] [ 76%] Built target more_interfaces__py
+[0.699s] [ 84%] Built target more_interfaces__python
+[0.763s] [ 94%] Built target more_interfaces__rosidl_typesupport_c__pyext
+[0.765s] [ 94%] Built target more_interfaces__rosidl_typesupport_introspection_c__pyext
+[0.766s] [100%] Built target more_interfaces__rosidl_typesupport_fastrtps_c__pyext
+[0.821s] Invoked command in '/home/sirius2beta/cetus/build/more_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sirius2beta/cetus/install/video_control:/opt/ros/foxy /home/sirius2beta/.local/bin/cmake --build /home/sirius2beta/cetus/build/more_interfaces -- -j4 -l4
+[1.121s] Invoking command in '/home/sirius2beta/cetus/build/more_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sirius2beta/cetus/install/video_control:/opt/ros/foxy /home/sirius2beta/.local/bin/cmake --install /home/sirius2beta/cetus/build/more_interfaces
+[1.358s] -- Install configuration: ""
+[1.359s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/share/ament_index/resource_index/rosidl_interfaces/more_interfaces
+[1.359s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces
+[1.360s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces/msg
+[1.361s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces/msg/rosidl_generator_c__visibility_control.h
+[1.362s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces/msg/detail
+[1.362s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces/msg/detail/marinelink_packet__struct.h
+[1.363s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces/msg/detail/mavlink_packet__type_support.h
+[1.363s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces/msg/detail/marinelink_packet__type_support.h
+[1.363s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces/msg/detail/marinelink_packet__functions.h
+[1.364s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces/msg/detail/marinelink_packet__functions.c
+[1.364s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces/msg/detail/mavlink_packet__struct.h
+[1.364s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces/msg/detail/mavlink_packet__functions.h
+[1.364s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces/msg/detail/mavlink_packet__functions.c
+[1.365s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces/msg/mavlink_packet.h
+[1.366s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces/msg/marinelink_packet.h
+[1.366s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/environment/library_path.sh
+[1.366s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/environment/library_path.dsv
+[1.367s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/lib/libmore_interfaces__rosidl_generator_c.so
+[1.367s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces
+[1.367s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces/msg
+[1.368s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces/msg/detail
+[1.368s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces/msg/detail/marinelink_packet__rosidl_typesupport_fastrtps_c.h
+[1.369s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces/msg/detail/mavlink_packet__rosidl_typesupport_fastrtps_c.h
+[1.369s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[1.370s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/lib/libmore_interfaces__rosidl_typesupport_fastrtps_c.so
+[1.370s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces
+[1.370s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces/msg
+[1.371s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[1.371s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces/msg/detail
+[1.372s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces/msg/detail/marinelink_packet__rosidl_typesupport_fastrtps_cpp.hpp
+[1.373s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces/msg/detail/mavlink_packet__rosidl_typesupport_fastrtps_cpp.hpp
+[1.373s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces/msg/detail/dds_fastrtps
+[1.373s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/lib/libmore_interfaces__rosidl_typesupport_fastrtps_cpp.so
+[1.374s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces
+[1.374s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces/msg
+[1.374s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces/msg/detail
+[1.374s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces/msg/detail/marinelink_packet__rosidl_typesupport_introspection_c.h
+[1.375s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces/msg/detail/mavlink_packet__type_support.c
+[1.375s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces/msg/detail/marinelink_packet__type_support.c
+[1.376s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces/msg/detail/mavlink_packet__rosidl_typesupport_introspection_c.h
+[1.376s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[1.377s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/lib/libmore_interfaces__rosidl_typesupport_introspection_c.so
+[1.378s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/lib/libmore_interfaces__rosidl_typesupport_c.so
+[1.379s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces
+[1.379s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces/msg
+[1.380s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp
+[1.381s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces/msg/marinelink_packet.hpp
+[1.381s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces/msg/mavlink_packet.hpp
+[1.382s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces/msg/detail
+[1.382s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces/msg/detail/mavlink_packet__struct.hpp
+[1.382s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces/msg/detail/marinelink_packet__builder.hpp
+[1.383s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces/msg/detail/marinelink_packet__struct.hpp
+[1.383s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces/msg/detail/marinelink_packet__traits.hpp
+[1.384s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces/msg/detail/mavlink_packet__traits.hpp
+[1.384s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces/msg/detail/mavlink_packet__type_support.hpp
+[1.384s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces/msg/detail/marinelink_packet__type_support.hpp
+[1.385s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces/msg/detail/mavlink_packet__builder.hpp
+[1.385s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces
+[1.385s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces/msg
+[1.386s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces/msg/detail
+[1.386s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces/msg/detail/marinelink_packet__rosidl_typesupport_introspection_cpp.hpp
+[1.387s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces/msg/detail/marinelink_packet__type_support.cpp
+[1.387s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces/msg/detail/mavlink_packet__rosidl_typesupport_introspection_cpp.hpp
+[1.388s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/include/more_interfaces/msg/detail/mavlink_packet__type_support.cpp
+[1.388s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/lib/libmore_interfaces__rosidl_typesupport_introspection_cpp.so
+[1.388s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/lib/libmore_interfaces__rosidl_typesupport_cpp.so
+[1.389s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/environment/pythonpath.sh
+[1.389s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/environment/pythonpath.dsv
+[1.389s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/lib/python3.8/site-packages/more_interfaces/__init__.py
+[1.515s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/lib/python3.8/site-packages/more_interfaces/msg
+[1.516s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/lib/python3.8/site-packages/more_interfaces/msg/_marinelink_packet_s.c
+[1.516s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/lib/python3.8/site-packages/more_interfaces/msg/_mavlink_packet_s.c
+[1.517s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/lib/python3.8/site-packages/more_interfaces/msg/_marinelink_packet.py
+[1.517s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/lib/python3.8/site-packages/more_interfaces/msg/_mavlink_packet.py
+[1.517s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/lib/python3.8/site-packages/more_interfaces/msg/__init__.py
+[1.518s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/lib/python3.8/site-packages/more_interfaces/more_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-38-aarch64-linux-gnu.so
+[1.520s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/lib/python3.8/site-packages/more_interfaces/more_interfaces_s__rosidl_typesupport_introspection_c.cpython-38-aarch64-linux-gnu.so
+[1.522s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/lib/python3.8/site-packages/more_interfaces/more_interfaces_s__rosidl_typesupport_c.cpython-38-aarch64-linux-gnu.so
+[1.524s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/lib/libmore_interfaces__python.so
+[1.525s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/msg/MarinelinkPacket.idl
+[1.526s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/msg/MavlinkPacket.idl
+[1.527s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/msg/MarinelinkPacket.msg
+[1.527s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/msg/MavlinkPacket.msg
+[1.528s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/share/ament_index/resource_index/package_run_dependencies/more_interfaces
+[1.528s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/share/ament_index/resource_index/parent_prefix_path/more_interfaces
+[1.529s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/environment/ament_prefix_path.sh
+[1.530s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/environment/ament_prefix_path.dsv
+[1.530s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/environment/path.sh
+[1.530s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/environment/path.dsv
+[1.531s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/local_setup.bash
+[1.531s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/local_setup.sh
+[1.531s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/local_setup.zsh
+[1.532s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/local_setup.dsv
+[1.532s] -- Installing: /home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/package.dsv
+[1.533s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/share/ament_index/resource_index/packages/more_interfaces
+[1.533s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/cmake/more_interfaces__rosidl_generator_cExport.cmake
+[1.534s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/cmake/more_interfaces__rosidl_generator_cExport-noconfig.cmake
+[1.534s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/cmake/more_interfaces__rosidl_typesupport_introspection_cExport.cmake
+[1.536s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/cmake/more_interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[1.537s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/cmake/more_interfaces__rosidl_typesupport_cExport.cmake
+[1.537s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/cmake/more_interfaces__rosidl_typesupport_cExport-noconfig.cmake
+[1.538s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/cmake/more_interfaces__rosidl_generator_cppExport.cmake
+[1.538s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/cmake/more_interfaces__rosidl_typesupport_introspection_cppExport.cmake
+[1.539s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/cmake/more_interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[1.539s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/cmake/more_interfaces__rosidl_typesupport_cppExport.cmake
+[1.540s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/cmake/more_interfaces__rosidl_typesupport_cppExport-noconfig.cmake
+[1.540s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/cmake/rosidl_cmake-extras.cmake
+[1.541s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake
+[1.541s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/cmake/ament_cmake_export_libraries-extras.cmake
+[1.541s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/cmake/ament_cmake_export_targets-extras.cmake
+[1.542s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake
+[1.542s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[1.542s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[1.543s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/cmake/more_interfacesConfig.cmake
+[1.543s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/cmake/more_interfacesConfig-version.cmake
+[1.543s] -- Up-to-date: /home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/package.xml
+[1.581s] Invoked command in '/home/sirius2beta/cetus/build/more_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sirius2beta/cetus/install/video_control:/opt/ros/foxy /home/sirius2beta/.local/bin/cmake --install /home/sirius2beta/cetus/build/more_interfaces

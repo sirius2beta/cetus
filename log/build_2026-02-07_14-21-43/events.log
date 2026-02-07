@@ -1,0 +1,205 @@
+[0.000000] (-) TimerEvent: {}
+[0.002008] (-) JobUnselected: {'identifier': 'more_interfaces'}
+[0.002770] (-) JobUnselected: {'identifier': 'video_control'}
+[0.002977] (link_manager) JobQueued: {'identifier': 'link_manager', 'dependencies': OrderedDict([('more_interfaces', '/home/sirius2beta/cetus/install/more_interfaces')])}
+[0.003123] (link_manager) JobStarted: {'identifier': 'link_manager'}
+[0.048548] (link_manager) JobProgress: {'identifier': 'link_manager', 'progress': 'cmake'}
+[0.053227] (link_manager) Command: {'cmd': ['/home/sirius2beta/.local/bin/cmake', '/home/sirius2beta/cetus/src/link_manager', '-DCMAKE_INSTALL_PREFIX=/home/sirius2beta/cetus/install/link_manager'], 'cwd': '/home/sirius2beta/cetus/build/link_manager', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'sirius2beta'), ('SSH_CLIENT', '192.168.0.123 59217 22'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/sirius2beta/.vscode-server/cli/servers/Stable-bdd88df003631aaa0bcbe057cb0a940b80a476fa/server/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/sirius2beta/cetus/install/more_interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib:/usr/local/cuda-11.4/lib64:/usr/local/cuda-11.4/lib64'), ('BROWSER', '/home/sirius2beta/.vscode-server/cli/servers/Stable-bdd88df003631aaa0bcbe057cb0a940b80a476fa/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/sirius2beta'), ('OLDPWD', '/home/sirius2beta/cetus/src'), ('TERM_PROGRAM_VERSION', '1.109.0'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-a87f064a-83f4-41bb-bcf0-b43db54ceb17.sock'), ('JETSON_L4T', '35.6.0'), ('ROS_PYTHON_VERSION', '3'), ('JETSON_MODEL', 'NVIDIA Jetson Xavier NX Developer Kit'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/sirius2beta/.vscode-server/cli/servers/Stable-bdd88df003631aaa0bcbe057cb0a940b80a476fa/server/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/sirius2beta/.vscode-server/cli/servers/Stable-bdd88df003631aaa0bcbe057cb0a940b80a476fa/server/node'), ('SSL_CERT_FILE', '/usr/lib/ssl/certs/ca-certificates.crt'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'sirius2beta'), ('JETSON_MODULE', 'NVIDIA Jetson Xavier NX (16GB ram)'), ('JETSON_SERIAL_NUMBER', '1421122058947'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('JETSON_CODENAME', 'Jakku'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '2'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/foxy/bin:/usr/local/cuda-11.4/bin:/home/sirius2beta/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/sirius2beta/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/sirius2beta/.vscode-server/cli/servers/Stable-bdd88df003631aaa0bcbe057cb0a940b80a476fa/server/bin/remote-cli:/home/sirius2beta/.local/bin:/usr/local/cuda-11.4/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('SSL_CERT_DIR', '/usr/lib/ssl/certs'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('JETSON_SOC', 'tegra194'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-68143b8282.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/sirius2beta/cetus/install/more_interfaces:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('JETSON_CUDA_ARCH_BIN', '7.2'), ('PWD', '/home/sirius2beta/cetus/build/link_manager'), ('SSH_CONNECTION', '192.168.0.123 59217 192.168.0.215 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/sirius2beta/cetus/install/more_interfaces/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('COLCON', '1'), ('JETSON_JETPACK', '5.1.4'), ('JETSON_P_NUMBER', 'p3668-0003'), ('CMAKE_PREFIX_PATH', '/home/sirius2beta/cetus/install/more_interfaces:/opt/ros/foxy')]), 'shell': False}
+[0.098880] (-) TimerEvent: {}
+[0.200141] (-) TimerEvent: {}
+[0.301150] (-) TimerEvent: {}
+[0.330690] (link_manager) StdoutLine: {'line': b'-- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)\n'}
+[0.337812] (link_manager) StderrLine: {'line': b'\x1b[33mCMake Warning (dev) at /opt/ros/foxy/share/ament_cmake_core/cmake/core/python.cmake:22 (find_package):\n'}
+[0.338884] (link_manager) StderrLine: {'line': b'  Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules\n'}
+[0.339347] (link_manager) StderrLine: {'line': b'  are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use\n'}
+[0.339675] (link_manager) StderrLine: {'line': b'  the cmake_policy command to set the policy and suppress this warning.\n'}
+[0.339965] (link_manager) StderrLine: {'line': b'\n'}
+[0.340289] (link_manager) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[0.340590] (link_manager) StderrLine: {'line': b'  /opt/ros/foxy/share/ament_cmake_core/cmake/core/all.cmake:53 (include)\n'}
+[0.340902] (link_manager) StderrLine: {'line': b'  /opt/ros/foxy/share/ament_cmake_core/cmake/ament_cmake_core-extras.cmake:17 (include)\n'}
+[0.341179] (link_manager) StderrLine: {'line': b'  /opt/ros/foxy/share/ament_cmake_core/cmake/ament_cmake_coreConfig.cmake:41 (include)\n'}
+[0.341480] (link_manager) StderrLine: {'line': b'  /opt/ros/foxy/share/ament_cmake/cmake/ament_cmake_export_dependencies-extras.cmake:15 (find_package)\n'}
+[0.341816] (link_manager) StderrLine: {'line': b'  /opt/ros/foxy/share/ament_cmake/cmake/ament_cmakeConfig.cmake:41 (include)\n'}
+[0.342092] (link_manager) StderrLine: {'line': b'  CMakeLists.txt:19 (find_package)\n'}
+[0.342465] (link_manager) StderrLine: {'line': b'This warning is for project developers.  Use -Wno-dev to suppress it.\n'}
+[0.342754] (link_manager) StderrLine: {'line': b'\x1b[0m\n'}
+[0.401346] (-) TimerEvent: {}
+[0.425074] (link_manager) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[0.501570] (-) TimerEvent: {}
+[0.602571] (-) TimerEvent: {}
+[0.704137] (-) TimerEvent: {}
+[0.804986] (-) TimerEvent: {}
+[0.905966] (-) TimerEvent: {}
+[1.006980] (-) TimerEvent: {}
+[1.108041] (-) TimerEvent: {}
+[1.156949] (link_manager) StdoutLine: {'line': b'-- Found rclcpp: 2.4.3 (/opt/ros/foxy/share/rclcpp/cmake)\n'}
+[1.208231] (-) TimerEvent: {}
+[1.284371] (link_manager) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[1.300690] (link_manager) StdoutLine: {'line': b'-- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)\n'}
+[1.308411] (-) TimerEvent: {}
+[1.409238] (-) TimerEvent: {}
+[1.510246] (-) TimerEvent: {}
+[1.611222] (-) TimerEvent: {}
+[1.712149] (-) TimerEvent: {}
+[1.726969] (link_manager) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[1.812429] (-) TimerEvent: {}
+[1.911373] (link_manager) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 1.0.4 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)\n'}
+[1.912586] (-) TimerEvent: {}
+[1.916550] (link_manager) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[2.012875] (-) TimerEvent: {}
+[2.113953] (-) TimerEvent: {}
+[2.215093] (-) TimerEvent: {}
+[2.316144] (-) TimerEvent: {}
+[2.408423] (link_manager) StdoutLine: {'line': b'-- Found more_interfaces: 0.0.0 (/home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/cmake)\n'}
+[2.416285] (-) TimerEvent: {}
+[2.441856] (link_manager) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.9.8 (/opt/ros/foxy/share/ament_lint_auto/cmake)\n'}
+[2.516538] (-) TimerEvent: {}
+[2.617459] (-) TimerEvent: {}
+[2.691750] (link_manager) StdoutLine: {'line': b"-- Added test 'copyright' to check source files copyright and LICENSE\n"}
+[2.698672] (link_manager) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[2.699520] (link_manager) StdoutLine: {'line': b'-- Configured cppcheck include dirs: \n'}
+[2.699976] (link_manager) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[2.706870] (link_manager) StdoutLine: {'line': b"-- Added test 'cpplint' to check C / C++ code against the Google style\n"}
+[2.707597] (link_manager) StdoutLine: {'line': b'-- Configured cpplint exclude dirs and/or files: \n'}
+[2.709382] (link_manager) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[2.713582] (link_manager) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[2.714059] (link_manager) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[2.714928] (link_manager) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[2.717613] (-) TimerEvent: {}
+[2.718557] (link_manager) StdoutLine: {'line': b'-- Configuring done (2.4s)\n'}
+[2.775111] (link_manager) StdoutLine: {'line': b'-- Generating done (0.1s)\n'}
+[2.787507] (link_manager) StdoutLine: {'line': b'-- Build files have been written to: /home/sirius2beta/cetus/build/link_manager\n'}
+[2.817856] (-) TimerEvent: {}
+[2.840144] (link_manager) CommandEnded: {'returncode': 0}
+[2.850040] (link_manager) JobProgress: {'identifier': 'link_manager', 'progress': 'build'}
+[2.855798] (link_manager) Command: {'cmd': ['/home/sirius2beta/.local/bin/cmake', '--build', '/home/sirius2beta/cetus/build/link_manager', '--', '-j4', '-l4'], 'cwd': '/home/sirius2beta/cetus/build/link_manager', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'sirius2beta'), ('SSH_CLIENT', '192.168.0.123 59217 22'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/sirius2beta/.vscode-server/cli/servers/Stable-bdd88df003631aaa0bcbe057cb0a940b80a476fa/server/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/sirius2beta/cetus/install/more_interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib:/usr/local/cuda-11.4/lib64:/usr/local/cuda-11.4/lib64'), ('BROWSER', '/home/sirius2beta/.vscode-server/cli/servers/Stable-bdd88df003631aaa0bcbe057cb0a940b80a476fa/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/sirius2beta'), ('OLDPWD', '/home/sirius2beta/cetus/src'), ('TERM_PROGRAM_VERSION', '1.109.0'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-a87f064a-83f4-41bb-bcf0-b43db54ceb17.sock'), ('JETSON_L4T', '35.6.0'), ('ROS_PYTHON_VERSION', '3'), ('JETSON_MODEL', 'NVIDIA Jetson Xavier NX Developer Kit'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/sirius2beta/.vscode-server/cli/servers/Stable-bdd88df003631aaa0bcbe057cb0a940b80a476fa/server/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/sirius2beta/.vscode-server/cli/servers/Stable-bdd88df003631aaa0bcbe057cb0a940b80a476fa/server/node'), ('SSL_CERT_FILE', '/usr/lib/ssl/certs/ca-certificates.crt'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'sirius2beta'), ('JETSON_MODULE', 'NVIDIA Jetson Xavier NX (16GB ram)'), ('JETSON_SERIAL_NUMBER', '1421122058947'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('JETSON_CODENAME', 'Jakku'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '2'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/foxy/bin:/usr/local/cuda-11.4/bin:/home/sirius2beta/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/sirius2beta/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/sirius2beta/.vscode-server/cli/servers/Stable-bdd88df003631aaa0bcbe057cb0a940b80a476fa/server/bin/remote-cli:/home/sirius2beta/.local/bin:/usr/local/cuda-11.4/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('SSL_CERT_DIR', '/usr/lib/ssl/certs'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('JETSON_SOC', 'tegra194'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-68143b8282.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/sirius2beta/cetus/install/more_interfaces:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('JETSON_CUDA_ARCH_BIN', '7.2'), ('PWD', '/home/sirius2beta/cetus/build/link_manager'), ('SSH_CONNECTION', '192.168.0.123 59217 192.168.0.215 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/sirius2beta/cetus/install/more_interfaces/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('COLCON', '1'), ('JETSON_JETPACK', '5.1.4'), ('JETSON_P_NUMBER', 'p3668-0003'), ('CMAKE_PREFIX_PATH', '/home/sirius2beta/cetus/install/more_interfaces:/opt/ros/foxy')]), 'shell': False}
+[2.918129] (-) TimerEvent: {}
+[3.019383] (-) TimerEvent: {}
+[3.120429] (-) TimerEvent: {}
+[3.181310] (link_manager) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/link_manager.dir/src/link_manager.cpp.o\x1b[0m\n'}
+[3.220650] (-) TimerEvent: {}
+[3.321561] (-) TimerEvent: {}
+[3.422580] (-) TimerEvent: {}
+[3.523570] (-) TimerEvent: {}
+[3.624520] (-) TimerEvent: {}
+[3.725423] (-) TimerEvent: {}
+[3.826398] (-) TimerEvent: {}
+[3.927398] (-) TimerEvent: {}
+[4.028394] (-) TimerEvent: {}
+[4.129421] (-) TimerEvent: {}
+[4.230437] (-) TimerEvent: {}
+[4.331437] (-) TimerEvent: {}
+[4.432480] (-) TimerEvent: {}
+[4.533465] (-) TimerEvent: {}
+[4.634612] (-) TimerEvent: {}
+[4.735621] (-) TimerEvent: {}
+[4.836569] (-) TimerEvent: {}
+[4.937663] (-) TimerEvent: {}
+[5.038826] (-) TimerEvent: {}
+[5.140860] (-) TimerEvent: {}
+[5.241911] (-) TimerEvent: {}
+[5.342998] (-) TimerEvent: {}
+[5.444073] (-) TimerEvent: {}
+[5.545061] (-) TimerEvent: {}
+[5.646727] (-) TimerEvent: {}
+[5.748363] (-) TimerEvent: {}
+[5.849867] (-) TimerEvent: {}
+[5.951611] (-) TimerEvent: {}
+[6.053059] (-) TimerEvent: {}
+[6.154659] (-) TimerEvent: {}
+[6.256132] (-) TimerEvent: {}
+[6.357795] (-) TimerEvent: {}
+[6.459632] (-) TimerEvent: {}
+[6.561367] (-) TimerEvent: {}
+[6.663110] (-) TimerEvent: {}
+[6.765756] (-) TimerEvent: {}
+[6.867315] (-) TimerEvent: {}
+[6.968849] (-) TimerEvent: {}
+[7.070426] (-) TimerEvent: {}
+[7.171974] (-) TimerEvent: {}
+[7.273470] (-) TimerEvent: {}
+[7.375033] (-) TimerEvent: {}
+[7.476570] (-) TimerEvent: {}
+[7.578091] (-) TimerEvent: {}
+[7.679651] (-) TimerEvent: {}
+[7.781218] (-) TimerEvent: {}
+[7.882805] (-) TimerEvent: {}
+[7.984392] (-) TimerEvent: {}
+[8.086074] (-) TimerEvent: {}
+[8.187680] (-) TimerEvent: {}
+[8.289251] (-) TimerEvent: {}
+[8.391764] (-) TimerEvent: {}
+[8.436552] (link_manager) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/client.hpp:40\x1b[m\x1b[K,\n'}
+[8.437350] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/callback_group.hpp:23\x1b[m\x1b[K,\n'}
+[8.437703] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/any_executable.hpp:20\x1b[m\x1b[K,\n'}
+[8.438019] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24\x1b[m\x1b[K,\n'}
+[8.440271] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18\x1b[m\x1b[K,\n'}
+[8.440657] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/executor_options.hpp:20\x1b[m\x1b[K,\n'}
+[8.440971] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/executor.hpp:33\x1b[m\x1b[K,\n'}
+[8.441324] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26\x1b[m\x1b[K,\n'}
+[8.441659] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/executors.hpp:21\x1b[m\x1b[K,\n'}
+[8.441990] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/foxy/include/rclcpp/rclcpp.hpp:146\x1b[m\x1b[K,\n'}
+[8.442417] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/link_manager.cpp:1\x1b[m\x1b[K:\n'}
+[8.442744] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/link_manager.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid SubscribeWorker::mavlink_callback(more_interfaces::msg::MarinelinkPacket_<std::allocator<void> >::SharedPtr)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[8.443133] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/link_manager.cpp:19:87:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kusing _payload_type = class std::vector<unsigned char, std::allocator<unsigned char> >\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Kclass std::vector<unsigned char, std::allocator<unsigned char> >\x1b[m\x1b[K\xe2\x80\x99} has no member named \xe2\x80\x98\x1b[01m\x1b[Kc_str\x1b[m\x1b[K\xe2\x80\x99\n'}
+[8.443496] (link_manager) StderrLine: {'line': b'   19 |         RCLCPP_INFO(this->get_logger(), "Received MarinelinkPacket: %s", msg->payload.\x1b[01;31m\x1b[Kc_str\x1b[m\x1b[K());\n'}
+[8.443934] (link_manager) StderrLine: {'line': b'      |                                                                                       \x1b[01;31m\x1b[K^~~~~\x1b[m\x1b[K\n'}
+[8.492031] (-) TimerEvent: {}
+[8.594093] (-) TimerEvent: {}
+[8.696163] (-) TimerEvent: {}
+[8.797257] (-) TimerEvent: {}
+[8.898395] (-) TimerEvent: {}
+[8.999586] (-) TimerEvent: {}
+[9.100782] (-) TimerEvent: {}
+[9.201973] (-) TimerEvent: {}
+[9.303259] (-) TimerEvent: {}
+[9.404399] (-) TimerEvent: {}
+[9.505738] (-) TimerEvent: {}
+[9.607095] (-) TimerEvent: {}
+[9.708243] (-) TimerEvent: {}
+[9.809268] (-) TimerEvent: {}
+[9.910810] (-) TimerEvent: {}
+[10.012033] (-) TimerEvent: {}
+[10.113373] (-) TimerEvent: {}
+[10.214656] (-) TimerEvent: {}
+[10.315945] (-) TimerEvent: {}
+[10.417045] (-) TimerEvent: {}
+[10.518252] (-) TimerEvent: {}
+[10.619420] (-) TimerEvent: {}
+[10.720591] (-) TimerEvent: {}
+[10.821828] (-) TimerEvent: {}
+[10.923060] (-) TimerEvent: {}
+[11.024323] (-) TimerEvent: {}
+[11.125664] (-) TimerEvent: {}
+[11.226984] (-) TimerEvent: {}
+[11.328118] (-) TimerEvent: {}
+[11.429295] (-) TimerEvent: {}
+[11.530501] (-) TimerEvent: {}
+[11.631665] (-) TimerEvent: {}
+[11.732726] (-) TimerEvent: {}
+[11.833841] (-) TimerEvent: {}
+[11.935384] (-) TimerEvent: {}
+[12.036568] (-) TimerEvent: {}
+[12.137753] (-) TimerEvent: {}
+[12.238900] (-) TimerEvent: {}
+[12.340027] (-) TimerEvent: {}
+[12.442122] (-) TimerEvent: {}
+[12.543977] (-) TimerEvent: {}
+[12.645187] (-) TimerEvent: {}
+[12.746373] (-) TimerEvent: {}
+[12.847470] (-) TimerEvent: {}
+[12.948648] (-) TimerEvent: {}
+[13.049817] (-) TimerEvent: {}
+[13.151006] (-) TimerEvent: {}
+[13.252087] (-) TimerEvent: {}
+[13.353167] (-) TimerEvent: {}
+[13.455237] (-) TimerEvent: {}
+[13.557018] (-) TimerEvent: {}
+[13.658905] (-) TimerEvent: {}
+[13.740828] (link_manager) StderrLine: {'line': b'make[2]: *** [CMakeFiles/link_manager.dir/build.make:76: CMakeFiles/link_manager.dir/src/link_manager.cpp.o] Error 1\n'}
+[13.743700] (link_manager) StderrLine: {'line': b'make[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/link_manager.dir/all] Error 2\n'}
+[13.744818] (link_manager) StderrLine: {'line': b'make: *** [Makefile:146: all] Error 2\n'}
+[13.759191] (-) TimerEvent: {}
+[13.783971] (link_manager) CommandEnded: {'returncode': 2}
+[13.841484] (link_manager) JobEnded: {'identifier': 'link_manager', 'rc': 2}
+[13.854004] (-) EventReactorShutdown: {}

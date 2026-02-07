@@ -1,0 +1,142 @@
+[0.000000] (-) TimerEvent: {}
+[0.002032] (-) JobUnselected: {'identifier': 'more_interfaces'}
+[0.002835] (-) JobUnselected: {'identifier': 'video_control'}
+[0.002985] (link_manager) JobQueued: {'identifier': 'link_manager', 'dependencies': OrderedDict([('more_interfaces', '/home/sirius2beta/cetus/install/more_interfaces')])}
+[0.004058] (link_manager) JobStarted: {'identifier': 'link_manager'}
+[0.048982] (link_manager) JobProgress: {'identifier': 'link_manager', 'progress': 'cmake'}
+[0.052016] (link_manager) Command: {'cmd': ['/home/sirius2beta/.local/bin/cmake', '/home/sirius2beta/cetus/src/link_manager', '-DCMAKE_INSTALL_PREFIX=/home/sirius2beta/cetus/install/link_manager'], 'cwd': '/home/sirius2beta/cetus/build/link_manager', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'sirius2beta'), ('SSH_CLIENT', '192.168.0.123 59217 22'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/sirius2beta/.vscode-server/cli/servers/Stable-bdd88df003631aaa0bcbe057cb0a940b80a476fa/server/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/sirius2beta/cetus/install/more_interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib:/usr/local/cuda-11.4/lib64:/usr/local/cuda-11.4/lib64'), ('BROWSER', '/home/sirius2beta/.vscode-server/cli/servers/Stable-bdd88df003631aaa0bcbe057cb0a940b80a476fa/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/sirius2beta'), ('OLDPWD', '/home/sirius2beta/cetus/src'), ('TERM_PROGRAM_VERSION', '1.109.0'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-a87f064a-83f4-41bb-bcf0-b43db54ceb17.sock'), ('JETSON_L4T', '35.6.0'), ('ROS_PYTHON_VERSION', '3'), ('JETSON_MODEL', 'NVIDIA Jetson Xavier NX Developer Kit'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/sirius2beta/.vscode-server/cli/servers/Stable-bdd88df003631aaa0bcbe057cb0a940b80a476fa/server/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/sirius2beta/.vscode-server/cli/servers/Stable-bdd88df003631aaa0bcbe057cb0a940b80a476fa/server/node'), ('SSL_CERT_FILE', '/usr/lib/ssl/certs/ca-certificates.crt'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'sirius2beta'), ('JETSON_MODULE', 'NVIDIA Jetson Xavier NX (16GB ram)'), ('JETSON_SERIAL_NUMBER', '1421122058947'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('JETSON_CODENAME', 'Jakku'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '2'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/foxy/bin:/usr/local/cuda-11.4/bin:/home/sirius2beta/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/sirius2beta/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/sirius2beta/.vscode-server/cli/servers/Stable-bdd88df003631aaa0bcbe057cb0a940b80a476fa/server/bin/remote-cli:/home/sirius2beta/.local/bin:/usr/local/cuda-11.4/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('SSL_CERT_DIR', '/usr/lib/ssl/certs'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('JETSON_SOC', 'tegra194'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-68143b8282.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/sirius2beta/cetus/install/more_interfaces:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('JETSON_CUDA_ARCH_BIN', '7.2'), ('PWD', '/home/sirius2beta/cetus/build/link_manager'), ('SSH_CONNECTION', '192.168.0.123 59217 192.168.0.215 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/sirius2beta/cetus/install/more_interfaces/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('COLCON', '1'), ('JETSON_JETPACK', '5.1.4'), ('JETSON_P_NUMBER', 'p3668-0003'), ('CMAKE_PREFIX_PATH', '/home/sirius2beta/cetus/install/more_interfaces:/opt/ros/foxy')]), 'shell': False}
+[0.098888] (-) TimerEvent: {}
+[0.200355] (-) TimerEvent: {}
+[0.301341] (-) TimerEvent: {}
+[0.402751] (-) TimerEvent: {}
+[0.504416] (-) TimerEvent: {}
+[0.593843] (link_manager) StdoutLine: {'line': b'-- The C compiler identification is GNU 9.4.0\n'}
+[0.604680] (-) TimerEvent: {}
+[0.705719] (-) TimerEvent: {}
+[0.807429] (-) TimerEvent: {}
+[0.909157] (-) TimerEvent: {}
+[0.915523] (link_manager) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 9.4.0\n'}
+[0.963579] (link_manager) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[1.009403] (-) TimerEvent: {}
+[1.110408] (-) TimerEvent: {}
+[1.211701] (-) TimerEvent: {}
+[1.244055] (link_manager) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[1.311954] (-) TimerEvent: {}
+[1.317568] (link_manager) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[1.319642] (link_manager) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[1.321608] (link_manager) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[1.338710] (link_manager) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[1.412189] (-) TimerEvent: {}
+[1.513119] (-) TimerEvent: {}
+[1.614139] (-) TimerEvent: {}
+[1.659237] (link_manager) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[1.714369] (-) TimerEvent: {}
+[1.735064] (link_manager) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[1.737004] (link_manager) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[1.739699] (link_manager) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[1.751449] (link_manager) StdoutLine: {'line': b'-- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)\n'}
+[1.766037] (link_manager) StderrLine: {'line': b'\x1b[33mCMake Warning (dev) at /opt/ros/foxy/share/ament_cmake_core/cmake/core/python.cmake:22 (find_package):\n'}
+[1.766909] (link_manager) StderrLine: {'line': b'  Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules\n'}
+[1.767423] (link_manager) StderrLine: {'line': b'  are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use\n'}
+[1.768932] (link_manager) StderrLine: {'line': b'  the cmake_policy command to set the policy and suppress this warning.\n'}
+[1.769293] (link_manager) StderrLine: {'line': b'\n'}
+[1.769670] (link_manager) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[1.770010] (link_manager) StderrLine: {'line': b'  /opt/ros/foxy/share/ament_cmake_core/cmake/core/all.cmake:53 (include)\n'}
+[1.770341] (link_manager) StderrLine: {'line': b'  /opt/ros/foxy/share/ament_cmake_core/cmake/ament_cmake_core-extras.cmake:17 (include)\n'}
+[1.770769] (link_manager) StderrLine: {'line': b'  /opt/ros/foxy/share/ament_cmake_core/cmake/ament_cmake_coreConfig.cmake:41 (include)\n'}
+[1.771120] (link_manager) StderrLine: {'line': b'  /opt/ros/foxy/share/ament_cmake/cmake/ament_cmake_export_dependencies-extras.cmake:15 (find_package)\n'}
+[1.771503] (link_manager) StderrLine: {'line': b'  /opt/ros/foxy/share/ament_cmake/cmake/ament_cmakeConfig.cmake:41 (include)\n'}
+[1.771864] (link_manager) StderrLine: {'line': b'  CMakeLists.txt:19 (find_package)\n'}
+[1.772195] (link_manager) StderrLine: {'line': b'This warning is for project developers.  Use -Wno-dev to suppress it.\n'}
+[1.772485] (link_manager) StderrLine: {'line': b'\x1b[0m\n'}
+[1.814586] (-) TimerEvent: {}
+[1.857923] (link_manager) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3")\n'}
+[1.859000] (link_manager) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[1.914785] (-) TimerEvent: {}
+[2.015675] (-) TimerEvent: {}
+[2.116483] (-) TimerEvent: {}
+[2.217305] (-) TimerEvent: {}
+[2.318159] (-) TimerEvent: {}
+[2.419021] (-) TimerEvent: {}
+[2.519910] (-) TimerEvent: {}
+[2.620866] (-) TimerEvent: {}
+[2.656484] (link_manager) StdoutLine: {'line': b'-- Found rclcpp: 2.4.3 (/opt/ros/foxy/share/rclcpp/cmake)\n'}
+[2.721105] (-) TimerEvent: {}
+[2.822076] (-) TimerEvent: {}
+[2.861985] (link_manager) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[2.889067] (link_manager) StdoutLine: {'line': b'-- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)\n'}
+[2.922275] (-) TimerEvent: {}
+[3.023356] (-) TimerEvent: {}
+[3.124336] (-) TimerEvent: {}
+[3.226178] (-) TimerEvent: {}
+[3.256928] (link_manager) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "1.1.1f")\n'}
+[3.326440] (-) TimerEvent: {}
+[3.351622] (link_manager) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/foxy/include\n'}
+[3.426722] (-) TimerEvent: {}
+[3.527894] (-) TimerEvent: {}
+[3.629040] (-) TimerEvent: {}
+[3.633616] (link_manager) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[3.729304] (-) TimerEvent: {}
+[3.830974] (-) TimerEvent: {}
+[3.866523] (link_manager) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 1.0.4 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)\n'}
+[3.873966] (link_manager) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[3.879126] (link_manager) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[3.931239] (-) TimerEvent: {}
+[4.032285] (-) TimerEvent: {}
+[4.134222] (-) TimerEvent: {}
+[4.191929] (link_manager) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed\n'}
+[4.193398] (link_manager) StdoutLine: {'line': b'-- Looking for pthread_create in pthreads\n'}
+[4.234473] (-) TimerEvent: {}
+[4.335750] (-) TimerEvent: {}
+[4.437534] (-) TimerEvent: {}
+[4.438696] (link_manager) StdoutLine: {'line': b'-- Looking for pthread_create in pthreads - not found\n'}
+[4.440021] (link_manager) StdoutLine: {'line': b'-- Looking for pthread_create in pthread\n'}
+[4.537756] (-) TimerEvent: {}
+[4.638700] (-) TimerEvent: {}
+[4.735599] (link_manager) StdoutLine: {'line': b'-- Looking for pthread_create in pthread - found\n'}
+[4.738960] (-) TimerEvent: {}
+[4.745878] (link_manager) StdoutLine: {'line': b'-- Found Threads: TRUE\n'}
+[4.839272] (-) TimerEvent: {}
+[4.940210] (-) TimerEvent: {}
+[5.041134] (-) TimerEvent: {}
+[5.142021] (-) TimerEvent: {}
+[5.242953] (-) TimerEvent: {}
+[5.327911] (link_manager) StdoutLine: {'line': b'-- Found more_interfaces: 0.0.0 (/home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/cmake)\n'}
+[5.343213] (-) TimerEvent: {}
+[5.366863] (link_manager) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.9.8 (/opt/ros/foxy/share/ament_lint_auto/cmake)\n'}
+[5.443392] (-) TimerEvent: {}
+[5.544194] (-) TimerEvent: {}
+[5.645088] (-) TimerEvent: {}
+[5.668486] (link_manager) StdoutLine: {'line': b"-- Added test 'copyright' to check source files copyright and LICENSE\n"}
+[5.675364] (link_manager) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[5.676007] (link_manager) StdoutLine: {'line': b'-- Configured cppcheck include dirs: \n'}
+[5.676426] (link_manager) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[5.680838] (link_manager) StdoutLine: {'line': b"-- Added test 'cpplint' to check C / C++ code against the Google style\n"}
+[5.681313] (link_manager) StdoutLine: {'line': b'-- Configured cpplint exclude dirs and/or files: \n'}
+[5.684780] (link_manager) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[5.690594] (link_manager) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[5.691065] (link_manager) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[5.693064] (link_manager) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[5.699767] (link_manager) StdoutLine: {'line': b'-- Configuring done (5.4s)\n'}
+[5.717910] (link_manager) StderrLine: {'line': b'\x1b[31mCMake Error at CMakeLists.txt:34 (add_executable):\n'}
+[5.718487] (link_manager) StderrLine: {'line': b'  Cannot find source file:\n'}
+[5.718835] (link_manager) StderrLine: {'line': b'\n'}
+[5.719250] (link_manager) StderrLine: {'line': b'    src/linkmanager.cpp\n'}
+[5.719616] (link_manager) StderrLine: {'line': b'\n'}
+[5.719899] (link_manager) StderrLine: {'line': b'  Tried extensions .c .C .c++ .cc .cpp .cxx .cu .mpp .m .M .mm .ixx .cppm\n'}
+[5.720228] (link_manager) StderrLine: {'line': b'  .ccm .cxxm .c++m .h .hh .h++ .hm .hpp .hxx .in .txx .f .F .for .f77 .f90\n'}
+[5.720523] (link_manager) StderrLine: {'line': b'  .f95 .f03 .hip .ispc\n'}
+[5.720795] (link_manager) StderrLine: {'line': b'\n'}
+[5.721092] (link_manager) StderrLine: {'line': b'\x1b[0m\n'}
+[5.725476] (link_manager) StderrLine: {'line': b'\x1b[31mCMake Error at CMakeLists.txt:34 (add_executable):\n'}
+[5.726919] (link_manager) StderrLine: {'line': b'  No SOURCES given to target: link_manager\n'}
+[5.728092] (link_manager) StderrLine: {'line': b'\n'}
+[5.728595] (link_manager) StderrLine: {'line': b'\x1b[0m\n'}
+[5.729104] (link_manager) StderrLine: {'line': b'\x1b[0mCMake Generate step failed.  Build files cannot be regenerated correctly.\x1b[0m\n'}
+[5.745386] (-) TimerEvent: {}
+[5.792426] (link_manager) CommandEnded: {'returncode': 1}
+[5.845976] (-) TimerEvent: {}
+[5.947780] (-) TimerEvent: {}
+[6.048670] (-) TimerEvent: {}
+[6.132675] (link_manager) JobEnded: {'identifier': 'link_manager', 'rc': 1}
+[6.145794] (-) EventReactorShutdown: {}

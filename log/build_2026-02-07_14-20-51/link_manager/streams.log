@@ -1,0 +1,74 @@
+[0.065s] Invoking command in '/home/sirius2beta/cetus/build/link_manager': AMENT_PREFIX_PATH=/home/sirius2beta/cetus/install/more_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/sirius2beta/cetus/install/more_interfaces:/opt/ros/foxy LD_LIBRARY_PATH=/home/sirius2beta/cetus/install/more_interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib:/usr/local/cuda-11.4/lib64:/usr/local/cuda-11.4/lib64 PYTHONPATH=/home/sirius2beta/cetus/install/more_interfaces/lib/python3.8/site-packages:${PYTHONPATH} /home/sirius2beta/.local/bin/cmake /home/sirius2beta/cetus/src/link_manager -DCMAKE_INSTALL_PREFIX=/home/sirius2beta/cetus/install/link_manager
+[0.590s] -- The C compiler identification is GNU 9.4.0
+[0.912s] -- The CXX compiler identification is GNU 9.4.0
+[0.960s] -- Detecting C compiler ABI info
+[1.241s] -- Detecting C compiler ABI info - done
+[1.314s] -- Check for working C compiler: /usr/bin/cc - skipped
+[1.316s] -- Detecting C compile features
+[1.318s] -- Detecting C compile features - done
+[1.335s] -- Detecting CXX compiler ABI info
+[1.656s] -- Detecting CXX compiler ABI info - done
+[1.731s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[1.733s] -- Detecting CXX compile features
+[1.736s] -- Detecting CXX compile features - done
+[1.748s] -- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)
+[1.762s] [33mCMake Warning (dev) at /opt/ros/foxy/share/ament_cmake_core/cmake/core/python.cmake:22 (find_package):
+[1.763s]   Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules
+[1.765s]   are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use
+[1.765s]   the cmake_policy command to set the policy and suppress this warning.
+[1.765s] 
+[1.766s] Call Stack (most recent call first):
+[1.766s]   /opt/ros/foxy/share/ament_cmake_core/cmake/core/all.cmake:53 (include)
+[1.766s]   /opt/ros/foxy/share/ament_cmake_core/cmake/ament_cmake_core-extras.cmake:17 (include)
+[1.767s]   /opt/ros/foxy/share/ament_cmake_core/cmake/ament_cmake_coreConfig.cmake:41 (include)
+[1.767s]   /opt/ros/foxy/share/ament_cmake/cmake/ament_cmake_export_dependencies-extras.cmake:15 (find_package)
+[1.768s]   /opt/ros/foxy/share/ament_cmake/cmake/ament_cmakeConfig.cmake:41 (include)
+[1.768s]   CMakeLists.txt:19 (find_package)
+[1.768s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.769s] [0m
+[1.855s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3")
+[1.855s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[2.653s] -- Found rclcpp: 2.4.3 (/opt/ros/foxy/share/rclcpp/cmake)
+[2.858s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[2.885s] -- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[3.253s] -- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "1.1.1f")
+[3.348s] -- Found FastRTPS: /opt/ros/foxy/include
+[3.630s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[3.863s] -- Found rmw_implementation_cmake: 1.0.4 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[3.870s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[3.875s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[4.188s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+[4.190s] -- Looking for pthread_create in pthreads
+[4.435s] -- Looking for pthread_create in pthreads - not found
+[4.436s] -- Looking for pthread_create in pthread
+[4.732s] -- Looking for pthread_create in pthread - found
+[4.742s] -- Found Threads: TRUE
+[5.324s] -- Found more_interfaces: 0.0.0 (/home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/cmake)
+[5.363s] -- Found ament_lint_auto: 0.9.8 (/opt/ros/foxy/share/ament_lint_auto/cmake)
+[5.665s] -- Added test 'copyright' to check source files copyright and LICENSE
+[5.672s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[5.672s] -- Configured cppcheck include dirs: 
+[5.672s] -- Configured cppcheck exclude dirs and/or files: 
+[5.677s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[5.677s] -- Configured cpplint exclude dirs and/or files: 
+[5.681s] -- Added test 'lint_cmake' to check CMake code style
+[5.687s] -- Added test 'uncrustify' to check C / C++ code style
+[5.687s] -- Configured uncrustify additional arguments: 
+[5.689s] -- Added test 'xmllint' to check XML markup files
+[5.696s] -- Configuring done (5.4s)
+[5.714s] [31mCMake Error at CMakeLists.txt:34 (add_executable):
+[5.715s]   Cannot find source file:
+[5.715s] 
+[5.715s]     src/linkmanager.cpp
+[5.716s] 
+[5.716s]   Tried extensions .c .C .c++ .cc .cpp .cxx .cu .mpp .m .M .mm .ixx .cppm
+[5.716s]   .ccm .cxxm .c++m .h .hh .h++ .hm .hpp .hxx .in .txx .f .F .for .f77 .f90
+[5.717s]   .f95 .f03 .hip .ispc
+[5.717s] 
+[5.719s] [0m
+[5.722s] [31mCMake Error at CMakeLists.txt:34 (add_executable):
+[5.723s]   No SOURCES given to target: link_manager
+[5.724s] 
+[5.725s] [0m
+[5.725s] [0mCMake Generate step failed.  Build files cannot be regenerated correctly.[0m
+[5.790s] Invoked command in '/home/sirius2beta/cetus/build/link_manager' returned '1': AMENT_PREFIX_PATH=/home/sirius2beta/cetus/install/more_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/sirius2beta/cetus/install/more_interfaces:/opt/ros/foxy LD_LIBRARY_PATH=/home/sirius2beta/cetus/install/more_interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib:/usr/local/cuda-11.4/lib64:/usr/local/cuda-11.4/lib64 PYTHONPATH=/home/sirius2beta/cetus/install/more_interfaces/lib/python3.8/site-packages:${PYTHONPATH} /home/sirius2beta/.local/bin/cmake /home/sirius2beta/cetus/src/link_manager -DCMAKE_INSTALL_PREFIX=/home/sirius2beta/cetus/install/link_manager

@@ -1,0 +1,272 @@
+[0.878s] [34mcolcon[0m [1;30mDEBUG[0m [32mCommand line arguments: ['/usr/bin/colcon', 'build'][0m
+[0.879s] [34mcolcon[0m [1;30mDEBUG[0m [32mParsed command line arguments: Namespace(allow_overriding=[], ament_cmake_args=None, base_paths=['.'], build_base='build', catkin_cmake_args=None, catkin_skip_building_tests=False, cmake_args=None, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, cmake_target=None, cmake_target_skip_unavailable=False, continue_on_error=False, event_handlers=None, executor='parallel', ignore_user_meta=False, install_base='install', log_base=None, log_level=None, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0xffff99ebb370>>, merge_install=False, metas=['./colcon.meta'], packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_end=None, packages_ignore=None, packages_ignore_regex=None, packages_select=None, packages_select_build_failed=False, packages_select_by_dep=None, packages_select_regex=None, packages_select_test_failures=False, packages_skip=None, packages_skip_build_finished=False, packages_skip_by_dep=None, packages_skip_regex=None, packages_skip_test_passed=False, packages_skip_up_to=None, packages_start=None, packages_up_to=None, packages_up_to_regex=None, parallel_workers=4, paths=None, symlink_install=False, test_result_base=None, verb_extension=<colcon_core.verb.build.BuildVerb object at 0xffff99ebb370>, verb_name='build', verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0xffff99ebb7c0>)[0m
+[1.473s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(colcon_meta) check parameters
+[1.473s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(recursive) check parameters
+[1.474s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(ignore) check parameters
+[1.474s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(path) check parameters
+[1.474s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(colcon_meta) discover
+[1.474s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(recursive) discover
+[1.474s] [34mcolcon.colcon_core.package_discovery[0m [1;30mINFO[0m Crawling recursively for packages in '/home/sirius2beta/cetus'
+[1.475s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extensions ['ignore', 'ignore_ament_install']
+[1.475s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'ignore'
+[1.476s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'ignore_ament_install'
+[1.476s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extensions ['colcon_pkg']
+[1.476s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'colcon_pkg'
+[1.476s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extensions ['colcon_meta']
+[1.476s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'colcon_meta'
+[1.477s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extensions ['ros']
+[1.477s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'ros'
+[1.522s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extensions ['cmake', 'python']
+[1.523s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'cmake'
+[1.523s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'python'
+[1.523s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extensions ['python_setup_py']
+[1.523s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'python_setup_py'
+[1.524s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(build) by extensions ['ignore', 'ignore_ament_install']
+[1.524s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(build) by extension 'ignore'
+[1.525s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(build) ignored
+[1.525s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(install) by extensions ['ignore', 'ignore_ament_install']
+[1.525s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(install) by extension 'ignore'
+[1.526s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(install) ignored
+[1.526s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(log) by extensions ['ignore', 'ignore_ament_install']
+[1.526s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(log) by extension 'ignore'
+[1.527s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(log) ignored
+[1.527s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extensions ['ignore', 'ignore_ament_install']
+[1.527s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extension 'ignore'
+[1.528s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extension 'ignore_ament_install'
+[1.528s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extensions ['colcon_pkg']
+[1.528s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extension 'colcon_pkg'
+[1.528s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extensions ['colcon_meta']
+[1.528s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extension 'colcon_meta'
+[1.529s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extensions ['ros']
+[1.529s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extension 'ros'
+[1.529s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extensions ['cmake', 'python']
+[1.529s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extension 'cmake'
+[1.529s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extension 'python'
+[1.529s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extensions ['python_setup_py']
+[1.530s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extension 'python_setup_py'
+[1.530s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/link_manager) by extensions ['ignore', 'ignore_ament_install']
+[1.530s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/link_manager) by extension 'ignore'
+[1.531s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/link_manager) by extension 'ignore_ament_install'
+[1.531s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/link_manager) by extensions ['colcon_pkg']
+[1.531s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/link_manager) by extension 'colcon_pkg'
+[1.531s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/link_manager) by extensions ['colcon_meta']
+[1.531s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/link_manager) by extension 'colcon_meta'
+[1.532s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/link_manager) by extensions ['ros']
+[1.532s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/link_manager) by extension 'ros'
+[1.541s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'src/link_manager' with type 'ros.ament_cmake' and name 'link_manager'[0m
+[1.542s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/more_interfaces) by extensions ['ignore', 'ignore_ament_install']
+[1.542s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/more_interfaces) by extension 'ignore'
+[1.542s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/more_interfaces) by extension 'ignore_ament_install'
+[1.543s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/more_interfaces) by extensions ['colcon_pkg']
+[1.543s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/more_interfaces) by extension 'colcon_pkg'
+[1.543s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/more_interfaces) by extensions ['colcon_meta']
+[1.543s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/more_interfaces) by extension 'colcon_meta'
+[1.543s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/more_interfaces) by extensions ['ros']
+[1.544s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/more_interfaces) by extension 'ros'
+[1.546s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'src/more_interfaces' with type 'ros.ament_cmake' and name 'more_interfaces'[0m
+[1.546s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/video_control) by extensions ['ignore', 'ignore_ament_install']
+[1.546s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/video_control) by extension 'ignore'
+[1.547s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/video_control) by extension 'ignore_ament_install'
+[1.547s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/video_control) by extensions ['colcon_pkg']
+[1.547s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/video_control) by extension 'colcon_pkg'
+[1.547s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/video_control) by extensions ['colcon_meta']
+[1.547s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/video_control) by extension 'colcon_meta'
+[1.548s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/video_control) by extensions ['ros']
+[1.548s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/video_control) by extension 'ros'
+[1.550s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'src/video_control' with type 'ros.ament_python' and name 'video_control'[0m
+[1.550s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(recursive) using defaults
+[1.550s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(ignore) discover
+[1.550s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(ignore) using defaults
+[1.551s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(path) discover
+[1.551s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(path) using defaults
+[1.604s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(prefix_path) check parameters
+[1.604s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(prefix_path) discover
+[1.611s] [34mcolcon.colcon_installed_package_information.package_discovery[0m [1;30mDEBUG[0m [32mFound 3 installed packages in /home/sirius2beta/cetus/install[0m
+[1.616s] [34mcolcon.colcon_installed_package_information.package_discovery[0m [1;30mDEBUG[0m [32mFound 168 installed packages in /opt/ros/foxy[0m
+[1.656s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(prefix_path) using defaults
+[1.794s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'more_interfaces' build argument 'cmake_args' from command line to 'None'
+[1.795s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'more_interfaces' build argument 'cmake_target' from command line to 'None'
+[1.795s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'more_interfaces' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.795s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'more_interfaces' build argument 'cmake_clean_cache' from command line to 'False'
+[1.795s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'more_interfaces' build argument 'cmake_clean_first' from command line to 'False'
+[1.795s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'more_interfaces' build argument 'cmake_force_configure' from command line to 'False'
+[1.795s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'more_interfaces' build argument 'ament_cmake_args' from command line to 'None'
+[1.796s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'more_interfaces' build argument 'catkin_cmake_args' from command line to 'None'
+[1.796s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'more_interfaces' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.796s] [34mcolcon.colcon_core.verb[0m [1;30mDEBUG[0m [32mBuilding package 'more_interfaces' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/sirius2beta/cetus/build/more_interfaces', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/sirius2beta/cetus/install/more_interfaces', 'merge_install': False, 'path': '/home/sirius2beta/cetus/src/more_interfaces', 'symlink_install': False, 'test_result_base': None}[0m
+[1.798s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'link_manager' build argument 'cmake_args' from command line to 'None'
+[1.798s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'link_manager' build argument 'cmake_target' from command line to 'None'
+[1.798s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'link_manager' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.798s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'link_manager' build argument 'cmake_clean_cache' from command line to 'False'
+[1.798s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'link_manager' build argument 'cmake_clean_first' from command line to 'False'
+[1.798s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'link_manager' build argument 'cmake_force_configure' from command line to 'False'
+[1.798s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'link_manager' build argument 'ament_cmake_args' from command line to 'None'
+[1.798s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'link_manager' build argument 'catkin_cmake_args' from command line to 'None'
+[1.799s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'link_manager' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.799s] [34mcolcon.colcon_core.verb[0m [1;30mDEBUG[0m [32mBuilding package 'link_manager' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/sirius2beta/cetus/build/link_manager', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/sirius2beta/cetus/install/link_manager', 'merge_install': False, 'path': '/home/sirius2beta/cetus/src/link_manager', 'symlink_install': False, 'test_result_base': None}[0m
+[1.800s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'video_control' build argument 'cmake_args' from command line to 'None'
+[1.801s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'video_control' build argument 'cmake_target' from command line to 'None'
+[1.801s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'video_control' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.801s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'video_control' build argument 'cmake_clean_cache' from command line to 'False'
+[1.801s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'video_control' build argument 'cmake_clean_first' from command line to 'False'
+[1.801s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'video_control' build argument 'cmake_force_configure' from command line to 'False'
+[1.801s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'video_control' build argument 'ament_cmake_args' from command line to 'None'
+[1.801s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'video_control' build argument 'catkin_cmake_args' from command line to 'None'
+[1.801s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'video_control' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.801s] [34mcolcon.colcon_core.verb[0m [1;30mDEBUG[0m [32mBuilding package 'video_control' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/sirius2beta/cetus/build/video_control', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/sirius2beta/cetus/install/video_control', 'merge_install': False, 'path': '/home/sirius2beta/cetus/src/video_control', 'symlink_install': False, 'test_result_base': None}[0m
+[1.802s] [34mcolcon.colcon_core.executor[0m [1;30mINFO[0m Executing jobs using 'parallel' executor
+[1.806s] [34mcolcon.colcon_parallel_executor.executor.parallel[0m [1;30mDEBUG[0m [32mrun_until_complete[0m
+[1.807s] [34mcolcon.colcon_ros.task.ament_cmake.build[0m [1;30mINFO[0m Building ROS package in '/home/sirius2beta/cetus/src/more_interfaces' with build type 'ament_cmake'
+[1.808s] [34mcolcon.colcon_cmake.task.cmake.build[0m [1;30mINFO[0m Building CMake package in '/home/sirius2beta/cetus/src/more_interfaces'
+[1.817s] [34mcolcon.colcon_core.plugin_system[0m [1;30mINFO[0m Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[1.818s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.818s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[1.873s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/sirius2beta/cetus/build/more_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sirius2beta/cetus/install/video_control:/opt/ros/foxy /home/sirius2beta/.local/bin/cmake --build /home/sirius2beta/cetus/build/more_interfaces -- -j4 -l4[0m
+[2.631s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/sirius2beta/cetus/build/more_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sirius2beta/cetus/install/video_control:/opt/ros/foxy /home/sirius2beta/.local/bin/cmake --build /home/sirius2beta/cetus/build/more_interfaces -- -j4 -l4[0m
+[2.931s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/sirius2beta/cetus/build/more_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sirius2beta/cetus/install/video_control:/opt/ros/foxy /home/sirius2beta/.local/bin/cmake --install /home/sirius2beta/cetus/build/more_interfaces[0m
+[3.385s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(more_interfaces)
+[3.391s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/sirius2beta/cetus/build/more_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/sirius2beta/cetus/install/video_control:/opt/ros/foxy /home/sirius2beta/.local/bin/cmake --install /home/sirius2beta/cetus/build/more_interfaces[0m
+[3.407s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sirius2beta/cetus/install/more_interfaces' for CMake module files
+[3.412s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sirius2beta/cetus/install/more_interfaces' for CMake config files
+[3.416s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('more_interfaces', 'cmake_prefix_path')
+[3.418s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/hook/cmake_prefix_path.ps1'
+[3.422s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/hook/cmake_prefix_path.dsv'
+[3.425s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/hook/cmake_prefix_path.sh'
+[3.432s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sirius2beta/cetus/install/more_interfaces/lib'
+[3.433s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('more_interfaces', 'ld_library_path_lib')
+[3.434s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/hook/ld_library_path_lib.ps1'
+[3.436s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/hook/ld_library_path_lib.dsv'
+[3.438s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/hook/ld_library_path_lib.sh'
+[3.440s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sirius2beta/cetus/install/more_interfaces/bin'
+[3.440s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sirius2beta/cetus/install/more_interfaces/lib/pkgconfig/more_interfaces.pc'
+[3.441s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sirius2beta/cetus/install/more_interfaces/lib/python3.8/site-packages'
+[3.442s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('more_interfaces', 'pythonpath')
+[3.443s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/hook/pythonpath.ps1'
+[3.445s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/hook/pythonpath.dsv'
+[3.446s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/hook/pythonpath.sh'
+[3.448s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sirius2beta/cetus/install/more_interfaces/bin'
+[3.450s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/package.ps1'
+[3.453s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/package.dsv'
+[3.456s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/package.sh'
+[3.459s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/package.bash'
+[3.462s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/package.zsh'
+[3.465s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/sirius2beta/cetus/install/more_interfaces/share/colcon-core/packages/more_interfaces)
+[3.468s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(more_interfaces)
+[3.469s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sirius2beta/cetus/install/more_interfaces' for CMake module files
+[3.471s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sirius2beta/cetus/install/more_interfaces' for CMake config files
+[3.474s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('more_interfaces', 'cmake_prefix_path')
+[3.475s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/hook/cmake_prefix_path.ps1'
+[3.477s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/hook/cmake_prefix_path.dsv'
+[3.478s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/hook/cmake_prefix_path.sh'
+[3.481s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sirius2beta/cetus/install/more_interfaces/lib'
+[3.481s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('more_interfaces', 'ld_library_path_lib')
+[3.482s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/hook/ld_library_path_lib.ps1'
+[3.483s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/hook/ld_library_path_lib.dsv'
+[3.485s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/hook/ld_library_path_lib.sh'
+[3.486s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sirius2beta/cetus/install/more_interfaces/bin'
+[3.487s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sirius2beta/cetus/install/more_interfaces/lib/pkgconfig/more_interfaces.pc'
+[3.487s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sirius2beta/cetus/install/more_interfaces/lib/python3.8/site-packages'
+[3.488s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('more_interfaces', 'pythonpath')
+[3.488s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/hook/pythonpath.ps1'
+[3.490s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/hook/pythonpath.dsv'
+[3.491s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/hook/pythonpath.sh'
+[3.494s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sirius2beta/cetus/install/more_interfaces/bin'
+[3.495s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/package.ps1'
+[3.498s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/package.dsv'
+[3.500s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/package.sh'
+[3.502s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/package.bash'
+[3.504s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/package.zsh'
+[3.506s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/sirius2beta/cetus/install/more_interfaces/share/colcon-core/packages/more_interfaces)
+[3.508s] [34mcolcon.colcon_ros.task.ament_cmake.build[0m [1;30mINFO[0m Building ROS package in '/home/sirius2beta/cetus/src/link_manager' with build type 'ament_cmake'
+[3.508s] [34mcolcon.colcon_cmake.task.cmake.build[0m [1;30mINFO[0m Building CMake package in '/home/sirius2beta/cetus/src/link_manager'
+[3.510s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[3.510s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[3.533s] [34mcolcon.colcon_ros.task.ament_python.build[0m [1;30mINFO[0m Building ROS package in '/home/sirius2beta/cetus/src/video_control' with build type 'ament_python'
+[3.536s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('video_control', 'ament_prefix_path')
+[3.540s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sirius2beta/cetus/install/video_control/share/video_control/hook/ament_prefix_path.ps1'
+[3.545s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/sirius2beta/cetus/install/video_control/share/video_control/hook/ament_prefix_path.dsv'
+[3.547s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sirius2beta/cetus/install/video_control/share/video_control/hook/ament_prefix_path.sh'
+[3.551s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[3.551s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[3.598s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/sirius2beta/cetus/build/link_manager': CMAKE_PREFIX_PATH=/home/sirius2beta/cetus/install/more_interfaces:/home/sirius2beta/cetus/install/link_manager:/home/sirius2beta/cetus/install/video_control:/opt/ros/foxy LD_LIBRARY_PATH=/home/sirius2beta/cetus/install/more_interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib:/usr/local/cuda-11.4/lib64:/usr/local/cuda-11.4/lib64 PYTHONPATH=/home/sirius2beta/cetus/install/more_interfaces/lib/python3.8/site-packages:/home/sirius2beta/cetus/install/video_control/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages /home/sirius2beta/.local/bin/cmake --build /home/sirius2beta/cetus/build/link_manager -- -j4 -l4[0m
+[4.594s] [34mcolcon.colcon_core.task.python.build[0m [1;30mINFO[0m Building Python package in '/home/sirius2beta/cetus/src/video_control'
+[4.598s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[4.599s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[6.157s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/sirius2beta/cetus/src/video_control': CMAKE_PREFIX_PATH=/home/sirius2beta/cetus/install/more_interfaces:/home/sirius2beta/cetus/install/link_manager LD_LIBRARY_PATH=/home/sirius2beta/cetus/install/more_interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib:/usr/local/cuda-11.4/lib64:/usr/local/cuda-11.4/lib64 PYTHONPATH=/home/sirius2beta/cetus/build/video_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sirius2beta/cetus/install/video_control/lib/python3.8/site-packages:/home/sirius2beta/cetus/install/more_interfaces/lib/python3.8/site-packages:/home/sirius2beta/cetus/install/video_control/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/video_control build --build-base /home/sirius2beta/cetus/build/video_control/build install --record /home/sirius2beta/cetus/build/video_control/install.log --install-scripts $base/lib/video_control --single-version-externally-managed install_data[0m
+[7.396s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sirius2beta/cetus/install/video_control' for CMake module files
+[7.398s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/sirius2beta/cetus/src/video_control' returned '0': CMAKE_PREFIX_PATH=/home/sirius2beta/cetus/install/more_interfaces:/home/sirius2beta/cetus/install/link_manager LD_LIBRARY_PATH=/home/sirius2beta/cetus/install/more_interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib:/usr/local/cuda-11.4/lib64:/usr/local/cuda-11.4/lib64 PYTHONPATH=/home/sirius2beta/cetus/build/video_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sirius2beta/cetus/install/video_control/lib/python3.8/site-packages:/home/sirius2beta/cetus/install/more_interfaces/lib/python3.8/site-packages:/home/sirius2beta/cetus/install/video_control/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/video_control build --build-base /home/sirius2beta/cetus/build/video_control/build install --record /home/sirius2beta/cetus/build/video_control/install.log --install-scripts $base/lib/video_control --single-version-externally-managed install_data[0m
+[7.400s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sirius2beta/cetus/install/video_control' for CMake config files
+[7.403s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sirius2beta/cetus/install/video_control/lib'
+[7.404s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sirius2beta/cetus/install/video_control/bin'
+[7.404s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sirius2beta/cetus/install/video_control/lib/pkgconfig/video_control.pc'
+[7.406s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sirius2beta/cetus/install/video_control/lib/python3.8/site-packages'
+[7.406s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('video_control', 'pythonpath')
+[7.407s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sirius2beta/cetus/install/video_control/share/video_control/hook/pythonpath.ps1'
+[7.410s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/sirius2beta/cetus/install/video_control/share/video_control/hook/pythonpath.dsv'
+[7.412s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sirius2beta/cetus/install/video_control/share/video_control/hook/pythonpath.sh'
+[7.415s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sirius2beta/cetus/install/video_control/bin'
+[7.416s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(video_control)
+[7.417s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sirius2beta/cetus/install/video_control/share/video_control/package.ps1'
+[7.420s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/sirius2beta/cetus/install/video_control/share/video_control/package.dsv'
+[7.423s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sirius2beta/cetus/install/video_control/share/video_control/package.sh'
+[7.425s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sirius2beta/cetus/install/video_control/share/video_control/package.bash'
+[7.427s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sirius2beta/cetus/install/video_control/share/video_control/package.zsh'
+[7.429s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/sirius2beta/cetus/install/video_control/share/colcon-core/packages/video_control)
+[23.780s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/sirius2beta/cetus/build/link_manager' returned '0': CMAKE_PREFIX_PATH=/home/sirius2beta/cetus/install/more_interfaces:/home/sirius2beta/cetus/install/link_manager:/home/sirius2beta/cetus/install/video_control:/opt/ros/foxy LD_LIBRARY_PATH=/home/sirius2beta/cetus/install/more_interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib:/usr/local/cuda-11.4/lib64:/usr/local/cuda-11.4/lib64 PYTHONPATH=/home/sirius2beta/cetus/install/more_interfaces/lib/python3.8/site-packages:/home/sirius2beta/cetus/install/video_control/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages /home/sirius2beta/.local/bin/cmake --build /home/sirius2beta/cetus/build/link_manager -- -j4 -l4[0m
+[23.795s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/sirius2beta/cetus/build/link_manager': CMAKE_PREFIX_PATH=/home/sirius2beta/cetus/install/more_interfaces:/home/sirius2beta/cetus/install/link_manager:/home/sirius2beta/cetus/install/video_control:/opt/ros/foxy LD_LIBRARY_PATH=/home/sirius2beta/cetus/install/more_interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib:/usr/local/cuda-11.4/lib64:/usr/local/cuda-11.4/lib64 PYTHONPATH=/home/sirius2beta/cetus/install/more_interfaces/lib/python3.8/site-packages:/home/sirius2beta/cetus/install/video_control/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages /home/sirius2beta/.local/bin/cmake --install /home/sirius2beta/cetus/build/link_manager[0m
+[24.088s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(link_manager)
+[24.092s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sirius2beta/cetus/install/link_manager' for CMake module files
+[24.095s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/sirius2beta/cetus/build/link_manager' returned '0': CMAKE_PREFIX_PATH=/home/sirius2beta/cetus/install/more_interfaces:/home/sirius2beta/cetus/install/link_manager:/home/sirius2beta/cetus/install/video_control:/opt/ros/foxy LD_LIBRARY_PATH=/home/sirius2beta/cetus/install/more_interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib:/usr/local/cuda-11.4/lib64:/usr/local/cuda-11.4/lib64 PYTHONPATH=/home/sirius2beta/cetus/install/more_interfaces/lib/python3.8/site-packages:/home/sirius2beta/cetus/install/video_control/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages /home/sirius2beta/.local/bin/cmake --install /home/sirius2beta/cetus/build/link_manager[0m
+[24.098s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sirius2beta/cetus/install/link_manager' for CMake config files
+[24.100s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('link_manager', 'cmake_prefix_path')
+[24.102s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sirius2beta/cetus/install/link_manager/share/link_manager/hook/cmake_prefix_path.ps1'
+[24.107s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/sirius2beta/cetus/install/link_manager/share/link_manager/hook/cmake_prefix_path.dsv'
+[24.110s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sirius2beta/cetus/install/link_manager/share/link_manager/hook/cmake_prefix_path.sh'
+[24.115s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sirius2beta/cetus/install/link_manager/lib'
+[24.116s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sirius2beta/cetus/install/link_manager/bin'
+[24.116s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sirius2beta/cetus/install/link_manager/lib/pkgconfig/link_manager.pc'
+[24.118s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sirius2beta/cetus/install/link_manager/lib/python3.8/site-packages'
+[24.120s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sirius2beta/cetus/install/link_manager/bin'
+[24.122s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sirius2beta/cetus/install/link_manager/share/link_manager/package.ps1'
+[24.125s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/sirius2beta/cetus/install/link_manager/share/link_manager/package.dsv'
+[24.127s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sirius2beta/cetus/install/link_manager/share/link_manager/package.sh'
+[24.130s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sirius2beta/cetus/install/link_manager/share/link_manager/package.bash'
+[24.132s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sirius2beta/cetus/install/link_manager/share/link_manager/package.zsh'
+[24.134s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/sirius2beta/cetus/install/link_manager/share/colcon-core/packages/link_manager)
+[24.137s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(link_manager)
+[24.138s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sirius2beta/cetus/install/link_manager' for CMake module files
+[24.140s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sirius2beta/cetus/install/link_manager' for CMake config files
+[24.141s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('link_manager', 'cmake_prefix_path')
+[24.142s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sirius2beta/cetus/install/link_manager/share/link_manager/hook/cmake_prefix_path.ps1'
+[24.144s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/sirius2beta/cetus/install/link_manager/share/link_manager/hook/cmake_prefix_path.dsv'
+[24.146s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/sirius2beta/cetus/install/link_manager/share/link_manager/hook/cmake_prefix_path.sh'
+[24.148s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sirius2beta/cetus/install/link_manager/lib'
+[24.149s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sirius2beta/cetus/install/link_manager/bin'
+[24.149s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sirius2beta/cetus/install/link_manager/lib/pkgconfig/link_manager.pc'
+[24.149s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sirius2beta/cetus/install/link_manager/lib/python3.8/site-packages'
+[24.150s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/sirius2beta/cetus/install/link_manager/bin'
+[24.152s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sirius2beta/cetus/install/link_manager/share/link_manager/package.ps1'
+[24.154s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/sirius2beta/cetus/install/link_manager/share/link_manager/package.dsv'
+[24.156s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sirius2beta/cetus/install/link_manager/share/link_manager/package.sh'
+[24.158s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sirius2beta/cetus/install/link_manager/share/link_manager/package.bash'
+[24.160s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/sirius2beta/cetus/install/link_manager/share/link_manager/package.zsh'
+[24.162s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/sirius2beta/cetus/install/link_manager/share/colcon-core/packages/link_manager)
+[24.163s] [34mcolcon.colcon_parallel_executor.executor.parallel[0m [1;30mDEBUG[0m [32mclosing loop[0m
+[24.165s] [34mcolcon.colcon_parallel_executor.executor.parallel[0m [1;30mDEBUG[0m [32mloop closed[0m
+[24.167s] [34mcolcon.colcon_parallel_executor.executor.parallel[0m [1;30mDEBUG[0m [32mrun_until_complete finished with '0'[0m
+[24.168s] [34mcolcon.colcon_core.event_reactor[0m [1;30mDEBUG[0m [32mjoining thread[0m
+[24.193s] [34mcolcon.colcon_core.plugin_system[0m [1;30mINFO[0m Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[24.193s] [34mcolcon.colcon_core.plugin_system[0m [1;30mINFO[0m Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[24.194s] [34mcolcon.colcon_notification.desktop_notification[0m [1;30mINFO[0m Sending desktop notification using 'notify2'
+[24.239s] [34mcolcon.colcon_notification.desktop_notification.notify2[0m [1;30mDEBUG[0m [32mFailed to initialize notify2: org.freedesktop.DBus.Error.Spawn.ChildExited: Process org.freedesktop.Notifications exited with status 1[0m
+[24.240s] [34mcolcon.colcon_core.event_reactor[0m [1;30mDEBUG[0m [32mjoined thread[0m
+[24.242s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix script '/home/sirius2beta/cetus/install/local_setup.ps1'
+[24.246s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix util module '/home/sirius2beta/cetus/install/_local_setup_util_ps1.py'
+[24.252s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix chain script '/home/sirius2beta/cetus/install/setup.ps1'
+[24.256s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix script '/home/sirius2beta/cetus/install/local_setup.sh'
+[24.259s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix util module '/home/sirius2beta/cetus/install/_local_setup_util_sh.py'
+[24.261s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix chain script '/home/sirius2beta/cetus/install/setup.sh'
+[24.265s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix script '/home/sirius2beta/cetus/install/local_setup.bash'
+[24.267s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix chain script '/home/sirius2beta/cetus/install/setup.bash'
+[24.271s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix script '/home/sirius2beta/cetus/install/local_setup.zsh'
+[24.273s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix chain script '/home/sirius2beta/cetus/install/setup.zsh'

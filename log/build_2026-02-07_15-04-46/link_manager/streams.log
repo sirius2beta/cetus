@@ -1,0 +1,60 @@
+[0.070s] Invoking command in '/home/sirius2beta/cetus/build/link_manager': CMAKE_PREFIX_PATH=/home/sirius2beta/cetus/install/more_interfaces:/home/sirius2beta/cetus/install/link_manager:/home/sirius2beta/cetus/install/video_control:/opt/ros/foxy LD_LIBRARY_PATH=/home/sirius2beta/cetus/install/more_interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib:/usr/local/cuda-11.4/lib64:/usr/local/cuda-11.4/lib64 PYTHONPATH=/home/sirius2beta/cetus/install/more_interfaces/lib/python3.8/site-packages:/home/sirius2beta/cetus/install/video_control/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages /home/sirius2beta/.local/bin/cmake --build /home/sirius2beta/cetus/build/link_manager -- -j4 -l4
+[0.361s] -- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.368s] [33mCMake Warning (dev) at /opt/ros/foxy/share/ament_cmake_core/cmake/core/python.cmake:22 (find_package):
+[0.369s]   Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules
+[0.369s]   are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use
+[0.370s]   the cmake_policy command to set the policy and suppress this warning.
+[0.370s] 
+[0.370s] Call Stack (most recent call first):
+[0.371s]   /opt/ros/foxy/share/ament_cmake_core/cmake/core/all.cmake:53 (include)
+[0.371s]   /opt/ros/foxy/share/ament_cmake_core/cmake/ament_cmake_core-extras.cmake:17 (include)
+[0.371s]   /opt/ros/foxy/share/ament_cmake_core/cmake/ament_cmake_coreConfig.cmake:41 (include)
+[0.372s]   /opt/ros/foxy/share/ament_cmake/cmake/ament_cmake_export_dependencies-extras.cmake:15 (find_package)
+[0.372s]   /opt/ros/foxy/share/ament_cmake/cmake/ament_cmakeConfig.cmake:41 (include)
+[0.372s]   CMakeLists.txt:27 (find_package)
+[0.373s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[0.373s] [0m
+[0.450s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[1.179s] -- Found rclcpp: 2.4.3 (/opt/ros/foxy/share/rclcpp/cmake)
+[1.302s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.316s] -- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[1.733s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.911s] -- Found rmw_implementation_cmake: 1.0.4 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[1.916s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[2.398s] -- Found more_interfaces: 0.0.0 (/home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/cmake)
+[2.446s] -- Found ament_lint_auto: 0.9.8 (/opt/ros/foxy/share/ament_lint_auto/cmake)
+[2.697s] -- Added test 'copyright' to check source files copyright and LICENSE
+[2.702s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[2.703s] -- Configured cppcheck include dirs: 
+[2.703s] -- Configured cppcheck exclude dirs and/or files: 
+[2.707s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[2.707s] -- Configured cpplint exclude dirs and/or files: 
+[2.710s] -- Added test 'lint_cmake' to check CMake code style
+[2.715s] -- Added test 'uncrustify' to check C / C++ code style
+[2.715s] -- Configured uncrustify additional arguments: 
+[2.716s] -- Added test 'xmllint' to check XML markup files
+[2.720s] -- Configuring done (2.4s)
+[2.824s] -- Generating done (0.1s)
+[2.837s] -- Build files have been written to: /home/sirius2beta/cetus/build/link_manager
+[2.911s] [ 20%] [34m[1mAutomatic MOC and UIC for target link_manager[0m
+[3.475s] [ 20%] Built target link_manager_autogen
+[3.560s] [ 40%] [32mBuilding CXX object CMakeFiles/link_manager.dir/link_manager_autogen/mocs_compilation.cpp.o[0m
+[3.568s] [ 60%] [32mBuilding CXX object CMakeFiles/link_manager.dir/src/RosInterface.cpp.o[0m
+[11.612s] [01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.cpp:3:19:[m[K [01;31m[Kerror: [m[KISO C++ forbids declaration of ‘[01m[Krun[m[K’ with no type [[01;31m[K-fpermissive[m[K]
+[11.614s]     3 | RosInterface::run([01;31m[K)[m[K
+[11.615s]       |                   [01;31m[K^[m[K
+[11.615s] [01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.cpp:3:1:[m[K [01;31m[Kerror: [m[Kno declaration matches ‘[01m[Kint RosInterface::run()[m[K’
+[11.615s]     3 | [01;31m[KRosInterface[m[K::run()
+[11.616s]       | [01;31m[K^~~~~~~~~~~~[m[K
+[11.616s] In file included from [01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.cpp:1[m[K:
+[11.621s] [01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.h:12:10:[m[K [01;36m[Knote: [m[Kcandidate is: ‘[01m[Kvirtual void RosInterface::run()[m[K’
+[11.622s]    12 |     void [01;36m[Krun[m[K() override;
+[11.622s]       |          [01;36m[K^~~[m[K
+[11.622s] [01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.h:5:7:[m[K [01;36m[Knote: [m[K‘[01m[Kclass RosInterface[m[K’ defined here
+[11.623s]     5 | class [01;36m[KRosInterface[m[K : public QThread
+[11.623s]       |       [01;36m[K^~~~~~~~~~~~[m[K
+[16.746s] make[2]: *** [CMakeFiles/link_manager.dir/build.make:104: CMakeFiles/link_manager.dir/src/RosInterface.cpp.o] Error 1
+[16.746s] make[2]: *** Waiting for unfinished jobs....
+[17.354s] make[1]: *** [CMakeFiles/Makefile2:138: CMakeFiles/link_manager.dir/all] Error 2
+[17.355s] make: *** [Makefile:146: all] Error 2
+[17.397s] Invoked command in '/home/sirius2beta/cetus/build/link_manager' returned '2': CMAKE_PREFIX_PATH=/home/sirius2beta/cetus/install/more_interfaces:/home/sirius2beta/cetus/install/link_manager:/home/sirius2beta/cetus/install/video_control:/opt/ros/foxy LD_LIBRARY_PATH=/home/sirius2beta/cetus/install/more_interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib:/usr/local/cuda-11.4/lib64:/usr/local/cuda-11.4/lib64 PYTHONPATH=/home/sirius2beta/cetus/install/more_interfaces/lib/python3.8/site-packages:/home/sirius2beta/cetus/install/video_control/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages /home/sirius2beta/.local/bin/cmake --build /home/sirius2beta/cetus/build/link_manager -- -j4 -l4

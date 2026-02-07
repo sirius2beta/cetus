@@ -1,0 +1,58 @@
+-- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)
+[33mCMake Warning (dev) at /opt/ros/foxy/share/ament_cmake_core/cmake/core/python.cmake:22 (find_package):
+  Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules
+  are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use
+  the cmake_policy command to set the policy and suppress this warning.
+
+Call Stack (most recent call first):
+  /opt/ros/foxy/share/ament_cmake_core/cmake/core/all.cmake:53 (include)
+  /opt/ros/foxy/share/ament_cmake_core/cmake/ament_cmake_core-extras.cmake:17 (include)
+  /opt/ros/foxy/share/ament_cmake_core/cmake/ament_cmake_coreConfig.cmake:41 (include)
+  /opt/ros/foxy/share/ament_cmake/cmake/ament_cmake_export_dependencies-extras.cmake:15 (find_package)
+  /opt/ros/foxy/share/ament_cmake/cmake/ament_cmakeConfig.cmake:41 (include)
+  CMakeLists.txt:27 (find_package)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+[0m
+-- Using PYTHON_EXECUTABLE: /usr/bin/python3
+-- Found rclcpp: 2.4.3 (/opt/ros/foxy/share/rclcpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 1.0.4 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Found more_interfaces: 0.0.0 (/home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/cmake)
+-- Found ament_lint_auto: 0.9.8 (/opt/ros/foxy/share/ament_lint_auto/cmake)
+-- Added test 'copyright' to check source files copyright and LICENSE
+-- Added test 'cppcheck' to perform static code analysis on C / C++ code
+-- Configured cppcheck include dirs: 
+-- Configured cppcheck exclude dirs and/or files: 
+-- Added test 'cpplint' to check C / C++ code against the Google style
+-- Configured cpplint exclude dirs and/or files: 
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'uncrustify' to check C / C++ code style
+-- Configured uncrustify additional arguments: 
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done (2.4s)
+-- Generating done (0.1s)
+-- Build files have been written to: /home/sirius2beta/cetus/build/link_manager
+[ 20%] [34m[1mAutomatic MOC and UIC for target link_manager[0m
+[ 20%] Built target link_manager_autogen
+[ 40%] [32mBuilding CXX object CMakeFiles/link_manager.dir/link_manager_autogen/mocs_compilation.cpp.o[0m
+[ 60%] [32mBuilding CXX object CMakeFiles/link_manager.dir/src/RosInterface.cpp.o[0m
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.cpp:3:19:[m[K [01;31m[Kerror: [m[KISO C++ forbids declaration of ‘[01m[Krun[m[K’ with no type [[01;31m[K-fpermissive[m[K]
+    3 | RosInterface::run([01;31m[K)[m[K
+      |                   [01;31m[K^[m[K
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.cpp:3:1:[m[K [01;31m[Kerror: [m[Kno declaration matches ‘[01m[Kint RosInterface::run()[m[K’
+    3 | [01;31m[KRosInterface[m[K::run()
+      | [01;31m[K^~~~~~~~~~~~[m[K
+In file included from [01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.cpp:1[m[K:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.h:12:10:[m[K [01;36m[Knote: [m[Kcandidate is: ‘[01m[Kvirtual void RosInterface::run()[m[K’
+   12 |     void [01;36m[Krun[m[K() override;
+      |          [01;36m[K^~~[m[K
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.h:5:7:[m[K [01;36m[Knote: [m[K‘[01m[Kclass RosInterface[m[K’ defined here
+    5 | class [01;36m[KRosInterface[m[K : public QThread
+      |       [01;36m[K^~~~~~~~~~~~[m[K
+make[2]: *** [CMakeFiles/link_manager.dir/build.make:104: CMakeFiles/link_manager.dir/src/RosInterface.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[1]: *** [CMakeFiles/Makefile2:138: CMakeFiles/link_manager.dir/all] Error 2
+make: *** [Makefile:146: all] Error 2

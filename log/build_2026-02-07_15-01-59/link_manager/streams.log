@@ -1,0 +1,16 @@
+[0.073s] Invoking command in '/home/sirius2beta/cetus/build/link_manager': CMAKE_PREFIX_PATH=/home/sirius2beta/cetus/install/more_interfaces:/home/sirius2beta/cetus/install/link_manager:/home/sirius2beta/cetus/install/video_control:/opt/ros/foxy LD_LIBRARY_PATH=/home/sirius2beta/cetus/install/more_interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib:/usr/local/cuda-11.4/lib64:/usr/local/cuda-11.4/lib64 PYTHONPATH=/home/sirius2beta/cetus/install/more_interfaces/lib/python3.8/site-packages:/home/sirius2beta/cetus/install/video_control/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages /home/sirius2beta/.local/bin/cmake --build /home/sirius2beta/cetus/build/link_manager -- -j4 -l4
+[0.391s] [ 25%] [34m[1mAutomatic MOC and UIC for target link_manager[0m
+[0.422s] [ 25%] Built target link_manager_autogen
+[0.526s] [ 50%] [32mBuilding CXX object CMakeFiles/link_manager.dir/src/link_manager.cpp.o[0m
+[12.421s] [ 75%] [32m[1mLinking CXX executable link_manager[0m
+[12.893s] /usr/bin/ld: CMakeFiles/link_manager.dir/src/link_manager.cpp.o: in function `RosInterface::RosInterface(QObject*)':
+[12.894s] link_manager.cpp:(.text._ZN12RosInterfaceC2EP7QObject[_ZN12RosInterfaceC5EP7QObject]+0x1c): undefined reference to `vtable for RosInterface'
+[12.895s] /usr/bin/ld: link_manager.cpp:(.text._ZN12RosInterfaceC2EP7QObject[_ZN12RosInterfaceC5EP7QObject]+0x20): undefined reference to `vtable for RosInterface'
+[12.897s] /usr/bin/ld: CMakeFiles/link_manager.dir/src/link_manager.cpp.o: in function `RosInterface::~RosInterface()':
+[12.897s] link_manager.cpp:(.text._ZN12RosInterfaceD2Ev[_ZN12RosInterfaceD5Ev]+0xc): undefined reference to `vtable for RosInterface'
+[12.898s] /usr/bin/ld: link_manager.cpp:(.text._ZN12RosInterfaceD2Ev[_ZN12RosInterfaceD5Ev]+0x10): undefined reference to `vtable for RosInterface'
+[12.899s] collect2: error: ld returned 1 exit status
+[12.899s] make[2]: *** [CMakeFiles/link_manager.dir/build.make:168: link_manager] Error 1
+[12.902s] make[1]: *** [CMakeFiles/Makefile2:138: CMakeFiles/link_manager.dir/all] Error 2
+[12.903s] make: *** [Makefile:146: all] Error 2
+[12.948s] Invoked command in '/home/sirius2beta/cetus/build/link_manager' returned '2': CMAKE_PREFIX_PATH=/home/sirius2beta/cetus/install/more_interfaces:/home/sirius2beta/cetus/install/link_manager:/home/sirius2beta/cetus/install/video_control:/opt/ros/foxy LD_LIBRARY_PATH=/home/sirius2beta/cetus/install/more_interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib:/usr/local/cuda-11.4/lib64:/usr/local/cuda-11.4/lib64 PYTHONPATH=/home/sirius2beta/cetus/install/more_interfaces/lib/python3.8/site-packages:/home/sirius2beta/cetus/install/video_control/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages /home/sirius2beta/.local/bin/cmake --build /home/sirius2beta/cetus/build/link_manager -- -j4 -l4

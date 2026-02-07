@@ -1,0 +1,489 @@
+[0.000000] (-) TimerEvent: {}
+[0.001184] (-) JobUnselected: {'identifier': 'more_interfaces'}
+[0.002733] (-) JobUnselected: {'identifier': 'video_control'}
+[0.002867] (link_manager) JobQueued: {'identifier': 'link_manager', 'dependencies': OrderedDict([('more_interfaces', '/home/sirius2beta/cetus/install/more_interfaces')])}
+[0.003914] (link_manager) JobStarted: {'identifier': 'link_manager'}
+[0.052677] (link_manager) JobProgress: {'identifier': 'link_manager', 'progress': 'cmake'}
+[0.056721] (link_manager) JobProgress: {'identifier': 'link_manager', 'progress': 'build'}
+[0.061318] (link_manager) Command: {'cmd': ['/home/sirius2beta/.local/bin/cmake', '--build', '/home/sirius2beta/cetus/build/link_manager', '--', '-j4', '-l4'], 'cwd': '/home/sirius2beta/cetus/build/link_manager', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'sirius2beta'), ('SSH_CLIENT', '192.168.0.123 59217 22'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/sirius2beta/.vscode-server/cli/servers/Stable-bdd88df003631aaa0bcbe057cb0a940b80a476fa/server/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/sirius2beta/cetus/install/more_interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib:/usr/local/cuda-11.4/lib64:/usr/local/cuda-11.4/lib64'), ('BROWSER', '/home/sirius2beta/.vscode-server/cli/servers/Stable-bdd88df003631aaa0bcbe057cb0a940b80a476fa/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/sirius2beta'), ('OLDPWD', '/home/sirius2beta'), ('TERM_PROGRAM_VERSION', '1.109.0'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-a87f064a-83f4-41bb-bcf0-b43db54ceb17.sock'), ('JETSON_L4T', '35.6.0'), ('ROS_PYTHON_VERSION', '3'), ('JETSON_MODEL', 'NVIDIA Jetson Xavier NX Developer Kit'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/sirius2beta/.vscode-server/cli/servers/Stable-bdd88df003631aaa0bcbe057cb0a940b80a476fa/server/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/sirius2beta/.vscode-server/cli/servers/Stable-bdd88df003631aaa0bcbe057cb0a940b80a476fa/server/node'), ('SSL_CERT_FILE', '/usr/lib/ssl/certs/ca-certificates.crt'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/sirius2beta/cetus/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'sirius2beta'), ('JETSON_MODULE', 'NVIDIA Jetson Xavier NX (16GB ram)'), ('JETSON_SERIAL_NUMBER', '1421122058947'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('JETSON_CODENAME', 'Jakku'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '2'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/foxy/bin:/usr/local/cuda-11.4/bin:/home/sirius2beta/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/sirius2beta/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/sirius2beta/.vscode-server/cli/servers/Stable-bdd88df003631aaa0bcbe057cb0a940b80a476fa/server/bin/remote-cli:/home/sirius2beta/.local/bin:/usr/local/cuda-11.4/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('SSL_CERT_DIR', '/usr/lib/ssl/certs'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('JETSON_SOC', 'tegra194'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-68143b8282.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/sirius2beta/cetus/install/video_control:/home/sirius2beta/cetus/install/link_manager:/home/sirius2beta/cetus/install/more_interfaces:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('JETSON_CUDA_ARCH_BIN', '7.2'), ('PWD', '/home/sirius2beta/cetus/build/link_manager'), ('SSH_CONNECTION', '192.168.0.123 59217 192.168.0.215 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/sirius2beta/cetus/install/more_interfaces/lib/python3.8/site-packages:/home/sirius2beta/cetus/install/video_control/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('COLCON', '1'), ('JETSON_JETPACK', '5.1.4'), ('CMAKE_PREFIX_PATH', '/home/sirius2beta/cetus/install/more_interfaces:/home/sirius2beta/cetus/install/link_manager:/home/sirius2beta/cetus/install/video_control:/opt/ros/foxy'), ('JETSON_P_NUMBER', 'p3668-0003')]), 'shell': False}
+[0.098138] (-) TimerEvent: {}
+[0.199568] (-) TimerEvent: {}
+[0.301087] (-) TimerEvent: {}
+[0.400979] (link_manager) StdoutLine: {'line': b'[ 20%] \x1b[34m\x1b[1mAutomatic MOC and UIC for target link_manager\x1b[0m\n'}
+[0.403164] (-) TimerEvent: {}
+[0.434755] (link_manager) StdoutLine: {'line': b'[ 20%] Built target link_manager_autogen\n'}
+[0.503452] (-) TimerEvent: {}
+[0.604966] (-) TimerEvent: {}
+[0.631810] (link_manager) StdoutLine: {'line': b'[ 40%] \x1b[32mBuilding CXX object CMakeFiles/link_manager.dir/src/RosInterface.cpp.o\x1b[0m\n'}
+[0.705198] (-) TimerEvent: {}
+[0.806758] (-) TimerEvent: {}
+[0.908233] (-) TimerEvent: {}
+[1.009874] (-) TimerEvent: {}
+[1.111863] (-) TimerEvent: {}
+[1.212854] (-) TimerEvent: {}
+[1.313895] (-) TimerEvent: {}
+[1.414981] (-) TimerEvent: {}
+[1.516146] (-) TimerEvent: {}
+[1.617370] (-) TimerEvent: {}
+[1.719173] (-) TimerEvent: {}
+[1.821040] (-) TimerEvent: {}
+[1.922932] (-) TimerEvent: {}
+[2.023946] (-) TimerEvent: {}
+[2.125166] (-) TimerEvent: {}
+[2.226424] (-) TimerEvent: {}
+[2.327462] (-) TimerEvent: {}
+[2.428529] (-) TimerEvent: {}
+[2.529495] (-) TimerEvent: {}
+[2.630513] (-) TimerEvent: {}
+[2.731512] (-) TimerEvent: {}
+[2.832744] (-) TimerEvent: {}
+[2.933979] (-) TimerEvent: {}
+[3.035459] (-) TimerEvent: {}
+[3.136511] (-) TimerEvent: {}
+[3.237681] (-) TimerEvent: {}
+[3.338906] (-) TimerEvent: {}
+[3.439906] (-) TimerEvent: {}
+[3.542569] (-) TimerEvent: {}
+[3.643572] (-) TimerEvent: {}
+[3.744959] (-) TimerEvent: {}
+[3.846569] (-) TimerEvent: {}
+[3.947595] (-) TimerEvent: {}
+[4.048615] (-) TimerEvent: {}
+[4.150041] (-) TimerEvent: {}
+[4.251817] (-) TimerEvent: {}
+[4.353443] (-) TimerEvent: {}
+[4.455014] (-) TimerEvent: {}
+[4.555899] (-) TimerEvent: {}
+[4.656935] (-) TimerEvent: {}
+[4.757930] (-) TimerEvent: {}
+[4.859753] (-) TimerEvent: {}
+[4.960903] (-) TimerEvent: {}
+[5.062202] (-) TimerEvent: {}
+[5.163603] (-) TimerEvent: {}
+[5.265465] (-) TimerEvent: {}
+[5.367901] (-) TimerEvent: {}
+[5.469573] (-) TimerEvent: {}
+[5.571416] (-) TimerEvent: {}
+[5.673249] (-) TimerEvent: {}
+[5.775789] (-) TimerEvent: {}
+[5.877476] (-) TimerEvent: {}
+[5.978455] (-) TimerEvent: {}
+[6.080153] (-) TimerEvent: {}
+[6.181078] (-) TimerEvent: {}
+[6.282609] (-) TimerEvent: {}
+[6.384394] (-) TimerEvent: {}
+[6.486111] (-) TimerEvent: {}
+[6.587293] (-) TimerEvent: {}
+[6.688481] (-) TimerEvent: {}
+[6.789620] (-) TimerEvent: {}
+[6.890890] (-) TimerEvent: {}
+[6.991984] (-) TimerEvent: {}
+[7.093401] (-) TimerEvent: {}
+[7.194981] (-) TimerEvent: {}
+[7.296507] (-) TimerEvent: {}
+[7.398088] (-) TimerEvent: {}
+[7.499819] (-) TimerEvent: {}
+[7.590907] (link_manager) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../protocol.h:4\x1b[m\x1b[K,\n'}
+[7.591916] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/hypex.h:29\x1b[m\x1b[K,\n'}
+[7.592469] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/mavlink.h:32\x1b[m\x1b[K,\n'}
+[7.592858] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.h:4\x1b[m\x1b[K,\n'}
+[7.593230] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.cpp:1\x1b[m\x1b[K:\n'}
+[7.593630] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../mavlink_types.h:92:5:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[KISO C++ prohibits anonymous structs [\x1b[01;35m\x1b[K-Wpedantic\x1b[m\x1b[K]\n'}
+[7.594004] (link_manager) StderrLine: {'line': b'   92 |     \x1b[01;35m\x1b[K}\x1b[m\x1b[K;\n'}
+[7.594483] (link_manager) StderrLine: {'line': b'      |     \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[7.595495] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../mavlink_types.h:17:40:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kin definition of macro \xe2\x80\x98\x1b[01m\x1b[KMAVPACKED\x1b[m\x1b[K\xe2\x80\x99\n'}
+[7.595855] (link_manager) StderrLine: {'line': b'   17 |   #define MAVPACKED( __Declaration__ ) \x1b[01;36m\x1b[K__Declaration__\x1b[m\x1b[K __attribute__((packed))\n'}
+[7.596258] (link_manager) StderrLine: {'line': b'      |                                        \x1b[01;36m\x1b[K^~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[7.599987] (-) TimerEvent: {}
+[7.700952] (-) TimerEvent: {}
+[7.802201] (-) TimerEvent: {}
+[7.903520] (-) TimerEvent: {}
+[8.004660] (-) TimerEvent: {}
+[8.076279] (link_manager) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/common.h:2646\x1b[m\x1b[K,\n'}
+[8.077158] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/ardupilotmega.h:1181\x1b[m\x1b[K,\n'}
+[8.077715] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/hypex.h:52\x1b[m\x1b[K,\n'}
+[8.078092] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/mavlink.h:32\x1b[m\x1b[K,\n'}
+[8.078684] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.h:4\x1b[m\x1b[K,\n'}
+[8.079121] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.cpp:1\x1b[m\x1b[K:\n'}
+[8.079451] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_set_attitude_target.h:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kuint16_t mavlink_msg_set_attitude_target_encode(uint8_t, uint8_t, mavlink_message_t*, const mavlink_set_attitude_target_t*)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[8.079784] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_set_attitude_target.h:241:242:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Ktaking address of packed member of \xe2\x80\x98\x1b[01m\x1b[K__mavlink_set_attitude_target_t\x1b[m\x1b[K\xe2\x80\x99 may result in an unaligned pointer value [\x1b[01;35m\x1b[K-Waddress-of-packed-member\x1b[m\x1b[K]\n'}
+[8.080224] (link_manager) StderrLine: {'line': b'  241 | omponent, set_attitude_target->type_mask, \x1b[01;35m\x1b[Kset_attitude_target->q\x1b[m\x1b[K, set_attitude_target->body_roll_rate, set_attitude_target->body_pitch_rate, set_attitude_target->body_yaw_rate, set_attitude_target->thrust, set_attitude_target->thrust_body);\n'}
+[8.080576] (link_manager) StderrLine: {'line': b'      |                                           \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~~~~~~^\x1b[m\x1b[K\n'}
+[8.080886] (link_manager) StderrLine: {'line': b'\n'}
+[8.081207] (link_manager) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/common.h:2646\x1b[m\x1b[K,\n'}
+[8.082198] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/ardupilotmega.h:1181\x1b[m\x1b[K,\n'}
+[8.082635] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/hypex.h:52\x1b[m\x1b[K,\n'}
+[8.082972] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/mavlink.h:32\x1b[m\x1b[K,\n'}
+[8.083338] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.h:4\x1b[m\x1b[K,\n'}
+[8.083661] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.cpp:1\x1b[m\x1b[K:\n'}
+[8.083975] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_set_attitude_target.h:241:406:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Ktaking address of packed member of \xe2\x80\x98\x1b[01m\x1b[K__mavlink_set_attitude_target_t\x1b[m\x1b[K\xe2\x80\x99 may result in an unaligned pointer value [\x1b[01;35m\x1b[K-Waddress-of-packed-member\x1b[m\x1b[K]\n'}
+[8.084343] (link_manager) StderrLine: {'line': b'  241 | ->body_yaw_rate, set_attitude_target->thrust, \x1b[01;35m\x1b[Kset_attitude_target->thrust_body\x1b[m\x1b[K);\n'}
+[8.084758] (link_manager) StderrLine: {'line': b'      |                                               \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[8.085079] (link_manager) StderrLine: {'line': b'\n'}
+[8.085385] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_set_attitude_target.h:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kuint16_t mavlink_msg_set_attitude_target_encode_chan(uint8_t, uint8_t, uint8_t, mavlink_message_t*, const mavlink_set_attitude_target_t*)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[8.085785] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_set_attitude_target.h:255:253:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Ktaking address of packed member of \xe2\x80\x98\x1b[01m\x1b[K__mavlink_set_attitude_target_t\x1b[m\x1b[K\xe2\x80\x99 may result in an unaligned pointer value [\x1b[01;35m\x1b[K-Waddress-of-packed-member\x1b[m\x1b[K]\n'}
+[8.086139] (link_manager) StderrLine: {'line': b'  255 | omponent, set_attitude_target->type_mask, \x1b[01;35m\x1b[Kset_attitude_target->q\x1b[m\x1b[K, set_attitude_target->body_roll_rate, set_attitude_target->body_pitch_rate, set_attitude_target->body_yaw_rate, set_attitude_target->thrust, set_attitude_target->thrust_body);\n'}
+[8.086529] (link_manager) StderrLine: {'line': b'      |                                           \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~~~~~~^\x1b[m\x1b[K\n'}
+[8.086834] (link_manager) StderrLine: {'line': b'\n'}
+[8.087270] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_set_attitude_target.h:255:417:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Ktaking address of packed member of \xe2\x80\x98\x1b[01m\x1b[K__mavlink_set_attitude_target_t\x1b[m\x1b[K\xe2\x80\x99 may result in an unaligned pointer value [\x1b[01;35m\x1b[K-Waddress-of-packed-member\x1b[m\x1b[K]\n'}
+[8.087601] (link_manager) StderrLine: {'line': b'  255 | ->body_yaw_rate, set_attitude_target->thrust, \x1b[01;35m\x1b[Kset_attitude_target->thrust_body\x1b[m\x1b[K);\n'}
+[8.087892] (link_manager) StderrLine: {'line': b'      |                                               \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[8.088222] (link_manager) StderrLine: {'line': b'\n'}
+[8.088566] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_set_attitude_target.h:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kuint16_t mavlink_msg_set_attitude_target_encode_status(uint8_t, uint8_t, mavlink_status_t*, mavlink_message_t*, const mavlink_set_attitude_target_t*)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[8.088899] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_set_attitude_target.h:269:259:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Ktaking address of packed member of \xe2\x80\x98\x1b[01m\x1b[K__mavlink_set_attitude_target_t\x1b[m\x1b[K\xe2\x80\x99 may result in an unaligned pointer value [\x1b[01;35m\x1b[K-Waddress-of-packed-member\x1b[m\x1b[K]\n'}
+[8.089206] (link_manager) StderrLine: {'line': b'  269 | omponent, set_attitude_target->type_mask, \x1b[01;35m\x1b[Kset_attitude_target->q\x1b[m\x1b[K, set_attitude_target->body_roll_rate, set_attitude_target->body_pitch_rate, set_attitude_target->body_yaw_rate, set_attitude_target->thrust, set_attitude_target->thrust_body);\n'}
+[8.089551] (link_manager) StderrLine: {'line': b'      |                                           \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~~~~~~^\x1b[m\x1b[K\n'}
+[8.089872] (link_manager) StderrLine: {'line': b'\n'}
+[8.090156] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_set_attitude_target.h:269:423:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Ktaking address of packed member of \xe2\x80\x98\x1b[01m\x1b[K__mavlink_set_attitude_target_t\x1b[m\x1b[K\xe2\x80\x99 may result in an unaligned pointer value [\x1b[01;35m\x1b[K-Waddress-of-packed-member\x1b[m\x1b[K]\n'}
+[8.090624] (link_manager) StderrLine: {'line': b'  269 | ->body_yaw_rate, set_attitude_target->thrust, \x1b[01;35m\x1b[Kset_attitude_target->thrust_body\x1b[m\x1b[K);\n'}
+[8.091018] (link_manager) StderrLine: {'line': b'      |                                               \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[8.091316] (link_manager) StderrLine: {'line': b'\n'}
+[8.104892] (-) TimerEvent: {}
+[8.206083] (-) TimerEvent: {}
+[8.287575] (link_manager) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/common.h:2689\x1b[m\x1b[K,\n'}
+[8.288392] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/ardupilotmega.h:1181\x1b[m\x1b[K,\n'}
+[8.289998] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/hypex.h:52\x1b[m\x1b[K,\n'}
+[8.291082] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/mavlink.h:32\x1b[m\x1b[K,\n'}
+[8.291472] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.h:4\x1b[m\x1b[K,\n'}
+[8.291865] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.cpp:1\x1b[m\x1b[K:\n'}
+[8.294809] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_distance_sensor.h:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kuint16_t mavlink_msg_distance_sensor_encode(uint8_t, uint8_t, mavlink_message_t*, const mavlink_distance_sensor_t*)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[8.295440] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_distance_sensor.h:264:387:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Ktaking address of packed member of \xe2\x80\x98\x1b[01m\x1b[K__mavlink_distance_sensor_t\x1b[m\x1b[K\xe2\x80\x99 may result in an unaligned pointer value [\x1b[01;35m\x1b[K-Waddress-of-packed-member\x1b[m\x1b[K]\n'}
+[8.295892] (link_manager) StderrLine: {'line': b'  264 | orizontal_fov, distance_sensor->vertical_fov, \x1b[01;35m\x1b[Kdistance_sensor->quaternion\x1b[m\x1b[K, distance_sensor->signal_quality);\n'}
+[8.296252] (link_manager) StderrLine: {'line': b'      |                                               \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~~^~~~~~~~~~\x1b[m\x1b[K\n'}
+[8.296605] (link_manager) StderrLine: {'line': b'\n'}
+[8.296964] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_distance_sensor.h:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kuint16_t mavlink_msg_distance_sensor_encode_chan(uint8_t, uint8_t, uint8_t, mavlink_message_t*, const mavlink_distance_sensor_t*)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[8.297362] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_distance_sensor.h:278:398:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Ktaking address of packed member of \xe2\x80\x98\x1b[01m\x1b[K__mavlink_distance_sensor_t\x1b[m\x1b[K\xe2\x80\x99 may result in an unaligned pointer value [\x1b[01;35m\x1b[K-Waddress-of-packed-member\x1b[m\x1b[K]\n'}
+[8.297707] (link_manager) StderrLine: {'line': b'  278 | orizontal_fov, distance_sensor->vertical_fov, \x1b[01;35m\x1b[Kdistance_sensor->quaternion\x1b[m\x1b[K, distance_sensor->signal_quality);\n'}
+[8.298035] (link_manager) StderrLine: {'line': b'      |                                               \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~~^~~~~~~~~~\x1b[m\x1b[K\n'}
+[8.301059] (link_manager) StderrLine: {'line': b'\n'}
+[8.301464] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_distance_sensor.h:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kuint16_t mavlink_msg_distance_sensor_encode_status(uint8_t, uint8_t, mavlink_status_t*, mavlink_message_t*, const mavlink_distance_sensor_t*)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[8.301806] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_distance_sensor.h:292:404:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Ktaking address of packed member of \xe2\x80\x98\x1b[01m\x1b[K__mavlink_distance_sensor_t\x1b[m\x1b[K\xe2\x80\x99 may result in an unaligned pointer value [\x1b[01;35m\x1b[K-Waddress-of-packed-member\x1b[m\x1b[K]\n'}
+[8.302166] (link_manager) StderrLine: {'line': b'  292 | orizontal_fov, distance_sensor->vertical_fov, \x1b[01;35m\x1b[Kdistance_sensor->quaternion\x1b[m\x1b[K, distance_sensor->signal_quality);\n'}
+[8.302630] (link_manager) StderrLine: {'line': b'      |                                               \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~~^~~~~~~~~~\x1b[m\x1b[K\n'}
+[8.303012] (link_manager) StderrLine: {'line': b'\n'}
+[8.306363] (-) TimerEvent: {}
+[8.336608] (link_manager) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/common.h:2703\x1b[m\x1b[K,\n'}
+[8.337822] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/ardupilotmega.h:1181\x1b[m\x1b[K,\n'}
+[8.338368] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/hypex.h:52\x1b[m\x1b[K,\n'}
+[8.341330] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/mavlink.h:32\x1b[m\x1b[K,\n'}
+[8.342928] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.h:4\x1b[m\x1b[K,\n'}
+[8.343609] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.cpp:1\x1b[m\x1b[K:\n'}
+[8.344082] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_battery_status.h:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kuint16_t mavlink_msg_battery_status_encode(uint8_t, uint8_t, mavlink_message_t*, const mavlink_battery_status_t*)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[8.344589] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_battery_status.h:289:195:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Ktaking address of packed member of \xe2\x80\x98\x1b[01m\x1b[K__mavlink_battery_status_t\x1b[m\x1b[K\xe2\x80\x99 may result in an unaligned pointer value [\x1b[01;35m\x1b[K-Waddress-of-packed-member\x1b[m\x1b[K]\n'}
+[8.345019] (link_manager) StderrLine: {'line': b'  289 | ery_status->type, battery_status->temperature, \x1b[01;35m\x1b[Kbattery_status->voltages\x1b[m\x1b[K, battery_status->current_battery, battery_status->current_consumed, battery_status->energy_consumed, battery_status->battery_remaining, battery_status->time_remaining, battery_status->charge_state, battery_status->voltages_ext, battery_status->mode, battery_status->fault_bitmask);\n'}
+[8.347274] (link_manager) StderrLine: {'line': b'      |                                                \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~^~~~~~~~\x1b[m\x1b[K\n'}
+[8.347712] (link_manager) StderrLine: {'line': b'\n'}
+[8.348069] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_battery_status.h:289:418:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Ktaking address of packed member of \xe2\x80\x98\x1b[01m\x1b[K__mavlink_battery_status_t\x1b[m\x1b[K\xe2\x80\x99 may result in an unaligned pointer value [\x1b[01;35m\x1b[K-Waddress-of-packed-member\x1b[m\x1b[K]\n'}
+[8.348477] (link_manager) StderrLine: {'line': b'  289 | >time_remaining, battery_status->charge_state, \x1b[01;35m\x1b[Kbattery_status->voltages_ext\x1b[m\x1b[K, battery_status->mode, battery_status->fault_bitmask);\n'}
+[8.348851] (link_manager) StderrLine: {'line': b'      |                                                \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[8.349194] (link_manager) StderrLine: {'line': b'\n'}
+[8.349520] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_battery_status.h:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kuint16_t mavlink_msg_battery_status_encode_chan(uint8_t, uint8_t, uint8_t, mavlink_message_t*, const mavlink_battery_status_t*)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[8.349857] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_battery_status.h:303:206:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Ktaking address of packed member of \xe2\x80\x98\x1b[01m\x1b[K__mavlink_battery_status_t\x1b[m\x1b[K\xe2\x80\x99 may result in an unaligned pointer value [\x1b[01;35m\x1b[K-Waddress-of-packed-member\x1b[m\x1b[K]\n'}
+[8.350423] (link_manager) StderrLine: {'line': b'  303 | ery_status->type, battery_status->temperature, \x1b[01;35m\x1b[Kbattery_status->voltages\x1b[m\x1b[K, battery_status->current_battery, battery_status->current_consumed, battery_status->energy_consumed, battery_status->battery_remaining, battery_status->time_remaining, battery_status->charge_state, battery_status->voltages_ext, battery_status->mode, battery_status->fault_bitmask);\n'}
+[8.350800] (link_manager) StderrLine: {'line': b'      |                                                \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~^~~~~~~~\x1b[m\x1b[K\n'}
+[8.351138] (link_manager) StderrLine: {'line': b'\n'}
+[8.351440] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_battery_status.h:303:429:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Ktaking address of packed member of \xe2\x80\x98\x1b[01m\x1b[K__mavlink_battery_status_t\x1b[m\x1b[K\xe2\x80\x99 may result in an unaligned pointer value [\x1b[01;35m\x1b[K-Waddress-of-packed-member\x1b[m\x1b[K]\n'}
+[8.351770] (link_manager) StderrLine: {'line': b'  303 | >time_remaining, battery_status->charge_state, \x1b[01;35m\x1b[Kbattery_status->voltages_ext\x1b[m\x1b[K, battery_status->mode, battery_status->fault_bitmask);\n'}
+[8.352117] (link_manager) StderrLine: {'line': b'      |                                                \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[8.352493] (link_manager) StderrLine: {'line': b'\n'}
+[8.352792] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_battery_status.h:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kuint16_t mavlink_msg_battery_status_encode_status(uint8_t, uint8_t, mavlink_status_t*, mavlink_message_t*, const mavlink_battery_status_t*)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[8.353112] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_battery_status.h:317:212:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Ktaking address of packed member of \xe2\x80\x98\x1b[01m\x1b[K__mavlink_battery_status_t\x1b[m\x1b[K\xe2\x80\x99 may result in an unaligned pointer value [\x1b[01;35m\x1b[K-Waddress-of-packed-member\x1b[m\x1b[K]\n'}
+[8.353412] (link_manager) StderrLine: {'line': b'  317 | ery_status->type, battery_status->temperature, \x1b[01;35m\x1b[Kbattery_status->voltages\x1b[m\x1b[K, battery_status->current_battery, battery_status->current_consumed, battery_status->energy_consumed, battery_status->battery_remaining, battery_status->time_remaining, battery_status->charge_state, battery_status->voltages_ext, battery_status->mode, battery_status->fault_bitmask);\n'}
+[8.353746] (link_manager) StderrLine: {'line': b'      |                                                \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~^~~~~~~~\x1b[m\x1b[K\n'}
+[8.354074] (link_manager) StderrLine: {'line': b'\n'}
+[8.354491] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_battery_status.h:317:435:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Ktaking address of packed member of \xe2\x80\x98\x1b[01m\x1b[K__mavlink_battery_status_t\x1b[m\x1b[K\xe2\x80\x99 may result in an unaligned pointer value [\x1b[01;35m\x1b[K-Waddress-of-packed-member\x1b[m\x1b[K]\n'}
+[8.354868] (link_manager) StderrLine: {'line': b'  317 | >time_remaining, battery_status->charge_state, \x1b[01;35m\x1b[Kbattery_status->voltages_ext\x1b[m\x1b[K, battery_status->mode, battery_status->fault_bitmask);\n'}
+[8.355202] (link_manager) StderrLine: {'line': b'      |                                                \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[8.355564] (link_manager) StderrLine: {'line': b'\n'}
+[8.355906] (link_manager) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/common.h:2704\x1b[m\x1b[K,\n'}
+[8.356255] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/ardupilotmega.h:1181\x1b[m\x1b[K,\n'}
+[8.356584] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/hypex.h:52\x1b[m\x1b[K,\n'}
+[8.356882] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/mavlink.h:32\x1b[m\x1b[K,\n'}
+[8.357215] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.h:4\x1b[m\x1b[K,\n'}
+[8.357517] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.cpp:1\x1b[m\x1b[K:\n'}
+[8.357843] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_landing_target.h:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kuint16_t mavlink_msg_landing_target_encode(uint8_t, uint8_t, mavlink_message_t*, const mavlink_landing_target_t*)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[8.358284] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_landing_target.h:288:349:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Ktaking address of packed member of \xe2\x80\x98\x1b[01m\x1b[K__mavlink_landing_target_t\x1b[m\x1b[K\xe2\x80\x99 may result in an unaligned pointer value [\x1b[01;35m\x1b[K-Waddress-of-packed-member\x1b[m\x1b[K]\n'}
+[8.358690] (link_manager) StderrLine: {'line': b'  288 | rget->x, landing_target->y, landing_target->z, \x1b[01;35m\x1b[Klanding_target->q\x1b[m\x1b[K, landing_target->type, landing_target->position_valid);\n'}
+[8.358998] (link_manager) StderrLine: {'line': b'      |                                                \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~^\x1b[m\x1b[K\n'}
+[8.359308] (link_manager) StderrLine: {'line': b'\n'}
+[8.359598] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_landing_target.h:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kuint16_t mavlink_msg_landing_target_encode_chan(uint8_t, uint8_t, uint8_t, mavlink_message_t*, const mavlink_landing_target_t*)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[8.359919] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_landing_target.h:302:360:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Ktaking address of packed member of \xe2\x80\x98\x1b[01m\x1b[K__mavlink_landing_target_t\x1b[m\x1b[K\xe2\x80\x99 may result in an unaligned pointer value [\x1b[01;35m\x1b[K-Waddress-of-packed-member\x1b[m\x1b[K]\n'}
+[8.360254] (link_manager) StderrLine: {'line': b'  302 | rget->x, landing_target->y, landing_target->z, \x1b[01;35m\x1b[Klanding_target->q\x1b[m\x1b[K, landing_target->type, landing_target->position_valid);\n'}
+[8.360626] (link_manager) StderrLine: {'line': b'      |                                                \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~^\x1b[m\x1b[K\n'}
+[8.360924] (link_manager) StderrLine: {'line': b'\n'}
+[8.361209] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_landing_target.h:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kuint16_t mavlink_msg_landing_target_encode_status(uint8_t, uint8_t, mavlink_status_t*, mavlink_message_t*, const mavlink_landing_target_t*)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[8.361525] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_landing_target.h:316:366:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Ktaking address of packed member of \xe2\x80\x98\x1b[01m\x1b[K__mavlink_landing_target_t\x1b[m\x1b[K\xe2\x80\x99 may result in an unaligned pointer value [\x1b[01;35m\x1b[K-Waddress-of-packed-member\x1b[m\x1b[K]\n'}
+[8.361915] (link_manager) StderrLine: {'line': b'  316 | rget->x, landing_target->y, landing_target->z, \x1b[01;35m\x1b[Klanding_target->q\x1b[m\x1b[K, landing_target->type, landing_target->position_valid);\n'}
+[8.362399] (link_manager) StderrLine: {'line': b'      |                                                \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~^\x1b[m\x1b[K\n'}
+[8.362773] (link_manager) StderrLine: {'line': b'\n'}
+[8.398752] (link_manager) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/common.h:2715\x1b[m\x1b[K,\n'}
+[8.399582] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/ardupilotmega.h:1181\x1b[m\x1b[K,\n'}
+[8.400050] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/hypex.h:52\x1b[m\x1b[K,\n'}
+[8.400748] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/mavlink.h:32\x1b[m\x1b[K,\n'}
+[8.401100] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.h:4\x1b[m\x1b[K,\n'}
+[8.401454] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.cpp:1\x1b[m\x1b[K:\n'}
+[8.401770] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_home_position.h:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kuint16_t mavlink_msg_home_position_encode(uint8_t, uint8_t, mavlink_message_t*, const mavlink_home_position_t*)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[8.402178] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_home_position.h:268:218:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Ktaking address of packed member of \xe2\x80\x98\x1b[01m\x1b[K__mavlink_home_position_t\x1b[m\x1b[K\xe2\x80\x99 may result in an unaligned pointer value [\x1b[01;35m\x1b[K-Waddress-of-packed-member\x1b[m\x1b[K]\n'}
+[8.402792] (link_manager) StderrLine: {'line': b'  268 | osition->x, home_position->y, home_position->z, \x1b[01;35m\x1b[Khome_position->q\x1b[m\x1b[K, home_position->approach_x, home_position->approach_y, home_position->approach_z, home_position->time_usec);\n'}
+[8.403111] (link_manager) StderrLine: {'line': b'      |                                                 \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~^\x1b[m\x1b[K\n'}
+[8.403447] (link_manager) StderrLine: {'line': b'\n'}
+[8.403760] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_home_position.h:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kuint16_t mavlink_msg_home_position_encode_chan(uint8_t, uint8_t, uint8_t, mavlink_message_t*, const mavlink_home_position_t*)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[8.404823] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_home_position.h:282:229:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Ktaking address of packed member of \xe2\x80\x98\x1b[01m\x1b[K__mavlink_home_position_t\x1b[m\x1b[K\xe2\x80\x99 may result in an unaligned pointer value [\x1b[01;35m\x1b[K-Waddress-of-packed-member\x1b[m\x1b[K]\n'}
+[8.405280] (link_manager) StderrLine: {'line': b'  282 | osition->x, home_position->y, home_position->z, \x1b[01;35m\x1b[Khome_position->q\x1b[m\x1b[K, home_position->approach_x, home_position->approach_y, home_position->approach_z, home_position->time_usec);\n'}
+[8.406024] (link_manager) StderrLine: {'line': b'      |                                                 \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~^\x1b[m\x1b[K\n'}
+[8.406514] (-) TimerEvent: {}
+[8.408061] (link_manager) StderrLine: {'line': b'\n'}
+[8.408637] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_home_position.h:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kuint16_t mavlink_msg_home_position_encode_status(uint8_t, uint8_t, mavlink_status_t*, mavlink_message_t*, const mavlink_home_position_t*)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[8.409121] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_home_position.h:296:235:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Ktaking address of packed member of \xe2\x80\x98\x1b[01m\x1b[K__mavlink_home_position_t\x1b[m\x1b[K\xe2\x80\x99 may result in an unaligned pointer value [\x1b[01;35m\x1b[K-Waddress-of-packed-member\x1b[m\x1b[K]\n'}
+[8.409525] (link_manager) StderrLine: {'line': b'  296 | osition->x, home_position->y, home_position->z, \x1b[01;35m\x1b[Khome_position->q\x1b[m\x1b[K, home_position->approach_x, home_position->approach_y, home_position->approach_z, home_position->time_usec);\n'}
+[8.409876] (link_manager) StderrLine: {'line': b'      |                                                 \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~^\x1b[m\x1b[K\n'}
+[8.410201] (link_manager) StderrLine: {'line': b'\n'}
+[8.410684] (link_manager) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/common.h:2716\x1b[m\x1b[K,\n'}
+[8.411076] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/ardupilotmega.h:1181\x1b[m\x1b[K,\n'}
+[8.411395] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/hypex.h:52\x1b[m\x1b[K,\n'}
+[8.412338] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/mavlink.h:32\x1b[m\x1b[K,\n'}
+[8.412720] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.h:4\x1b[m\x1b[K,\n'}
+[8.413077] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.cpp:1\x1b[m\x1b[K:\n'}
+[8.414014] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_set_home_position.h:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kuint16_t mavlink_msg_set_home_position_encode(uint8_t, uint8_t, mavlink_message_t*, const mavlink_set_home_position_t*)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[8.414456] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_set_home_position.h:264:284:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Ktaking address of packed member of \xe2\x80\x98\x1b[01m\x1b[K__mavlink_set_home_position_t\x1b[m\x1b[K\xe2\x80\x99 may result in an unaligned pointer value [\x1b[01;35m\x1b[K-Waddress-of-packed-member\x1b[m\x1b[K]\n'}
+[8.414848] (link_manager) StderrLine: {'line': b'  264 | set_home_position->y, set_home_position->z, \x1b[01;35m\x1b[Kset_home_position->q\x1b[m\x1b[K, set_home_position->approach_x, set_home_position->approach_y, set_home_position->approach_z, set_home_position->time_usec);\n'}
+[8.415249] (link_manager) StderrLine: {'line': b'      |                                             \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~~~~^\x1b[m\x1b[K\n'}
+[8.415576] (link_manager) StderrLine: {'line': b'\n'}
+[8.415925] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_set_home_position.h:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kuint16_t mavlink_msg_set_home_position_encode_chan(uint8_t, uint8_t, uint8_t, mavlink_message_t*, const mavlink_set_home_position_t*)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[8.416237] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_set_home_position.h:278:295:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Ktaking address of packed member of \xe2\x80\x98\x1b[01m\x1b[K__mavlink_set_home_position_t\x1b[m\x1b[K\xe2\x80\x99 may result in an unaligned pointer value [\x1b[01;35m\x1b[K-Waddress-of-packed-member\x1b[m\x1b[K]\n'}
+[8.416592] (link_manager) StderrLine: {'line': b'  278 | set_home_position->y, set_home_position->z, \x1b[01;35m\x1b[Kset_home_position->q\x1b[m\x1b[K, set_home_position->approach_x, set_home_position->approach_y, set_home_position->approach_z, set_home_position->time_usec);\n'}
+[8.416906] (link_manager) StderrLine: {'line': b'      |                                             \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~~~~^\x1b[m\x1b[K\n'}
+[8.418291] (link_manager) StderrLine: {'line': b'\n'}
+[8.418645] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_set_home_position.h:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kuint16_t mavlink_msg_set_home_position_encode_status(uint8_t, uint8_t, mavlink_status_t*, mavlink_message_t*, const mavlink_set_home_position_t*)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[8.418995] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_set_home_position.h:292:301:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Ktaking address of packed member of \xe2\x80\x98\x1b[01m\x1b[K__mavlink_set_home_position_t\x1b[m\x1b[K\xe2\x80\x99 may result in an unaligned pointer value [\x1b[01;35m\x1b[K-Waddress-of-packed-member\x1b[m\x1b[K]\n'}
+[8.419363] (link_manager) StderrLine: {'line': b'  292 | set_home_position->y, set_home_position->z, \x1b[01;35m\x1b[Kset_home_position->q\x1b[m\x1b[K, set_home_position->approach_x, set_home_position->approach_y, set_home_position->approach_z, set_home_position->time_usec);\n'}
+[8.419698] (link_manager) StderrLine: {'line': b'      |                                             \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~~~~^\x1b[m\x1b[K\n'}
+[8.420017] (link_manager) StderrLine: {'line': b'\n'}
+[8.506846] (-) TimerEvent: {}
+[8.527257] (link_manager) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/common.h:2753\x1b[m\x1b[K,\n'}
+[8.528569] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/ardupilotmega.h:1181\x1b[m\x1b[K,\n'}
+[8.531143] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/hypex.h:52\x1b[m\x1b[K,\n'}
+[8.531585] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/mavlink.h:32\x1b[m\x1b[K,\n'}
+[8.531943] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.h:4\x1b[m\x1b[K,\n'}
+[8.532585] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.cpp:1\x1b[m\x1b[K:\n'}
+[8.532940] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_autopilot_state_for_gimbal_device.h:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kuint16_t mavlink_msg_autopilot_state_for_gimbal_device_encode(uint8_t, uint8_t, mavlink_message_t*, const mavlink_autopilot_state_for_gimbal_device_t*)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[8.533356] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_autopilot_state_for_gimbal_device.h:276:280:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Ktaking address of packed member of \xe2\x80\x98\x1b[01m\x1b[K__mavlink_autopilot_state_for_gimbal_device_t\x1b[m\x1b[K\xe2\x80\x99 may result in an unaligned pointer value [\x1b[01;35m\x1b[K-Waddress-of-packed-member\x1b[m\x1b[K]\n'}
+[8.533685] (link_manager) StderrLine: {'line': b'  276 | imbal_device->time_boot_us, \x1b[01;35m\x1b[Kautopilot_state_for_gimbal_device->q\x1b[m\x1b[K, autopilot_state_for_gimbal_device->q_estimated_delay_us, autopilot_state_for_gimbal_device->vx, autopilot_state_for_gimbal_device->vy, autopilot_state_for_gimbal_device->vz, autopilot_state_for_gimbal_device->v_estimated_delay_us, autopilot_state_for_gimbal_device->feed_forward_angular_velocity_z, autopilot_state_for_gimbal_device->estimator_status, autopilot_state_for_gimbal_device->landed_state, autopilot_state_for_gimbal_device->angular_velocity_z);\n'}
+[8.534027] (link_manager) StderrLine: {'line': b'      |                             \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\x1b[m\x1b[K\n'}
+[8.534490] (link_manager) StderrLine: {'line': b'\n'}
+[8.534843] (link_manager) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/common.h:2753\x1b[m\x1b[K,\n'}
+[8.535210] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/ardupilotmega.h:1181\x1b[m\x1b[K,\n'}
+[8.535535] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/hypex.h:52\x1b[m\x1b[K,\n'}
+[8.535832] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/mavlink.h:32\x1b[m\x1b[K,\n'}
+[8.536121] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.h:4\x1b[m\x1b[K,\n'}
+[8.536821] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.cpp:1\x1b[m\x1b[K:\n'}
+[8.537182] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_autopilot_state_for_gimbal_device.h:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kuint16_t mavlink_msg_autopilot_state_for_gimbal_device_encode_chan(uint8_t, uint8_t, uint8_t, mavlink_message_t*, const mavlink_autopilot_state_for_gimbal_device_t*)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[8.537526] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_autopilot_state_for_gimbal_device.h:290:291:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Ktaking address of packed member of \xe2\x80\x98\x1b[01m\x1b[K__mavlink_autopilot_state_for_gimbal_device_t\x1b[m\x1b[K\xe2\x80\x99 may result in an unaligned pointer value [\x1b[01;35m\x1b[K-Waddress-of-packed-member\x1b[m\x1b[K]\n'}
+[8.537849] (link_manager) StderrLine: {'line': b'  290 | imbal_device->time_boot_us, \x1b[01;35m\x1b[Kautopilot_state_for_gimbal_device->q\x1b[m\x1b[K, autopilot_state_for_gimbal_device->q_estimated_delay_us, autopilot_state_for_gimbal_device->vx, autopilot_state_for_gimbal_device->vy, autopilot_state_for_gimbal_device->vz, autopilot_state_for_gimbal_device->v_estimated_delay_us, autopilot_state_for_gimbal_device->feed_forward_angular_velocity_z, autopilot_state_for_gimbal_device->estimator_status, autopilot_state_for_gimbal_device->landed_state, autopilot_state_for_gimbal_device->angular_velocity_z);\n'}
+[8.538289] (link_manager) StderrLine: {'line': b'      |                             \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\x1b[m\x1b[K\n'}
+[8.538615] (link_manager) StderrLine: {'line': b'\n'}
+[8.538985] (link_manager) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/common.h:2753\x1b[m\x1b[K,\n'}
+[8.539303] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/ardupilotmega.h:1181\x1b[m\x1b[K,\n'}
+[8.539596] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/hypex.h:52\x1b[m\x1b[K,\n'}
+[8.539894] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/mavlink.h:32\x1b[m\x1b[K,\n'}
+[8.540183] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.h:4\x1b[m\x1b[K,\n'}
+[8.540521] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.cpp:1\x1b[m\x1b[K:\n'}
+[8.540840] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_autopilot_state_for_gimbal_device.h:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kuint16_t mavlink_msg_autopilot_state_for_gimbal_device_encode_status(uint8_t, uint8_t, mavlink_status_t*, mavlink_message_t*, const mavlink_autopilot_state_for_gimbal_device_t*)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[8.541163] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_autopilot_state_for_gimbal_device.h:304:297:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Ktaking address of packed member of \xe2\x80\x98\x1b[01m\x1b[K__mavlink_autopilot_state_for_gimbal_device_t\x1b[m\x1b[K\xe2\x80\x99 may result in an unaligned pointer value [\x1b[01;35m\x1b[K-Waddress-of-packed-member\x1b[m\x1b[K]\n'}
+[8.541459] (link_manager) StderrLine: {'line': b'  304 | imbal_device->time_boot_us, \x1b[01;35m\x1b[Kautopilot_state_for_gimbal_device->q\x1b[m\x1b[K, autopilot_state_for_gimbal_device->q_estimated_delay_us, autopilot_state_for_gimbal_device->vx, autopilot_state_for_gimbal_device->vy, autopilot_state_for_gimbal_device->vz, autopilot_state_for_gimbal_device->v_estimated_delay_us, autopilot_state_for_gimbal_device->feed_forward_angular_velocity_z, autopilot_state_for_gimbal_device->estimator_status, autopilot_state_for_gimbal_device->landed_state, autopilot_state_for_gimbal_device->angular_velocity_z);\n'}
+[8.541833] (link_manager) StderrLine: {'line': b'      |                             \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\x1b[m\x1b[K\n'}
+[8.542184] (link_manager) StderrLine: {'line': b'\n'}
+[8.590179] (link_manager) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/common.h:2769\x1b[m\x1b[K,\n'}
+[8.591190] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/ardupilotmega.h:1181\x1b[m\x1b[K,\n'}
+[8.591636] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/hypex.h:52\x1b[m\x1b[K,\n'}
+[8.591984] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/mavlink.h:32\x1b[m\x1b[K,\n'}
+[8.592304] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.h:4\x1b[m\x1b[K,\n'}
+[8.593268] (link_manager) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.cpp:1\x1b[m\x1b[K:\n'}
+[8.593676] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_obstacle_distance.h:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kuint16_t mavlink_msg_obstacle_distance_encode(uint8_t, uint8_t, mavlink_message_t*, const mavlink_obstacle_distance_t*)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[8.594033] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_obstacle_distance.h:228:158:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Ktaking address of packed member of \xe2\x80\x98\x1b[01m\x1b[K__mavlink_obstacle_distance_t\x1b[m\x1b[K\xe2\x80\x99 may result in an unaligned pointer value [\x1b[01;35m\x1b[K-Waddress-of-packed-member\x1b[m\x1b[K]\n'}
+[8.594409] (link_manager) StderrLine: {'line': b'  228 | >time_usec, obstacle_distance->sensor_type, \x1b[01;35m\x1b[Kobstacle_distance->distances\x1b[m\x1b[K, obstacle_distance->increment, obstacle_distance->min_distance, obstacle_distance->max_distance, obstacle_distance->increment_f, obstacle_distance->angle_offset, obstacle_distance->frame);\n'}
+[8.594746] (link_manager) StderrLine: {'line': b'      |                                             \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~~~~^~~~~~~~~\x1b[m\x1b[K\n'}
+[8.595048] (link_manager) StderrLine: {'line': b'\n'}
+[8.595362] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_obstacle_distance.h:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kuint16_t mavlink_msg_obstacle_distance_encode_chan(uint8_t, uint8_t, uint8_t, mavlink_message_t*, const mavlink_obstacle_distance_t*)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[8.595694] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_obstacle_distance.h:242:169:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Ktaking address of packed member of \xe2\x80\x98\x1b[01m\x1b[K__mavlink_obstacle_distance_t\x1b[m\x1b[K\xe2\x80\x99 may result in an unaligned pointer value [\x1b[01;35m\x1b[K-Waddress-of-packed-member\x1b[m\x1b[K]\n'}
+[8.596019] (link_manager) StderrLine: {'line': b'  242 | >time_usec, obstacle_distance->sensor_type, \x1b[01;35m\x1b[Kobstacle_distance->distances\x1b[m\x1b[K, obstacle_distance->increment, obstacle_distance->min_distance, obstacle_distance->max_distance, obstacle_distance->increment_f, obstacle_distance->angle_offset, obstacle_distance->frame);\n'}
+[8.596303] (link_manager) StderrLine: {'line': b'      |                                             \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~~~~^~~~~~~~~\x1b[m\x1b[K\n'}
+[8.596577] (link_manager) StderrLine: {'line': b'\n'}
+[8.596847] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_obstacle_distance.h:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kuint16_t mavlink_msg_obstacle_distance_encode_status(uint8_t, uint8_t, mavlink_status_t*, mavlink_message_t*, const mavlink_obstacle_distance_t*)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[8.597179] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_obstacle_distance.h:256:175:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Ktaking address of packed member of \xe2\x80\x98\x1b[01m\x1b[K__mavlink_obstacle_distance_t\x1b[m\x1b[K\xe2\x80\x99 may result in an unaligned pointer value [\x1b[01;35m\x1b[K-Waddress-of-packed-member\x1b[m\x1b[K]\n'}
+[8.597481] (link_manager) StderrLine: {'line': b'  256 | >time_usec, obstacle_distance->sensor_type, \x1b[01;35m\x1b[Kobstacle_distance->distances\x1b[m\x1b[K, obstacle_distance->increment, obstacle_distance->min_distance, obstacle_distance->max_distance, obstacle_distance->increment_f, obstacle_distance->angle_offset, obstacle_distance->frame);\n'}
+[8.597780] (link_manager) StderrLine: {'line': b'      |                                             \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~~~~^~~~~~~~~\x1b[m\x1b[K\n'}
+[8.598048] (link_manager) StderrLine: {'line': b'\n'}
+[8.607072] (-) TimerEvent: {}
+[8.708029] (-) TimerEvent: {}
+[8.810452] (-) TimerEvent: {}
+[8.912244] (-) TimerEvent: {}
+[9.013494] (-) TimerEvent: {}
+[9.114773] (-) TimerEvent: {}
+[9.215974] (-) TimerEvent: {}
+[9.317057] (-) TimerEvent: {}
+[9.418197] (-) TimerEvent: {}
+[9.519482] (-) TimerEvent: {}
+[9.620644] (-) TimerEvent: {}
+[9.721790] (-) TimerEvent: {}
+[9.823946] (-) TimerEvent: {}
+[9.925103] (-) TimerEvent: {}
+[10.026422] (-) TimerEvent: {}
+[10.127578] (-) TimerEvent: {}
+[10.228757] (-) TimerEvent: {}
+[10.329937] (-) TimerEvent: {}
+[10.431386] (-) TimerEvent: {}
+[10.533278] (-) TimerEvent: {}
+[10.638604] (-) TimerEvent: {}
+[10.740812] (-) TimerEvent: {}
+[10.842384] (-) TimerEvent: {}
+[10.944209] (-) TimerEvent: {}
+[11.045706] (-) TimerEvent: {}
+[11.147303] (-) TimerEvent: {}
+[11.248401] (-) TimerEvent: {}
+[11.349456] (-) TimerEvent: {}
+[11.450931] (-) TimerEvent: {}
+[11.552389] (-) TimerEvent: {}
+[11.654007] (-) TimerEvent: {}
+[11.755290] (-) TimerEvent: {}
+[11.856490] (-) TimerEvent: {}
+[11.957654] (-) TimerEvent: {}
+[12.059015] (-) TimerEvent: {}
+[12.160320] (-) TimerEvent: {}
+[12.261500] (-) TimerEvent: {}
+[12.363126] (-) TimerEvent: {}
+[12.464408] (-) TimerEvent: {}
+[12.565537] (-) TimerEvent: {}
+[12.666743] (-) TimerEvent: {}
+[12.768224] (-) TimerEvent: {}
+[12.869707] (-) TimerEvent: {}
+[12.971238] (-) TimerEvent: {}
+[13.072708] (-) TimerEvent: {}
+[13.174166] (-) TimerEvent: {}
+[13.275894] (-) TimerEvent: {}
+[13.377429] (-) TimerEvent: {}
+[13.479165] (-) TimerEvent: {}
+[13.580755] (-) TimerEvent: {}
+[13.682970] (-) TimerEvent: {}
+[13.785382] (-) TimerEvent: {}
+[13.887894] (-) TimerEvent: {}
+[13.989500] (-) TimerEvent: {}
+[14.090875] (-) TimerEvent: {}
+[14.192477] (-) TimerEvent: {}
+[14.293741] (-) TimerEvent: {}
+[14.395184] (-) TimerEvent: {}
+[14.496453] (-) TimerEvent: {}
+[14.598298] (-) TimerEvent: {}
+[14.700056] (-) TimerEvent: {}
+[14.802037] (-) TimerEvent: {}
+[14.903546] (-) TimerEvent: {}
+[15.004733] (-) TimerEvent: {}
+[15.106033] (-) TimerEvent: {}
+[15.207344] (-) TimerEvent: {}
+[15.308471] (-) TimerEvent: {}
+[15.409571] (-) TimerEvent: {}
+[15.510772] (-) TimerEvent: {}
+[15.611845] (-) TimerEvent: {}
+[15.712964] (-) TimerEvent: {}
+[15.814118] (-) TimerEvent: {}
+[15.915240] (-) TimerEvent: {}
+[16.016336] (-) TimerEvent: {}
+[16.117512] (-) TimerEvent: {}
+[16.218742] (-) TimerEvent: {}
+[16.319836] (-) TimerEvent: {}
+[16.420988] (-) TimerEvent: {}
+[16.522350] (-) TimerEvent: {}
+[16.623639] (-) TimerEvent: {}
+[16.725306] (-) TimerEvent: {}
+[16.826982] (-) TimerEvent: {}
+[16.928286] (-) TimerEvent: {}
+[17.029400] (-) TimerEvent: {}
+[17.130981] (-) TimerEvent: {}
+[17.232870] (-) TimerEvent: {}
+[17.334095] (-) TimerEvent: {}
+[17.436414] (-) TimerEvent: {}
+[17.537554] (-) TimerEvent: {}
+[17.638808] (-) TimerEvent: {}
+[17.739980] (-) TimerEvent: {}
+[17.841099] (-) TimerEvent: {}
+[17.942177] (-) TimerEvent: {}
+[18.043361] (-) TimerEvent: {}
+[18.145373] (-) TimerEvent: {}
+[18.247800] (-) TimerEvent: {}
+[18.350402] (-) TimerEvent: {}
+[18.452819] (-) TimerEvent: {}
+[18.555845] (-) TimerEvent: {}
+[18.657477] (-) TimerEvent: {}
+[18.758642] (-) TimerEvent: {}
+[18.860342] (-) TimerEvent: {}
+[18.962014] (-) TimerEvent: {}
+[19.064096] (-) TimerEvent: {}
+[19.165324] (-) TimerEvent: {}
+[19.266658] (-) TimerEvent: {}
+[19.368294] (-) TimerEvent: {}
+[19.469557] (-) TimerEvent: {}
+[19.570835] (-) TimerEvent: {}
+[19.672122] (-) TimerEvent: {}
+[19.773951] (-) TimerEvent: {}
+[19.876157] (-) TimerEvent: {}
+[19.977470] (-) TimerEvent: {}
+[20.078817] (-) TimerEvent: {}
+[20.180074] (-) TimerEvent: {}
+[20.281361] (-) TimerEvent: {}
+[20.383254] (-) TimerEvent: {}
+[20.484424] (-) TimerEvent: {}
+[20.585985] (-) TimerEvent: {}
+[20.687697] (-) TimerEvent: {}
+[20.789412] (-) TimerEvent: {}
+[20.891073] (-) TimerEvent: {}
+[20.992596] (-) TimerEvent: {}
+[21.094351] (-) TimerEvent: {}
+[21.195810] (-) TimerEvent: {}
+[21.297487] (-) TimerEvent: {}
+[21.399191] (-) TimerEvent: {}
+[21.500696] (-) TimerEvent: {}
+[21.602193] (-) TimerEvent: {}
+[21.667240] (link_manager) StdoutLine: {'line': b'[ 60%] \x1b[32m\x1b[1mLinking CXX executable link_manager\x1b[0m\n'}
+[21.702472] (-) TimerEvent: {}
+[21.803553] (-) TimerEvent: {}
+[21.904660] (-) TimerEvent: {}
+[22.006563] (-) TimerEvent: {}
+[22.107660] (-) TimerEvent: {}
+[22.208792] (-) TimerEvent: {}
+[22.309915] (-) TimerEvent: {}
+[22.411152] (-) TimerEvent: {}
+[22.512341] (-) TimerEvent: {}
+[22.613827] (-) TimerEvent: {}
+[22.704158] (link_manager) StdoutLine: {'line': b'[100%] Built target link_manager\n'}
+[22.714047] (-) TimerEvent: {}
+[22.756779] (link_manager) CommandEnded: {'returncode': 0}
+[22.761622] (link_manager) JobProgress: {'identifier': 'link_manager', 'progress': 'install'}
+[22.814974] (-) TimerEvent: {}
+[22.917447] (-) TimerEvent: {}
+[23.018876] (-) TimerEvent: {}
+[23.033626] (link_manager) Command: {'cmd': ['/home/sirius2beta/.local/bin/cmake', '--install', '/home/sirius2beta/cetus/build/link_manager'], 'cwd': '/home/sirius2beta/cetus/build/link_manager', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'sirius2beta'), ('SSH_CLIENT', '192.168.0.123 59217 22'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/sirius2beta/.vscode-server/cli/servers/Stable-bdd88df003631aaa0bcbe057cb0a940b80a476fa/server/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/sirius2beta/cetus/install/more_interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib:/usr/local/cuda-11.4/lib64:/usr/local/cuda-11.4/lib64'), ('BROWSER', '/home/sirius2beta/.vscode-server/cli/servers/Stable-bdd88df003631aaa0bcbe057cb0a940b80a476fa/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/sirius2beta'), ('OLDPWD', '/home/sirius2beta'), ('TERM_PROGRAM_VERSION', '1.109.0'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-a87f064a-83f4-41bb-bcf0-b43db54ceb17.sock'), ('JETSON_L4T', '35.6.0'), ('ROS_PYTHON_VERSION', '3'), ('JETSON_MODEL', 'NVIDIA Jetson Xavier NX Developer Kit'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/sirius2beta/.vscode-server/cli/servers/Stable-bdd88df003631aaa0bcbe057cb0a940b80a476fa/server/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/sirius2beta/.vscode-server/cli/servers/Stable-bdd88df003631aaa0bcbe057cb0a940b80a476fa/server/node'), ('SSL_CERT_FILE', '/usr/lib/ssl/certs/ca-certificates.crt'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/sirius2beta/cetus/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'sirius2beta'), ('JETSON_MODULE', 'NVIDIA Jetson Xavier NX (16GB ram)'), ('JETSON_SERIAL_NUMBER', '1421122058947'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('JETSON_CODENAME', 'Jakku'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '2'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/foxy/bin:/usr/local/cuda-11.4/bin:/home/sirius2beta/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/sirius2beta/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/sirius2beta/.vscode-server/cli/servers/Stable-bdd88df003631aaa0bcbe057cb0a940b80a476fa/server/bin/remote-cli:/home/sirius2beta/.local/bin:/usr/local/cuda-11.4/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('SSL_CERT_DIR', '/usr/lib/ssl/certs'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('JETSON_SOC', 'tegra194'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-68143b8282.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/sirius2beta/cetus/install/video_control:/home/sirius2beta/cetus/install/link_manager:/home/sirius2beta/cetus/install/more_interfaces:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('JETSON_CUDA_ARCH_BIN', '7.2'), ('PWD', '/home/sirius2beta/cetus/build/link_manager'), ('SSH_CONNECTION', '192.168.0.123 59217 192.168.0.215 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/sirius2beta/cetus/install/more_interfaces/lib/python3.8/site-packages:/home/sirius2beta/cetus/install/video_control/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('COLCON', '1'), ('JETSON_JETPACK', '5.1.4'), ('CMAKE_PREFIX_PATH', '/home/sirius2beta/cetus/install/more_interfaces:/home/sirius2beta/cetus/install/link_manager:/home/sirius2beta/cetus/install/video_control:/opt/ros/foxy'), ('JETSON_P_NUMBER', 'p3668-0003')]), 'shell': False}
+[23.119314] (-) TimerEvent: {}
+[23.220748] (-) TimerEvent: {}
+[23.277128] (link_manager) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[23.278588] (link_manager) StdoutLine: {'line': b'-- Installing: /home/sirius2beta/cetus/install/link_manager/lib/link_manager/link_manager\n'}
+[23.296652] (link_manager) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/sirius2beta/cetus/install/link_manager/lib/link_manager/link_manager" to ""\n'}
+[23.299309] (link_manager) StdoutLine: {'line': b'-- Up-to-date: /home/sirius2beta/cetus/install/link_manager/share/ament_index/resource_index/package_run_dependencies/link_manager\n'}
+[23.300054] (link_manager) StdoutLine: {'line': b'-- Up-to-date: /home/sirius2beta/cetus/install/link_manager/share/ament_index/resource_index/parent_prefix_path/link_manager\n'}
+[23.300450] (link_manager) StdoutLine: {'line': b'-- Up-to-date: /home/sirius2beta/cetus/install/link_manager/share/link_manager/environment/ament_prefix_path.sh\n'}
+[23.301357] (link_manager) StdoutLine: {'line': b'-- Up-to-date: /home/sirius2beta/cetus/install/link_manager/share/link_manager/environment/ament_prefix_path.dsv\n'}
+[23.301955] (link_manager) StdoutLine: {'line': b'-- Up-to-date: /home/sirius2beta/cetus/install/link_manager/share/link_manager/environment/path.sh\n'}
+[23.302423] (link_manager) StdoutLine: {'line': b'-- Up-to-date: /home/sirius2beta/cetus/install/link_manager/share/link_manager/environment/path.dsv\n'}
+[23.303011] (link_manager) StdoutLine: {'line': b'-- Up-to-date: /home/sirius2beta/cetus/install/link_manager/share/link_manager/local_setup.bash\n'}
+[23.303390] (link_manager) StdoutLine: {'line': b'-- Up-to-date: /home/sirius2beta/cetus/install/link_manager/share/link_manager/local_setup.sh\n'}
+[23.303904] (link_manager) StdoutLine: {'line': b'-- Up-to-date: /home/sirius2beta/cetus/install/link_manager/share/link_manager/local_setup.zsh\n'}
+[23.304277] (link_manager) StdoutLine: {'line': b'-- Up-to-date: /home/sirius2beta/cetus/install/link_manager/share/link_manager/local_setup.dsv\n'}
+[23.304590] (link_manager) StdoutLine: {'line': b'-- Installing: /home/sirius2beta/cetus/install/link_manager/share/link_manager/package.dsv\n'}
+[23.304929] (link_manager) StdoutLine: {'line': b'-- Up-to-date: /home/sirius2beta/cetus/install/link_manager/share/ament_index/resource_index/packages/link_manager\n'}
+[23.305891] (link_manager) StdoutLine: {'line': b'-- Up-to-date: /home/sirius2beta/cetus/install/link_manager/share/link_manager/cmake/link_managerConfig.cmake\n'}
+[23.306793] (link_manager) StdoutLine: {'line': b'-- Up-to-date: /home/sirius2beta/cetus/install/link_manager/share/link_manager/cmake/link_managerConfig-version.cmake\n'}
+[23.307223] (link_manager) StdoutLine: {'line': b'-- Up-to-date: /home/sirius2beta/cetus/install/link_manager/share/link_manager/package.xml\n'}
+[23.321054] (-) TimerEvent: {}
+[23.341393] (link_manager) CommandEnded: {'returncode': 0}
+[23.420649] (link_manager) JobEnded: {'identifier': 'link_manager', 'rc': 0}
+[23.433833] (-) TimerEvent: {}
+[23.434388] (-) EventReactorShutdown: {}

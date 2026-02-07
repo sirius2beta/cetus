@@ -1,0 +1,244 @@
+[ 20%] [34m[1mAutomatic MOC and UIC for target link_manager[0m
+[ 20%] Built target link_manager_autogen
+[ 40%] [32mBuilding CXX object CMakeFiles/link_manager.dir/src/RosInterface.cpp.o[0m
+In file included from [01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../protocol.h:4[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/hypex.h:29[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/mavlink.h:32[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.h:4[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.cpp:1[m[K:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../mavlink_types.h:92:5:[m[K [01;35m[Kwarning: [m[KISO C++ prohibits anonymous structs [[01;35m[K-Wpedantic[m[K]
+   92 |     [01;35m[K}[m[K;
+      |     [01;35m[K^[m[K
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../mavlink_types.h:17:40:[m[K [01;36m[Knote: [m[Kin definition of macro ‘[01m[KMAVPACKED[m[K’
+   17 |   #define MAVPACKED( __Declaration__ ) [01;36m[K__Declaration__[m[K __attribute__((packed))
+      |                                        [01;36m[K^~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/common.h:2646[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/ardupilotmega.h:1181[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/hypex.h:52[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/mavlink.h:32[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.h:4[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.cpp:1[m[K:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_set_attitude_target.h:[m[K In function ‘[01m[Kuint16_t mavlink_msg_set_attitude_target_encode(uint8_t, uint8_t, mavlink_message_t*, const mavlink_set_attitude_target_t*)[m[K’:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_set_attitude_target.h:241:242:[m[K [01;35m[Kwarning: [m[Ktaking address of packed member of ‘[01m[K__mavlink_set_attitude_target_t[m[K’ may result in an unaligned pointer value [[01;35m[K-Waddress-of-packed-member[m[K]
+  241 | omponent, set_attitude_target->type_mask, [01;35m[Kset_attitude_target->q[m[K, set_attitude_target->body_roll_rate, set_attitude_target->body_pitch_rate, set_attitude_target->body_yaw_rate, set_attitude_target->thrust, set_attitude_target->thrust_body);
+      |                                           [01;35m[K~~~~~~~~~~~~~~~~~~~~~^[m[K
+
+In file included from [01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/common.h:2646[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/ardupilotmega.h:1181[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/hypex.h:52[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/mavlink.h:32[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.h:4[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.cpp:1[m[K:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_set_attitude_target.h:241:406:[m[K [01;35m[Kwarning: [m[Ktaking address of packed member of ‘[01m[K__mavlink_set_attitude_target_t[m[K’ may result in an unaligned pointer value [[01;35m[K-Waddress-of-packed-member[m[K]
+  241 | ->body_yaw_rate, set_attitude_target->thrust, [01;35m[Kset_attitude_target->thrust_body[m[K);
+      |                                               [01;35m[K~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~[m[K
+
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_set_attitude_target.h:[m[K In function ‘[01m[Kuint16_t mavlink_msg_set_attitude_target_encode_chan(uint8_t, uint8_t, uint8_t, mavlink_message_t*, const mavlink_set_attitude_target_t*)[m[K’:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_set_attitude_target.h:255:253:[m[K [01;35m[Kwarning: [m[Ktaking address of packed member of ‘[01m[K__mavlink_set_attitude_target_t[m[K’ may result in an unaligned pointer value [[01;35m[K-Waddress-of-packed-member[m[K]
+  255 | omponent, set_attitude_target->type_mask, [01;35m[Kset_attitude_target->q[m[K, set_attitude_target->body_roll_rate, set_attitude_target->body_pitch_rate, set_attitude_target->body_yaw_rate, set_attitude_target->thrust, set_attitude_target->thrust_body);
+      |                                           [01;35m[K~~~~~~~~~~~~~~~~~~~~~^[m[K
+
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_set_attitude_target.h:255:417:[m[K [01;35m[Kwarning: [m[Ktaking address of packed member of ‘[01m[K__mavlink_set_attitude_target_t[m[K’ may result in an unaligned pointer value [[01;35m[K-Waddress-of-packed-member[m[K]
+  255 | ->body_yaw_rate, set_attitude_target->thrust, [01;35m[Kset_attitude_target->thrust_body[m[K);
+      |                                               [01;35m[K~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~[m[K
+
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_set_attitude_target.h:[m[K In function ‘[01m[Kuint16_t mavlink_msg_set_attitude_target_encode_status(uint8_t, uint8_t, mavlink_status_t*, mavlink_message_t*, const mavlink_set_attitude_target_t*)[m[K’:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_set_attitude_target.h:269:259:[m[K [01;35m[Kwarning: [m[Ktaking address of packed member of ‘[01m[K__mavlink_set_attitude_target_t[m[K’ may result in an unaligned pointer value [[01;35m[K-Waddress-of-packed-member[m[K]
+  269 | omponent, set_attitude_target->type_mask, [01;35m[Kset_attitude_target->q[m[K, set_attitude_target->body_roll_rate, set_attitude_target->body_pitch_rate, set_attitude_target->body_yaw_rate, set_attitude_target->thrust, set_attitude_target->thrust_body);
+      |                                           [01;35m[K~~~~~~~~~~~~~~~~~~~~~^[m[K
+
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_set_attitude_target.h:269:423:[m[K [01;35m[Kwarning: [m[Ktaking address of packed member of ‘[01m[K__mavlink_set_attitude_target_t[m[K’ may result in an unaligned pointer value [[01;35m[K-Waddress-of-packed-member[m[K]
+  269 | ->body_yaw_rate, set_attitude_target->thrust, [01;35m[Kset_attitude_target->thrust_body[m[K);
+      |                                               [01;35m[K~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~[m[K
+
+In file included from [01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/common.h:2689[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/ardupilotmega.h:1181[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/hypex.h:52[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/mavlink.h:32[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.h:4[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.cpp:1[m[K:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_distance_sensor.h:[m[K In function ‘[01m[Kuint16_t mavlink_msg_distance_sensor_encode(uint8_t, uint8_t, mavlink_message_t*, const mavlink_distance_sensor_t*)[m[K’:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_distance_sensor.h:264:387:[m[K [01;35m[Kwarning: [m[Ktaking address of packed member of ‘[01m[K__mavlink_distance_sensor_t[m[K’ may result in an unaligned pointer value [[01;35m[K-Waddress-of-packed-member[m[K]
+  264 | orizontal_fov, distance_sensor->vertical_fov, [01;35m[Kdistance_sensor->quaternion[m[K, distance_sensor->signal_quality);
+      |                                               [01;35m[K~~~~~~~~~~~~~~~~~^~~~~~~~~~[m[K
+
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_distance_sensor.h:[m[K In function ‘[01m[Kuint16_t mavlink_msg_distance_sensor_encode_chan(uint8_t, uint8_t, uint8_t, mavlink_message_t*, const mavlink_distance_sensor_t*)[m[K’:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_distance_sensor.h:278:398:[m[K [01;35m[Kwarning: [m[Ktaking address of packed member of ‘[01m[K__mavlink_distance_sensor_t[m[K’ may result in an unaligned pointer value [[01;35m[K-Waddress-of-packed-member[m[K]
+  278 | orizontal_fov, distance_sensor->vertical_fov, [01;35m[Kdistance_sensor->quaternion[m[K, distance_sensor->signal_quality);
+      |                                               [01;35m[K~~~~~~~~~~~~~~~~~^~~~~~~~~~[m[K
+
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_distance_sensor.h:[m[K In function ‘[01m[Kuint16_t mavlink_msg_distance_sensor_encode_status(uint8_t, uint8_t, mavlink_status_t*, mavlink_message_t*, const mavlink_distance_sensor_t*)[m[K’:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_distance_sensor.h:292:404:[m[K [01;35m[Kwarning: [m[Ktaking address of packed member of ‘[01m[K__mavlink_distance_sensor_t[m[K’ may result in an unaligned pointer value [[01;35m[K-Waddress-of-packed-member[m[K]
+  292 | orizontal_fov, distance_sensor->vertical_fov, [01;35m[Kdistance_sensor->quaternion[m[K, distance_sensor->signal_quality);
+      |                                               [01;35m[K~~~~~~~~~~~~~~~~~^~~~~~~~~~[m[K
+
+In file included from [01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/common.h:2703[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/ardupilotmega.h:1181[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/hypex.h:52[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/mavlink.h:32[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.h:4[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.cpp:1[m[K:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_battery_status.h:[m[K In function ‘[01m[Kuint16_t mavlink_msg_battery_status_encode(uint8_t, uint8_t, mavlink_message_t*, const mavlink_battery_status_t*)[m[K’:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_battery_status.h:289:195:[m[K [01;35m[Kwarning: [m[Ktaking address of packed member of ‘[01m[K__mavlink_battery_status_t[m[K’ may result in an unaligned pointer value [[01;35m[K-Waddress-of-packed-member[m[K]
+  289 | ery_status->type, battery_status->temperature, [01;35m[Kbattery_status->voltages[m[K, battery_status->current_battery, battery_status->current_consumed, battery_status->energy_consumed, battery_status->battery_remaining, battery_status->time_remaining, battery_status->charge_state, battery_status->voltages_ext, battery_status->mode, battery_status->fault_bitmask);
+      |                                                [01;35m[K~~~~~~~~~~~~~~~~^~~~~~~~[m[K
+
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_battery_status.h:289:418:[m[K [01;35m[Kwarning: [m[Ktaking address of packed member of ‘[01m[K__mavlink_battery_status_t[m[K’ may result in an unaligned pointer value [[01;35m[K-Waddress-of-packed-member[m[K]
+  289 | >time_remaining, battery_status->charge_state, [01;35m[Kbattery_status->voltages_ext[m[K, battery_status->mode, battery_status->fault_bitmask);
+      |                                                [01;35m[K~~~~~~~~~~~~~~~~^~~~~~~~~~~~[m[K
+
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_battery_status.h:[m[K In function ‘[01m[Kuint16_t mavlink_msg_battery_status_encode_chan(uint8_t, uint8_t, uint8_t, mavlink_message_t*, const mavlink_battery_status_t*)[m[K’:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_battery_status.h:303:206:[m[K [01;35m[Kwarning: [m[Ktaking address of packed member of ‘[01m[K__mavlink_battery_status_t[m[K’ may result in an unaligned pointer value [[01;35m[K-Waddress-of-packed-member[m[K]
+  303 | ery_status->type, battery_status->temperature, [01;35m[Kbattery_status->voltages[m[K, battery_status->current_battery, battery_status->current_consumed, battery_status->energy_consumed, battery_status->battery_remaining, battery_status->time_remaining, battery_status->charge_state, battery_status->voltages_ext, battery_status->mode, battery_status->fault_bitmask);
+      |                                                [01;35m[K~~~~~~~~~~~~~~~~^~~~~~~~[m[K
+
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_battery_status.h:303:429:[m[K [01;35m[Kwarning: [m[Ktaking address of packed member of ‘[01m[K__mavlink_battery_status_t[m[K’ may result in an unaligned pointer value [[01;35m[K-Waddress-of-packed-member[m[K]
+  303 | >time_remaining, battery_status->charge_state, [01;35m[Kbattery_status->voltages_ext[m[K, battery_status->mode, battery_status->fault_bitmask);
+      |                                                [01;35m[K~~~~~~~~~~~~~~~~^~~~~~~~~~~~[m[K
+
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_battery_status.h:[m[K In function ‘[01m[Kuint16_t mavlink_msg_battery_status_encode_status(uint8_t, uint8_t, mavlink_status_t*, mavlink_message_t*, const mavlink_battery_status_t*)[m[K’:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_battery_status.h:317:212:[m[K [01;35m[Kwarning: [m[Ktaking address of packed member of ‘[01m[K__mavlink_battery_status_t[m[K’ may result in an unaligned pointer value [[01;35m[K-Waddress-of-packed-member[m[K]
+  317 | ery_status->type, battery_status->temperature, [01;35m[Kbattery_status->voltages[m[K, battery_status->current_battery, battery_status->current_consumed, battery_status->energy_consumed, battery_status->battery_remaining, battery_status->time_remaining, battery_status->charge_state, battery_status->voltages_ext, battery_status->mode, battery_status->fault_bitmask);
+      |                                                [01;35m[K~~~~~~~~~~~~~~~~^~~~~~~~[m[K
+
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_battery_status.h:317:435:[m[K [01;35m[Kwarning: [m[Ktaking address of packed member of ‘[01m[K__mavlink_battery_status_t[m[K’ may result in an unaligned pointer value [[01;35m[K-Waddress-of-packed-member[m[K]
+  317 | >time_remaining, battery_status->charge_state, [01;35m[Kbattery_status->voltages_ext[m[K, battery_status->mode, battery_status->fault_bitmask);
+      |                                                [01;35m[K~~~~~~~~~~~~~~~~^~~~~~~~~~~~[m[K
+
+In file included from [01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/common.h:2704[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/ardupilotmega.h:1181[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/hypex.h:52[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/mavlink.h:32[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.h:4[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.cpp:1[m[K:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_landing_target.h:[m[K In function ‘[01m[Kuint16_t mavlink_msg_landing_target_encode(uint8_t, uint8_t, mavlink_message_t*, const mavlink_landing_target_t*)[m[K’:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_landing_target.h:288:349:[m[K [01;35m[Kwarning: [m[Ktaking address of packed member of ‘[01m[K__mavlink_landing_target_t[m[K’ may result in an unaligned pointer value [[01;35m[K-Waddress-of-packed-member[m[K]
+  288 | rget->x, landing_target->y, landing_target->z, [01;35m[Klanding_target->q[m[K, landing_target->type, landing_target->position_valid);
+      |                                                [01;35m[K~~~~~~~~~~~~~~~~^[m[K
+
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_landing_target.h:[m[K In function ‘[01m[Kuint16_t mavlink_msg_landing_target_encode_chan(uint8_t, uint8_t, uint8_t, mavlink_message_t*, const mavlink_landing_target_t*)[m[K’:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_landing_target.h:302:360:[m[K [01;35m[Kwarning: [m[Ktaking address of packed member of ‘[01m[K__mavlink_landing_target_t[m[K’ may result in an unaligned pointer value [[01;35m[K-Waddress-of-packed-member[m[K]
+  302 | rget->x, landing_target->y, landing_target->z, [01;35m[Klanding_target->q[m[K, landing_target->type, landing_target->position_valid);
+      |                                                [01;35m[K~~~~~~~~~~~~~~~~^[m[K
+
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_landing_target.h:[m[K In function ‘[01m[Kuint16_t mavlink_msg_landing_target_encode_status(uint8_t, uint8_t, mavlink_status_t*, mavlink_message_t*, const mavlink_landing_target_t*)[m[K’:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_landing_target.h:316:366:[m[K [01;35m[Kwarning: [m[Ktaking address of packed member of ‘[01m[K__mavlink_landing_target_t[m[K’ may result in an unaligned pointer value [[01;35m[K-Waddress-of-packed-member[m[K]
+  316 | rget->x, landing_target->y, landing_target->z, [01;35m[Klanding_target->q[m[K, landing_target->type, landing_target->position_valid);
+      |                                                [01;35m[K~~~~~~~~~~~~~~~~^[m[K
+
+In file included from [01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/common.h:2715[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/ardupilotmega.h:1181[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/hypex.h:52[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/mavlink.h:32[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.h:4[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.cpp:1[m[K:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_home_position.h:[m[K In function ‘[01m[Kuint16_t mavlink_msg_home_position_encode(uint8_t, uint8_t, mavlink_message_t*, const mavlink_home_position_t*)[m[K’:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_home_position.h:268:218:[m[K [01;35m[Kwarning: [m[Ktaking address of packed member of ‘[01m[K__mavlink_home_position_t[m[K’ may result in an unaligned pointer value [[01;35m[K-Waddress-of-packed-member[m[K]
+  268 | osition->x, home_position->y, home_position->z, [01;35m[Khome_position->q[m[K, home_position->approach_x, home_position->approach_y, home_position->approach_z, home_position->time_usec);
+      |                                                 [01;35m[K~~~~~~~~~~~~~~~^[m[K
+
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_home_position.h:[m[K In function ‘[01m[Kuint16_t mavlink_msg_home_position_encode_chan(uint8_t, uint8_t, uint8_t, mavlink_message_t*, const mavlink_home_position_t*)[m[K’:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_home_position.h:282:229:[m[K [01;35m[Kwarning: [m[Ktaking address of packed member of ‘[01m[K__mavlink_home_position_t[m[K’ may result in an unaligned pointer value [[01;35m[K-Waddress-of-packed-member[m[K]
+  282 | osition->x, home_position->y, home_position->z, [01;35m[Khome_position->q[m[K, home_position->approach_x, home_position->approach_y, home_position->approach_z, home_position->time_usec);
+      |                                                 [01;35m[K~~~~~~~~~~~~~~~^[m[K
+
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_home_position.h:[m[K In function ‘[01m[Kuint16_t mavlink_msg_home_position_encode_status(uint8_t, uint8_t, mavlink_status_t*, mavlink_message_t*, const mavlink_home_position_t*)[m[K’:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_home_position.h:296:235:[m[K [01;35m[Kwarning: [m[Ktaking address of packed member of ‘[01m[K__mavlink_home_position_t[m[K’ may result in an unaligned pointer value [[01;35m[K-Waddress-of-packed-member[m[K]
+  296 | osition->x, home_position->y, home_position->z, [01;35m[Khome_position->q[m[K, home_position->approach_x, home_position->approach_y, home_position->approach_z, home_position->time_usec);
+      |                                                 [01;35m[K~~~~~~~~~~~~~~~^[m[K
+
+In file included from [01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/common.h:2716[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/ardupilotmega.h:1181[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/hypex.h:52[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/mavlink.h:32[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.h:4[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.cpp:1[m[K:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_set_home_position.h:[m[K In function ‘[01m[Kuint16_t mavlink_msg_set_home_position_encode(uint8_t, uint8_t, mavlink_message_t*, const mavlink_set_home_position_t*)[m[K’:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_set_home_position.h:264:284:[m[K [01;35m[Kwarning: [m[Ktaking address of packed member of ‘[01m[K__mavlink_set_home_position_t[m[K’ may result in an unaligned pointer value [[01;35m[K-Waddress-of-packed-member[m[K]
+  264 | set_home_position->y, set_home_position->z, [01;35m[Kset_home_position->q[m[K, set_home_position->approach_x, set_home_position->approach_y, set_home_position->approach_z, set_home_position->time_usec);
+      |                                             [01;35m[K~~~~~~~~~~~~~~~~~~~^[m[K
+
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_set_home_position.h:[m[K In function ‘[01m[Kuint16_t mavlink_msg_set_home_position_encode_chan(uint8_t, uint8_t, uint8_t, mavlink_message_t*, const mavlink_set_home_position_t*)[m[K’:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_set_home_position.h:278:295:[m[K [01;35m[Kwarning: [m[Ktaking address of packed member of ‘[01m[K__mavlink_set_home_position_t[m[K’ may result in an unaligned pointer value [[01;35m[K-Waddress-of-packed-member[m[K]
+  278 | set_home_position->y, set_home_position->z, [01;35m[Kset_home_position->q[m[K, set_home_position->approach_x, set_home_position->approach_y, set_home_position->approach_z, set_home_position->time_usec);
+      |                                             [01;35m[K~~~~~~~~~~~~~~~~~~~^[m[K
+
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_set_home_position.h:[m[K In function ‘[01m[Kuint16_t mavlink_msg_set_home_position_encode_status(uint8_t, uint8_t, mavlink_status_t*, mavlink_message_t*, const mavlink_set_home_position_t*)[m[K’:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_set_home_position.h:292:301:[m[K [01;35m[Kwarning: [m[Ktaking address of packed member of ‘[01m[K__mavlink_set_home_position_t[m[K’ may result in an unaligned pointer value [[01;35m[K-Waddress-of-packed-member[m[K]
+  292 | set_home_position->y, set_home_position->z, [01;35m[Kset_home_position->q[m[K, set_home_position->approach_x, set_home_position->approach_y, set_home_position->approach_z, set_home_position->time_usec);
+      |                                             [01;35m[K~~~~~~~~~~~~~~~~~~~^[m[K
+
+In file included from [01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/common.h:2753[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/ardupilotmega.h:1181[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/hypex.h:52[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/mavlink.h:32[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.h:4[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.cpp:1[m[K:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_autopilot_state_for_gimbal_device.h:[m[K In function ‘[01m[Kuint16_t mavlink_msg_autopilot_state_for_gimbal_device_encode(uint8_t, uint8_t, mavlink_message_t*, const mavlink_autopilot_state_for_gimbal_device_t*)[m[K’:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_autopilot_state_for_gimbal_device.h:276:280:[m[K [01;35m[Kwarning: [m[Ktaking address of packed member of ‘[01m[K__mavlink_autopilot_state_for_gimbal_device_t[m[K’ may result in an unaligned pointer value [[01;35m[K-Waddress-of-packed-member[m[K]
+  276 | imbal_device->time_boot_us, [01;35m[Kautopilot_state_for_gimbal_device->q[m[K, autopilot_state_for_gimbal_device->q_estimated_delay_us, autopilot_state_for_gimbal_device->vx, autopilot_state_for_gimbal_device->vy, autopilot_state_for_gimbal_device->vz, autopilot_state_for_gimbal_device->v_estimated_delay_us, autopilot_state_for_gimbal_device->feed_forward_angular_velocity_z, autopilot_state_for_gimbal_device->estimator_status, autopilot_state_for_gimbal_device->landed_state, autopilot_state_for_gimbal_device->angular_velocity_z);
+      |                             [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^[m[K
+
+In file included from [01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/common.h:2753[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/ardupilotmega.h:1181[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/hypex.h:52[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/mavlink.h:32[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.h:4[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.cpp:1[m[K:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_autopilot_state_for_gimbal_device.h:[m[K In function ‘[01m[Kuint16_t mavlink_msg_autopilot_state_for_gimbal_device_encode_chan(uint8_t, uint8_t, uint8_t, mavlink_message_t*, const mavlink_autopilot_state_for_gimbal_device_t*)[m[K’:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_autopilot_state_for_gimbal_device.h:290:291:[m[K [01;35m[Kwarning: [m[Ktaking address of packed member of ‘[01m[K__mavlink_autopilot_state_for_gimbal_device_t[m[K’ may result in an unaligned pointer value [[01;35m[K-Waddress-of-packed-member[m[K]
+  290 | imbal_device->time_boot_us, [01;35m[Kautopilot_state_for_gimbal_device->q[m[K, autopilot_state_for_gimbal_device->q_estimated_delay_us, autopilot_state_for_gimbal_device->vx, autopilot_state_for_gimbal_device->vy, autopilot_state_for_gimbal_device->vz, autopilot_state_for_gimbal_device->v_estimated_delay_us, autopilot_state_for_gimbal_device->feed_forward_angular_velocity_z, autopilot_state_for_gimbal_device->estimator_status, autopilot_state_for_gimbal_device->landed_state, autopilot_state_for_gimbal_device->angular_velocity_z);
+      |                             [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^[m[K
+
+In file included from [01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/common.h:2753[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/ardupilotmega.h:1181[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/hypex.h:52[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/mavlink.h:32[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.h:4[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.cpp:1[m[K:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_autopilot_state_for_gimbal_device.h:[m[K In function ‘[01m[Kuint16_t mavlink_msg_autopilot_state_for_gimbal_device_encode_status(uint8_t, uint8_t, mavlink_status_t*, mavlink_message_t*, const mavlink_autopilot_state_for_gimbal_device_t*)[m[K’:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_autopilot_state_for_gimbal_device.h:304:297:[m[K [01;35m[Kwarning: [m[Ktaking address of packed member of ‘[01m[K__mavlink_autopilot_state_for_gimbal_device_t[m[K’ may result in an unaligned pointer value [[01;35m[K-Waddress-of-packed-member[m[K]
+  304 | imbal_device->time_boot_us, [01;35m[Kautopilot_state_for_gimbal_device->q[m[K, autopilot_state_for_gimbal_device->q_estimated_delay_us, autopilot_state_for_gimbal_device->vx, autopilot_state_for_gimbal_device->vy, autopilot_state_for_gimbal_device->vz, autopilot_state_for_gimbal_device->v_estimated_delay_us, autopilot_state_for_gimbal_device->feed_forward_angular_velocity_z, autopilot_state_for_gimbal_device->estimator_status, autopilot_state_for_gimbal_device->landed_state, autopilot_state_for_gimbal_device->angular_velocity_z);
+      |                             [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^[m[K
+
+In file included from [01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/common.h:2769[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/ardupilotmega.h:1181[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/hypex.h:52[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/mavlink.h:32[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.h:4[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.cpp:1[m[K:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_obstacle_distance.h:[m[K In function ‘[01m[Kuint16_t mavlink_msg_obstacle_distance_encode(uint8_t, uint8_t, mavlink_message_t*, const mavlink_obstacle_distance_t*)[m[K’:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_obstacle_distance.h:228:158:[m[K [01;35m[Kwarning: [m[Ktaking address of packed member of ‘[01m[K__mavlink_obstacle_distance_t[m[K’ may result in an unaligned pointer value [[01;35m[K-Waddress-of-packed-member[m[K]
+  228 | >time_usec, obstacle_distance->sensor_type, [01;35m[Kobstacle_distance->distances[m[K, obstacle_distance->increment, obstacle_distance->min_distance, obstacle_distance->max_distance, obstacle_distance->increment_f, obstacle_distance->angle_offset, obstacle_distance->frame);
+      |                                             [01;35m[K~~~~~~~~~~~~~~~~~~~^~~~~~~~~[m[K
+
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_obstacle_distance.h:[m[K In function ‘[01m[Kuint16_t mavlink_msg_obstacle_distance_encode_chan(uint8_t, uint8_t, uint8_t, mavlink_message_t*, const mavlink_obstacle_distance_t*)[m[K’:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_obstacle_distance.h:242:169:[m[K [01;35m[Kwarning: [m[Ktaking address of packed member of ‘[01m[K__mavlink_obstacle_distance_t[m[K’ may result in an unaligned pointer value [[01;35m[K-Waddress-of-packed-member[m[K]
+  242 | >time_usec, obstacle_distance->sensor_type, [01;35m[Kobstacle_distance->distances[m[K, obstacle_distance->increment, obstacle_distance->min_distance, obstacle_distance->max_distance, obstacle_distance->increment_f, obstacle_distance->angle_offset, obstacle_distance->frame);
+      |                                             [01;35m[K~~~~~~~~~~~~~~~~~~~^~~~~~~~~[m[K
+
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_obstacle_distance.h:[m[K In function ‘[01m[Kuint16_t mavlink_msg_obstacle_distance_encode_status(uint8_t, uint8_t, mavlink_status_t*, mavlink_message_t*, const mavlink_obstacle_distance_t*)[m[K’:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/../ardupilotmega/../common/./mavlink_msg_obstacle_distance.h:256:175:[m[K [01;35m[Kwarning: [m[Ktaking address of packed member of ‘[01m[K__mavlink_obstacle_distance_t[m[K’ may result in an unaligned pointer value [[01;35m[K-Waddress-of-packed-member[m[K]
+  256 | >time_usec, obstacle_distance->sensor_type, [01;35m[Kobstacle_distance->distances[m[K, obstacle_distance->increment, obstacle_distance->min_distance, obstacle_distance->max_distance, obstacle_distance->increment_f, obstacle_distance->angle_offset, obstacle_distance->frame);
+      |                                             [01;35m[K~~~~~~~~~~~~~~~~~~~^~~~~~~~~[m[K
+
+[ 60%] [32m[1mLinking CXX executable link_manager[0m
+[100%] Built target link_manager
+-- Install configuration: ""
+-- Installing: /home/sirius2beta/cetus/install/link_manager/lib/link_manager/link_manager
+-- Set non-toolchain portion of runtime path of "/home/sirius2beta/cetus/install/link_manager/lib/link_manager/link_manager" to ""
+-- Up-to-date: /home/sirius2beta/cetus/install/link_manager/share/ament_index/resource_index/package_run_dependencies/link_manager
+-- Up-to-date: /home/sirius2beta/cetus/install/link_manager/share/ament_index/resource_index/parent_prefix_path/link_manager
+-- Up-to-date: /home/sirius2beta/cetus/install/link_manager/share/link_manager/environment/ament_prefix_path.sh
+-- Up-to-date: /home/sirius2beta/cetus/install/link_manager/share/link_manager/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/sirius2beta/cetus/install/link_manager/share/link_manager/environment/path.sh
+-- Up-to-date: /home/sirius2beta/cetus/install/link_manager/share/link_manager/environment/path.dsv
+-- Up-to-date: /home/sirius2beta/cetus/install/link_manager/share/link_manager/local_setup.bash
+-- Up-to-date: /home/sirius2beta/cetus/install/link_manager/share/link_manager/local_setup.sh
+-- Up-to-date: /home/sirius2beta/cetus/install/link_manager/share/link_manager/local_setup.zsh
+-- Up-to-date: /home/sirius2beta/cetus/install/link_manager/share/link_manager/local_setup.dsv
+-- Installing: /home/sirius2beta/cetus/install/link_manager/share/link_manager/package.dsv
+-- Up-to-date: /home/sirius2beta/cetus/install/link_manager/share/ament_index/resource_index/packages/link_manager
+-- Up-to-date: /home/sirius2beta/cetus/install/link_manager/share/link_manager/cmake/link_managerConfig.cmake
+-- Up-to-date: /home/sirius2beta/cetus/install/link_manager/share/link_manager/cmake/link_managerConfig-version.cmake
+-- Up-to-date: /home/sirius2beta/cetus/install/link_manager/share/link_manager/package.xml

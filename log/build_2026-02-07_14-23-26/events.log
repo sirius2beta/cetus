@@ -1,0 +1,223 @@
+[0.000000] (-) TimerEvent: {}
+[0.001215] (-) JobUnselected: {'identifier': 'more_interfaces'}
+[0.002191] (-) JobUnselected: {'identifier': 'video_control'}
+[0.002806] (link_manager) JobQueued: {'identifier': 'link_manager', 'dependencies': OrderedDict([('more_interfaces', '/home/sirius2beta/cetus/install/more_interfaces')])}
+[0.003506] (link_manager) JobStarted: {'identifier': 'link_manager'}
+[0.047854] (link_manager) JobProgress: {'identifier': 'link_manager', 'progress': 'cmake'}
+[0.051664] (link_manager) JobProgress: {'identifier': 'link_manager', 'progress': 'build'}
+[0.055847] (link_manager) Command: {'cmd': ['/home/sirius2beta/.local/bin/cmake', '--build', '/home/sirius2beta/cetus/build/link_manager', '--', '-j4', '-l4'], 'cwd': '/home/sirius2beta/cetus/build/link_manager', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'sirius2beta'), ('SSH_CLIENT', '192.168.0.123 59217 22'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/sirius2beta/.vscode-server/cli/servers/Stable-bdd88df003631aaa0bcbe057cb0a940b80a476fa/server/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/sirius2beta/cetus/install/more_interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib:/usr/local/cuda-11.4/lib64:/usr/local/cuda-11.4/lib64'), ('BROWSER', '/home/sirius2beta/.vscode-server/cli/servers/Stable-bdd88df003631aaa0bcbe057cb0a940b80a476fa/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/sirius2beta'), ('OLDPWD', '/home/sirius2beta/cetus/src'), ('TERM_PROGRAM_VERSION', '1.109.0'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-a87f064a-83f4-41bb-bcf0-b43db54ceb17.sock'), ('JETSON_L4T', '35.6.0'), ('ROS_PYTHON_VERSION', '3'), ('JETSON_MODEL', 'NVIDIA Jetson Xavier NX Developer Kit'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/sirius2beta/.vscode-server/cli/servers/Stable-bdd88df003631aaa0bcbe057cb0a940b80a476fa/server/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/sirius2beta/.vscode-server/cli/servers/Stable-bdd88df003631aaa0bcbe057cb0a940b80a476fa/server/node'), ('SSL_CERT_FILE', '/usr/lib/ssl/certs/ca-certificates.crt'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'sirius2beta'), ('JETSON_MODULE', 'NVIDIA Jetson Xavier NX (16GB ram)'), ('JETSON_SERIAL_NUMBER', '1421122058947'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('JETSON_CODENAME', 'Jakku'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '2'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/foxy/bin:/usr/local/cuda-11.4/bin:/home/sirius2beta/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/sirius2beta/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/sirius2beta/.vscode-server/cli/servers/Stable-bdd88df003631aaa0bcbe057cb0a940b80a476fa/server/bin/remote-cli:/home/sirius2beta/.local/bin:/usr/local/cuda-11.4/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('SSL_CERT_DIR', '/usr/lib/ssl/certs'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('JETSON_SOC', 'tegra194'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-68143b8282.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/sirius2beta/cetus/install/more_interfaces:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('JETSON_CUDA_ARCH_BIN', '7.2'), ('PWD', '/home/sirius2beta/cetus/build/link_manager'), ('SSH_CONNECTION', '192.168.0.123 59217 192.168.0.215 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/sirius2beta/cetus/install/more_interfaces/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('COLCON', '1'), ('JETSON_JETPACK', '5.1.4'), ('JETSON_P_NUMBER', 'p3668-0003'), ('CMAKE_PREFIX_PATH', '/home/sirius2beta/cetus/install/more_interfaces:/opt/ros/foxy')]), 'shell': False}
+[0.098749] (-) TimerEvent: {}
+[0.200634] (-) TimerEvent: {}
+[0.302518] (-) TimerEvent: {}
+[0.403622] (-) TimerEvent: {}
+[0.432005] (link_manager) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/link_manager.dir/src/link_manager.cpp.o\x1b[0m\n'}
+[0.503830] (-) TimerEvent: {}
+[0.604804] (-) TimerEvent: {}
+[0.705797] (-) TimerEvent: {}
+[0.806759] (-) TimerEvent: {}
+[0.907960] (-) TimerEvent: {}
+[1.008834] (-) TimerEvent: {}
+[1.109854] (-) TimerEvent: {}
+[1.211214] (-) TimerEvent: {}
+[1.312339] (-) TimerEvent: {}
+[1.413998] (-) TimerEvent: {}
+[1.515723] (-) TimerEvent: {}
+[1.617468] (-) TimerEvent: {}
+[1.719194] (-) TimerEvent: {}
+[1.820920] (-) TimerEvent: {}
+[1.922721] (-) TimerEvent: {}
+[2.024556] (-) TimerEvent: {}
+[2.126292] (-) TimerEvent: {}
+[2.228008] (-) TimerEvent: {}
+[2.329678] (-) TimerEvent: {}
+[2.431469] (-) TimerEvent: {}
+[2.533179] (-) TimerEvent: {}
+[2.634656] (-) TimerEvent: {}
+[2.736105] (-) TimerEvent: {}
+[2.837531] (-) TimerEvent: {}
+[2.938957] (-) TimerEvent: {}
+[3.040371] (-) TimerEvent: {}
+[3.141824] (-) TimerEvent: {}
+[3.243380] (-) TimerEvent: {}
+[3.344749] (-) TimerEvent: {}
+[3.446187] (-) TimerEvent: {}
+[3.547670] (-) TimerEvent: {}
+[3.649812] (-) TimerEvent: {}
+[3.750867] (-) TimerEvent: {}
+[3.851914] (-) TimerEvent: {}
+[3.952831] (-) TimerEvent: {}
+[4.053764] (-) TimerEvent: {}
+[4.154764] (-) TimerEvent: {}
+[4.255816] (-) TimerEvent: {}
+[4.356764] (-) TimerEvent: {}
+[4.458216] (-) TimerEvent: {}
+[4.559280] (-) TimerEvent: {}
+[4.660278] (-) TimerEvent: {}
+[4.761295] (-) TimerEvent: {}
+[4.862327] (-) TimerEvent: {}
+[4.963394] (-) TimerEvent: {}
+[5.064396] (-) TimerEvent: {}
+[5.165367] (-) TimerEvent: {}
+[5.266336] (-) TimerEvent: {}
+[5.367348] (-) TimerEvent: {}
+[5.468351] (-) TimerEvent: {}
+[5.569328] (-) TimerEvent: {}
+[5.670354] (-) TimerEvent: {}
+[5.771286] (-) TimerEvent: {}
+[5.872313] (-) TimerEvent: {}
+[5.973263] (-) TimerEvent: {}
+[6.074251] (-) TimerEvent: {}
+[6.175155] (-) TimerEvent: {}
+[6.276152] (-) TimerEvent: {}
+[6.377175] (-) TimerEvent: {}
+[6.478135] (-) TimerEvent: {}
+[6.579227] (-) TimerEvent: {}
+[6.680204] (-) TimerEvent: {}
+[6.781220] (-) TimerEvent: {}
+[6.882211] (-) TimerEvent: {}
+[6.983294] (-) TimerEvent: {}
+[7.084271] (-) TimerEvent: {}
+[7.185280] (-) TimerEvent: {}
+[7.286309] (-) TimerEvent: {}
+[7.387421] (-) TimerEvent: {}
+[7.488459] (-) TimerEvent: {}
+[7.589480] (-) TimerEvent: {}
+[7.690563] (-) TimerEvent: {}
+[7.791815] (-) TimerEvent: {}
+[7.892846] (-) TimerEvent: {}
+[7.993947] (-) TimerEvent: {}
+[8.095041] (-) TimerEvent: {}
+[8.196138] (-) TimerEvent: {}
+[8.297228] (-) TimerEvent: {}
+[8.398260] (-) TimerEvent: {}
+[8.499386] (-) TimerEvent: {}
+[8.600820] (-) TimerEvent: {}
+[8.701921] (-) TimerEvent: {}
+[8.802979] (-) TimerEvent: {}
+[8.904006] (-) TimerEvent: {}
+[9.005041] (-) TimerEvent: {}
+[9.106106] (-) TimerEvent: {}
+[9.207082] (-) TimerEvent: {}
+[9.308112] (-) TimerEvent: {}
+[9.409136] (-) TimerEvent: {}
+[9.510242] (-) TimerEvent: {}
+[9.611303] (-) TimerEvent: {}
+[9.713098] (-) TimerEvent: {}
+[9.814147] (-) TimerEvent: {}
+[9.915242] (-) TimerEvent: {}
+[10.016223] (-) TimerEvent: {}
+[10.117178] (-) TimerEvent: {}
+[10.218294] (-) TimerEvent: {}
+[10.319328] (-) TimerEvent: {}
+[10.420488] (-) TimerEvent: {}
+[10.521591] (-) TimerEvent: {}
+[10.622577] (-) TimerEvent: {}
+[10.723816] (-) TimerEvent: {}
+[10.825190] (-) TimerEvent: {}
+[10.926395] (-) TimerEvent: {}
+[11.027487] (-) TimerEvent: {}
+[11.128474] (-) TimerEvent: {}
+[11.229501] (-) TimerEvent: {}
+[11.330510] (-) TimerEvent: {}
+[11.431710] (-) TimerEvent: {}
+[11.532785] (-) TimerEvent: {}
+[11.633813] (-) TimerEvent: {}
+[11.734798] (-) TimerEvent: {}
+[11.835855] (-) TimerEvent: {}
+[11.936872] (-) TimerEvent: {}
+[12.037897] (-) TimerEvent: {}
+[12.138982] (-) TimerEvent: {}
+[12.240007] (-) TimerEvent: {}
+[12.341004] (-) TimerEvent: {}
+[12.441969] (-) TimerEvent: {}
+[12.542977] (-) TimerEvent: {}
+[12.643988] (-) TimerEvent: {}
+[12.745037] (-) TimerEvent: {}
+[12.846215] (-) TimerEvent: {}
+[12.947432] (-) TimerEvent: {}
+[13.048587] (-) TimerEvent: {}
+[13.149640] (-) TimerEvent: {}
+[13.250749] (-) TimerEvent: {}
+[13.351774] (-) TimerEvent: {}
+[13.452832] (-) TimerEvent: {}
+[13.554388] (-) TimerEvent: {}
+[13.656525] (-) TimerEvent: {}
+[13.758764] (-) TimerEvent: {}
+[13.860032] (-) TimerEvent: {}
+[13.961232] (-) TimerEvent: {}
+[14.062415] (-) TimerEvent: {}
+[14.164897] (-) TimerEvent: {}
+[14.266421] (-) TimerEvent: {}
+[14.367982] (-) TimerEvent: {}
+[14.469534] (-) TimerEvent: {}
+[14.571135] (-) TimerEvent: {}
+[14.672657] (-) TimerEvent: {}
+[14.773791] (-) TimerEvent: {}
+[14.875041] (-) TimerEvent: {}
+[14.976162] (-) TimerEvent: {}
+[15.077321] (-) TimerEvent: {}
+[15.178560] (-) TimerEvent: {}
+[15.280001] (-) TimerEvent: {}
+[15.381270] (-) TimerEvent: {}
+[15.482577] (-) TimerEvent: {}
+[15.583946] (-) TimerEvent: {}
+[15.685655] (-) TimerEvent: {}
+[15.787273] (-) TimerEvent: {}
+[15.888802] (-) TimerEvent: {}
+[15.990078] (-) TimerEvent: {}
+[16.091529] (-) TimerEvent: {}
+[16.192490] (-) TimerEvent: {}
+[16.293867] (-) TimerEvent: {}
+[16.394847] (-) TimerEvent: {}
+[16.495896] (-) TimerEvent: {}
+[16.596957] (-) TimerEvent: {}
+[16.697993] (-) TimerEvent: {}
+[16.799084] (-) TimerEvent: {}
+[16.900095] (-) TimerEvent: {}
+[17.001117] (-) TimerEvent: {}
+[17.102257] (-) TimerEvent: {}
+[17.203456] (-) TimerEvent: {}
+[17.304509] (-) TimerEvent: {}
+[17.405663] (-) TimerEvent: {}
+[17.454536] (link_manager) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable link_manager\x1b[0m\n'}
+[17.505878] (-) TimerEvent: {}
+[17.606963] (-) TimerEvent: {}
+[17.707991] (-) TimerEvent: {}
+[17.809147] (-) TimerEvent: {}
+[17.910251] (-) TimerEvent: {}
+[18.011561] (-) TimerEvent: {}
+[18.112558] (-) TimerEvent: {}
+[18.213532] (-) TimerEvent: {}
+[18.308632] (link_manager) StdoutLine: {'line': b'[100%] Built target link_manager\n'}
+[18.313719] (-) TimerEvent: {}
+[18.364360] (link_manager) CommandEnded: {'returncode': 0}
+[18.369004] (link_manager) JobProgress: {'identifier': 'link_manager', 'progress': 'install'}
+[18.414539] (-) TimerEvent: {}
+[18.517162] (-) TimerEvent: {}
+[18.619429] (-) TimerEvent: {}
+[18.643460] (link_manager) Command: {'cmd': ['/home/sirius2beta/.local/bin/cmake', '--install', '/home/sirius2beta/cetus/build/link_manager'], 'cwd': '/home/sirius2beta/cetus/build/link_manager', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'sirius2beta'), ('SSH_CLIENT', '192.168.0.123 59217 22'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/sirius2beta/.vscode-server/cli/servers/Stable-bdd88df003631aaa0bcbe057cb0a940b80a476fa/server/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/sirius2beta/cetus/install/more_interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib:/usr/local/cuda-11.4/lib64:/usr/local/cuda-11.4/lib64'), ('BROWSER', '/home/sirius2beta/.vscode-server/cli/servers/Stable-bdd88df003631aaa0bcbe057cb0a940b80a476fa/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/sirius2beta'), ('OLDPWD', '/home/sirius2beta/cetus/src'), ('TERM_PROGRAM_VERSION', '1.109.0'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-a87f064a-83f4-41bb-bcf0-b43db54ceb17.sock'), ('JETSON_L4T', '35.6.0'), ('ROS_PYTHON_VERSION', '3'), ('JETSON_MODEL', 'NVIDIA Jetson Xavier NX Developer Kit'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/sirius2beta/.vscode-server/cli/servers/Stable-bdd88df003631aaa0bcbe057cb0a940b80a476fa/server/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/sirius2beta/.vscode-server/cli/servers/Stable-bdd88df003631aaa0bcbe057cb0a940b80a476fa/server/node'), ('SSL_CERT_FILE', '/usr/lib/ssl/certs/ca-certificates.crt'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'sirius2beta'), ('JETSON_MODULE', 'NVIDIA Jetson Xavier NX (16GB ram)'), ('JETSON_SERIAL_NUMBER', '1421122058947'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('JETSON_CODENAME', 'Jakku'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '2'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/foxy/bin:/usr/local/cuda-11.4/bin:/home/sirius2beta/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/sirius2beta/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/sirius2beta/.vscode-server/cli/servers/Stable-bdd88df003631aaa0bcbe057cb0a940b80a476fa/server/bin/remote-cli:/home/sirius2beta/.local/bin:/usr/local/cuda-11.4/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('SSL_CERT_DIR', '/usr/lib/ssl/certs'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('JETSON_SOC', 'tegra194'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-68143b8282.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/sirius2beta/cetus/install/more_interfaces:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('JETSON_CUDA_ARCH_BIN', '7.2'), ('PWD', '/home/sirius2beta/cetus/build/link_manager'), ('SSH_CONNECTION', '192.168.0.123 59217 192.168.0.215 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/sirius2beta/cetus/install/more_interfaces/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('COLCON', '1'), ('JETSON_JETPACK', '5.1.4'), ('JETSON_P_NUMBER', 'p3668-0003'), ('CMAKE_PREFIX_PATH', '/home/sirius2beta/cetus/install/more_interfaces:/opt/ros/foxy')]), 'shell': False}
+[18.719696] (-) TimerEvent: {}
+[18.821361] (-) TimerEvent: {}
+[18.871002] (link_manager) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[18.872935] (link_manager) StdoutLine: {'line': b'-- Installing: /home/sirius2beta/cetus/install/link_manager/lib/link_manager/link_manager\n'}
+[18.889250] (link_manager) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/sirius2beta/cetus/install/link_manager/lib/link_manager/link_manager" to ""\n'}
+[18.891017] (link_manager) StdoutLine: {'line': b'-- Installing: /home/sirius2beta/cetus/install/link_manager/share/ament_index/resource_index/package_run_dependencies/link_manager\n'}
+[18.892823] (link_manager) StdoutLine: {'line': b'-- Installing: /home/sirius2beta/cetus/install/link_manager/share/ament_index/resource_index/parent_prefix_path/link_manager\n'}
+[18.894470] (link_manager) StdoutLine: {'line': b'-- Installing: /home/sirius2beta/cetus/install/link_manager/share/link_manager/environment/ament_prefix_path.sh\n'}
+[18.895841] (link_manager) StdoutLine: {'line': b'-- Installing: /home/sirius2beta/cetus/install/link_manager/share/link_manager/environment/ament_prefix_path.dsv\n'}
+[18.897215] (link_manager) StdoutLine: {'line': b'-- Installing: /home/sirius2beta/cetus/install/link_manager/share/link_manager/environment/path.sh\n'}
+[18.898591] (link_manager) StdoutLine: {'line': b'-- Installing: /home/sirius2beta/cetus/install/link_manager/share/link_manager/environment/path.dsv\n'}
+[18.899977] (link_manager) StdoutLine: {'line': b'-- Installing: /home/sirius2beta/cetus/install/link_manager/share/link_manager/local_setup.bash\n'}
+[18.901307] (link_manager) StdoutLine: {'line': b'-- Installing: /home/sirius2beta/cetus/install/link_manager/share/link_manager/local_setup.sh\n'}
+[18.902627] (link_manager) StdoutLine: {'line': b'-- Installing: /home/sirius2beta/cetus/install/link_manager/share/link_manager/local_setup.zsh\n'}
+[18.904172] (link_manager) StdoutLine: {'line': b'-- Installing: /home/sirius2beta/cetus/install/link_manager/share/link_manager/local_setup.dsv\n'}
+[18.905571] (link_manager) StdoutLine: {'line': b'-- Installing: /home/sirius2beta/cetus/install/link_manager/share/link_manager/package.dsv\n'}
+[18.907508] (link_manager) StdoutLine: {'line': b'-- Installing: /home/sirius2beta/cetus/install/link_manager/share/ament_index/resource_index/packages/link_manager\n'}
+[18.909104] (link_manager) StdoutLine: {'line': b'-- Installing: /home/sirius2beta/cetus/install/link_manager/share/link_manager/cmake/link_managerConfig.cmake\n'}
+[18.910248] (link_manager) StdoutLine: {'line': b'-- Installing: /home/sirius2beta/cetus/install/link_manager/share/link_manager/cmake/link_managerConfig-version.cmake\n'}
+[18.911629] (link_manager) StdoutLine: {'line': b'-- Installing: /home/sirius2beta/cetus/install/link_manager/share/link_manager/package.xml\n'}
+[18.921582] (-) TimerEvent: {}
+[18.948989] (link_manager) CommandEnded: {'returncode': 0}
+[19.022258] (-) TimerEvent: {}
+[19.039054] (link_manager) JobEnded: {'identifier': 'link_manager', 'rc': 0}
+[19.042964] (-) EventReactorShutdown: {}

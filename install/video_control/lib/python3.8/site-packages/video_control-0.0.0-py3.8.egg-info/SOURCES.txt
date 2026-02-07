@@ -1,0 +1,13 @@
+package.xml
+setup.cfg
+setup.py
+../../build/video_control/video_control.egg-info/PKG-INFO
+../../build/video_control/video_control.egg-info/SOURCES.txt
+../../build/video_control/video_control.egg-info/dependency_links.txt
+../../build/video_control/video_control.egg-info/entry_points.txt
+../../build/video_control/video_control.egg-info/requires.txt
+../../build/video_control/video_control.egg-info/top_level.txt
+../../build/video_control/video_control.egg-info/zip-safe
+resource/video_control
+video_control/__init__.py
+video_control/video_control.py

@@ -1,0 +1,49 @@
+[0.071s] Invoking command in '/home/sirius2beta/cetus/build/link_manager': CMAKE_PREFIX_PATH=/home/sirius2beta/cetus/install/more_interfaces:/home/sirius2beta/cetus/install/link_manager:/home/sirius2beta/cetus/install/video_control:/opt/ros/foxy LD_LIBRARY_PATH=/home/sirius2beta/cetus/install/more_interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib:/usr/local/cuda-11.4/lib64:/usr/local/cuda-11.4/lib64 PYTHONPATH=/home/sirius2beta/cetus/install/more_interfaces/lib/python3.8/site-packages:/home/sirius2beta/cetus/install/video_control/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages /home/sirius2beta/.local/bin/cmake --build /home/sirius2beta/cetus/build/link_manager -- -j4 -l4
+[0.363s] -- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.370s] [33mCMake Warning (dev) at /opt/ros/foxy/share/ament_cmake_core/cmake/core/python.cmake:22 (find_package):
+[0.371s]   Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules
+[0.371s]   are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use
+[0.372s]   the cmake_policy command to set the policy and suppress this warning.
+[0.372s] 
+[0.372s] Call Stack (most recent call first):
+[0.373s]   /opt/ros/foxy/share/ament_cmake_core/cmake/core/all.cmake:53 (include)
+[0.373s]   /opt/ros/foxy/share/ament_cmake_core/cmake/ament_cmake_core-extras.cmake:17 (include)
+[0.373s]   /opt/ros/foxy/share/ament_cmake_core/cmake/ament_cmake_coreConfig.cmake:41 (include)
+[0.373s]   /opt/ros/foxy/share/ament_cmake/cmake/ament_cmake_export_dependencies-extras.cmake:15 (find_package)
+[0.374s]   /opt/ros/foxy/share/ament_cmake/cmake/ament_cmakeConfig.cmake:41 (include)
+[0.374s]   CMakeLists.txt:27 (find_package)
+[0.374s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[0.375s] [0m
+[0.460s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[1.221s] -- Found rclcpp: 2.4.3 (/opt/ros/foxy/share/rclcpp/cmake)
+[1.346s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.360s] -- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[1.782s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.966s] -- Found rmw_implementation_cmake: 1.0.4 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[1.970s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[2.455s] -- Found more_interfaces: 0.0.0 (/home/sirius2beta/cetus/install/more_interfaces/share/more_interfaces/cmake)
+[2.501s] -- Found ament_lint_auto: 0.9.8 (/opt/ros/foxy/share/ament_lint_auto/cmake)
+[2.744s] [31mCMake Error at CMakeLists.txt:48 (target_link_libraries):
+[2.745s]   The plain signature for target_link_libraries has already been used with
+[2.745s]   the target "link_manager".  All uses of target_link_libraries with a target
+[2.745s]   must be either all-keyword or all-plain.
+[2.746s] 
+[2.746s]   The uses of the plain signature are here:
+[2.746s] 
+[2.747s]    * /opt/ros/foxy/share/ament_cmake_target_dependencies/cmake/ament_target_dependencies.cmake:145 (target_link_libraries)
+[2.747s] 
+[2.747s] 
+[2.748s] [0m
+[2.756s] -- Added test 'copyright' to check source files copyright and LICENSE
+[2.760s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[2.761s] -- Configured cppcheck include dirs: 
+[2.761s] -- Configured cppcheck exclude dirs and/or files: 
+[2.764s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[2.765s] -- Configured cpplint exclude dirs and/or files: 
+[2.766s] -- Added test 'lint_cmake' to check CMake code style
+[2.771s] -- Added test 'uncrustify' to check C / C++ code style
+[2.771s] -- Configured uncrustify additional arguments: 
+[2.772s] -- Added test 'xmllint' to check XML markup files
+[2.775s] -- Configuring incomplete, errors occurred!
+[2.798s] make: *** [Makefile:267: cmake_check_build_system] Error 1
+[2.836s] Invoked command in '/home/sirius2beta/cetus/build/link_manager' returned '2': CMAKE_PREFIX_PATH=/home/sirius2beta/cetus/install/more_interfaces:/home/sirius2beta/cetus/install/link_manager:/home/sirius2beta/cetus/install/video_control:/opt/ros/foxy LD_LIBRARY_PATH=/home/sirius2beta/cetus/install/more_interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib:/usr/local/cuda-11.4/lib64:/usr/local/cuda-11.4/lib64 PYTHONPATH=/home/sirius2beta/cetus/install/more_interfaces/lib/python3.8/site-packages:/home/sirius2beta/cetus/install/video_control/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages /home/sirius2beta/.local/bin/cmake --build /home/sirius2beta/cetus/build/link_manager -- -j4 -l4

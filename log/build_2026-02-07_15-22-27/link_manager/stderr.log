@@ -1,0 +1,25 @@
+In file included from [01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.h:2[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.cpp:1[m[K:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/ros_worker.h:[m[K In member function ‘[01m[Kvoid SubscribeWorker::mavlink_callback(more_interfaces::msg::MavlinkPacket_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/ros_worker.h:22:42:[m[K [01;31m[Kerror: [m[K‘[01m[KfromStdVector[m[K’ is not a member of ‘[01m[KQByteArray[m[K’
+   22 |         QByteArray payload = QByteArray::[01;31m[KfromStdVector[m[K(msg->payload);
+      |                                          [01;31m[K^~~~~~~~~~~~~[m[K
+In file included from [01m[K/home/sirius2beta/cetus/build/link_manager/link_manager_autogen/UVLADIE3JM/../../../../src/link_manager/src/RosInterface.h:2[m[K,
+                 from [01m[K/home/sirius2beta/cetus/build/link_manager/link_manager_autogen/UVLADIE3JM/moc_RosInterface.cpp:9[m[K,
+                 from [01m[K/home/sirius2beta/cetus/build/link_manager/link_manager_autogen/mocs_compilation.cpp:2[m[K:
+[01m[K/home/sirius2beta/cetus/build/link_manager/link_manager_autogen/UVLADIE3JM/../../../../src/link_manager/src/ros_worker.h:[m[K In member function ‘[01m[Kvoid SubscribeWorker::mavlink_callback(more_interfaces::msg::MavlinkPacket_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/sirius2beta/cetus/build/link_manager/link_manager_autogen/UVLADIE3JM/../../../../src/link_manager/src/ros_worker.h:22:42:[m[K [01;31m[Kerror: [m[K‘[01m[KfromStdVector[m[K’ is not a member of ‘[01m[KQByteArray[m[K’
+   22 |         QByteArray payload = QByteArray::[01;31m[KfromStdVector[m[K(msg->payload);
+      |                                          [01;31m[K^~~~~~~~~~~~~[m[K
+In file included from [01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.h:2[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/link_manager.cpp:4[m[K:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/ros_worker.h:[m[K In member function ‘[01m[Kvoid SubscribeWorker::mavlink_callback(more_interfaces::msg::MavlinkPacket_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/ros_worker.h:22:42:[m[K [01;31m[Kerror: [m[K‘[01m[KfromStdVector[m[K’ is not a member of ‘[01m[KQByteArray[m[K’
+   22 |         QByteArray payload = QByteArray::[01;31m[KfromStdVector[m[K(msg->payload);
+      |                                          [01;31m[K^~~~~~~~~~~~~[m[K
+make[2]: *** [CMakeFiles/link_manager.dir/build.make:76: CMakeFiles/link_manager.dir/link_manager_autogen/mocs_compilation.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[2]: *** [CMakeFiles/link_manager.dir/build.make:90: CMakeFiles/link_manager.dir/src/link_manager.cpp.o] Error 1
+make[2]: *** [CMakeFiles/link_manager.dir/build.make:104: CMakeFiles/link_manager.dir/src/RosInterface.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:138: CMakeFiles/link_manager.dir/all] Error 2
+make: *** [Makefile:146: all] Error 2

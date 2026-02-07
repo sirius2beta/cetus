@@ -1,0 +1,235 @@
+In file included from [01m[K/home/sirius2beta/cetus/build/link_manager/link_manager_autogen/UVLADIE3JM/../../../../src/link_manager/src/RosInterface.h:2[m[K,
+                 from [01m[K/home/sirius2beta/cetus/build/link_manager/link_manager_autogen/UVLADIE3JM/moc_RosInterface.cpp:9[m[K,
+                 from [01m[K/home/sirius2beta/cetus/build/link_manager/link_manager_autogen/mocs_compilation.cpp:2[m[K:
+[01m[K/home/sirius2beta/cetus/build/link_manager/link_manager_autogen/UVLADIE3JM/../../../../src/link_manager/src/ros_worker.h:9:36:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K)[m[K’ before ‘[01m[Kcallback[m[K’
+    9 |     SubscribeWorker[34m[K([m[KMavlinkCallback[01;31m[K [m[K[32m[Kcallback[m[K) : Node("link_manager_subscribe_worker"), callback_(callback)
+      |                    [34m[K~[m[K               [01;31m[K^[m[K[32m[K~~~~~~~~[m[K
+      |                                    [32m[K)[m[K
+In file included from [01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/mavlink.h:32[m[K,
+                 from [01m[K/home/sirius2beta/cetus/build/link_manager/link_manager_autogen/UVLADIE3JM/../../../../src/link_manager/src/RosInterface.h:4[m[K,
+                 from [01m[K/home/sirius2beta/cetus/build/link_manager/link_manager_autogen/UVLADIE3JM/moc_RosInterface.cpp:9[m[K,
+                 from [01m[K/home/sirius2beta/cetus/build/link_manager/link_manager_autogen/mocs_compilation.cpp:2[m[K:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/hypex.h:16:8:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before string constant
+   16 | extern [01;31m[K"C"[m[K {
+      |        [01;31m[K^~~[m[K
+In file included from [01m[K/home/sirius2beta/cetus/build/link_manager/link_manager_autogen/UVLADIE3JM/moc_RosInterface.cpp:9[m[K,
+                 from [01m[K/home/sirius2beta/cetus/build/link_manager/link_manager_autogen/mocs_compilation.cpp:2[m[K:
+[01m[K/home/sirius2beta/cetus/build/link_manager/link_manager_autogen/UVLADIE3JM/../../../../src/link_manager/src/RosInterface.h:12:30:[m[K [01;31m[Kerror: [m[K‘[01m[Kmavlink_message_t[m[K’ does not name a type
+   12 |     void mavlinkToSend(const [01;31m[Kmavlink_message_t[m[K &message);
+      |                              [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/sirius2beta/cetus/build/link_manager/link_manager_autogen/UVLADIE3JM/../../../../src/link_manager/src/RosInterface.h:14:33:[m[K [01;31m[Kerror: [m[K‘[01m[Kmavlink_message_t[m[K’ does not name a type
+   14 |     void onMavlinkToParse(const [01;31m[Kmavlink_message_t[m[K &message);
+      |                                 [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/home/sirius2beta/cetus/build/link_manager/link_manager_autogen/mocs_compilation.cpp:2[m[K:
+[01m[K/home/sirius2beta/cetus/build/link_manager/link_manager_autogen/UVLADIE3JM/moc_RosInterface.cpp:32:48:[m[K [01;31m[Kerror: [m[K‘[01m[Kconstexpr[m[K’ needed for in-class initialization of static data member ‘[01m[Kconst SubscribeWorker::qt_meta_stringdata_RosInterface_t SubscribeWorker::qt_meta_stringdata_RosInterface[m[K’ of non-integral type [[01;31m[K-fpermissive[m[K]
+   32 | static const qt_meta_stringdata_RosInterface_t [01;31m[Kqt_meta_stringdata_RosInterface[m[K = {
+      |                                                [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/sirius2beta/cetus/build/link_manager/link_manager_autogen/UVLADIE3JM/moc_RosInterface.cpp:47:19:[m[K [01;31m[Kerror: [m[Kin-class initialization of static data member ‘[01m[Kconst uint SubscribeWorker::qt_meta_data_RosInterface [][m[K’ of incomplete type
+   47 | static const uint [01;31m[Kqt_meta_data_RosInterface[m[K[] = {
+      |                   [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/sirius2beta/cetus/build/link_manager/link_manager_autogen/UVLADIE3JM/moc_RosInterface.cpp:75:92:[m[K [01;31m[Kerror: [m[Kcannot define member function ‘[01m[KSubscribeWorker::RosInterface::qt_static_metacall[m[K’ within ‘[01m[KSubscribeWorker[m[K’
+   75 | _metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a[01;31m[K)[m[K
+      |                                                                [01;31m[K^[m[K
+
+[01m[K/home/sirius2beta/cetus/build/link_manager/link_manager_autogen/UVLADIE3JM/moc_RosInterface.cpp:104:3:[m[K [01;31m[Kerror: [m[Kinvalid use of qualified-name ‘[01m[KSubscribeWorker::RosInterface::staticMetaObject[m[K’
+  104 | } [01;31m[K}[m[K;
+      |   [01;31m[K^[m[K
+[01m[K/home/sirius2beta/cetus/build/link_manager/link_manager_autogen/UVLADIE3JM/moc_RosInterface.cpp:107:47:[m[K [01;31m[Kerror: [m[Kcannot define member function ‘[01m[KSubscribeWorker::RosInterface::metaObject[m[K’ within ‘[01m[KSubscribeWorker[m[K’
+  107 | const QMetaObject *RosInterface::metaObject() [01;31m[Kconst[m[K
+      |                                               [01;31m[K^~~~~[m[K
+[01m[K/home/sirius2beta/cetus/build/link_manager/link_manager_autogen/UVLADIE3JM/moc_RosInterface.cpp:112:52:[m[K [01;31m[Kerror: [m[Kcannot define member function ‘[01m[KSubscribeWorker::RosInterface::qt_metacast[m[K’ within ‘[01m[KSubscribeWorker[m[K’
+  112 | void *RosInterface::qt_metacast(const char *_clname[01;31m[K)[m[K
+      |                                                    [01;31m[K^[m[K
+[01m[K/home/sirius2beta/cetus/build/link_manager/link_manager_autogen/UVLADIE3JM/moc_RosInterface.cpp:120:71:[m[K [01;31m[Kerror: [m[Kcannot define member function ‘[01m[KSubscribeWorker::RosInterface::qt_metacall[m[K’ within ‘[01m[KSubscribeWorker[m[K’
+  120 | int RosInterface::qt_metacall(QMetaObject::Call _c, int _id, void **_a[01;31m[K)[m[K
+      |                                                                       [01;31m[K^[m[K
+[01m[K/home/sirius2beta/cetus/build/link_manager/link_manager_autogen/UVLADIE3JM/moc_RosInterface.cpp:138:40:[m[K [01;31m[Kerror: [m[K‘[01m[Kmavlink_message_t[m[K’ does not name a type
+  138 | void RosInterface::mavlinkToSend(const [01;31m[Kmavlink_message_t[m[K & _t1)
+      |                                        [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/sirius2beta/cetus/build/link_manager/link_manager_autogen/UVLADIE3JM/moc_RosInterface.cpp:138:63:[m[K [01;31m[Kerror: [m[Kcannot define member function ‘[01m[KSubscribeWorker::RosInterface::mavlinkToSend[m[K’ within ‘[01m[KSubscribeWorker[m[K’
+  138 | void RosInterface::mavlinkToSend(const mavlink_message_t & _t1[01;31m[K)[m[K
+      |                                                               [01;31m[K^[m[K
+In file included from [01m[K/usr/include/aarch64-linux-gnu/qt5/QtCore/qglobal.h:105[m[K,
+                 from [01m[K/usr/include/aarch64-linux-gnu/qt5/QtCore/qnamespace.h:43[m[K,
+                 from [01m[K/usr/include/aarch64-linux-gnu/qt5/QtCore/qobjectdefs.h:48[m[K,
+                 from [01m[K/usr/include/aarch64-linux-gnu/qt5/QtCore/qobject.h:46[m[K,
+                 from [01m[K/usr/include/aarch64-linux-gnu/qt5/QtCore/qthread.h:44[m[K,
+                 from [01m[K/usr/include/aarch64-linux-gnu/qt5/QtCore/QThread:1[m[K,
+                 from [01m[K/home/sirius2beta/cetus/build/link_manager/link_manager_autogen/UVLADIE3JM/../../../../src/link_manager/src/ros_worker.h:4[m[K,
+                 from [01m[K/home/sirius2beta/cetus/build/link_manager/link_manager_autogen/UVLADIE3JM/../../../../src/link_manager/src/RosInterface.h:2[m[K,
+                 from [01m[K/home/sirius2beta/cetus/build/link_manager/link_manager_autogen/UVLADIE3JM/moc_RosInterface.cpp:9[m[K,
+                 from [01m[K/home/sirius2beta/cetus/build/link_manager/link_manager_autogen/mocs_compilation.cpp:2[m[K:
+[01m[K/home/sirius2beta/cetus/build/link_manager/link_manager_autogen/UVLADIE3JM/moc_RosInterface.cpp:143:1:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K}[m[K’ at end of input
+  143 | [01;31m[KQT_WARNING_POP[m[K
+      | [01;31m[K^~~~~~~~~~~~~~[m[K
+In file included from [01m[K/home/sirius2beta/cetus/build/link_manager/link_manager_autogen/UVLADIE3JM/../../../../src/link_manager/src/RosInterface.h:2[m[K,
+                 from [01m[K/home/sirius2beta/cetus/build/link_manager/link_manager_autogen/UVLADIE3JM/moc_RosInterface.cpp:9[m[K,
+                 from [01m[K/home/sirius2beta/cetus/build/link_manager/link_manager_autogen/mocs_compilation.cpp:2[m[K:
+[01m[K/home/sirius2beta/cetus/build/link_manager/link_manager_autogen/UVLADIE3JM/../../../../src/link_manager/src/ros_worker.h:7:1:[m[K [01;36m[Knote: [m[Kto match this ‘[01m[K{[m[K’
+    7 | [01;36m[K{[m[K
+      | [01;36m[K^[m[K
+In file included from [01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.h:2[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/link_manager.cpp:4[m[K:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/ros_worker.h:9:36:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K)[m[K’ before ‘[01m[Kcallback[m[K’
+    9 |     SubscribeWorker[34m[K([m[KMavlinkCallback[01;31m[K [m[K[32m[Kcallback[m[K) : Node("link_manager_subscribe_worker"), callback_(callback)
+      |                    [34m[K~[m[K               [01;31m[K^[m[K[32m[K~~~~~~~~[m[K
+      |                                    [32m[K)[m[K
+In file included from [01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/mavlink.h:32[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.h:4[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/link_manager.cpp:4[m[K:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/hypex.h:16:8:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before string constant
+   16 | extern [01;31m[K"C"[m[K {
+      |        [01;31m[K^~~[m[K
+In file included from [01m[K/home/sirius2beta/cetus/src/link_manager/src/link_manager.cpp:4[m[K:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.h:12:30:[m[K [01;31m[Kerror: [m[K‘[01m[Kmavlink_message_t[m[K’ does not name a type
+   12 |     void mavlinkToSend(const [01;31m[Kmavlink_message_t[m[K &message);
+      |                              [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/home/sirius2beta/cetus/build/link_manager/link_manager_autogen/UVLADIE3JM/moc_RosInterface.cpp:9[m[K,
+                 from [01m[K/home/sirius2beta/cetus/build/link_manager/link_manager_autogen/mocs_compilation.cpp:2[m[K:
+[01m[K/home/sirius2beta/cetus/build/link_manager/link_manager_autogen/UVLADIE3JM/../../../../src/link_manager/src/RosInterface.h:9:73:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id at end of input
+    9 |     explicit RosInterface(QObject *parent = nullptr) : QThread(parent) {[01;31m[K}[m[K
+      |                                                                         [01;31m[K^[m[K
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.h:14:33:[m[K [01;31m[Kerror: [m[K‘[01m[Kmavlink_message_t[m[K’ does not name a type
+   14 |     void onMavlinkToParse(const [01;31m[Kmavlink_message_t[m[K &message);
+      |                                 [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/usr/include/aarch64-linux-gnu/qt5/QtCore/qcoreapplication.h:48[m[K,
+                 from [01m[K/usr/include/aarch64-linux-gnu/qt5/QtCore/QCoreApplication:1[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/link_manager.cpp:5[m[K:
+[01m[K/usr/include/aarch64-linux-gnu/qt5/QtCore/qeventloop.h:50:41:[m[K [01;31m[Kerror: [m[Kinvalid use of incomplete type ‘[01m[Kclass SubscribeWorker::QObject[m[K’
+   50 | class Q_CORE_EXPORT QEventLoop : public [01;31m[KQObject[m[K
+      |                                         [01;31m[K^~~~~~~[m[K
+In file included from [01m[K/usr/include/aarch64-linux-gnu/qt5/QtCore/qcoreapplication.h:47[m[K,
+                 from [01m[K/usr/include/aarch64-linux-gnu/qt5/QtCore/QCoreApplication:1[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/link_manager.cpp:5[m[K:
+[01m[K/usr/include/aarch64-linux-gnu/qt5/QtCore/qcoreevent.h:347:7:[m[K [01;36m[Knote: [m[Kforward declaration of ‘[01m[Kclass SubscribeWorker::QObject[m[K’
+  347 | class [01;36m[KQObject[m[K;
+      |       [01;36m[K^~~~~~~[m[K
+In file included from [01m[K/usr/include/aarch64-linux-gnu/qt5/QtCore/qcoreapplication.h:48[m[K,
+                 from [01m[K/usr/include/aarch64-linux-gnu/qt5/QtCore/QCoreApplication:1[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/link_manager.cpp:5[m[K:
+[01m[K/usr/include/aarch64-linux-gnu/qt5/QtCore/qeventloop.h:79:10:[m[K [01;31m[Kerror: [m[K‘[01m[Kbool SubscribeWorker::QEventLoop::event(SubscribeWorker::QEvent*)[m[K’ marked ‘[01m[Koverride[m[K’, but does not override
+   79 |     bool [01;31m[Kevent[m[K(QEvent *event) override;
+      |          [01;31m[K^~~~~[m[K
+In file included from [01m[K/usr/include/aarch64-linux-gnu/qt5/QtCore/qglobal.h:1208[m[K,
+                 from [01m[K/usr/include/aarch64-linux-gnu/qt5/QtCore/qnamespace.h:43[m[K,
+                 from [01m[K/usr/include/aarch64-linux-gnu/qt5/QtCore/qobjectdefs.h:48[m[K,
+                 from [01m[K/usr/include/aarch64-linux-gnu/qt5/QtCore/qobject.h:46[m[K,
+                 from [01m[K/usr/include/aarch64-linux-gnu/qt5/QtCore/qthread.h:44[m[K,
+                 from [01m[K/usr/include/aarch64-linux-gnu/qt5/QtCore/QThread:1[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/ros_worker.h:4[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.h:2[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/link_manager.cpp:4[m[K:
+[01m[K/usr/include/aarch64-linux-gnu/qt5/QtCore/qeventloop.h:85:1:[m[K [01;31m[Kerror: [m[K‘[01m[Kconstexpr QFlags<SubscribeWorker::QEventLoop::ProcessEventsFlag> SubscribeWorker::operator|(QFlags<SubscribeWorker::QEventLoop::ProcessEventsFlag>::enum_type, QFlags<SubscribeWorker::QEventLoop::ProcessEventsFlag>::enum_type)[m[K’ must have exactly one argument
+   85 | [01;31m[KQ_DECLARE_OPERATORS_FOR_FLAGS[m[K(QEventLoop::ProcessEventsFlags)
+      | [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/usr/include/aarch64-linux-gnu/qt5/QtCore/qeventloop.h:85:1:[m[K [01;31m[Kerror: [m[K‘[01m[Kconstexpr QFlags<SubscribeWorker::QEventLoop::ProcessEventsFlag> SubscribeWorker::operator|(QFlags<SubscribeWorker::QEventLoop::ProcessEventsFlag>::enum_type, QFlags<SubscribeWorker::QEventLoop::ProcessEventsFlag>)[m[K’ must have exactly one argument
+   85 | [01;31m[KQ_DECLARE_OPERATORS_FOR_FLAGS[m[K(QEventLoop::ProcessEventsFlags)
+      | [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/usr/include/aarch64-linux-gnu/qt5/QtCore/qeventloop.h:85:1:[m[K [01;31m[Kerror: [m[K‘[01m[Kconstexpr QIncompatibleFlag SubscribeWorker::operator|(QFlags<SubscribeWorker::QEventLoop::ProcessEventsFlag>::enum_type, int)[m[K’ must have exactly one argument
+   85 | [01;31m[KQ_DECLARE_OPERATORS_FOR_FLAGS[m[K(QEventLoop::ProcessEventsFlags)
+      | [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/usr/include/aarch64-linux-gnu/qt5/QtCore/QCoreApplication:1[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/link_manager.cpp:5[m[K:
+[01m[K/usr/include/aarch64-linux-gnu/qt5/QtCore/qcoreapplication.h:74:14:[m[K [01;31m[Kerror: [m[Kinvalid use of incomplete type ‘[01m[Kclass SubscribeWorker::QObject[m[K’
+   74 |     : public [01;31m[KQObject[m[K
+      |              [01;31m[K^~~~~~~[m[K
+In file included from [01m[K/usr/include/aarch64-linux-gnu/qt5/QtCore/qcoreapplication.h:47[m[K,
+                 from [01m[K/usr/include/aarch64-linux-gnu/qt5/QtCore/QCoreApplication:1[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/link_manager.cpp:5[m[K:
+[01m[K/usr/include/aarch64-linux-gnu/qt5/QtCore/qcoreevent.h:347:7:[m[K [01;36m[Knote: [m[Kforward declaration of ‘[01m[Kclass SubscribeWorker::QObject[m[K’
+  347 | class [01;36m[KQObject[m[K;
+      |       [01;36m[K^~~~~~~[m[K
+In file included from [01m[K/usr/include/aarch64-linux-gnu/qt5/QtCore/QCoreApplication:1[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/link_manager.cpp:5[m[K:
+[01m[K/usr/include/aarch64-linux-gnu/qt5/QtCore/qcoreapplication.h:190:10:[m[K [01;31m[Kerror: [m[K‘[01m[Kbool SubscribeWorker::QCoreApplication::event(SubscribeWorker::QEvent*)[m[K’ marked ‘[01m[Koverride[m[K’, but does not override
+  190 |     bool [01;31m[Kevent[m[K(QEvent *) override;
+      |          [01;31m[K^~~~~[m[K
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/link_manager.cpp:20:1:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K}[m[K’ at end of input
+   20 | [01;31m[K}[m[K
+      | [01;31m[K^[m[K
+In file included from [01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.h:2[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/link_manager.cpp:4[m[K:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/ros_worker.h:7:1:[m[K [01;36m[Knote: [m[Kto match this ‘[01m[K{[m[K’
+    7 | [01;36m[K{[m[K
+      | [01;36m[K^[m[K
+In file included from [01m[K/usr/include/aarch64-linux-gnu/qt5/QtCore/qnamespace.h:43[m[K,
+                 from [01m[K/usr/include/aarch64-linux-gnu/qt5/QtCore/qobjectdefs.h:48[m[K,
+                 from [01m[K/usr/include/aarch64-linux-gnu/qt5/QtCore/qobject.h:46[m[K,
+                 from [01m[K/usr/include/aarch64-linux-gnu/qt5/QtCore/qthread.h:44[m[K,
+                 from [01m[K/usr/include/aarch64-linux-gnu/qt5/QtCore/QThread:1[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/ros_worker.h:4[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.h:2[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/link_manager.cpp:4[m[K:
+[01m[K/usr/include/aarch64-linux-gnu/qt5/QtCore/qeventloop.h:[m[K In member function ‘[01m[KSubscribeWorker::QEventLoopPrivate* SubscribeWorker::QEventLoop::d_func()[m[K’:
+[01m[K/usr/include/aarch64-linux-gnu/qt5/QtCore/qeventloop.h:53:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kd_ptr[m[K’ was not declared in this scope; did you mean ‘[01m[Ksi_ptr[m[K’?
+   53 |     [01;31m[KQ_DECLARE_PRIVATE[m[K(QEventLoop)
+      |     [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+[01m[K/usr/include/aarch64-linux-gnu/qt5/QtCore/qeventloop.h:[m[K In member function ‘[01m[Kconst SubscribeWorker::QEventLoopPrivate* SubscribeWorker::QEventLoop::d_func() const[m[K’:
+[01m[K/usr/include/aarch64-linux-gnu/qt5/QtCore/qeventloop.h:53:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kd_ptr[m[K’ was not declared in this scope; did you mean ‘[01m[Ksi_ptr[m[K’?
+   53 |     [01;31m[KQ_DECLARE_PRIVATE[m[K(QEventLoop)
+      |     [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+[01m[K/usr/include/aarch64-linux-gnu/qt5/QtCore/qcoreapplication.h:[m[K In member function ‘[01m[KSubscribeWorker::QCoreApplicationPrivate* SubscribeWorker::QCoreApplication::d_func()[m[K’:
+[01m[K/usr/include/aarch64-linux-gnu/qt5/QtCore/qcoreapplication.h:86:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kd_ptr[m[K’ was not declared in this scope; did you mean ‘[01m[Ksi_ptr[m[K’?
+   86 |     [01;31m[KQ_DECLARE_PRIVATE[m[K(QCoreApplication)
+      |     [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.h:2[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.cpp:1[m[K:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/ros_worker.h:9:36:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K)[m[K’ before ‘[01m[Kcallback[m[K’
+    9 |     SubscribeWorker[34m[K([m[KMavlinkCallback[01;31m[K [m[K[32m[Kcallback[m[K) : Node("link_manager_subscribe_worker"), callback_(callback)
+      |                    [34m[K~[m[K               [01;31m[K^[m[K[32m[K~~~~~~~~[m[K
+      |                                    [32m[K)[m[K
+[01m[K/usr/include/aarch64-linux-gnu/qt5/QtCore/qcoreapplication.h:[m[K In member function ‘[01m[Kconst SubscribeWorker::QCoreApplicationPrivate* SubscribeWorker::QCoreApplication::d_func() const[m[K’:
+[01m[K/usr/include/aarch64-linux-gnu/qt5/QtCore/qcoreapplication.h:86:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kd_ptr[m[K’ was not declared in this scope; did you mean ‘[01m[Ksi_ptr[m[K’?
+   86 |     [01;31m[KQ_DECLARE_PRIVATE[m[K(QCoreApplication)
+      |     [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/link_manager.cpp:[m[K In member function ‘[01m[Kint SubscribeWorker::main(int, char**)[m[K’:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/link_manager.cpp:13:14:[m[K [01;31m[Kerror: [m[Kincomplete type ‘[01m[KSubscribeWorker::QObject[m[K’ used in nested name specifier
+   13 |     QObject::[01;31m[Kconnect[m[K(ros_interface, &QThread::finished, []() {
+      |              [01;31m[K^~~~~~~[m[K
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/link_manager.cpp:[m[K At global scope:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/link_manager.cpp:20:1:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id at end of input
+   20 | [01;31m[K}[m[K
+      | [01;31m[K^[m[K
+In file included from [01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/mavlink.h:32[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.h:4[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.cpp:1[m[K:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex/hypex.h:16:8:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before string constant
+   16 | extern [01;31m[K"C"[m[K {
+      |        [01;31m[K^~~[m[K
+In file included from [01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.cpp:1[m[K:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.h:12:30:[m[K [01;31m[Kerror: [m[K‘[01m[Kmavlink_message_t[m[K’ does not name a type
+   12 |     void mavlinkToSend(const [01;31m[Kmavlink_message_t[m[K &message);
+      |                              [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.h:14:33:[m[K [01;31m[Kerror: [m[K‘[01m[Kmavlink_message_t[m[K’ does not name a type
+   14 |     void onMavlinkToParse(const [01;31m[Kmavlink_message_t[m[K &message);
+      |                                 [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.cpp:3:24:[m[K [01;31m[Kerror: [m[Kcannot define member function ‘[01m[KSubscribeWorker::RosInterface::run[m[K’ within ‘[01m[KSubscribeWorker[m[K’
+    3 | void RosInterface::run([01;31m[K)[m[K
+      |                        [01;31m[K^[m[K
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.cpp:28:43:[m[K [01;31m[Kerror: [m[K‘[01m[Kmavlink_message_t[m[K’ does not name a type
+   28 | void RosInterface::onMavlinkToParse(const [01;31m[Kmavlink_message_t[m[K &message)
+      |                                           [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.cpp:28:69:[m[K [01;31m[Kerror: [m[Kcannot define member function ‘[01m[KSubscribeWorker::RosInterface::onMavlinkToParse[m[K’ within ‘[01m[KSubscribeWorker[m[K’
+   28 | void RosInterface::onMavlinkToParse(const mavlink_message_t &message[01;31m[K)[m[K
+      |                                                                     [01;31m[K^[m[K
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.cpp:49:101:[m[K [01;31m[Kerror: [m[Kcannot define member function ‘[01m[KSubscribeWorker::RosInterface::handleMavlinkAssembly[m[K’ within ‘[01m[KSubscribeWorker[m[K’
+   49 | void RosInterface::handleMavlinkAssembly(const std::vector<uint8_t>& raw_payload, uint8_t topic_type[01;31m[K)[m[K
+      |                                                                                                     [01;31m[K^[m[K
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.cpp:69:1:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K}[m[K’ at end of input
+   69 | [01;31m[K}[m[K
+      | [01;31m[K^[m[K
+In file included from [01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.h:2[m[K,
+                 from [01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.cpp:1[m[K:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/ros_worker.h:7:1:[m[K [01;36m[Knote: [m[Kto match this ‘[01m[K{[m[K’
+    7 | [01;36m[K{[m[K
+      | [01;36m[K^[m[K
+In file included from [01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.cpp:1[m[K:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.h:9:73:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id at end of input
+    9 |     explicit RosInterface(QObject *parent = nullptr) : QThread(parent) {[01;31m[K}[m[K
+      |                                                                         [01;31m[K^[m[K
+make[2]: *** [CMakeFiles/link_manager.dir/build.make:76: CMakeFiles/link_manager.dir/link_manager_autogen/mocs_compilation.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[2]: *** [CMakeFiles/link_manager.dir/build.make:90: CMakeFiles/link_manager.dir/src/link_manager.cpp.o] Error 1
+make[2]: *** [CMakeFiles/link_manager.dir/build.make:104: CMakeFiles/link_manager.dir/src/RosInterface.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:138: CMakeFiles/link_manager.dir/all] Error 2
+make: *** [Makefile:146: all] Error 2

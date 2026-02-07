@@ -1,0 +1,20 @@
+[ 20%] [34m[1mAutomatic MOC and UIC for target link_manager[0m
+[ 20%] Built target link_manager_autogen
+[ 40%] [32mBuilding CXX object CMakeFiles/link_manager.dir/src/link_manager.cpp.o[0m
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/link_manager.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/link_manager.cpp:11:5:[m[K [01;31m[Kerror: [m[K‘[01m[KRosThread[m[K’ was not declared in this scope; did you mean ‘[01m[KQThread[m[K’?
+   11 |     [01;31m[KRosThread[m[K* ros_thread_ = new RosThread(node_, this);
+      |     [01;31m[K^~~~~~~~~[m[K
+      |     [32m[KQThread[m[K
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/link_manager.cpp:11:16:[m[K [01;31m[Kerror: [m[K‘[01m[Kros_thread_[m[K’ was not declared in this scope
+   11 |     RosThread* [01;31m[Kros_thread_[m[K = new RosThread(node_, this);
+      |                [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/link_manager.cpp:11:34:[m[K [01;31m[Kerror: [m[Kexpected type-specifier before ‘[01m[KRosThread[m[K’
+   11 |     RosThread* ros_thread_ = new [01;31m[KRosThread[m[K(node_, this);
+      |                                  [01;31m[K^~~~~~~~~[m[K
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/link_manager.cpp:12:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kconnect[m[K’ was not declared in this scope
+   12 |     [01;31m[Kconnect[m[K(ros_thread_, &QThread::finished, []() {
+      |     [01;31m[K^~~~~~~[m[K
+make[2]: *** [CMakeFiles/link_manager.dir/build.make:90: CMakeFiles/link_manager.dir/src/link_manager.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:138: CMakeFiles/link_manager.dir/all] Error 2
+make: *** [Makefile:146: all] Error 2

@@ -1,0 +1,215 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-4dd4d5f25a51e5e6f366.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15
+					]
+				},
+				{
+					"build" : "more_interfaces__py",
+					"jsonFile" : "directory-more_interfaces__py-d0e1bceaad052ea0b763.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/sirius2beta/cetus/build/more_interfaces/more_interfaces__py",
+					"targetIndexes" : 
+					[
+						2
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1
+					],
+					"name" : "more_interfaces",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "more_interfaces::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-more_interfaces-4eefe3e8497f7f10d980.json",
+					"name" : "more_interfaces",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "more_interfaces__cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-more_interfaces__cpp-d67c814c0a552e60023c.json",
+					"name" : "more_interfaces__cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "more_interfaces__py::@cb4f9a48d024a8997e2a",
+					"jsonFile" : "target-more_interfaces__py-007092161868c6d5fce0.json",
+					"name" : "more_interfaces__py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "more_interfaces__python::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-more_interfaces__python-e4776daf74718fc14c14.json",
+					"name" : "more_interfaces__python",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "more_interfaces__rosidl_generator_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-more_interfaces__rosidl_generator_c-8331cd749eb17c710861.json",
+					"name" : "more_interfaces__rosidl_generator_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "more_interfaces__rosidl_typesupport_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-more_interfaces__rosidl_typesupport_c-18e3d5a348481b4c3821.json",
+					"name" : "more_interfaces__rosidl_typesupport_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "more_interfaces__rosidl_typesupport_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-more_interfaces__rosidl_typesupport_c__pyext-b30115bd961e216cba6b.json",
+					"name" : "more_interfaces__rosidl_typesupport_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "more_interfaces__rosidl_typesupport_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-more_interfaces__rosidl_typesupport_cpp-04ce53811690efde0e4a.json",
+					"name" : "more_interfaces__rosidl_typesupport_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "more_interfaces__rosidl_typesupport_fastrtps_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-more_interfaces__rosidl_typesupport_fastrtps_c-c95cf13a3e0aef3ca63c.json",
+					"name" : "more_interfaces__rosidl_typesupport_fastrtps_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "more_interfaces__rosidl_typesupport_fastrtps_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-more_interfaces__rosidl_typesupport_fastrtps_c__pyext-c1d4ad1fa5365950377c.json",
+					"name" : "more_interfaces__rosidl_typesupport_fastrtps_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "more_interfaces__rosidl_typesupport_fastrtps_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-more_interfaces__rosidl_typesupport_fastrtps_cpp-01d71777ed09d9ba8dd7.json",
+					"name" : "more_interfaces__rosidl_typesupport_fastrtps_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "more_interfaces__rosidl_typesupport_introspection_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-more_interfaces__rosidl_typesupport_introspection_c-ebd9c167f11ac7ada130.json",
+					"name" : "more_interfaces__rosidl_typesupport_introspection_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "more_interfaces__rosidl_typesupport_introspection_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-more_interfaces__rosidl_typesupport_introspection_c__pyext-cb43cfc054f77d1ed1cb.json",
+					"name" : "more_interfaces__rosidl_typesupport_introspection_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "more_interfaces__rosidl_typesupport_introspection_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-more_interfaces__rosidl_typesupport_introspection_cpp-78d4045ca97714d1c883.json",
+					"name" : "more_interfaces__rosidl_typesupport_introspection_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "more_interfaces_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-more_interfaces_uninstall-09cffe9be9c9427d40d6.json",
+					"name" : "more_interfaces_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-9375785b8b540d555f6a.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/sirius2beta/cetus/build/more_interfaces",
+		"source" : "/home/sirius2beta/cetus/src/more_interfaces"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

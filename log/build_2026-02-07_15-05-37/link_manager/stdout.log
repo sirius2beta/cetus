@@ -1,0 +1,25 @@
+[ 20%] [34m[1mAutomatic MOC and UIC for target link_manager[0m
+[ 20%] Built target link_manager_autogen
+[ 40%] [32mBuilding CXX object CMakeFiles/link_manager.dir/link_manager_autogen/mocs_compilation.cpp.o[0m
+[ 60%] [32mBuilding CXX object CMakeFiles/link_manager.dir/src/link_manager.cpp.o[0m
+[ 80%] [32mBuilding CXX object CMakeFiles/link_manager.dir/src/RosInterface.cpp.o[0m
+[100%] [32m[1mLinking CXX executable link_manager[0m
+[100%] Built target link_manager
+-- Install configuration: ""
+-- Installing: /home/sirius2beta/cetus/install/link_manager/lib/link_manager/link_manager
+-- Set non-toolchain portion of runtime path of "/home/sirius2beta/cetus/install/link_manager/lib/link_manager/link_manager" to ""
+-- Up-to-date: /home/sirius2beta/cetus/install/link_manager/share/ament_index/resource_index/package_run_dependencies/link_manager
+-- Up-to-date: /home/sirius2beta/cetus/install/link_manager/share/ament_index/resource_index/parent_prefix_path/link_manager
+-- Up-to-date: /home/sirius2beta/cetus/install/link_manager/share/link_manager/environment/ament_prefix_path.sh
+-- Installing: /home/sirius2beta/cetus/install/link_manager/share/link_manager/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/sirius2beta/cetus/install/link_manager/share/link_manager/environment/path.sh
+-- Installing: /home/sirius2beta/cetus/install/link_manager/share/link_manager/environment/path.dsv
+-- Up-to-date: /home/sirius2beta/cetus/install/link_manager/share/link_manager/local_setup.bash
+-- Up-to-date: /home/sirius2beta/cetus/install/link_manager/share/link_manager/local_setup.sh
+-- Up-to-date: /home/sirius2beta/cetus/install/link_manager/share/link_manager/local_setup.zsh
+-- Installing: /home/sirius2beta/cetus/install/link_manager/share/link_manager/local_setup.dsv
+-- Installing: /home/sirius2beta/cetus/install/link_manager/share/link_manager/package.dsv
+-- Up-to-date: /home/sirius2beta/cetus/install/link_manager/share/ament_index/resource_index/packages/link_manager
+-- Up-to-date: /home/sirius2beta/cetus/install/link_manager/share/link_manager/cmake/link_managerConfig.cmake
+-- Up-to-date: /home/sirius2beta/cetus/install/link_manager/share/link_manager/cmake/link_managerConfig-version.cmake
+-- Up-to-date: /home/sirius2beta/cetus/install/link_manager/share/link_manager/package.xml

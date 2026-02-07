@@ -1,0 +1,31 @@
+[33mCMake Warning (dev) at /opt/ros/foxy/share/ament_cmake_core/cmake/core/python.cmake:22 (find_package):
+  Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules
+  are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use
+  the cmake_policy command to set the policy and suppress this warning.
+
+Call Stack (most recent call first):
+  /opt/ros/foxy/share/ament_cmake_core/cmake/core/all.cmake:53 (include)
+  /opt/ros/foxy/share/ament_cmake_core/cmake/ament_cmake_core-extras.cmake:17 (include)
+  /opt/ros/foxy/share/ament_cmake_core/cmake/ament_cmake_coreConfig.cmake:41 (include)
+  /opt/ros/foxy/share/ament_cmake/cmake/ament_cmake_export_dependencies-extras.cmake:15 (find_package)
+  /opt/ros/foxy/share/ament_cmake/cmake/ament_cmakeConfig.cmake:41 (include)
+  CMakeLists.txt:27 (find_package)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+[0m
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.cpp:3:19:[m[K [01;31m[Kerror: [m[KISO C++ forbids declaration of ‘[01m[Krun[m[K’ with no type [[01;31m[K-fpermissive[m[K]
+    3 | RosInterface::run([01;31m[K)[m[K
+      |                   [01;31m[K^[m[K
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.cpp:3:1:[m[K [01;31m[Kerror: [m[Kno declaration matches ‘[01m[Kint RosInterface::run()[m[K’
+    3 | [01;31m[KRosInterface[m[K::run()
+      | [01;31m[K^~~~~~~~~~~~[m[K
+In file included from [01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.cpp:1[m[K:
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.h:12:10:[m[K [01;36m[Knote: [m[Kcandidate is: ‘[01m[Kvirtual void RosInterface::run()[m[K’
+   12 |     void [01;36m[Krun[m[K() override;
+      |          [01;36m[K^~~[m[K
+[01m[K/home/sirius2beta/cetus/src/link_manager/src/RosInterface.h:5:7:[m[K [01;36m[Knote: [m[K‘[01m[Kclass RosInterface[m[K’ defined here
+    5 | class [01;36m[KRosInterface[m[K : public QThread
+      |       [01;36m[K^~~~~~~~~~~~[m[K
+make[2]: *** [CMakeFiles/link_manager.dir/build.make:104: CMakeFiles/link_manager.dir/src/RosInterface.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[1]: *** [CMakeFiles/Makefile2:138: CMakeFiles/link_manager.dir/all] Error 2
+make: *** [Makefile:146: all] Error 2

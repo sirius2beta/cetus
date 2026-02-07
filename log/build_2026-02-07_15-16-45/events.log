@@ -1,0 +1,138 @@
+[0.000000] (-) TimerEvent: {}
+[0.002533] (-) JobUnselected: {'identifier': 'more_interfaces'}
+[0.003511] (-) JobUnselected: {'identifier': 'video_control'}
+[0.004225] (link_manager) JobQueued: {'identifier': 'link_manager', 'dependencies': OrderedDict([('more_interfaces', '/home/sirius2beta/cetus/install/more_interfaces')])}
+[0.004900] (link_manager) JobStarted: {'identifier': 'link_manager'}
+[0.054587] (link_manager) JobProgress: {'identifier': 'link_manager', 'progress': 'cmake'}
+[0.059041] (link_manager) JobProgress: {'identifier': 'link_manager', 'progress': 'build'}
+[0.066387] (link_manager) Command: {'cmd': ['/home/sirius2beta/.local/bin/cmake', '--build', '/home/sirius2beta/cetus/build/link_manager', '--', '-j4', '-l4'], 'cwd': '/home/sirius2beta/cetus/build/link_manager', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'sirius2beta'), ('SSH_CLIENT', '192.168.0.123 59217 22'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/sirius2beta/.vscode-server/cli/servers/Stable-bdd88df003631aaa0bcbe057cb0a940b80a476fa/server/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/sirius2beta/cetus/install/more_interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib:/usr/local/cuda-11.4/lib64:/usr/local/cuda-11.4/lib64'), ('BROWSER', '/home/sirius2beta/.vscode-server/cli/servers/Stable-bdd88df003631aaa0bcbe057cb0a940b80a476fa/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/sirius2beta'), ('OLDPWD', '/home/sirius2beta/cetus/src'), ('TERM_PROGRAM_VERSION', '1.109.0'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-a87f064a-83f4-41bb-bcf0-b43db54ceb17.sock'), ('JETSON_L4T', '35.6.0'), ('ROS_PYTHON_VERSION', '3'), ('JETSON_MODEL', 'NVIDIA Jetson Xavier NX Developer Kit'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/sirius2beta/.vscode-server/cli/servers/Stable-bdd88df003631aaa0bcbe057cb0a940b80a476fa/server/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/sirius2beta/.vscode-server/cli/servers/Stable-bdd88df003631aaa0bcbe057cb0a940b80a476fa/server/node'), ('SSL_CERT_FILE', '/usr/lib/ssl/certs/ca-certificates.crt'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/sirius2beta/cetus/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'sirius2beta'), ('JETSON_MODULE', 'NVIDIA Jetson Xavier NX (16GB ram)'), ('JETSON_SERIAL_NUMBER', '1421122058947'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('JETSON_CODENAME', 'Jakku'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '2'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/foxy/bin:/usr/local/cuda-11.4/bin:/home/sirius2beta/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/sirius2beta/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/sirius2beta/.vscode-server/cli/servers/Stable-bdd88df003631aaa0bcbe057cb0a940b80a476fa/server/bin/remote-cli:/home/sirius2beta/.local/bin:/usr/local/cuda-11.4/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('SSL_CERT_DIR', '/usr/lib/ssl/certs'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('JETSON_SOC', 'tegra194'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-68143b8282.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/sirius2beta/cetus/install/video_control:/home/sirius2beta/cetus/install/link_manager:/home/sirius2beta/cetus/install/more_interfaces:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('JETSON_CUDA_ARCH_BIN', '7.2'), ('PWD', '/home/sirius2beta/cetus/build/link_manager'), ('SSH_CONNECTION', '192.168.0.123 59217 192.168.0.215 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/sirius2beta/cetus/install/more_interfaces/lib/python3.8/site-packages:/home/sirius2beta/cetus/install/video_control/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('COLCON', '1'), ('JETSON_JETPACK', '5.1.4'), ('CMAKE_PREFIX_PATH', '/home/sirius2beta/cetus/install/more_interfaces:/home/sirius2beta/cetus/install/link_manager:/home/sirius2beta/cetus/install/video_control:/opt/ros/foxy'), ('JETSON_P_NUMBER', 'p3668-0003')]), 'shell': False}
+[0.099011] (-) TimerEvent: {}
+[0.200350] (-) TimerEvent: {}
+[0.301362] (-) TimerEvent: {}
+[0.400513] (link_manager) StdoutLine: {'line': b'[ 20%] \x1b[34m\x1b[1mAutomatic MOC and UIC for target link_manager\x1b[0m\n'}
+[0.401405] (-) TimerEvent: {}
+[0.434050] (link_manager) StdoutLine: {'line': b'[ 20%] Built target link_manager_autogen\n'}
+[0.501679] (-) TimerEvent: {}
+[0.567528] (link_manager) StdoutLine: {'line': b'[ 40%] \x1b[32mBuilding CXX object CMakeFiles/link_manager.dir/src/link_manager.cpp.o\x1b[0m\n'}
+[0.601895] (-) TimerEvent: {}
+[0.702880] (-) TimerEvent: {}
+[0.803856] (-) TimerEvent: {}
+[0.904821] (-) TimerEvent: {}
+[1.005721] (-) TimerEvent: {}
+[1.106651] (-) TimerEvent: {}
+[1.207774] (-) TimerEvent: {}
+[1.308916] (-) TimerEvent: {}
+[1.410653] (-) TimerEvent: {}
+[1.512240] (-) TimerEvent: {}
+[1.614014] (-) TimerEvent: {}
+[1.715809] (-) TimerEvent: {}
+[1.817555] (-) TimerEvent: {}
+[1.918630] (-) TimerEvent: {}
+[2.019683] (-) TimerEvent: {}
+[2.120761] (-) TimerEvent: {}
+[2.221891] (-) TimerEvent: {}
+[2.323562] (-) TimerEvent: {}
+[2.425349] (-) TimerEvent: {}
+[2.526320] (-) TimerEvent: {}
+[2.627432] (-) TimerEvent: {}
+[2.728596] (-) TimerEvent: {}
+[2.829672] (-) TimerEvent: {}
+[2.930723] (-) TimerEvent: {}
+[3.031914] (-) TimerEvent: {}
+[3.133079] (-) TimerEvent: {}
+[3.234878] (-) TimerEvent: {}
+[3.336604] (-) TimerEvent: {}
+[3.438578] (-) TimerEvent: {}
+[3.541080] (-) TimerEvent: {}
+[3.643077] (-) TimerEvent: {}
+[3.745188] (-) TimerEvent: {}
+[3.847301] (-) TimerEvent: {}
+[3.949071] (-) TimerEvent: {}
+[4.049986] (-) TimerEvent: {}
+[4.151894] (-) TimerEvent: {}
+[4.253368] (-) TimerEvent: {}
+[4.354751] (-) TimerEvent: {}
+[4.456014] (-) TimerEvent: {}
+[4.557031] (-) TimerEvent: {}
+[4.658461] (-) TimerEvent: {}
+[4.760318] (-) TimerEvent: {}
+[4.861803] (-) TimerEvent: {}
+[4.963141] (-) TimerEvent: {}
+[5.064212] (-) TimerEvent: {}
+[5.165276] (-) TimerEvent: {}
+[5.267164] (-) TimerEvent: {}
+[5.368823] (-) TimerEvent: {}
+[5.470421] (-) TimerEvent: {}
+[5.571813] (-) TimerEvent: {}
+[5.673597] (-) TimerEvent: {}
+[5.775377] (-) TimerEvent: {}
+[5.876539] (-) TimerEvent: {}
+[5.978030] (-) TimerEvent: {}
+[6.079612] (-) TimerEvent: {}
+[6.181073] (-) TimerEvent: {}
+[6.282805] (-) TimerEvent: {}
+[6.384358] (-) TimerEvent: {}
+[6.486040] (-) TimerEvent: {}
+[6.587647] (-) TimerEvent: {}
+[6.689739] (-) TimerEvent: {}
+[6.791362] (-) TimerEvent: {}
+[6.893017] (-) TimerEvent: {}
+[6.994080] (-) TimerEvent: {}
+[7.095228] (-) TimerEvent: {}
+[7.196437] (-) TimerEvent: {}
+[7.297391] (-) TimerEvent: {}
+[7.350058] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/link_manager.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kint main(int, char**)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[7.351027] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/link_manager.cpp:11:52:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kinvalid use of \xe2\x80\x98\x1b[01m\x1b[Kthis\x1b[m\x1b[K\xe2\x80\x99 in non-member function\n'}
+[7.351438] (link_manager) StderrLine: {'line': b'   11 |     RosInterface* ros_interface = new RosInterface(\x1b[01;31m\x1b[Kthis\x1b[m\x1b[K);\n'}
+[7.351781] (link_manager) StderrLine: {'line': b'      |                                                    \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[7.357476] (link_manager) StderrLine: {'line': b'\x1b[01m\x1b[K/home/sirius2beta/cetus/src/link_manager/src/link_manager.cpp:12:5:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kconnect\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[7.358210] (link_manager) StderrLine: {'line': b'   12 |     \x1b[01;31m\x1b[Kconnect\x1b[m\x1b[K(ros_interface, &QThread::finished, []() {\n'}
+[7.358636] (link_manager) StderrLine: {'line': b'      |     \x1b[01;31m\x1b[K^~~~~~~\x1b[m\x1b[K\n'}
+[7.397635] (-) TimerEvent: {}
+[7.498631] (-) TimerEvent: {}
+[7.599614] (-) TimerEvent: {}
+[7.700571] (-) TimerEvent: {}
+[7.801525] (-) TimerEvent: {}
+[7.902433] (-) TimerEvent: {}
+[8.003444] (-) TimerEvent: {}
+[8.104436] (-) TimerEvent: {}
+[8.205354] (-) TimerEvent: {}
+[8.306311] (-) TimerEvent: {}
+[8.407311] (-) TimerEvent: {}
+[8.508362] (-) TimerEvent: {}
+[8.609708] (-) TimerEvent: {}
+[8.710729] (-) TimerEvent: {}
+[8.811716] (-) TimerEvent: {}
+[8.912806] (-) TimerEvent: {}
+[9.013863] (-) TimerEvent: {}
+[9.114887] (-) TimerEvent: {}
+[9.215936] (-) TimerEvent: {}
+[9.317442] (-) TimerEvent: {}
+[9.418454] (-) TimerEvent: {}
+[9.519460] (-) TimerEvent: {}
+[9.620833] (-) TimerEvent: {}
+[9.722395] (-) TimerEvent: {}
+[9.823478] (-) TimerEvent: {}
+[9.924570] (-) TimerEvent: {}
+[10.025547] (-) TimerEvent: {}
+[10.126573] (-) TimerEvent: {}
+[10.227627] (-) TimerEvent: {}
+[10.328619] (-) TimerEvent: {}
+[10.429673] (-) TimerEvent: {}
+[10.530669] (-) TimerEvent: {}
+[10.631638] (-) TimerEvent: {}
+[10.732592] (-) TimerEvent: {}
+[10.833580] (-) TimerEvent: {}
+[10.934610] (-) TimerEvent: {}
+[11.035558] (-) TimerEvent: {}
+[11.136616] (-) TimerEvent: {}
+[11.237601] (-) TimerEvent: {}
+[11.338522] (-) TimerEvent: {}
+[11.439518] (-) TimerEvent: {}
+[11.513558] (link_manager) StderrLine: {'line': b'make[2]: *** [CMakeFiles/link_manager.dir/build.make:90: CMakeFiles/link_manager.dir/src/link_manager.cpp.o] Error 1\n'}
+[11.514984] (link_manager) StderrLine: {'line': b'make[1]: *** [CMakeFiles/Makefile2:138: CMakeFiles/link_manager.dir/all] Error 2\n'}
+[11.516142] (link_manager) StderrLine: {'line': b'make: *** [Makefile:146: all] Error 2\n'}
+[11.539735] (-) TimerEvent: {}
+[11.555633] (link_manager) CommandEnded: {'returncode': 2}
+[11.619774] (link_manager) JobEnded: {'identifier': 'link_manager', 'rc': 2}
+[11.634261] (-) EventReactorShutdown: {}
