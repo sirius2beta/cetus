@@ -1,2 +1,0 @@
-Invoking command in '/home/sirius2beta/cetus/build/more_interfaces': /home/sirius2beta/.local/bin/cmake /home/sirius2beta/cetus/src/more_interfaces -DCMAKE_INSTALL_PREFIX=/home/sirius2beta/cetus/install/more_interfaces
-Invoked command in '/home/sirius2beta/cetus/build/more_interfaces' returned '1': /home/sirius2beta/.local/bin/cmake /home/sirius2beta/cetus/src/more_interfaces -DCMAKE_INSTALL_PREFIX=/home/sirius2beta/cetus/install/more_interfaces

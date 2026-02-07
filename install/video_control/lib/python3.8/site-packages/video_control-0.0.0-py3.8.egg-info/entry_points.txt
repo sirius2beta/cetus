@@ -1,3 +1,0 @@
-[console_scripts]
-video_control = video_control.video_control:main
-

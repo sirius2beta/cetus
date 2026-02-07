@@ -1,4 +1,0 @@
-[ 25%] [34m[1mAutomatic MOC and UIC for target link_manager[0m
-[ 25%] Built target link_manager_autogen
-[ 50%] [32mBuilding CXX object CMakeFiles/link_manager.dir/src/link_manager.cpp.o[0m
-[ 75%] [32m[1mLinking CXX executable link_manager[0m
