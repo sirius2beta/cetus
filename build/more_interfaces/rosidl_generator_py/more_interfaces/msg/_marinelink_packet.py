@@ -57,16 +57,19 @@ class MarinelinkPacket(metaclass=Metaclass_MarinelinkPacket):
 
     __slots__ = [
         '_topic',
+        '_address',
         '_payload',
     ]
 
     _fields_and_field_types = {
         'topic': 'uint8',
+        'address': 'string',
         'payload': 'sequence<uint8>',
     }
 
     SLOT_TYPES = (
         rosidl_parser.definition.BasicType('uint8'),  # noqa: E501
+        rosidl_parser.definition.UnboundedString(),  # noqa: E501
         rosidl_parser.definition.UnboundedSequence(rosidl_parser.definition.BasicType('uint8')),  # noqa: E501
     )
 
@@ -75,6 +78,7 @@ class MarinelinkPacket(metaclass=Metaclass_MarinelinkPacket):
             'Invalid arguments passed to constructor: %s' % \
             ', '.join(sorted(k for k in kwargs.keys() if '_' + k not in self.__slots__))
         self.topic = kwargs.get('topic', int())
+        self.address = kwargs.get('address', str())
         self.payload = array.array('B', kwargs.get('payload', []))
 
     def __repr__(self):
@@ -108,6 +112,8 @@ class MarinelinkPacket(metaclass=Metaclass_MarinelinkPacket):
             return False
         if self.topic != other.topic:
             return False
+        if self.address != other.address:
+            return False
         if self.payload != other.payload:
             return False
         return True
@@ -131,6 +137,19 @@ class MarinelinkPacket(metaclass=Metaclass_MarinelinkPacket):
             assert value >= 0 and value < 256, \
                 "The 'topic' field must be an unsigned integer in [0, 255]"
         self._topic = value
+
+    @property
+    def address(self):
+        """Message field 'address'."""
+        return self._address
+
+    @address.setter
+    def address(self, value):
+        if __debug__:
+            assert \
+                isinstance(value, str), \
+                "The 'address' field must be of type 'str'"
+        self._address = value
 
     @property
     def payload(self):

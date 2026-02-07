@@ -1,7 +1,7 @@
 #pragma once
 #include "ros_worker.h"
 #include <QThread>
-#include "mavlink.h"
+#include "LinkPackage/MAVLinkLib.h"
 class RosInterface : public QThread
 {
     Q_OBJECT

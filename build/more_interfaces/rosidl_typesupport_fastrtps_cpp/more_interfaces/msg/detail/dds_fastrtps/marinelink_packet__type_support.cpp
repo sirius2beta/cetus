@@ -34,6 +34,8 @@ cdr_serialize(
 {
   // Member: topic
   cdr << ros_message.topic;
+  // Member: address
+  cdr << ros_message.address;
   // Member: payload
   {
     cdr << ros_message.payload;
@@ -49,6 +51,9 @@ cdr_deserialize(
 {
   // Member: topic
   cdr >> ros_message.topic;
+
+  // Member: address
+  cdr >> ros_message.address;
 
   // Member: payload
   {
@@ -77,6 +82,10 @@ get_serialized_size(
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
+  // Member: address
+  current_alignment += padding +
+    eprosima::fastcdr::Cdr::alignment(current_alignment, padding) +
+    (ros_message.address.size() + 1);
   // Member: payload
   {
     size_t array_size = ros_message.payload.size();
@@ -111,6 +120,18 @@ max_serialized_size_MarinelinkPacket(
     size_t array_size = 1;
 
     current_alignment += array_size * sizeof(uint8_t);
+  }
+
+  // Member: address
+  {
+    size_t array_size = 1;
+
+    full_bounded = false;
+    for (size_t index = 0; index < array_size; ++index) {
+      current_alignment += padding +
+        eprosima::fastcdr::Cdr::alignment(current_alignment, padding) +
+        1;
+    }
   }
 
   // Member: payload

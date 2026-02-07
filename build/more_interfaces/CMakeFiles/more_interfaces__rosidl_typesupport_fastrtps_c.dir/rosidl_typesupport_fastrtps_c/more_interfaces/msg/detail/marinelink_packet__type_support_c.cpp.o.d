@@ -176,7 +176,9 @@ CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport
  /usr/include/c++/9/bits/ostream.tcc /usr/include/c++/9/istream \
  /usr/include/c++/9/bits/istream.tcc /usr/include/malloc.h \
  /home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_c/more_interfaces/msg/detail/marinelink_packet__struct.h \
+ /opt/ros/foxy/include/rosidl_runtime_c/string.h \
  /home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_c/more_interfaces/msg/detail/marinelink_packet__functions.h \
  /usr/include/c++/9/stdlib.h \
  /home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_c/more_interfaces/msg/rosidl_generator_c__visibility_control.h \
- /opt/ros/foxy/include/rosidl_runtime_c/primitives_sequence_functions.h
+ /opt/ros/foxy/include/rosidl_runtime_c/primitives_sequence_functions.h \
+ /opt/ros/foxy/include/rosidl_runtime_c/string_functions.h

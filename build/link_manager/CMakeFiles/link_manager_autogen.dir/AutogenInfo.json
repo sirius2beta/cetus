@@ -874,7 +874,8 @@
 		"/opt/ros/foxy/share/ament_cmake_core/cmake/core/templates/nameConfig.cmake.in",
 		"/opt/ros/foxy/share/ament_cmake_core/cmake/core/templates/nameConfig.cmake.in",
 		"/opt/ros/foxy/share/ament_cmake_core/cmake/core/templates/nameConfig-version.cmake.in",
-		"/opt/ros/foxy/share/ament_cmake_core/cmake/core/templates/nameConfig-version.cmake.in"
+		"/opt/ros/foxy/share/ament_cmake_core/cmake/core/templates/nameConfig-version.cmake.in",
+		"/home/sirius2beta/cetus/src/link_manager/src/LinkPackage/LinkPackage.qrc"
 	],
 	"CMAKE_SOURCE_DIR" : "/home/sirius2beta/cetus/src/link_manager",
 	"CROSS_CONFIG" : false,
@@ -882,6 +883,72 @@
 	"DEP_FILE_RULE_NAME" : "",
 	"HEADERS" : 
 	[
+		[
+			"/home/sirius2beta/cetus/src/link_manager/src/LinkPackage/JsonHelper.h",
+			"MU",
+			"RHRHIXNHOL/moc_JsonHelper.cpp",
+			null
+		],
+		[
+			"/home/sirius2beta/cetus/src/link_manager/src/LinkPackage/MAVLinkLib.h",
+			"MU",
+			"RHRHIXNHOL/moc_MAVLinkLib.cpp",
+			null
+		],
+		[
+			"/home/sirius2beta/cetus/src/link_manager/src/LinkPackage/QGCSerialPortInfo.h",
+			"MU",
+			"RHRHIXNHOL/moc_QGCSerialPortInfo.cpp",
+			null
+		],
+		[
+			"/home/sirius2beta/cetus/src/link_manager/src/LinkPackage/SerialLink.h",
+			"MU",
+			"RHRHIXNHOL/moc_SerialLink.cpp",
+			null
+		],
+		[
+			"/home/sirius2beta/cetus/src/link_manager/src/LinkPackage/UDPLink.h",
+			"MU",
+			"RHRHIXNHOL/moc_UDPLink.cpp",
+			null
+		],
+		[
+			"/home/sirius2beta/cetus/src/link_manager/src/LinkPackage/UdpIODevice.h",
+			"MU",
+			"RHRHIXNHOL/moc_UdpIODevice.cpp",
+			null
+		],
+		[
+			"/home/sirius2beta/cetus/src/link_manager/src/LinkPackage/bridge.h",
+			"MU",
+			"RHRHIXNHOL/moc_bridge.cpp",
+			null
+		],
+		[
+			"/home/sirius2beta/cetus/src/link_manager/src/LinkPackage/linkconfiguration.h",
+			"MU",
+			"RHRHIXNHOL/moc_linkconfiguration.cpp",
+			null
+		],
+		[
+			"/home/sirius2beta/cetus/src/link_manager/src/LinkPackage/linkinterface.h",
+			"MU",
+			"RHRHIXNHOL/moc_linkinterface.cpp",
+			null
+		],
+		[
+			"/home/sirius2beta/cetus/src/link_manager/src/LinkPackage/linkmanager.h",
+			"MU",
+			"RHRHIXNHOL/moc_linkmanager.cpp",
+			null
+		],
+		[
+			"/home/sirius2beta/cetus/src/link_manager/src/LinkPackage/mavlinkprotocol.h",
+			"MU",
+			"RHRHIXNHOL/moc_mavlinkprotocol.cpp",
+			null
+		],
 		[
 			"/home/sirius2beta/cetus/src/link_manager/src/RosInterface.h",
 			"MU",
@@ -912,8 +979,9 @@
 	"MOC_INCLUDES" : 
 	[
 		"/home/sirius2beta/cetus/src/link_manager",
-		"/home/sirius2beta/cetus/src/link_manager/src/mavlink",
-		"/home/sirius2beta/cetus/src/link_manager/src/mavlink/hypex",
+		"/home/sirius2beta/cetus/src/link_manager/src/LinkPackage/mavlink",
+		"/home/sirius2beta/cetus/src/link_manager/src/LinkPackage/mavlink/hypex",
+		"/home/sirius2beta/cetus/src/link_manager/src/LinkPackage",
 		"/home/sirius2beta/cetus/install/more_interfaces/include",
 		"/opt/ros/foxy/include",
 		"/usr/include/aarch64-linux-gnu/qt5",
@@ -954,6 +1022,56 @@
 	"SETTINGS_FILE" : "/home/sirius2beta/cetus/build/link_manager/CMakeFiles/link_manager_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
+		[
+			"/home/sirius2beta/cetus/src/link_manager/src/LinkPackage/JsonHelper.cc",
+			"MU",
+			null
+		],
+		[
+			"/home/sirius2beta/cetus/src/link_manager/src/LinkPackage/QGCSerialPortInfo.cc",
+			"MU",
+			null
+		],
+		[
+			"/home/sirius2beta/cetus/src/link_manager/src/LinkPackage/SerialLink.cc",
+			"MU",
+			null
+		],
+		[
+			"/home/sirius2beta/cetus/src/link_manager/src/LinkPackage/UDPLink.cc",
+			"MU",
+			null
+		],
+		[
+			"/home/sirius2beta/cetus/src/link_manager/src/LinkPackage/UdpIODevice.cc",
+			"MU",
+			null
+		],
+		[
+			"/home/sirius2beta/cetus/src/link_manager/src/LinkPackage/bridge.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/sirius2beta/cetus/src/link_manager/src/LinkPackage/linkconfiguration.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/sirius2beta/cetus/src/link_manager/src/LinkPackage/linkinterface.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/sirius2beta/cetus/src/link_manager/src/LinkPackage/linkmanager.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/sirius2beta/cetus/src/link_manager/src/LinkPackage/mavlinkprotocol.cpp",
+			"MU",
+			null
+		],
 		[
 			"/home/sirius2beta/cetus/src/link_manager/src/RosInterface.cpp",
 			"MU",

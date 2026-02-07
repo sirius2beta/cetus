@@ -8,6 +8,8 @@ module more_interfaces {
     struct MarinelinkPacket {
       uint8 topic;
 
+      string address;
+
       sequence<uint8> payload;
     };
   };

@@ -64,7 +64,7 @@ void resize_function__MarinelinkPacket__payload(void * untyped_member, size_t si
   member->resize(size);
 }
 
-static const ::rosidl_typesupport_introspection_cpp::MessageMember MarinelinkPacket_message_member_array[2] = {
+static const ::rosidl_typesupport_introspection_cpp::MessageMember MarinelinkPacket_message_member_array[3] = {
   {
     "topic",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT8,  // type
@@ -74,6 +74,21 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember MarinelinkPac
     0,  // array size
     false,  // is upper bound
     offsetof(more_interfaces::msg::MarinelinkPacket, topic),  // bytes offset in struct
+    nullptr,  // default value
+    nullptr,  // size() function pointer
+    nullptr,  // get_const(index) function pointer
+    nullptr,  // get(index) function pointer
+    nullptr  // resize(index) function pointer
+  },
+  {
+    "address",  // name
+    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_STRING,  // type
+    0,  // upper bound of string
+    nullptr,  // members of sub message
+    false,  // is array
+    0,  // array size
+    false,  // is upper bound
+    offsetof(more_interfaces::msg::MarinelinkPacket, address),  // bytes offset in struct
     nullptr,  // default value
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
@@ -100,7 +115,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember MarinelinkPac
 static const ::rosidl_typesupport_introspection_cpp::MessageMembers MarinelinkPacket_message_members = {
   "more_interfaces::msg",  // message namespace
   "MarinelinkPacket",  // message name
-  2,  // number of fields
+  3,  // number of fields
   sizeof(more_interfaces::msg::MarinelinkPacket),
   MarinelinkPacket_message_member_array,  // message members
   MarinelinkPacket_init_function,  // function to initialize message memory (memory has to be allocated)

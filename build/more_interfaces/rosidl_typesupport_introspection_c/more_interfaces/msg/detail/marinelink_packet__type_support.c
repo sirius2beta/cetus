@@ -13,6 +13,8 @@
 
 
 // Include directives for member types
+// Member `address`
+#include "rosidl_runtime_c/string_functions.h"
 // Member `payload`
 #include "rosidl_runtime_c/primitives_sequence_functions.h"
 
@@ -35,7 +37,7 @@ void MarinelinkPacket__rosidl_typesupport_introspection_c__MarinelinkPacket_fini
   more_interfaces__msg__MarinelinkPacket__fini(message_memory);
 }
 
-static rosidl_typesupport_introspection_c__MessageMember MarinelinkPacket__rosidl_typesupport_introspection_c__MarinelinkPacket_message_member_array[2] = {
+static rosidl_typesupport_introspection_c__MessageMember MarinelinkPacket__rosidl_typesupport_introspection_c__MarinelinkPacket_message_member_array[3] = {
   {
     "topic",  // name
     rosidl_typesupport_introspection_c__ROS_TYPE_UINT8,  // type
@@ -45,6 +47,21 @@ static rosidl_typesupport_introspection_c__MessageMember MarinelinkPacket__rosid
     0,  // array size
     false,  // is upper bound
     offsetof(more_interfaces__msg__MarinelinkPacket, topic),  // bytes offset in struct
+    NULL,  // default value
+    NULL,  // size() function pointer
+    NULL,  // get_const(index) function pointer
+    NULL,  // get(index) function pointer
+    NULL  // resize(index) function pointer
+  },
+  {
+    "address",  // name
+    rosidl_typesupport_introspection_c__ROS_TYPE_STRING,  // type
+    0,  // upper bound of string
+    NULL,  // members of sub message
+    false,  // is array
+    0,  // array size
+    false,  // is upper bound
+    offsetof(more_interfaces__msg__MarinelinkPacket, address),  // bytes offset in struct
     NULL,  // default value
     NULL,  // size() function pointer
     NULL,  // get_const(index) function pointer
@@ -71,7 +88,7 @@ static rosidl_typesupport_introspection_c__MessageMember MarinelinkPacket__rosid
 static const rosidl_typesupport_introspection_c__MessageMembers MarinelinkPacket__rosidl_typesupport_introspection_c__MarinelinkPacket_message_members = {
   "more_interfaces__msg",  // message namespace
   "MarinelinkPacket",  // message name
-  2,  // number of fields
+  3,  // number of fields
   sizeof(more_interfaces__msg__MarinelinkPacket),
   MarinelinkPacket__rosidl_typesupport_introspection_c__MarinelinkPacket_message_member_array,  // message members
   MarinelinkPacket__rosidl_typesupport_introspection_c__MarinelinkPacket_init_function,  // function to initialize message memory (memory has to be allocated)

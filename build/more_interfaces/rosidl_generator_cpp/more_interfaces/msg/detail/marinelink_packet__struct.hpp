@@ -38,16 +38,18 @@ struct MarinelinkPacket_
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
     {
       this->topic = 0;
+      this->address = "";
     }
   }
 
   explicit MarinelinkPacket_(const ContainerAllocator & _alloc, rosidl_runtime_cpp::MessageInitialization _init = rosidl_runtime_cpp::MessageInitialization::ALL)
+  : address(_alloc)
   {
-    (void)_alloc;
     if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
     {
       this->topic = 0;
+      this->address = "";
     }
   }
 
@@ -55,6 +57,9 @@ struct MarinelinkPacket_
   using _topic_type =
     uint8_t;
   _topic_type topic;
+  using _address_type =
+    std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other>;
+  _address_type address;
   using _payload_type =
     std::vector<uint8_t, typename ContainerAllocator::template rebind<uint8_t>::other>;
   _payload_type payload;
@@ -64,6 +69,12 @@ struct MarinelinkPacket_
     const uint8_t & _arg)
   {
     this->topic = _arg;
+    return *this;
+  }
+  Type & set__address(
+    const std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other> & _arg)
+  {
+    this->address = _arg;
     return *this;
   }
   Type & set__payload(
@@ -116,6 +127,9 @@ struct MarinelinkPacket_
   bool operator==(const MarinelinkPacket_ & other) const
   {
     if (this->topic != other.topic) {
+      return false;
+    }
+    if (this->address != other.address) {
       return false;
     }
     if (this->payload != other.payload) {

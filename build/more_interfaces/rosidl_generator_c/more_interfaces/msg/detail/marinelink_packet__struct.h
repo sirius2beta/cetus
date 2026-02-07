@@ -18,6 +18,8 @@ extern "C"
 // Constants defined in the message
 
 // Include directives for member types
+// Member 'address'
+#include "rosidl_runtime_c/string.h"
 // Member 'payload'
 #include "rosidl_runtime_c/primitives_sequence.h"
 
@@ -25,6 +27,7 @@ extern "C"
 typedef struct more_interfaces__msg__MarinelinkPacket
 {
   uint8_t topic;
+  rosidl_runtime_c__String address;
   rosidl_runtime_c__uint8__Sequence payload;
 } more_interfaces__msg__MarinelinkPacket;
 

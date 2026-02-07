@@ -181,7 +181,9 @@ CMakeFiles/more_interfaces__python.dir/rosidl_generator_py/more_interfaces/msg/_
  /usr/include/python3.8/numpy/__multiarray_api.h \
  /opt/ros/foxy/include/rosidl_runtime_c/visibility_control.h \
  /home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_c/more_interfaces/msg/detail/marinelink_packet__struct.h \
+ /opt/ros/foxy/include/rosidl_runtime_c/string.h \
  /opt/ros/foxy/include/rosidl_runtime_c/primitives_sequence.h \
  /home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_c/more_interfaces/msg/detail/marinelink_packet__functions.h \
  /home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_c/more_interfaces/msg/rosidl_generator_c__visibility_control.h \
+ /opt/ros/foxy/include/rosidl_runtime_c/string_functions.h \
  /opt/ros/foxy/include/rosidl_runtime_c/primitives_sequence_functions.h

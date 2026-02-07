@@ -43,7 +43,9 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
-add_executable(link_manager src/link_manager.cpp 
+add_executable(link_manager 
+    src/LinkPackage/LinkPackage.qrc
+    src/link_manager.cpp 
     src/RosInterface.cpp
 )
 ament_target_dependencies(link_manager rclcpp more_interfaces)
@@ -52,11 +54,15 @@ target_link_libraries(${CMAKE_PROJECT_NAME} Qt${QT_VERSION_MAJOR}::Core Qt${QT_V
 target_include_directories(${CMAKE_PROJECT_NAME}
     PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}
-    src/mavlink/
-    src/mavlink/hypex
+    src/LinkPackage/mavlink/
+    src/LinkPackage/mavlink/hypex
 )
 install(TARGETS
   link_manager
   DESTINATION lib/${PROJECT_NAME} )
+
+add_subdirectory(src/LinkPackage)
+target_compile_options(link_manager PRIVATE -Wno-address-of-packed-member)
+
 
 ament_package()

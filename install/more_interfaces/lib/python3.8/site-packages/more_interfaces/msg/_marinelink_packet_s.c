@@ -16,6 +16,9 @@
 #include "more_interfaces/msg/detail/marinelink_packet__struct.h"
 #include "more_interfaces/msg/detail/marinelink_packet__functions.h"
 
+#include "rosidl_runtime_c/string.h"
+#include "rosidl_runtime_c/string_functions.h"
+
 #include "rosidl_runtime_c/primitives_sequence.h"
 #include "rosidl_runtime_c/primitives_sequence_functions.h"
 
@@ -60,6 +63,21 @@ bool more_interfaces__msg__marinelink_packet__convert_from_py(PyObject * _pymsg,
     }
     assert(PyLong_Check(field));
     ros_message->topic = (uint8_t)PyLong_AsUnsignedLong(field);
+    Py_DECREF(field);
+  }
+  {  // address
+    PyObject * field = PyObject_GetAttrString(_pymsg, "address");
+    if (!field) {
+      return false;
+    }
+    assert(PyUnicode_Check(field));
+    PyObject * encoded_field = PyUnicode_AsUTF8String(field);
+    if (!encoded_field) {
+      Py_DECREF(field);
+      return false;
+    }
+    rosidl_runtime_c__String__assign(&ros_message->address, PyBytes_AS_STRING(encoded_field));
+    Py_DECREF(encoded_field);
     Py_DECREF(field);
   }
   {  // payload
@@ -152,6 +170,23 @@ PyObject * more_interfaces__msg__marinelink_packet__convert_to_py(void * raw_ros
     field = PyLong_FromUnsignedLong(ros_message->topic);
     {
       int rc = PyObject_SetAttrString(_pymessage, "topic", field);
+      Py_DECREF(field);
+      if (rc) {
+        return NULL;
+      }
+    }
+  }
+  {  // address
+    PyObject * field = NULL;
+    field = PyUnicode_DecodeUTF8(
+      ros_message->address.data,
+      strlen(ros_message->address.data),
+      "replace");
+    if (!field) {
+      return NULL;
+    }
+    {
+      int rc = PyObject_SetAttrString(_pymessage, "address", field);
       Py_DECREF(field);
       if (rc) {
         return NULL;

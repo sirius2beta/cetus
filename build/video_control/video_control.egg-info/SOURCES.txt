@@ -9,5 +9,7 @@ setup.py
 ../../build/video_control/video_control.egg-info/top_level.txt
 ../../build/video_control/video_control.egg-info/zip-safe
 resource/video_control
+video_control/VideoFormat.py
+video_control/VideoManager.py
 video_control/__init__.py
 video_control/video_control.py

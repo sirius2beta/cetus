@@ -12,6 +12,8 @@
 
 
 // Include directives for member types
+// Member `address`
+#include "rosidl_runtime_c/string_functions.h"
 // Member `payload`
 #include "rosidl_runtime_c/primitives_sequence_functions.h"
 
@@ -22,6 +24,11 @@ more_interfaces__msg__MarinelinkPacket__init(more_interfaces__msg__MarinelinkPac
     return false;
   }
   // topic
+  // address
+  if (!rosidl_runtime_c__String__init(&msg->address)) {
+    more_interfaces__msg__MarinelinkPacket__fini(msg);
+    return false;
+  }
   // payload
   if (!rosidl_runtime_c__uint8__Sequence__init(&msg->payload, 0)) {
     more_interfaces__msg__MarinelinkPacket__fini(msg);
@@ -37,6 +44,8 @@ more_interfaces__msg__MarinelinkPacket__fini(more_interfaces__msg__MarinelinkPac
     return;
   }
   // topic
+  // address
+  rosidl_runtime_c__String__fini(&msg->address);
   // payload
   rosidl_runtime_c__uint8__Sequence__fini(&msg->payload);
 }
@@ -49,6 +58,12 @@ more_interfaces__msg__MarinelinkPacket__are_equal(const more_interfaces__msg__Ma
   }
   // topic
   if (lhs->topic != rhs->topic) {
+    return false;
+  }
+  // address
+  if (!rosidl_runtime_c__String__are_equal(
+      &(lhs->address), &(rhs->address)))
+  {
     return false;
   }
   // payload
@@ -70,6 +85,12 @@ more_interfaces__msg__MarinelinkPacket__copy(
   }
   // topic
   output->topic = input->topic;
+  // address
+  if (!rosidl_runtime_c__String__copy(
+      &(input->address), &(output->address)))
+  {
+    return false;
+  }
   // payload
   if (!rosidl_runtime_c__uint8__Sequence__copy(
       &(input->payload), &(output->payload)))

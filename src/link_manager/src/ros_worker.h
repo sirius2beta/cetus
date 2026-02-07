@@ -31,8 +31,7 @@ class PublishWorker : public rclcpp::Node
 public:
     PublishWorker() : Node("link_manager_publish_worker")
     {
-        mavlink_publisher_ = this->create_publisher<more_interfaces::msg::MarinelinkPacket>("marinelink_received", 10);
-        timer_ = this->create_wall_timer(std::chrono::seconds(1), std::bind(&PublishWorker::timer_callback, this));
+        marinelink_publisher_ = this->create_publisher<more_interfaces::msg::MarinelinkPacket>("video/cmd", 10);
     }
     ~PublishWorker() = default;
     void publish_payload(const uint8_t* data, size_t length) {
@@ -41,16 +40,9 @@ public:
         msg.payload.assign(data, data + length);
         msg.topic = 1; // 假設 topic_type 為 1
         // 直接發布
-        mavlink_publisher_->publish(msg);
+        marinelink_publisher_->publish(msg);
         RCLCPP_DEBUG(this->get_logger(), "Forwarded payload to ROS topic");
     }
 private:
-    rclcpp::Publisher<more_interfaces::msg::MarinelinkPacket>::SharedPtr mavlink_publisher_;
-    rclcpp::TimerBase::SharedPtr timer_;
-    void timer_callback()
-    {
-        auto msg = more_interfaces::msg::MarinelinkPacket();
-        msg.payload = {0x01, 0x02, 0x03};
-        mavlink_publisher_->publish(msg);
-    }
+    rclcpp::Publisher<more_interfaces::msg::MarinelinkPacket>::SharedPtr marinelink_publisher_;
 };

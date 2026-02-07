@@ -64,10 +64,11 @@ CMAKE_BINARY_DIR = /home/sirius2beta/cetus/build/link_manager
 
 # The main recursive "all" target.
 all: CMakeFiles/link_manager.dir/all
+all: src/LinkPackage/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
-preinstall:
+preinstall: src/LinkPackage/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
@@ -75,7 +76,23 @@ clean: CMakeFiles/uninstall.dir/clean
 clean: CMakeFiles/link_manager_uninstall.dir/clean
 clean: CMakeFiles/link_manager.dir/clean
 clean: CMakeFiles/link_manager_autogen.dir/clean
+clean: src/LinkPackage/clean
 .PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory src/LinkPackage
+
+# Recursive "all" directory target.
+src/LinkPackage/all:
+.PHONY : src/LinkPackage/all
+
+# Recursive "preinstall" directory target.
+src/LinkPackage/preinstall:
+.PHONY : src/LinkPackage/preinstall
+
+# Recursive "clean" directory target.
+src/LinkPackage/clean:
+.PHONY : src/LinkPackage/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/uninstall.dir
@@ -136,12 +153,12 @@ CMakeFiles/link_manager_uninstall.dir/clean:
 CMakeFiles/link_manager.dir/all: CMakeFiles/link_manager_autogen.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/link_manager.dir/build.make CMakeFiles/link_manager.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/link_manager.dir/build.make CMakeFiles/link_manager.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/sirius2beta/cetus/build/link_manager/CMakeFiles --progress-num=1,2,3,4 "Built target link_manager"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/sirius2beta/cetus/build/link_manager/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16 "Built target link_manager"
 .PHONY : CMakeFiles/link_manager.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/link_manager.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sirius2beta/cetus/build/link_manager/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/sirius2beta/cetus/build/link_manager/CMakeFiles 17
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/link_manager.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/sirius2beta/cetus/build/link_manager/CMakeFiles 0
 .PHONY : CMakeFiles/link_manager.dir/rule
@@ -162,7 +179,7 @@ CMakeFiles/link_manager.dir/clean:
 CMakeFiles/link_manager_autogen.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/link_manager_autogen.dir/build.make CMakeFiles/link_manager_autogen.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/link_manager_autogen.dir/build.make CMakeFiles/link_manager_autogen.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/sirius2beta/cetus/build/link_manager/CMakeFiles --progress-num=5 "Built target link_manager_autogen"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/sirius2beta/cetus/build/link_manager/CMakeFiles --progress-num=17 "Built target link_manager_autogen"
 .PHONY : CMakeFiles/link_manager_autogen.dir/all
 
 # Build rule for subdir invocation for target.

@@ -25,6 +25,7 @@ CMakeFiles/more_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/more_i
  /usr/include/aarch64-linux-gnu/bits/wchar.h \
  /usr/include/aarch64-linux-gnu/bits/stdint-intn.h \
  /usr/include/aarch64-linux-gnu/bits/stdint-uintn.h \
+ /opt/ros/foxy/include/rosidl_runtime_c/string.h \
  /opt/ros/foxy/include/rosidl_runtime_c/primitives_sequence.h \
  /opt/ros/foxy/include/rosidl_typesupport_c/identifier.h \
  /opt/ros/foxy/include/rosidl_typesupport_c/visibility_control.h \

@@ -36,16 +36,32 @@ private:
   ::more_interfaces::msg::MarinelinkPacket msg_;
 };
 
+class Init_MarinelinkPacket_address
+{
+public:
+  explicit Init_MarinelinkPacket_address(::more_interfaces::msg::MarinelinkPacket & msg)
+  : msg_(msg)
+  {}
+  Init_MarinelinkPacket_payload address(::more_interfaces::msg::MarinelinkPacket::_address_type arg)
+  {
+    msg_.address = std::move(arg);
+    return Init_MarinelinkPacket_payload(msg_);
+  }
+
+private:
+  ::more_interfaces::msg::MarinelinkPacket msg_;
+};
+
 class Init_MarinelinkPacket_topic
 {
 public:
   Init_MarinelinkPacket_topic()
   : msg_(::rosidl_runtime_cpp::MessageInitialization::SKIP)
   {}
-  Init_MarinelinkPacket_payload topic(::more_interfaces::msg::MarinelinkPacket::_topic_type arg)
+  Init_MarinelinkPacket_address topic(::more_interfaces::msg::MarinelinkPacket::_topic_type arg)
   {
     msg_.topic = std::move(arg);
-    return Init_MarinelinkPacket_payload(msg_);
+    return Init_MarinelinkPacket_address(msg_);
   }
 
 private:

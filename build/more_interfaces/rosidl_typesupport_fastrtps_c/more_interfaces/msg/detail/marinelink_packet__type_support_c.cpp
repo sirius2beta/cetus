@@ -36,6 +36,8 @@ extern "C"
 
 #include "rosidl_runtime_c/primitives_sequence.h"  // payload
 #include "rosidl_runtime_c/primitives_sequence_functions.h"  // payload
+#include "rosidl_runtime_c/string.h"  // address
+#include "rosidl_runtime_c/string_functions.h"  // address
 
 // forward declare type support functions
 
@@ -54,6 +56,20 @@ static bool _MarinelinkPacket__cdr_serialize(
   // Field name: topic
   {
     cdr << ros_message->topic;
+  }
+
+  // Field name: address
+  {
+    const rosidl_runtime_c__String * str = &ros_message->address;
+    if (str->capacity == 0 || str->capacity <= str->size) {
+      fprintf(stderr, "string capacity not greater than size\n");
+      return false;
+    }
+    if (str->data[str->size] != '\0') {
+      fprintf(stderr, "string not null-terminated\n");
+      return false;
+    }
+    cdr << str->data;
   }
 
   // Field name: payload
@@ -79,6 +95,22 @@ static bool _MarinelinkPacket__cdr_deserialize(
   // Field name: topic
   {
     cdr >> ros_message->topic;
+  }
+
+  // Field name: address
+  {
+    std::string tmp;
+    cdr >> tmp;
+    if (!ros_message->address.data) {
+      rosidl_runtime_c__String__init(&ros_message->address);
+    }
+    bool succeeded = rosidl_runtime_c__String__assign(
+      &ros_message->address,
+      tmp.c_str());
+    if (!succeeded) {
+      fprintf(stderr, "failed to assign string into field 'address'\n");
+      return false;
+    }
   }
 
   // Field name: payload
@@ -119,6 +151,10 @@ size_t get_serialized_size_more_interfaces__msg__MarinelinkPacket(
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
+  // field.name address
+  current_alignment += padding +
+    eprosima::fastcdr::Cdr::alignment(current_alignment, padding) +
+    (ros_message->address.size + 1);
   // field.name payload
   {
     size_t array_size = ros_message->payload.size;
@@ -159,6 +195,17 @@ size_t max_serialized_size_more_interfaces__msg__MarinelinkPacket(
     size_t array_size = 1;
 
     current_alignment += array_size * sizeof(uint8_t);
+  }
+  // member: address
+  {
+    size_t array_size = 1;
+
+    full_bounded = false;
+    for (size_t index = 0; index < array_size; ++index) {
+      current_alignment += padding +
+        eprosima::fastcdr::Cdr::alignment(current_alignment, padding) +
+        1;
+    }
   }
   // member: payload
   {

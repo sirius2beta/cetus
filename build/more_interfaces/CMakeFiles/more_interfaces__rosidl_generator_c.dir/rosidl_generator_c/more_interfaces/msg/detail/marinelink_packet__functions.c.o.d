@@ -46,6 +46,7 @@ CMakeFiles/more_interfaces__rosidl_generator_c.dir/rosidl_generator_c/more_inter
  /usr/lib/gcc/aarch64-linux-gnu/9/include/stdint.h /usr/include/stdint.h \
  /usr/include/aarch64-linux-gnu/bits/wchar.h \
  /usr/include/aarch64-linux-gnu/bits/stdint-uintn.h \
+ /opt/ros/foxy/include/rosidl_runtime_c/string.h \
  /opt/ros/foxy/include/rosidl_runtime_c/primitives_sequence.h \
  /usr/include/assert.h /usr/include/string.h \
  /usr/include/aarch64-linux-gnu/bits/types/locale_t.h \
@@ -65,4 +66,5 @@ CMakeFiles/more_interfaces__rosidl_generator_c.dir/rosidl_generator_c/more_inter
  /opt/ros/foxy/include/rcutils/visibility_control.h \
  /opt/ros/foxy/include/rcutils/visibility_control_macros.h \
  /opt/ros/foxy/include/rcutils/types/rcutils_ret.h \
+ /opt/ros/foxy/include/rosidl_runtime_c/string_functions.h \
  /opt/ros/foxy/include/rosidl_runtime_c/primitives_sequence_functions.h

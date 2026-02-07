@@ -1,20 +1,23 @@
 import rclpy
 from rclpy.node import Node
+import gi
+import glob
+import logging
+import subprocess
+gi.require_version("Gst", "1.0")
+from gi.repository import Gst, GLib, GObject
+from video_control.VideoManager import VideoManager
 from more_interfaces.msg import MavlinkPacket, MarinelinkPacket
 
 class VideoControl(Node):
     def __init__(self):
         super().__init__('video_control')
-        self.publisher_ = self.create_publisher(MavlinkPacket, 'mavlink_packet', 10)
-        timer_period = 1.0  # seconds
-        self.timer = self.create_timer(timer_period, self.timer_callback)
+        self.subscriber_ = self.create_subscription(MarinelinkPacket, 'video/cmd', self.marinelink_callback, 10)
+        
 
-    def timer_callback(self):
-        msg = MavlinkPacket()
-        msg.payload = b'abc'
-        # Fill in the MavlinkPacket message fields as needed
-        self.publisher_.publish(msg)
-        self.get_logger().info('Publishing MavlinkPacket message')
+    def marinelink_callback(self, msg):
+        self.get_logger().info(f'Received MarinelinkPacket: {msg}')
+
 
 def main(args=None):
     rclpy.init(args=args)

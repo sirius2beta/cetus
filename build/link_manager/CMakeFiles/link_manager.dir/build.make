@@ -69,10 +69,18 @@ include CMakeFiles/link_manager.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/link_manager.dir/flags.make
 
+link_manager_autogen/RHRHIXNHOL/qrc_LinkPackage.cpp: /home/sirius2beta/cetus/src/link_manager/src/LinkPackage/LinkPackage.qrc
+link_manager_autogen/RHRHIXNHOL/qrc_LinkPackage.cpp: CMakeFiles/link_manager_autogen.dir/AutoRcc_LinkPackage_RHRHIXNHOL_Info.json
+link_manager_autogen/RHRHIXNHOL/qrc_LinkPackage.cpp: /home/sirius2beta/cetus/src/link_manager/src/LinkPackage/USBBoardInfo.json
+link_manager_autogen/RHRHIXNHOL/qrc_LinkPackage.cpp: /usr/lib/qt5/bin/rcc
+link_manager_autogen/RHRHIXNHOL/qrc_LinkPackage.cpp: /usr/lib/qt5/bin/rcc
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/sirius2beta/cetus/build/link_manager/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic RCC for src/LinkPackage/LinkPackage.qrc"
+	/home/sirius2beta/.local/lib/python3.8/site-packages/cmake/data/bin/cmake -E cmake_autorcc /home/sirius2beta/cetus/build/link_manager/CMakeFiles/link_manager_autogen.dir/AutoRcc_LinkPackage_RHRHIXNHOL_Info.json 
+
 CMakeFiles/link_manager.dir/link_manager_autogen/mocs_compilation.cpp.o: CMakeFiles/link_manager.dir/flags.make
 CMakeFiles/link_manager.dir/link_manager_autogen/mocs_compilation.cpp.o: link_manager_autogen/mocs_compilation.cpp
 CMakeFiles/link_manager.dir/link_manager_autogen/mocs_compilation.cpp.o: CMakeFiles/link_manager.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/sirius2beta/cetus/build/link_manager/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/link_manager.dir/link_manager_autogen/mocs_compilation.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/sirius2beta/cetus/build/link_manager/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/link_manager.dir/link_manager_autogen/mocs_compilation.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/link_manager.dir/link_manager_autogen/mocs_compilation.cpp.o -MF CMakeFiles/link_manager.dir/link_manager_autogen/mocs_compilation.cpp.o.d -o CMakeFiles/link_manager.dir/link_manager_autogen/mocs_compilation.cpp.o -c /home/sirius2beta/cetus/build/link_manager/link_manager_autogen/mocs_compilation.cpp
 
 CMakeFiles/link_manager.dir/link_manager_autogen/mocs_compilation.cpp.i: cmake_force
@@ -86,7 +94,7 @@ CMakeFiles/link_manager.dir/link_manager_autogen/mocs_compilation.cpp.s: cmake_f
 CMakeFiles/link_manager.dir/src/link_manager.cpp.o: CMakeFiles/link_manager.dir/flags.make
 CMakeFiles/link_manager.dir/src/link_manager.cpp.o: /home/sirius2beta/cetus/src/link_manager/src/link_manager.cpp
 CMakeFiles/link_manager.dir/src/link_manager.cpp.o: CMakeFiles/link_manager.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/sirius2beta/cetus/build/link_manager/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/link_manager.dir/src/link_manager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/sirius2beta/cetus/build/link_manager/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/link_manager.dir/src/link_manager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/link_manager.dir/src/link_manager.cpp.o -MF CMakeFiles/link_manager.dir/src/link_manager.cpp.o.d -o CMakeFiles/link_manager.dir/src/link_manager.cpp.o -c /home/sirius2beta/cetus/src/link_manager/src/link_manager.cpp
 
 CMakeFiles/link_manager.dir/src/link_manager.cpp.i: cmake_force
@@ -100,7 +108,7 @@ CMakeFiles/link_manager.dir/src/link_manager.cpp.s: cmake_force
 CMakeFiles/link_manager.dir/src/RosInterface.cpp.o: CMakeFiles/link_manager.dir/flags.make
 CMakeFiles/link_manager.dir/src/RosInterface.cpp.o: /home/sirius2beta/cetus/src/link_manager/src/RosInterface.cpp
 CMakeFiles/link_manager.dir/src/RosInterface.cpp.o: CMakeFiles/link_manager.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/sirius2beta/cetus/build/link_manager/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/link_manager.dir/src/RosInterface.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/sirius2beta/cetus/build/link_manager/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/link_manager.dir/src/RosInterface.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/link_manager.dir/src/RosInterface.cpp.o -MF CMakeFiles/link_manager.dir/src/RosInterface.cpp.o.d -o CMakeFiles/link_manager.dir/src/RosInterface.cpp.o -c /home/sirius2beta/cetus/src/link_manager/src/RosInterface.cpp
 
 CMakeFiles/link_manager.dir/src/RosInterface.cpp.i: cmake_force
@@ -111,11 +119,176 @@ CMakeFiles/link_manager.dir/src/RosInterface.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/link_manager.dir/src/RosInterface.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sirius2beta/cetus/src/link_manager/src/RosInterface.cpp -o CMakeFiles/link_manager.dir/src/RosInterface.cpp.s
 
+CMakeFiles/link_manager.dir/src/LinkPackage/bridge.cpp.o: CMakeFiles/link_manager.dir/flags.make
+CMakeFiles/link_manager.dir/src/LinkPackage/bridge.cpp.o: /home/sirius2beta/cetus/src/link_manager/src/LinkPackage/bridge.cpp
+CMakeFiles/link_manager.dir/src/LinkPackage/bridge.cpp.o: CMakeFiles/link_manager.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/sirius2beta/cetus/build/link_manager/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/link_manager.dir/src/LinkPackage/bridge.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/link_manager.dir/src/LinkPackage/bridge.cpp.o -MF CMakeFiles/link_manager.dir/src/LinkPackage/bridge.cpp.o.d -o CMakeFiles/link_manager.dir/src/LinkPackage/bridge.cpp.o -c /home/sirius2beta/cetus/src/link_manager/src/LinkPackage/bridge.cpp
+
+CMakeFiles/link_manager.dir/src/LinkPackage/bridge.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/link_manager.dir/src/LinkPackage/bridge.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sirius2beta/cetus/src/link_manager/src/LinkPackage/bridge.cpp > CMakeFiles/link_manager.dir/src/LinkPackage/bridge.cpp.i
+
+CMakeFiles/link_manager.dir/src/LinkPackage/bridge.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/link_manager.dir/src/LinkPackage/bridge.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sirius2beta/cetus/src/link_manager/src/LinkPackage/bridge.cpp -o CMakeFiles/link_manager.dir/src/LinkPackage/bridge.cpp.s
+
+CMakeFiles/link_manager.dir/src/LinkPackage/linkconfiguration.cpp.o: CMakeFiles/link_manager.dir/flags.make
+CMakeFiles/link_manager.dir/src/LinkPackage/linkconfiguration.cpp.o: /home/sirius2beta/cetus/src/link_manager/src/LinkPackage/linkconfiguration.cpp
+CMakeFiles/link_manager.dir/src/LinkPackage/linkconfiguration.cpp.o: CMakeFiles/link_manager.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/sirius2beta/cetus/build/link_manager/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/link_manager.dir/src/LinkPackage/linkconfiguration.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/link_manager.dir/src/LinkPackage/linkconfiguration.cpp.o -MF CMakeFiles/link_manager.dir/src/LinkPackage/linkconfiguration.cpp.o.d -o CMakeFiles/link_manager.dir/src/LinkPackage/linkconfiguration.cpp.o -c /home/sirius2beta/cetus/src/link_manager/src/LinkPackage/linkconfiguration.cpp
+
+CMakeFiles/link_manager.dir/src/LinkPackage/linkconfiguration.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/link_manager.dir/src/LinkPackage/linkconfiguration.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sirius2beta/cetus/src/link_manager/src/LinkPackage/linkconfiguration.cpp > CMakeFiles/link_manager.dir/src/LinkPackage/linkconfiguration.cpp.i
+
+CMakeFiles/link_manager.dir/src/LinkPackage/linkconfiguration.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/link_manager.dir/src/LinkPackage/linkconfiguration.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sirius2beta/cetus/src/link_manager/src/LinkPackage/linkconfiguration.cpp -o CMakeFiles/link_manager.dir/src/LinkPackage/linkconfiguration.cpp.s
+
+CMakeFiles/link_manager.dir/src/LinkPackage/linkinterface.cpp.o: CMakeFiles/link_manager.dir/flags.make
+CMakeFiles/link_manager.dir/src/LinkPackage/linkinterface.cpp.o: /home/sirius2beta/cetus/src/link_manager/src/LinkPackage/linkinterface.cpp
+CMakeFiles/link_manager.dir/src/LinkPackage/linkinterface.cpp.o: CMakeFiles/link_manager.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/sirius2beta/cetus/build/link_manager/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/link_manager.dir/src/LinkPackage/linkinterface.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/link_manager.dir/src/LinkPackage/linkinterface.cpp.o -MF CMakeFiles/link_manager.dir/src/LinkPackage/linkinterface.cpp.o.d -o CMakeFiles/link_manager.dir/src/LinkPackage/linkinterface.cpp.o -c /home/sirius2beta/cetus/src/link_manager/src/LinkPackage/linkinterface.cpp
+
+CMakeFiles/link_manager.dir/src/LinkPackage/linkinterface.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/link_manager.dir/src/LinkPackage/linkinterface.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sirius2beta/cetus/src/link_manager/src/LinkPackage/linkinterface.cpp > CMakeFiles/link_manager.dir/src/LinkPackage/linkinterface.cpp.i
+
+CMakeFiles/link_manager.dir/src/LinkPackage/linkinterface.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/link_manager.dir/src/LinkPackage/linkinterface.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sirius2beta/cetus/src/link_manager/src/LinkPackage/linkinterface.cpp -o CMakeFiles/link_manager.dir/src/LinkPackage/linkinterface.cpp.s
+
+CMakeFiles/link_manager.dir/src/LinkPackage/mavlinkprotocol.cpp.o: CMakeFiles/link_manager.dir/flags.make
+CMakeFiles/link_manager.dir/src/LinkPackage/mavlinkprotocol.cpp.o: /home/sirius2beta/cetus/src/link_manager/src/LinkPackage/mavlinkprotocol.cpp
+CMakeFiles/link_manager.dir/src/LinkPackage/mavlinkprotocol.cpp.o: CMakeFiles/link_manager.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/sirius2beta/cetus/build/link_manager/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/link_manager.dir/src/LinkPackage/mavlinkprotocol.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/link_manager.dir/src/LinkPackage/mavlinkprotocol.cpp.o -MF CMakeFiles/link_manager.dir/src/LinkPackage/mavlinkprotocol.cpp.o.d -o CMakeFiles/link_manager.dir/src/LinkPackage/mavlinkprotocol.cpp.o -c /home/sirius2beta/cetus/src/link_manager/src/LinkPackage/mavlinkprotocol.cpp
+
+CMakeFiles/link_manager.dir/src/LinkPackage/mavlinkprotocol.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/link_manager.dir/src/LinkPackage/mavlinkprotocol.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sirius2beta/cetus/src/link_manager/src/LinkPackage/mavlinkprotocol.cpp > CMakeFiles/link_manager.dir/src/LinkPackage/mavlinkprotocol.cpp.i
+
+CMakeFiles/link_manager.dir/src/LinkPackage/mavlinkprotocol.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/link_manager.dir/src/LinkPackage/mavlinkprotocol.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sirius2beta/cetus/src/link_manager/src/LinkPackage/mavlinkprotocol.cpp -o CMakeFiles/link_manager.dir/src/LinkPackage/mavlinkprotocol.cpp.s
+
+CMakeFiles/link_manager.dir/src/LinkPackage/linkmanager.cpp.o: CMakeFiles/link_manager.dir/flags.make
+CMakeFiles/link_manager.dir/src/LinkPackage/linkmanager.cpp.o: /home/sirius2beta/cetus/src/link_manager/src/LinkPackage/linkmanager.cpp
+CMakeFiles/link_manager.dir/src/LinkPackage/linkmanager.cpp.o: CMakeFiles/link_manager.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/sirius2beta/cetus/build/link_manager/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/link_manager.dir/src/LinkPackage/linkmanager.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/link_manager.dir/src/LinkPackage/linkmanager.cpp.o -MF CMakeFiles/link_manager.dir/src/LinkPackage/linkmanager.cpp.o.d -o CMakeFiles/link_manager.dir/src/LinkPackage/linkmanager.cpp.o -c /home/sirius2beta/cetus/src/link_manager/src/LinkPackage/linkmanager.cpp
+
+CMakeFiles/link_manager.dir/src/LinkPackage/linkmanager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/link_manager.dir/src/LinkPackage/linkmanager.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sirius2beta/cetus/src/link_manager/src/LinkPackage/linkmanager.cpp > CMakeFiles/link_manager.dir/src/LinkPackage/linkmanager.cpp.i
+
+CMakeFiles/link_manager.dir/src/LinkPackage/linkmanager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/link_manager.dir/src/LinkPackage/linkmanager.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sirius2beta/cetus/src/link_manager/src/LinkPackage/linkmanager.cpp -o CMakeFiles/link_manager.dir/src/LinkPackage/linkmanager.cpp.s
+
+CMakeFiles/link_manager.dir/src/LinkPackage/SerialLink.cc.o: CMakeFiles/link_manager.dir/flags.make
+CMakeFiles/link_manager.dir/src/LinkPackage/SerialLink.cc.o: /home/sirius2beta/cetus/src/link_manager/src/LinkPackage/SerialLink.cc
+CMakeFiles/link_manager.dir/src/LinkPackage/SerialLink.cc.o: CMakeFiles/link_manager.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/sirius2beta/cetus/build/link_manager/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/link_manager.dir/src/LinkPackage/SerialLink.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/link_manager.dir/src/LinkPackage/SerialLink.cc.o -MF CMakeFiles/link_manager.dir/src/LinkPackage/SerialLink.cc.o.d -o CMakeFiles/link_manager.dir/src/LinkPackage/SerialLink.cc.o -c /home/sirius2beta/cetus/src/link_manager/src/LinkPackage/SerialLink.cc
+
+CMakeFiles/link_manager.dir/src/LinkPackage/SerialLink.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/link_manager.dir/src/LinkPackage/SerialLink.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sirius2beta/cetus/src/link_manager/src/LinkPackage/SerialLink.cc > CMakeFiles/link_manager.dir/src/LinkPackage/SerialLink.cc.i
+
+CMakeFiles/link_manager.dir/src/LinkPackage/SerialLink.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/link_manager.dir/src/LinkPackage/SerialLink.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sirius2beta/cetus/src/link_manager/src/LinkPackage/SerialLink.cc -o CMakeFiles/link_manager.dir/src/LinkPackage/SerialLink.cc.s
+
+CMakeFiles/link_manager.dir/src/LinkPackage/UDPLink.cc.o: CMakeFiles/link_manager.dir/flags.make
+CMakeFiles/link_manager.dir/src/LinkPackage/UDPLink.cc.o: /home/sirius2beta/cetus/src/link_manager/src/LinkPackage/UDPLink.cc
+CMakeFiles/link_manager.dir/src/LinkPackage/UDPLink.cc.o: CMakeFiles/link_manager.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/sirius2beta/cetus/build/link_manager/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/link_manager.dir/src/LinkPackage/UDPLink.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/link_manager.dir/src/LinkPackage/UDPLink.cc.o -MF CMakeFiles/link_manager.dir/src/LinkPackage/UDPLink.cc.o.d -o CMakeFiles/link_manager.dir/src/LinkPackage/UDPLink.cc.o -c /home/sirius2beta/cetus/src/link_manager/src/LinkPackage/UDPLink.cc
+
+CMakeFiles/link_manager.dir/src/LinkPackage/UDPLink.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/link_manager.dir/src/LinkPackage/UDPLink.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sirius2beta/cetus/src/link_manager/src/LinkPackage/UDPLink.cc > CMakeFiles/link_manager.dir/src/LinkPackage/UDPLink.cc.i
+
+CMakeFiles/link_manager.dir/src/LinkPackage/UDPLink.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/link_manager.dir/src/LinkPackage/UDPLink.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sirius2beta/cetus/src/link_manager/src/LinkPackage/UDPLink.cc -o CMakeFiles/link_manager.dir/src/LinkPackage/UDPLink.cc.s
+
+CMakeFiles/link_manager.dir/src/LinkPackage/UdpIODevice.cc.o: CMakeFiles/link_manager.dir/flags.make
+CMakeFiles/link_manager.dir/src/LinkPackage/UdpIODevice.cc.o: /home/sirius2beta/cetus/src/link_manager/src/LinkPackage/UdpIODevice.cc
+CMakeFiles/link_manager.dir/src/LinkPackage/UdpIODevice.cc.o: CMakeFiles/link_manager.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/sirius2beta/cetus/build/link_manager/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/link_manager.dir/src/LinkPackage/UdpIODevice.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/link_manager.dir/src/LinkPackage/UdpIODevice.cc.o -MF CMakeFiles/link_manager.dir/src/LinkPackage/UdpIODevice.cc.o.d -o CMakeFiles/link_manager.dir/src/LinkPackage/UdpIODevice.cc.o -c /home/sirius2beta/cetus/src/link_manager/src/LinkPackage/UdpIODevice.cc
+
+CMakeFiles/link_manager.dir/src/LinkPackage/UdpIODevice.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/link_manager.dir/src/LinkPackage/UdpIODevice.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sirius2beta/cetus/src/link_manager/src/LinkPackage/UdpIODevice.cc > CMakeFiles/link_manager.dir/src/LinkPackage/UdpIODevice.cc.i
+
+CMakeFiles/link_manager.dir/src/LinkPackage/UdpIODevice.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/link_manager.dir/src/LinkPackage/UdpIODevice.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sirius2beta/cetus/src/link_manager/src/LinkPackage/UdpIODevice.cc -o CMakeFiles/link_manager.dir/src/LinkPackage/UdpIODevice.cc.s
+
+CMakeFiles/link_manager.dir/src/LinkPackage/QGCSerialPortInfo.cc.o: CMakeFiles/link_manager.dir/flags.make
+CMakeFiles/link_manager.dir/src/LinkPackage/QGCSerialPortInfo.cc.o: /home/sirius2beta/cetus/src/link_manager/src/LinkPackage/QGCSerialPortInfo.cc
+CMakeFiles/link_manager.dir/src/LinkPackage/QGCSerialPortInfo.cc.o: CMakeFiles/link_manager.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/sirius2beta/cetus/build/link_manager/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/link_manager.dir/src/LinkPackage/QGCSerialPortInfo.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/link_manager.dir/src/LinkPackage/QGCSerialPortInfo.cc.o -MF CMakeFiles/link_manager.dir/src/LinkPackage/QGCSerialPortInfo.cc.o.d -o CMakeFiles/link_manager.dir/src/LinkPackage/QGCSerialPortInfo.cc.o -c /home/sirius2beta/cetus/src/link_manager/src/LinkPackage/QGCSerialPortInfo.cc
+
+CMakeFiles/link_manager.dir/src/LinkPackage/QGCSerialPortInfo.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/link_manager.dir/src/LinkPackage/QGCSerialPortInfo.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sirius2beta/cetus/src/link_manager/src/LinkPackage/QGCSerialPortInfo.cc > CMakeFiles/link_manager.dir/src/LinkPackage/QGCSerialPortInfo.cc.i
+
+CMakeFiles/link_manager.dir/src/LinkPackage/QGCSerialPortInfo.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/link_manager.dir/src/LinkPackage/QGCSerialPortInfo.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sirius2beta/cetus/src/link_manager/src/LinkPackage/QGCSerialPortInfo.cc -o CMakeFiles/link_manager.dir/src/LinkPackage/QGCSerialPortInfo.cc.s
+
+CMakeFiles/link_manager.dir/src/LinkPackage/JsonHelper.cc.o: CMakeFiles/link_manager.dir/flags.make
+CMakeFiles/link_manager.dir/src/LinkPackage/JsonHelper.cc.o: /home/sirius2beta/cetus/src/link_manager/src/LinkPackage/JsonHelper.cc
+CMakeFiles/link_manager.dir/src/LinkPackage/JsonHelper.cc.o: CMakeFiles/link_manager.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/sirius2beta/cetus/build/link_manager/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/link_manager.dir/src/LinkPackage/JsonHelper.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/link_manager.dir/src/LinkPackage/JsonHelper.cc.o -MF CMakeFiles/link_manager.dir/src/LinkPackage/JsonHelper.cc.o.d -o CMakeFiles/link_manager.dir/src/LinkPackage/JsonHelper.cc.o -c /home/sirius2beta/cetus/src/link_manager/src/LinkPackage/JsonHelper.cc
+
+CMakeFiles/link_manager.dir/src/LinkPackage/JsonHelper.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/link_manager.dir/src/LinkPackage/JsonHelper.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sirius2beta/cetus/src/link_manager/src/LinkPackage/JsonHelper.cc > CMakeFiles/link_manager.dir/src/LinkPackage/JsonHelper.cc.i
+
+CMakeFiles/link_manager.dir/src/LinkPackage/JsonHelper.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/link_manager.dir/src/LinkPackage/JsonHelper.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sirius2beta/cetus/src/link_manager/src/LinkPackage/JsonHelper.cc -o CMakeFiles/link_manager.dir/src/LinkPackage/JsonHelper.cc.s
+
+CMakeFiles/link_manager.dir/link_manager_autogen/RHRHIXNHOL/qrc_LinkPackage.cpp.o: CMakeFiles/link_manager.dir/flags.make
+CMakeFiles/link_manager.dir/link_manager_autogen/RHRHIXNHOL/qrc_LinkPackage.cpp.o: link_manager_autogen/RHRHIXNHOL/qrc_LinkPackage.cpp
+CMakeFiles/link_manager.dir/link_manager_autogen/RHRHIXNHOL/qrc_LinkPackage.cpp.o: CMakeFiles/link_manager.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/sirius2beta/cetus/build/link_manager/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/link_manager.dir/link_manager_autogen/RHRHIXNHOL/qrc_LinkPackage.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/link_manager.dir/link_manager_autogen/RHRHIXNHOL/qrc_LinkPackage.cpp.o -MF CMakeFiles/link_manager.dir/link_manager_autogen/RHRHIXNHOL/qrc_LinkPackage.cpp.o.d -o CMakeFiles/link_manager.dir/link_manager_autogen/RHRHIXNHOL/qrc_LinkPackage.cpp.o -c /home/sirius2beta/cetus/build/link_manager/link_manager_autogen/RHRHIXNHOL/qrc_LinkPackage.cpp
+
+CMakeFiles/link_manager.dir/link_manager_autogen/RHRHIXNHOL/qrc_LinkPackage.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/link_manager.dir/link_manager_autogen/RHRHIXNHOL/qrc_LinkPackage.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sirius2beta/cetus/build/link_manager/link_manager_autogen/RHRHIXNHOL/qrc_LinkPackage.cpp > CMakeFiles/link_manager.dir/link_manager_autogen/RHRHIXNHOL/qrc_LinkPackage.cpp.i
+
+CMakeFiles/link_manager.dir/link_manager_autogen/RHRHIXNHOL/qrc_LinkPackage.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/link_manager.dir/link_manager_autogen/RHRHIXNHOL/qrc_LinkPackage.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sirius2beta/cetus/build/link_manager/link_manager_autogen/RHRHIXNHOL/qrc_LinkPackage.cpp -o CMakeFiles/link_manager.dir/link_manager_autogen/RHRHIXNHOL/qrc_LinkPackage.cpp.s
+
 # Object files for target link_manager
 link_manager_OBJECTS = \
 "CMakeFiles/link_manager.dir/link_manager_autogen/mocs_compilation.cpp.o" \
 "CMakeFiles/link_manager.dir/src/link_manager.cpp.o" \
-"CMakeFiles/link_manager.dir/src/RosInterface.cpp.o"
+"CMakeFiles/link_manager.dir/src/RosInterface.cpp.o" \
+"CMakeFiles/link_manager.dir/src/LinkPackage/bridge.cpp.o" \
+"CMakeFiles/link_manager.dir/src/LinkPackage/linkconfiguration.cpp.o" \
+"CMakeFiles/link_manager.dir/src/LinkPackage/linkinterface.cpp.o" \
+"CMakeFiles/link_manager.dir/src/LinkPackage/mavlinkprotocol.cpp.o" \
+"CMakeFiles/link_manager.dir/src/LinkPackage/linkmanager.cpp.o" \
+"CMakeFiles/link_manager.dir/src/LinkPackage/SerialLink.cc.o" \
+"CMakeFiles/link_manager.dir/src/LinkPackage/UDPLink.cc.o" \
+"CMakeFiles/link_manager.dir/src/LinkPackage/UdpIODevice.cc.o" \
+"CMakeFiles/link_manager.dir/src/LinkPackage/QGCSerialPortInfo.cc.o" \
+"CMakeFiles/link_manager.dir/src/LinkPackage/JsonHelper.cc.o" \
+"CMakeFiles/link_manager.dir/link_manager_autogen/RHRHIXNHOL/qrc_LinkPackage.cpp.o"
 
 # External object files for target link_manager
 link_manager_EXTERNAL_OBJECTS =
@@ -123,6 +296,17 @@ link_manager_EXTERNAL_OBJECTS =
 link_manager: CMakeFiles/link_manager.dir/link_manager_autogen/mocs_compilation.cpp.o
 link_manager: CMakeFiles/link_manager.dir/src/link_manager.cpp.o
 link_manager: CMakeFiles/link_manager.dir/src/RosInterface.cpp.o
+link_manager: CMakeFiles/link_manager.dir/src/LinkPackage/bridge.cpp.o
+link_manager: CMakeFiles/link_manager.dir/src/LinkPackage/linkconfiguration.cpp.o
+link_manager: CMakeFiles/link_manager.dir/src/LinkPackage/linkinterface.cpp.o
+link_manager: CMakeFiles/link_manager.dir/src/LinkPackage/mavlinkprotocol.cpp.o
+link_manager: CMakeFiles/link_manager.dir/src/LinkPackage/linkmanager.cpp.o
+link_manager: CMakeFiles/link_manager.dir/src/LinkPackage/SerialLink.cc.o
+link_manager: CMakeFiles/link_manager.dir/src/LinkPackage/UDPLink.cc.o
+link_manager: CMakeFiles/link_manager.dir/src/LinkPackage/UdpIODevice.cc.o
+link_manager: CMakeFiles/link_manager.dir/src/LinkPackage/QGCSerialPortInfo.cc.o
+link_manager: CMakeFiles/link_manager.dir/src/LinkPackage/JsonHelper.cc.o
+link_manager: CMakeFiles/link_manager.dir/link_manager_autogen/RHRHIXNHOL/qrc_LinkPackage.cpp.o
 link_manager: CMakeFiles/link_manager.dir/build.make
 link_manager: /opt/ros/foxy/lib/librclcpp.so
 link_manager: /home/sirius2beta/cetus/install/more_interfaces/lib/libmore_interfaces__rosidl_typesupport_introspection_c.so
@@ -180,7 +364,7 @@ link_manager: /opt/ros/foxy/lib/librosidl_runtime_c.so
 link_manager: /opt/ros/foxy/lib/librcutils.so
 link_manager: /usr/lib/aarch64-linux-gnu/libQt5Core.so.5.12.8
 link_manager: CMakeFiles/link_manager.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/sirius2beta/cetus/build/link_manager/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable link_manager"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/sirius2beta/cetus/build/link_manager/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Linking CXX executable link_manager"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/link_manager.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -191,7 +375,7 @@ CMakeFiles/link_manager.dir/clean:
 	$(CMAKE_COMMAND) -P CMakeFiles/link_manager.dir/cmake_clean.cmake
 .PHONY : CMakeFiles/link_manager.dir/clean
 
-CMakeFiles/link_manager.dir/depend:
+CMakeFiles/link_manager.dir/depend: link_manager_autogen/RHRHIXNHOL/qrc_LinkPackage.cpp
 	cd /home/sirius2beta/cetus/build/link_manager && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/sirius2beta/cetus/src/link_manager /home/sirius2beta/cetus/src/link_manager /home/sirius2beta/cetus/build/link_manager /home/sirius2beta/cetus/build/link_manager /home/sirius2beta/cetus/build/link_manager/CMakeFiles/link_manager.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/link_manager.dir/depend
 

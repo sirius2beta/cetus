@@ -223,6 +223,30 @@ link_manager_autogen/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/link_manager_autogen.dir/build.make CMakeFiles/link_manager_autogen.dir/build
 .PHONY : link_manager_autogen/fast
 
+link_manager_autogen/RHRHIXNHOL/qrc_LinkPackage.o: link_manager_autogen/RHRHIXNHOL/qrc_LinkPackage.cpp.o
+.PHONY : link_manager_autogen/RHRHIXNHOL/qrc_LinkPackage.o
+
+# target to build an object file
+link_manager_autogen/RHRHIXNHOL/qrc_LinkPackage.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/link_manager.dir/build.make CMakeFiles/link_manager.dir/link_manager_autogen/RHRHIXNHOL/qrc_LinkPackage.cpp.o
+.PHONY : link_manager_autogen/RHRHIXNHOL/qrc_LinkPackage.cpp.o
+
+link_manager_autogen/RHRHIXNHOL/qrc_LinkPackage.i: link_manager_autogen/RHRHIXNHOL/qrc_LinkPackage.cpp.i
+.PHONY : link_manager_autogen/RHRHIXNHOL/qrc_LinkPackage.i
+
+# target to preprocess a source file
+link_manager_autogen/RHRHIXNHOL/qrc_LinkPackage.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/link_manager.dir/build.make CMakeFiles/link_manager.dir/link_manager_autogen/RHRHIXNHOL/qrc_LinkPackage.cpp.i
+.PHONY : link_manager_autogen/RHRHIXNHOL/qrc_LinkPackage.cpp.i
+
+link_manager_autogen/RHRHIXNHOL/qrc_LinkPackage.s: link_manager_autogen/RHRHIXNHOL/qrc_LinkPackage.cpp.s
+.PHONY : link_manager_autogen/RHRHIXNHOL/qrc_LinkPackage.s
+
+# target to generate assembly for a file
+link_manager_autogen/RHRHIXNHOL/qrc_LinkPackage.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/link_manager.dir/build.make CMakeFiles/link_manager.dir/link_manager_autogen/RHRHIXNHOL/qrc_LinkPackage.cpp.s
+.PHONY : link_manager_autogen/RHRHIXNHOL/qrc_LinkPackage.cpp.s
+
 link_manager_autogen/mocs_compilation.o: link_manager_autogen/mocs_compilation.cpp.o
 .PHONY : link_manager_autogen/mocs_compilation.o
 
@@ -246,6 +270,246 @@ link_manager_autogen/mocs_compilation.s: link_manager_autogen/mocs_compilation.c
 link_manager_autogen/mocs_compilation.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/link_manager.dir/build.make CMakeFiles/link_manager.dir/link_manager_autogen/mocs_compilation.cpp.s
 .PHONY : link_manager_autogen/mocs_compilation.cpp.s
+
+src/LinkPackage/JsonHelper.o: src/LinkPackage/JsonHelper.cc.o
+.PHONY : src/LinkPackage/JsonHelper.o
+
+# target to build an object file
+src/LinkPackage/JsonHelper.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/link_manager.dir/build.make CMakeFiles/link_manager.dir/src/LinkPackage/JsonHelper.cc.o
+.PHONY : src/LinkPackage/JsonHelper.cc.o
+
+src/LinkPackage/JsonHelper.i: src/LinkPackage/JsonHelper.cc.i
+.PHONY : src/LinkPackage/JsonHelper.i
+
+# target to preprocess a source file
+src/LinkPackage/JsonHelper.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/link_manager.dir/build.make CMakeFiles/link_manager.dir/src/LinkPackage/JsonHelper.cc.i
+.PHONY : src/LinkPackage/JsonHelper.cc.i
+
+src/LinkPackage/JsonHelper.s: src/LinkPackage/JsonHelper.cc.s
+.PHONY : src/LinkPackage/JsonHelper.s
+
+# target to generate assembly for a file
+src/LinkPackage/JsonHelper.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/link_manager.dir/build.make CMakeFiles/link_manager.dir/src/LinkPackage/JsonHelper.cc.s
+.PHONY : src/LinkPackage/JsonHelper.cc.s
+
+src/LinkPackage/QGCSerialPortInfo.o: src/LinkPackage/QGCSerialPortInfo.cc.o
+.PHONY : src/LinkPackage/QGCSerialPortInfo.o
+
+# target to build an object file
+src/LinkPackage/QGCSerialPortInfo.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/link_manager.dir/build.make CMakeFiles/link_manager.dir/src/LinkPackage/QGCSerialPortInfo.cc.o
+.PHONY : src/LinkPackage/QGCSerialPortInfo.cc.o
+
+src/LinkPackage/QGCSerialPortInfo.i: src/LinkPackage/QGCSerialPortInfo.cc.i
+.PHONY : src/LinkPackage/QGCSerialPortInfo.i
+
+# target to preprocess a source file
+src/LinkPackage/QGCSerialPortInfo.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/link_manager.dir/build.make CMakeFiles/link_manager.dir/src/LinkPackage/QGCSerialPortInfo.cc.i
+.PHONY : src/LinkPackage/QGCSerialPortInfo.cc.i
+
+src/LinkPackage/QGCSerialPortInfo.s: src/LinkPackage/QGCSerialPortInfo.cc.s
+.PHONY : src/LinkPackage/QGCSerialPortInfo.s
+
+# target to generate assembly for a file
+src/LinkPackage/QGCSerialPortInfo.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/link_manager.dir/build.make CMakeFiles/link_manager.dir/src/LinkPackage/QGCSerialPortInfo.cc.s
+.PHONY : src/LinkPackage/QGCSerialPortInfo.cc.s
+
+src/LinkPackage/SerialLink.o: src/LinkPackage/SerialLink.cc.o
+.PHONY : src/LinkPackage/SerialLink.o
+
+# target to build an object file
+src/LinkPackage/SerialLink.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/link_manager.dir/build.make CMakeFiles/link_manager.dir/src/LinkPackage/SerialLink.cc.o
+.PHONY : src/LinkPackage/SerialLink.cc.o
+
+src/LinkPackage/SerialLink.i: src/LinkPackage/SerialLink.cc.i
+.PHONY : src/LinkPackage/SerialLink.i
+
+# target to preprocess a source file
+src/LinkPackage/SerialLink.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/link_manager.dir/build.make CMakeFiles/link_manager.dir/src/LinkPackage/SerialLink.cc.i
+.PHONY : src/LinkPackage/SerialLink.cc.i
+
+src/LinkPackage/SerialLink.s: src/LinkPackage/SerialLink.cc.s
+.PHONY : src/LinkPackage/SerialLink.s
+
+# target to generate assembly for a file
+src/LinkPackage/SerialLink.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/link_manager.dir/build.make CMakeFiles/link_manager.dir/src/LinkPackage/SerialLink.cc.s
+.PHONY : src/LinkPackage/SerialLink.cc.s
+
+src/LinkPackage/UDPLink.o: src/LinkPackage/UDPLink.cc.o
+.PHONY : src/LinkPackage/UDPLink.o
+
+# target to build an object file
+src/LinkPackage/UDPLink.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/link_manager.dir/build.make CMakeFiles/link_manager.dir/src/LinkPackage/UDPLink.cc.o
+.PHONY : src/LinkPackage/UDPLink.cc.o
+
+src/LinkPackage/UDPLink.i: src/LinkPackage/UDPLink.cc.i
+.PHONY : src/LinkPackage/UDPLink.i
+
+# target to preprocess a source file
+src/LinkPackage/UDPLink.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/link_manager.dir/build.make CMakeFiles/link_manager.dir/src/LinkPackage/UDPLink.cc.i
+.PHONY : src/LinkPackage/UDPLink.cc.i
+
+src/LinkPackage/UDPLink.s: src/LinkPackage/UDPLink.cc.s
+.PHONY : src/LinkPackage/UDPLink.s
+
+# target to generate assembly for a file
+src/LinkPackage/UDPLink.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/link_manager.dir/build.make CMakeFiles/link_manager.dir/src/LinkPackage/UDPLink.cc.s
+.PHONY : src/LinkPackage/UDPLink.cc.s
+
+src/LinkPackage/UdpIODevice.o: src/LinkPackage/UdpIODevice.cc.o
+.PHONY : src/LinkPackage/UdpIODevice.o
+
+# target to build an object file
+src/LinkPackage/UdpIODevice.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/link_manager.dir/build.make CMakeFiles/link_manager.dir/src/LinkPackage/UdpIODevice.cc.o
+.PHONY : src/LinkPackage/UdpIODevice.cc.o
+
+src/LinkPackage/UdpIODevice.i: src/LinkPackage/UdpIODevice.cc.i
+.PHONY : src/LinkPackage/UdpIODevice.i
+
+# target to preprocess a source file
+src/LinkPackage/UdpIODevice.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/link_manager.dir/build.make CMakeFiles/link_manager.dir/src/LinkPackage/UdpIODevice.cc.i
+.PHONY : src/LinkPackage/UdpIODevice.cc.i
+
+src/LinkPackage/UdpIODevice.s: src/LinkPackage/UdpIODevice.cc.s
+.PHONY : src/LinkPackage/UdpIODevice.s
+
+# target to generate assembly for a file
+src/LinkPackage/UdpIODevice.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/link_manager.dir/build.make CMakeFiles/link_manager.dir/src/LinkPackage/UdpIODevice.cc.s
+.PHONY : src/LinkPackage/UdpIODevice.cc.s
+
+src/LinkPackage/bridge.o: src/LinkPackage/bridge.cpp.o
+.PHONY : src/LinkPackage/bridge.o
+
+# target to build an object file
+src/LinkPackage/bridge.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/link_manager.dir/build.make CMakeFiles/link_manager.dir/src/LinkPackage/bridge.cpp.o
+.PHONY : src/LinkPackage/bridge.cpp.o
+
+src/LinkPackage/bridge.i: src/LinkPackage/bridge.cpp.i
+.PHONY : src/LinkPackage/bridge.i
+
+# target to preprocess a source file
+src/LinkPackage/bridge.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/link_manager.dir/build.make CMakeFiles/link_manager.dir/src/LinkPackage/bridge.cpp.i
+.PHONY : src/LinkPackage/bridge.cpp.i
+
+src/LinkPackage/bridge.s: src/LinkPackage/bridge.cpp.s
+.PHONY : src/LinkPackage/bridge.s
+
+# target to generate assembly for a file
+src/LinkPackage/bridge.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/link_manager.dir/build.make CMakeFiles/link_manager.dir/src/LinkPackage/bridge.cpp.s
+.PHONY : src/LinkPackage/bridge.cpp.s
+
+src/LinkPackage/linkconfiguration.o: src/LinkPackage/linkconfiguration.cpp.o
+.PHONY : src/LinkPackage/linkconfiguration.o
+
+# target to build an object file
+src/LinkPackage/linkconfiguration.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/link_manager.dir/build.make CMakeFiles/link_manager.dir/src/LinkPackage/linkconfiguration.cpp.o
+.PHONY : src/LinkPackage/linkconfiguration.cpp.o
+
+src/LinkPackage/linkconfiguration.i: src/LinkPackage/linkconfiguration.cpp.i
+.PHONY : src/LinkPackage/linkconfiguration.i
+
+# target to preprocess a source file
+src/LinkPackage/linkconfiguration.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/link_manager.dir/build.make CMakeFiles/link_manager.dir/src/LinkPackage/linkconfiguration.cpp.i
+.PHONY : src/LinkPackage/linkconfiguration.cpp.i
+
+src/LinkPackage/linkconfiguration.s: src/LinkPackage/linkconfiguration.cpp.s
+.PHONY : src/LinkPackage/linkconfiguration.s
+
+# target to generate assembly for a file
+src/LinkPackage/linkconfiguration.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/link_manager.dir/build.make CMakeFiles/link_manager.dir/src/LinkPackage/linkconfiguration.cpp.s
+.PHONY : src/LinkPackage/linkconfiguration.cpp.s
+
+src/LinkPackage/linkinterface.o: src/LinkPackage/linkinterface.cpp.o
+.PHONY : src/LinkPackage/linkinterface.o
+
+# target to build an object file
+src/LinkPackage/linkinterface.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/link_manager.dir/build.make CMakeFiles/link_manager.dir/src/LinkPackage/linkinterface.cpp.o
+.PHONY : src/LinkPackage/linkinterface.cpp.o
+
+src/LinkPackage/linkinterface.i: src/LinkPackage/linkinterface.cpp.i
+.PHONY : src/LinkPackage/linkinterface.i
+
+# target to preprocess a source file
+src/LinkPackage/linkinterface.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/link_manager.dir/build.make CMakeFiles/link_manager.dir/src/LinkPackage/linkinterface.cpp.i
+.PHONY : src/LinkPackage/linkinterface.cpp.i
+
+src/LinkPackage/linkinterface.s: src/LinkPackage/linkinterface.cpp.s
+.PHONY : src/LinkPackage/linkinterface.s
+
+# target to generate assembly for a file
+src/LinkPackage/linkinterface.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/link_manager.dir/build.make CMakeFiles/link_manager.dir/src/LinkPackage/linkinterface.cpp.s
+.PHONY : src/LinkPackage/linkinterface.cpp.s
+
+src/LinkPackage/linkmanager.o: src/LinkPackage/linkmanager.cpp.o
+.PHONY : src/LinkPackage/linkmanager.o
+
+# target to build an object file
+src/LinkPackage/linkmanager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/link_manager.dir/build.make CMakeFiles/link_manager.dir/src/LinkPackage/linkmanager.cpp.o
+.PHONY : src/LinkPackage/linkmanager.cpp.o
+
+src/LinkPackage/linkmanager.i: src/LinkPackage/linkmanager.cpp.i
+.PHONY : src/LinkPackage/linkmanager.i
+
+# target to preprocess a source file
+src/LinkPackage/linkmanager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/link_manager.dir/build.make CMakeFiles/link_manager.dir/src/LinkPackage/linkmanager.cpp.i
+.PHONY : src/LinkPackage/linkmanager.cpp.i
+
+src/LinkPackage/linkmanager.s: src/LinkPackage/linkmanager.cpp.s
+.PHONY : src/LinkPackage/linkmanager.s
+
+# target to generate assembly for a file
+src/LinkPackage/linkmanager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/link_manager.dir/build.make CMakeFiles/link_manager.dir/src/LinkPackage/linkmanager.cpp.s
+.PHONY : src/LinkPackage/linkmanager.cpp.s
+
+src/LinkPackage/mavlinkprotocol.o: src/LinkPackage/mavlinkprotocol.cpp.o
+.PHONY : src/LinkPackage/mavlinkprotocol.o
+
+# target to build an object file
+src/LinkPackage/mavlinkprotocol.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/link_manager.dir/build.make CMakeFiles/link_manager.dir/src/LinkPackage/mavlinkprotocol.cpp.o
+.PHONY : src/LinkPackage/mavlinkprotocol.cpp.o
+
+src/LinkPackage/mavlinkprotocol.i: src/LinkPackage/mavlinkprotocol.cpp.i
+.PHONY : src/LinkPackage/mavlinkprotocol.i
+
+# target to preprocess a source file
+src/LinkPackage/mavlinkprotocol.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/link_manager.dir/build.make CMakeFiles/link_manager.dir/src/LinkPackage/mavlinkprotocol.cpp.i
+.PHONY : src/LinkPackage/mavlinkprotocol.cpp.i
+
+src/LinkPackage/mavlinkprotocol.s: src/LinkPackage/mavlinkprotocol.cpp.s
+.PHONY : src/LinkPackage/mavlinkprotocol.s
+
+# target to generate assembly for a file
+src/LinkPackage/mavlinkprotocol.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/link_manager.dir/build.make CMakeFiles/link_manager.dir/src/LinkPackage/mavlinkprotocol.cpp.s
+.PHONY : src/LinkPackage/mavlinkprotocol.cpp.s
 
 src/RosInterface.o: src/RosInterface.cpp.o
 .PHONY : src/RosInterface.o
@@ -312,9 +576,42 @@ help:
 	@echo "... link_manager_uninstall"
 	@echo "... uninstall"
 	@echo "... link_manager"
+	@echo "... link_manager_autogen/RHRHIXNHOL/qrc_LinkPackage.o"
+	@echo "... link_manager_autogen/RHRHIXNHOL/qrc_LinkPackage.i"
+	@echo "... link_manager_autogen/RHRHIXNHOL/qrc_LinkPackage.s"
 	@echo "... link_manager_autogen/mocs_compilation.o"
 	@echo "... link_manager_autogen/mocs_compilation.i"
 	@echo "... link_manager_autogen/mocs_compilation.s"
+	@echo "... src/LinkPackage/JsonHelper.o"
+	@echo "... src/LinkPackage/JsonHelper.i"
+	@echo "... src/LinkPackage/JsonHelper.s"
+	@echo "... src/LinkPackage/QGCSerialPortInfo.o"
+	@echo "... src/LinkPackage/QGCSerialPortInfo.i"
+	@echo "... src/LinkPackage/QGCSerialPortInfo.s"
+	@echo "... src/LinkPackage/SerialLink.o"
+	@echo "... src/LinkPackage/SerialLink.i"
+	@echo "... src/LinkPackage/SerialLink.s"
+	@echo "... src/LinkPackage/UDPLink.o"
+	@echo "... src/LinkPackage/UDPLink.i"
+	@echo "... src/LinkPackage/UDPLink.s"
+	@echo "... src/LinkPackage/UdpIODevice.o"
+	@echo "... src/LinkPackage/UdpIODevice.i"
+	@echo "... src/LinkPackage/UdpIODevice.s"
+	@echo "... src/LinkPackage/bridge.o"
+	@echo "... src/LinkPackage/bridge.i"
+	@echo "... src/LinkPackage/bridge.s"
+	@echo "... src/LinkPackage/linkconfiguration.o"
+	@echo "... src/LinkPackage/linkconfiguration.i"
+	@echo "... src/LinkPackage/linkconfiguration.s"
+	@echo "... src/LinkPackage/linkinterface.o"
+	@echo "... src/LinkPackage/linkinterface.i"
+	@echo "... src/LinkPackage/linkinterface.s"
+	@echo "... src/LinkPackage/linkmanager.o"
+	@echo "... src/LinkPackage/linkmanager.i"
+	@echo "... src/LinkPackage/linkmanager.s"
+	@echo "... src/LinkPackage/mavlinkprotocol.o"
+	@echo "... src/LinkPackage/mavlinkprotocol.i"
+	@echo "... src/LinkPackage/mavlinkprotocol.s"
 	@echo "... src/RosInterface.o"
 	@echo "... src/RosInterface.i"
 	@echo "... src/RosInterface.s"
