@@ -2,7 +2,7 @@
 #include "linkmanager.h"
 #include <QtGlobal>
 
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+#if QT_VERSION >= QT_VERSION_CHECK(6, 3, 0)
     #include <QtCore/qapplicationstatic.h>
     Q_APPLICATION_STATIC(Bridge, _bridgeInstance)
 #else

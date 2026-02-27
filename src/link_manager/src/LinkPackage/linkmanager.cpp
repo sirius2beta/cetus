@@ -16,7 +16,7 @@
 #include "bridge.h"
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+#if QT_VERSION >= QT_VERSION_CHECK(6, 3, 0)
     #include <QtCore/qapplicationstatic.h>
     Q_APPLICATION_STATIC(LinkManager, _linkManagerInstance);
 
