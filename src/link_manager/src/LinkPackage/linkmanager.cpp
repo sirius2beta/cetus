@@ -7,16 +7,16 @@
  *
  ****************************************************************************/
 
-#include "LinkManager.h"
-#include "MAVLinkProtocol.h"
+#include "linkmanager.h"
+#include "mavlinkprotocol.h"
 
 #include "UDPLink.h"
 #include "SerialLink.h"
 #include "UdpIODevice.h"
-#include "Bridge.h"
+#include "bridge.h"
 
 
-#if QT_VERSION >= QT_VERSION_CHECK(6, 3, 0)
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     #include <QtCore/qapplicationstatic.h>
     Q_APPLICATION_STATIC(LinkManager, _linkManagerInstance);
 
@@ -365,10 +365,6 @@ void LinkManager::_addUDPAutoConnectLink()
     udpConfig2->setDynamic(true);
     udpConfig2->setAutoConnect(true);
     udpConfig2->setLocalPort(14561);
-<<<<<<< HEAD:linkmanager.cpp
-=======
-    udpConfig2->addHost("192.168.0.252:14450");
->>>>>>> 88ad4e6365a16ced63c6d2fad7b8ac30a54e9e6f:LinkManager.cpp
     SharedLinkConfigurationPtr config2 = addConfiguration(udpConfig2);
     createConnectedLink(config2);
     Bridge::instance()->addUdpLinks(udpConfig->link(), udpConfig2->link());

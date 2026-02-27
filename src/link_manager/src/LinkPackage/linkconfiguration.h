@@ -13,7 +13,7 @@ class LinkConfiguration : public QObject
 {
     Q_OBJECT
     #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
-    Q_MOC_INCLUDE("LinkInterface.h")
+    Q_MOC_INCLUDE("linkinterface.h")
     #endif
     Q_PROPERTY(QString          name            READ name           WRITE setName           NOTIFY nameChanged)
     Q_PROPERTY(LinkInterface    *link           READ link                                   NOTIFY linkChanged)

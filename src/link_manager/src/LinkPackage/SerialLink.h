@@ -18,8 +18,8 @@
 #include <QtSerialPort/QSerialPort>
 #endif
 
-#include "LinkConfiguration.h"
-#include "LinkInterface.h"
+#include "linkconfiguration.h"
+#include "linkinterface.h"
 
 class QThread;
 class QTimer;

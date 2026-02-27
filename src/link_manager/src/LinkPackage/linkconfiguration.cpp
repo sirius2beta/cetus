@@ -1,4 +1,4 @@
-#include "LinkConfiguration.h"
+#include "linkconfiguration.h"
 #include "SerialLink.h"
 #include "UDPLink.h"
 
