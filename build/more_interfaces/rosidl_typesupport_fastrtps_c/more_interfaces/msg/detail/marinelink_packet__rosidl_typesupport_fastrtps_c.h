@@ -23,6 +23,7 @@ size_t get_serialized_size_more_interfaces__msg__MarinelinkPacket(
 ROSIDL_TYPESUPPORT_FASTRTPS_C_PUBLIC_more_interfaces
 size_t max_serialized_size_more_interfaces__msg__MarinelinkPacket(
   bool & full_bounded,
+  bool & is_plain,
   size_t current_alignment);
 
 ROSIDL_TYPESUPPORT_FASTRTPS_C_PUBLIC_more_interfaces

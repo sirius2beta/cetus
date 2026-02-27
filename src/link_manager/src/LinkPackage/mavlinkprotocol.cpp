@@ -13,7 +13,7 @@
 #include<QSettings>
 #include<QLoggingCategory>
 
-Q_LOGGING_CATEGORY(MAVLinkProtocolLog, "qgc.comms.mavlinkprotocol");
+Q_LOGGING_CATEGORY(MAVLinkProtocolLog, "qgc.comms.mavlinkprotocol", QtWarningMsg);
 
 
 MAVLinkProtocol::MAVLinkProtocol(QObject *parent)

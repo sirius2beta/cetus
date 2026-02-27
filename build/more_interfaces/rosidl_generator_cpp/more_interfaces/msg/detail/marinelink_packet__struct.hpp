@@ -5,13 +5,15 @@
 #ifndef MORE_INTERFACES__MSG__DETAIL__MARINELINK_PACKET__STRUCT_HPP_
 #define MORE_INTERFACES__MSG__DETAIL__MARINELINK_PACKET__STRUCT_HPP_
 
-#include <rosidl_runtime_cpp/bounded_vector.hpp>
-#include <rosidl_runtime_cpp/message_initialization.hpp>
 #include <algorithm>
 #include <array>
+#include <cstdint>
 #include <memory>
 #include <string>
 #include <vector>
+
+#include "rosidl_runtime_cpp/bounded_vector.hpp"
+#include "rosidl_runtime_cpp/message_initialization.hpp"
 
 
 #ifndef _WIN32
@@ -58,10 +60,10 @@ struct MarinelinkPacket_
     uint8_t;
   _topic_type topic;
   using _address_type =
-    std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other>;
+    std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>>;
   _address_type address;
   using _payload_type =
-    std::vector<uint8_t, typename ContainerAllocator::template rebind<uint8_t>::other>;
+    std::vector<uint8_t, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<uint8_t>>;
   _payload_type payload;
 
   // setters for named parameter idiom
@@ -72,13 +74,13 @@ struct MarinelinkPacket_
     return *this;
   }
   Type & set__address(
-    const std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other> & _arg)
+    const std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>> & _arg)
   {
     this->address = _arg;
     return *this;
   }
   Type & set__payload(
-    const std::vector<uint8_t, typename ContainerAllocator::template rebind<uint8_t>::other> & _arg)
+    const std::vector<uint8_t, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<uint8_t>> & _arg)
   {
     this->payload = _arg;
     return *this;

@@ -12,8 +12,8 @@ set_target_properties(more_interfaces::more_interfaces__rosidl_typesupport_intro
   IMPORTED_SONAME_NOCONFIG "libmore_interfaces__rosidl_typesupport_introspection_cpp.so"
   )
 
-list(APPEND _cmake_import_check_targets more_interfaces::more_interfaces__rosidl_typesupport_introspection_cpp )
-list(APPEND _cmake_import_check_files_for_more_interfaces::more_interfaces__rosidl_typesupport_introspection_cpp "${_IMPORT_PREFIX}/lib/libmore_interfaces__rosidl_typesupport_introspection_cpp.so" )
+list(APPEND _IMPORT_CHECK_TARGETS more_interfaces::more_interfaces__rosidl_typesupport_introspection_cpp )
+list(APPEND _IMPORT_CHECK_FILES_FOR_more_interfaces::more_interfaces__rosidl_typesupport_introspection_cpp "${_IMPORT_PREFIX}/lib/libmore_interfaces__rosidl_typesupport_introspection_cpp.so" )
 
 # Commands beyond this point should not need to know the version.
 set(CMAKE_IMPORT_FILE_VERSION)

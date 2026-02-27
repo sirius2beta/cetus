@@ -24,7 +24,7 @@ void RosInterface::run()
 void RosInterface::onMavlinkToParse(const mavlink_message_t &message)
 {
 
-    RCLCPP_INFO(rclcpp::get_logger("RosInterface"), "Received MAVLink message with ID: %d", message.msgid);
+    //RCLCPP_INFO(rclcpp::get_logger("RosInterface"), "Received MAVLink message with ID: %d", message.msgid);
     if(message.msgid == MAVLINK_MSG_ID_CUSTOM_LEGACY_WRAPPER){
         mavlink_custom_legacy_wrapper_t wrapper;
         mavlink_msg_custom_legacy_wrapper_decode(&message, &wrapper);

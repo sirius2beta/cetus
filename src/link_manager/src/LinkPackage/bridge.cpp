@@ -13,7 +13,7 @@
 #include <QtQml/qqml.h>
 #include <QLoggingCategory>
 
-Q_LOGGING_CATEGORY(BridgeLog, "hypex.comms.bridge")
+Q_LOGGING_CATEGORY(BridgeLog, "hypex.comms.bridge", QtWarningMsg)
 
 
 Bridge::Bridge(QObject *parent)
@@ -155,7 +155,8 @@ void Bridge::_commLostCheck()
         // Notify the user of individual link communication loss
         const bool isPrimaryLink = _secondaryUdpLinkInfo.link.get() == _primaryLink.lock().get();
     }
-
+    qCDebug(BridgeLog) << "primary link heartbeat elapsed time:" << _primaryUdpLinkInfo.heartbeatElapsedTimer.elapsed() << "ms, commLost:" << _primaryUdpLinkInfo.commLost;
+    qCDebug(BridgeLog) << "secondary link heartbeat elapsed time:" << _secondaryUdpLinkInfo.heartbeatElapsedTimer.elapsed() << "ms, commLost:" << _secondaryUdpLinkInfo.commLost;
 
     if (_updatePrimaryLink()) {
         qCDebug(BridgeLog, "update link");

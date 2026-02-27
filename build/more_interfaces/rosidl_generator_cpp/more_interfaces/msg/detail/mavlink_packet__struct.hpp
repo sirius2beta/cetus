@@ -5,13 +5,15 @@
 #ifndef MORE_INTERFACES__MSG__DETAIL__MAVLINK_PACKET__STRUCT_HPP_
 #define MORE_INTERFACES__MSG__DETAIL__MAVLINK_PACKET__STRUCT_HPP_
 
-#include <rosidl_runtime_cpp/bounded_vector.hpp>
-#include <rosidl_runtime_cpp/message_initialization.hpp>
 #include <algorithm>
 #include <array>
+#include <cstdint>
 #include <memory>
 #include <string>
 #include <vector>
+
+#include "rosidl_runtime_cpp/bounded_vector.hpp"
+#include "rosidl_runtime_cpp/message_initialization.hpp"
 
 
 #ifndef _WIN32
@@ -45,12 +47,12 @@ struct MavlinkPacket_
 
   // field types and members
   using _payload_type =
-    std::vector<uint8_t, typename ContainerAllocator::template rebind<uint8_t>::other>;
+    std::vector<uint8_t, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<uint8_t>>;
   _payload_type payload;
 
   // setters for named parameter idiom
   Type & set__payload(
-    const std::vector<uint8_t, typename ContainerAllocator::template rebind<uint8_t>::other> & _arg)
+    const std::vector<uint8_t, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<uint8_t>> & _arg)
   {
     this->payload = _arg;
     return *this;

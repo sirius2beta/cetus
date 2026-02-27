@@ -21,7 +21,7 @@ extern "C"
 // Member 'payload'
 #include "rosidl_runtime_c/primitives_sequence.h"
 
-// Struct defined in msg/MavlinkPacket in the package more_interfaces.
+/// Struct defined in msg/MavlinkPacket in the package more_interfaces.
 typedef struct more_interfaces__msg__MavlinkPacket
 {
   rosidl_runtime_c__uint8__Sequence payload;

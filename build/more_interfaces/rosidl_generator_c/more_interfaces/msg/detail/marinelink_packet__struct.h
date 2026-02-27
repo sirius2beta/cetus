@@ -23,7 +23,7 @@ extern "C"
 // Member 'payload'
 #include "rosidl_runtime_c/primitives_sequence.h"
 
-// Struct defined in msg/MarinelinkPacket in the package more_interfaces.
+/// Struct defined in msg/MarinelinkPacket in the package more_interfaces.
 typedef struct more_interfaces__msg__MarinelinkPacket
 {
   uint8_t topic;

@@ -8,6 +8,8 @@
 # Member 'payload'
 import array  # noqa: E402, I100
 
+import builtins  # noqa: E402, I100
+
 import rosidl_parser.definition  # noqa: E402, I100
 
 
@@ -123,7 +125,7 @@ class MarinelinkPacket(metaclass=Metaclass_MarinelinkPacket):
         from copy import copy
         return copy(cls._fields_and_field_types)
 
-    @property
+    @builtins.property
     def topic(self):
         """Message field 'topic'."""
         return self._topic
@@ -138,7 +140,7 @@ class MarinelinkPacket(metaclass=Metaclass_MarinelinkPacket):
                 "The 'topic' field must be an unsigned integer in [0, 255]"
         self._topic = value
 
-    @property
+    @builtins.property
     def address(self):
         """Message field 'address'."""
         return self._address
@@ -151,7 +153,7 @@ class MarinelinkPacket(metaclass=Metaclass_MarinelinkPacket):
                 "The 'address' field must be of type 'str'"
         self._address = value
 
-    @property
+    @builtins.property
     def payload(self):
         """Message field 'payload'."""
         return self._payload
