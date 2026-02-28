@@ -717,7 +717,7 @@ void LinkManager::_addSerialAutoConnectLink()
                 // We don't connect to the port the first time we see it. The ability to correctly detect whether we
                 // are in the bootloader is flaky from a cross-platform standpoint. So by putting it on a wait list
                 // and only connect on the second pass we leave enough time for the board to boot up.
-                qCDebug(LinkManagerLog) << "Waiting for next autoconnect pass" << portInfo.systemLocation() << boardName;
+                //qCDebug(LinkManagerLog) << "Waiting for next autoconnect pass" << portInfo.systemLocation() << boardName;
                 _autoconnectPortWaitList[portInfo.systemLocation()] = 1;
             } else if ((++_autoconnectPortWaitList[portInfo.systemLocation()] * _autoconnectUpdateTimerMSecs) > _autoconnectConnectDelayMSecs) {
                 SerialConfiguration* pSerialConfig = nullptr;
@@ -734,7 +734,7 @@ void LinkManager::_addSerialAutoConnectLink()
                     //pSerialConfig = new SerialConfiguration(tr("%1 on %2 (AutoConnect)").arg(boardName, portInfo.portName().trimmed()));
                     break;
                 case QGCSerialPortInfo::BoardTypeRTKGPS:
-                    qCDebug(LinkManagerLog) << "RTK GPS auto-connected" << portInfo.portName().trimmed();
+                    //qCDebug(LinkManagerLog) << "RTK GPS auto-connected" << portInfo.portName().trimmed();
                     //_autoConnectRTKPort = portInfo.systemLocation();
                     //GPSManager::instance()->gpsRtk()->connectGPS(portInfo.systemLocation(), boardName);
                     break;

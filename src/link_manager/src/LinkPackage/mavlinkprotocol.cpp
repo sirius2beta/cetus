@@ -57,7 +57,9 @@ void MAVLinkProtocol::receiveBytes(LinkInterface *link, const QByteArray &data)
             _forward(message);
 
         }else{
-            _forwardtoPixhawk(message);
+            if(message.msgid != CUSTOM_LEGACY_WRAPPER_MSG_ID){
+                _forwardtoPixhawk(message);
+            }
         }
 
         emit messageReceived(link, message);
