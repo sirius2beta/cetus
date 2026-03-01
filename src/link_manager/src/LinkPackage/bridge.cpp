@@ -87,7 +87,19 @@ void Bridge::mavlinkMessageReceived(LinkInterface *link, const mavlink_message_t
             _updatePrimaryLink();
         }
     }
-    emit mavlinkToParse(message);
+    emit mavlinkToParse(link,message);
+}
+
+void Bridge::onMavlinkToSend(const mavlink_message_t &message)
+{
+    uint8_t buf[MAVLINK_MAX_PACKET_LEN]{};
+    const uint16_t len = mavlink_msg_to_send_buffer(buf, &message);
+
+    SharedLinkInterfacePtr primaryLink = Bridge::instance()->primaryLink().lock();
+
+    if(primaryLink){
+        (void) primaryLink->writeBytesThreadSafe(reinterpret_cast<const char*>(buf), len);
+    }
 }
 
 

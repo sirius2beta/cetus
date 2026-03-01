@@ -133,6 +133,7 @@ void UDPConfiguration::addHost(const QString &host)
 
 void UDPConfiguration::addHost(const QString &host, quint16 port)
 {
+    
     const QString ipAdd = _getIpAddress(host);
     if (ipAdd.isEmpty()) {
         qCWarning(UDPLinkLog) << "Could not resolve host:" << host << "port:" << port;
@@ -229,7 +230,7 @@ QString UDPConfiguration::_getIpAddress(const QString &address)
 
 const QHostAddress UDPWorker::_multicastGroup = QHostAddress(QStringLiteral("224.0.0.1"));
 
-UDPWorker::UDPWorker(const UDPConfiguration *config, QObject *parent)
+UDPWorker::UDPWorker(UDPConfiguration *config, QObject *parent)
     : QObject(parent)
     , _udpConfig(config)
 {
@@ -358,14 +359,6 @@ void UDPWorker::writeData(const QByteArray &data)
 
     QMutexLocker locker(&_sessionTargetsMutex);
 
-    // Send to all manually targeted systems
-    for (const std::shared_ptr<UDPClient> &target : _udpConfig->targetHosts()) {
-        if (!containsTarget(_sessionTargets, target->address, target->port)) {
-            if (_socket->writeDatagram(data, target->address, target->port) < 0) {
-                qCWarning(UDPLinkLog) << "Could Not Send Data - Write Failed!";
-            }
-        }
-    }
 
     // Send to all connected systems
     for (const std::shared_ptr<UDPClient> &target: _sessionTargets) {
@@ -429,10 +422,12 @@ void UDPWorker::_onSocketReadyRead()
             if(_sessionTargets.size() >= 1){
                 _sessionTargets[0].get()->address = senderAddress;
                 _sessionTargets[0].get()->port = datagramIn.senderPort();
+                _udpConfig->addHost(senderAddress.toString(), datagramIn.senderPort());
                 return;
             }
             qCDebug(UDPLinkLog) << "UDP Adding target:" << senderAddress << datagramIn.senderPort();
             _sessionTargets.append(std::make_shared<UDPClient>(senderAddress, datagramIn.senderPort()));
+            _udpConfig->addHost(senderAddress.toString(), datagramIn.senderPort());
         }
     }
 }
@@ -461,7 +456,7 @@ void UDPWorker::_onSocketErrorOccurred(QUdpSocket::SocketError error)
 
 UDPLink::UDPLink(SharedLinkConfigurationPtr &config, QObject *parent)
     : LinkInterface(config, parent)
-    , _udpConfig(qobject_cast<const UDPConfiguration*>(config.get()))
+    , _udpConfig(qobject_cast<UDPConfiguration*>(config.get()))
     , _worker(new UDPWorker(_udpConfig))
     , _workerThread(new QThread(this))
 {

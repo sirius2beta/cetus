@@ -19,6 +19,7 @@ int main(int argc, char *argv[])
         QCoreApplication::quit(); 
     });
     QObject::connect(Bridge::instance(), &Bridge::mavlinkToParse, ros_interface, &RosInterface::onMavlinkToParse);
+    QObject::connect(ros_interface, &RosInterface::mavlinkToSend, Bridge::instance(), &Bridge::onMavlinkToSend);
     ros_interface->start();
     int result = app.exec();
     rclcpp::shutdown();

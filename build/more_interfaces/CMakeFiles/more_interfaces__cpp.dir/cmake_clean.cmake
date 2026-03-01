@@ -10,6 +10,11 @@ file(REMOVE_RECURSE
   "rosidl_generator_cpp/more_interfaces/msg/detail/mavlink_packet__type_support.hpp"
   "rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp"
   "rosidl_generator_cpp/more_interfaces/msg/mavlink_packet.hpp"
+  "rosidl_generator_cpp/more_interfaces/srv/detail/videoformat__builder.hpp"
+  "rosidl_generator_cpp/more_interfaces/srv/detail/videoformat__struct.hpp"
+  "rosidl_generator_cpp/more_interfaces/srv/detail/videoformat__traits.hpp"
+  "rosidl_generator_cpp/more_interfaces/srv/detail/videoformat__type_support.hpp"
+  "rosidl_generator_cpp/more_interfaces/srv/videoformat.hpp"
 )
 
 # Per-language clean rules from dependency scanning.

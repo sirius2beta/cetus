@@ -1,0 +1,189 @@
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-03-01-09-44-51-409132-ubuntu-676428
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [link_manager-1]: process started with pid [676429]
+[INFO] [video_manager-2]: process started with pid [676431]
+[link_manager-1] create mavlink protocol
+[link_manager-1] [WARN] [1772329491.574265204] [rcl.logging_rosout]: Publisher already registered for provided node name. If this is due to multiple nodes with the same name then all logs for that logger name will go out over the existing publisher. As soon as any node with that name is destructed it will unregister the publisher, preventing any further logs for that name from being published on the rosout topic.
+[link_manager-1] qgc.comms.linkmanager: New auto-connect UDP port added
+[link_manager-1] qgc.comms.linkmanager: allocateMavlinkChannel 1
+[link_manager-1] _allocateMavlinkChannel 1
+[link_manager-1] qgc.comms.linkmanager: allocateMavlinkChannel 2
+[link_manager-1] _allocateMavlinkChannel 2
+[link_manager-1] UDPLinkLog: Attempting to bind to port: 14560
+[link_manager-1] UDPLinkLog: Attempting to bind to port: 14561
+[link_manager-1] UDPLinkLog: UDP State Changed: QAbstractSocket::BoundState
+[link_manager-1] UDPLinkLog: UDP connected to 14560
+[link_manager-1] UDPLinkLog: UDP State Changed: QAbstractSocket::BoundState
+[link_manager-1] UDPLinkLog: UDP connected to 14561
+[link_manager-1] UDPLinkLog: Attempting to join multicast group: "224.0.0.1"
+[link_manager-1] UDPLinkLog: Attempting to join multicast group: "224.0.0.1"
+[link_manager-1] UDPLinkLog: Joined multicast group: "224.0.0.1"
+[link_manager-1] UDPLinkLog: Joined multicast group: "224.0.0.1"
+[link_manager-1] UDPLinkLog: UDP Adding target: QHostAddress("100.102.166.21") 14560
+[link_manager-1] [INFO] [1772329493.111418356] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] qgc.comms.linkmanager: New auto-connect port added:  "ArduPilot ChibiOS on ttyACM0 (AutoConnect)" "/dev/ttyACM0"
+[link_manager-1] qgc.comms.linkmanager: allocateMavlinkChannel 3
+[link_manager-1] _allocateMavlinkChannel 3
+[link_manager-1] Attempting to open port "ttyACM0"
+[link_manager-1] SerialLinkLog: Port error: QSerialPort::NoError "No error"
+[link_manager-1] SerialLinkLog: About to open port "ttyACM0"
+[link_manager-1] SerialLinkLog: Port connected: "ttyACM0"
+[link_manager-1] [INFO] [1772329494.101639505] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329495.108092699] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329496.116784349] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329497.102101163] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329498.108183613] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329499.108655914] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329500.100929353] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329501.107758929] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329502.110081408] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329503.102632577] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329504.109795310] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329505.111566750] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329506.101847420] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329507.108641073] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329508.109603576] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329509.101659893] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329510.114663677] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329511.109923029] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329512.102597507] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329513.113126430] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329514.108337708] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329515.103518454] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329516.108159676] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329517.112811038] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329518.103737557] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329519.114362339] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329520.110858517] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329521.102789707] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329522.120290983] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329523.113363270] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329524.102883059] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329525.107949873] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329526.107483949] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329527.103016165] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329528.108939837] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329529.112836416] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329530.102694859] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329531.109087406] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329532.109905101] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329533.103678734] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329534.108793077] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329535.114805278] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329536.103483433] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329537.112985529] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329538.112022145] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329539.109288159] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329540.109909601] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329541.137019564] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329542.103886232] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329543.108405424] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329544.111235168] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329545.107138327] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329546.109897472] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329547.108747432] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329548.108979430] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329549.109370055] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329550.109316372] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329551.103644444] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329552.109912450] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329553.108932866] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329554.104544726] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329555.110064022] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329556.109101935] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329557.107695700] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329558.112260390] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329559.111556161] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329560.109076115] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329561.107907095] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329562.109328160] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329563.103876371] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329564.108821157] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329565.108802765] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329566.106761249] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329567.108856665] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329568.113224362] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329569.109153829] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329570.109492591] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329571.109465703] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329572.107049181] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329573.108404233] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329574.109282910] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329575.110777066] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329576.108584640] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329577.108987067] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329578.106024460] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329579.111665973] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329580.114628527] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329581.105694154] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329582.116661761] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329583.108530551] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329584.105491094] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329585.111293975] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329586.110988192] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329587.106368441] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329588.108190610] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329589.108464235] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329590.106038741] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329591.108981524] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329592.109722841] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329593.106280787] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329594.108827611] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329595.109459092] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329596.106967245] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329597.108727662] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329598.113737648] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329599.115589904] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329600.110211820] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329601.109569028] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329602.108037878] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329603.108808001] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329604.110777563] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329605.106200715] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329606.110036459] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329607.108666839] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329608.111858552] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329609.115144219] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329610.111895381] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329611.107497919] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329612.110061886] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329613.113186577] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329614.108744050] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329615.111408014] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329616.118688480] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329617.108111653] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329618.111947849] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329619.110904231] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329620.107267963] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329621.119740626] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329622.113257456] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329623.107063734] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329624.108733718] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329625.110431829] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329626.115711712] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329627.108909126] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329628.109165604] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329629.108886602] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329630.110650912] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329631.109261526] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329632.109300866] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329633.111239513] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329634.112887169] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329635.106723119] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329636.110210461] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329637.108808996] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329638.107725463] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329639.112980741] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329640.109881410] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329641.107650496] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329642.111830045] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329643.111253401] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329644.109108724] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329645.109721659] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329646.111681110] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329647.107750691] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329648.109453711] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329649.112100575] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329650.111498891] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329651.109359639] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0
+[link_manager-1] [INFO] [1772329652.117528766] [RosInterface]: Decoded MAVLink message - Target System: 1, Target Component: 1, Length: 0, Topic: 0

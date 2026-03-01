@@ -104,7 +104,7 @@ class UDPWorker : public QObject
     Q_OBJECT
 
 public:
-    explicit UDPWorker(const UDPConfiguration *config, QObject *parent = nullptr);
+    explicit UDPWorker(UDPConfiguration *config, QObject *parent = nullptr);
     virtual ~UDPWorker();
 
     bool isConnected() const;
@@ -130,7 +130,7 @@ private slots:
     void _onSocketErrorOccurred(QAbstractSocket::SocketError socketError);
 
 private:
-    const UDPConfiguration *_udpConfig = nullptr;
+    UDPConfiguration *_udpConfig = nullptr;
     QUdpSocket *_socket = nullptr;
     QMutex _sessionTargetsMutex;
     QList<std::shared_ptr<UDPClient>> _sessionTargets;
@@ -169,7 +169,7 @@ private slots:
     void _onDataSent(const QByteArray &data);
 
 private:
-    const UDPConfiguration *_udpConfig = nullptr;
+    UDPConfiguration *_udpConfig = nullptr;
     UDPWorker *_worker = nullptr;
     QThread *_workerThread = nullptr;
 };

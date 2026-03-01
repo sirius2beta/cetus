@@ -8,5 +8,11 @@ def generate_launch_description():
             namespace='link_manager',
             executable='link_manager',
             name='link_manager'
+        ),
+        Node(
+            package='video_manager',
+            namespace='video_manager',
+            executable='video_manager',
+            name='video_manager'
         )
     ])

@@ -4,7 +4,8 @@
   "template_dir": "/opt/ros/humble/share/rosidl_generator_cpp/cmake/../resource",
   "idl_tuples": [
     "/home/sirius2beta/cetus/build/more_interfaces/rosidl_adapter/more_interfaces:msg/MarinelinkPacket.idl",
-    "/home/sirius2beta/cetus/build/more_interfaces/rosidl_adapter/more_interfaces:msg/MavlinkPacket.idl"
+    "/home/sirius2beta/cetus/build/more_interfaces/rosidl_adapter/more_interfaces:msg/MavlinkPacket.idl",
+    "/home/sirius2beta/cetus/build/more_interfaces/rosidl_adapter/more_interfaces:srv/Videoformat.idl"
   ],
   "target_dependencies": [
     "/opt/ros/humble/share/rosidl_generator_cpp/cmake/../../../lib/rosidl_generator_cpp/rosidl_generator_cpp",
@@ -23,6 +24,7 @@
     "/opt/ros/humble/share/rosidl_generator_cpp/cmake/../resource/srv__struct.hpp.em",
     "/opt/ros/humble/share/rosidl_generator_cpp/cmake/../resource/srv__traits.hpp.em",
     "/home/sirius2beta/cetus/build/more_interfaces/rosidl_adapter/more_interfaces/msg/MarinelinkPacket.idl",
-    "/home/sirius2beta/cetus/build/more_interfaces/rosidl_adapter/more_interfaces/msg/MavlinkPacket.idl"
+    "/home/sirius2beta/cetus/build/more_interfaces/rosidl_adapter/more_interfaces/msg/MavlinkPacket.idl",
+    "/home/sirius2beta/cetus/build/more_interfaces/rosidl_adapter/more_interfaces/srv/Videoformat.idl"
   ]
 }

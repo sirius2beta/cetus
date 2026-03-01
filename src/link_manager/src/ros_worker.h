@@ -10,7 +10,7 @@ public:
     SubscribeWorker(MarineCallback callback) : Node("link_manager_subscribe_worker"), callback_(callback)
     {
         marine_subscription_ = this->create_subscription<more_interfaces::msg::MarinelinkPacket>(
-            "marinelink_tosend", 10, 
+            "/marinelink_tosend", 10, 
             std::bind(&SubscribeWorker::topic_callback, this, std::placeholders::_1));
 
     }
@@ -31,7 +31,7 @@ class PublishWorker : public rclcpp::Node
 public:
     PublishWorker() : Node("link_manager_publish_worker")
     {
-        marinelink_publisher_ = this->create_publisher<more_interfaces::msg::MarinelinkPacket>("video/cmd", 10);
+        marinelink_publisher_ = this->create_publisher<more_interfaces::msg::MarinelinkPacket>("/video/cmd", 10);
     }
     ~PublishWorker() = default;
     void publish_payload(const uint8_t* data, size_t length) {
@@ -42,6 +42,9 @@ public:
         // 直接發布
         marinelink_publisher_->publish(msg);
         RCLCPP_DEBUG(this->get_logger(), "Forwarded payload to ROS topic");
+    }
+    void publish_payload(const more_interfaces::msg::MarinelinkPacket & msg) {
+        marinelink_publisher_->publish(msg);
     }
 private:
     rclcpp::Publisher<more_interfaces::msg::MarinelinkPacket>::SharedPtr marinelink_publisher_;

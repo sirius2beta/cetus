@@ -2,6 +2,7 @@
 #include "ros_worker.h"
 #include <QThread>
 #include "LinkPackage/MAVLinkLib.h"
+#include "LinkPackage/linkinterface.h"
 class RosInterface : public QThread
 {
     Q_OBJECT
@@ -11,7 +12,7 @@ public:
 signals:
     void mavlinkToSend(const mavlink_message_t &message);
 public slots:
-    void onMavlinkToParse(const mavlink_message_t &message);
+    void onMavlinkToParse(LinkInterface *link, const mavlink_message_t &message);
 protected:
     void run() override;
 private:

@@ -68,6 +68,9 @@ include CMakeFiles/more_interfaces.dir/progress.make
 
 CMakeFiles/more_interfaces: /home/sirius2beta/cetus/src/more_interfaces/msg/MarinelinkPacket.msg
 CMakeFiles/more_interfaces: /home/sirius2beta/cetus/src/more_interfaces/msg/MavlinkPacket.msg
+CMakeFiles/more_interfaces: /home/sirius2beta/cetus/src/more_interfaces/srv/Videoformat.srv
+CMakeFiles/more_interfaces: rosidl_cmake/srv/Videoformat_Request.msg
+CMakeFiles/more_interfaces: rosidl_cmake/srv/Videoformat_Response.msg
 
 more_interfaces: CMakeFiles/more_interfaces
 more_interfaces: CMakeFiles/more_interfaces.dir/build.make

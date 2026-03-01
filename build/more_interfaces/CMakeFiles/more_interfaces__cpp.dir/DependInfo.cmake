@@ -21,6 +21,11 @@ set(CMAKE_MULTIPLE_OUTPUT_PAIRS
   "/home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_cpp/more_interfaces/msg/detail/mavlink_packet__traits.hpp" "/home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp"
   "/home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_cpp/more_interfaces/msg/detail/mavlink_packet__type_support.hpp" "/home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp"
   "/home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_cpp/more_interfaces/msg/mavlink_packet.hpp" "/home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp"
+  "/home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_cpp/more_interfaces/srv/detail/videoformat__builder.hpp" "/home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp"
+  "/home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_cpp/more_interfaces/srv/detail/videoformat__struct.hpp" "/home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp"
+  "/home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_cpp/more_interfaces/srv/detail/videoformat__traits.hpp" "/home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp"
+  "/home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_cpp/more_interfaces/srv/detail/videoformat__type_support.hpp" "/home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp"
+  "/home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_cpp/more_interfaces/srv/videoformat.hpp" "/home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp"
   )
 
 

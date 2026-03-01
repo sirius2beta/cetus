@@ -71,9 +71,12 @@ more_interfaces__py/CMakeFiles/more_interfaces__py: rosidl_generator_py/more_int
 more_interfaces__py/CMakeFiles/more_interfaces__py: rosidl_generator_py/more_interfaces/_more_interfaces_s.ep.rosidl_typesupport_c.c
 more_interfaces__py/CMakeFiles/more_interfaces__py: rosidl_generator_py/more_interfaces/msg/_marinelink_packet.py
 more_interfaces__py/CMakeFiles/more_interfaces__py: rosidl_generator_py/more_interfaces/msg/_mavlink_packet.py
+more_interfaces__py/CMakeFiles/more_interfaces__py: rosidl_generator_py/more_interfaces/srv/_videoformat.py
 more_interfaces__py/CMakeFiles/more_interfaces__py: rosidl_generator_py/more_interfaces/msg/__init__.py
+more_interfaces__py/CMakeFiles/more_interfaces__py: rosidl_generator_py/more_interfaces/srv/__init__.py
 more_interfaces__py/CMakeFiles/more_interfaces__py: rosidl_generator_py/more_interfaces/msg/_marinelink_packet_s.c
 more_interfaces__py/CMakeFiles/more_interfaces__py: rosidl_generator_py/more_interfaces/msg/_mavlink_packet_s.c
+more_interfaces__py/CMakeFiles/more_interfaces__py: rosidl_generator_py/more_interfaces/srv/_videoformat_s.c
 
 rosidl_generator_py/more_interfaces/_more_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/humble/lib/rosidl_generator_py/rosidl_generator_py
 rosidl_generator_py/more_interfaces/_more_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/humble/local/lib/python3.10/dist-packages/rosidl_generator_py/__init__.py
@@ -90,6 +93,7 @@ rosidl_generator_py/more_interfaces/_more_interfaces_s.ep.rosidl_typesupport_fas
 rosidl_generator_py/more_interfaces/_more_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/humble/share/rosidl_generator_py/resource/_srv.py.em
 rosidl_generator_py/more_interfaces/_more_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/more_interfaces/msg/MarinelinkPacket.idl
 rosidl_generator_py/more_interfaces/_more_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/more_interfaces/msg/MavlinkPacket.idl
+rosidl_generator_py/more_interfaces/_more_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/more_interfaces/srv/Videoformat.idl
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sirius2beta/cetus/build/more_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python code for ROS interfaces"
 	cd /home/sirius2beta/cetus/build/more_interfaces/more_interfaces__py && /usr/bin/python3 /opt/ros/humble/share/rosidl_generator_py/cmake/../../../lib/rosidl_generator_py/rosidl_generator_py --generator-arguments-file /home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_py__arguments.json --typesupport-impls "rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c;rosidl_typesupport_c"
 
@@ -105,14 +109,23 @@ rosidl_generator_py/more_interfaces/msg/_marinelink_packet.py: rosidl_generator_
 rosidl_generator_py/more_interfaces/msg/_mavlink_packet.py: rosidl_generator_py/more_interfaces/_more_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/more_interfaces/msg/_mavlink_packet.py
 
+rosidl_generator_py/more_interfaces/srv/_videoformat.py: rosidl_generator_py/more_interfaces/_more_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/more_interfaces/srv/_videoformat.py
+
 rosidl_generator_py/more_interfaces/msg/__init__.py: rosidl_generator_py/more_interfaces/_more_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/more_interfaces/msg/__init__.py
+
+rosidl_generator_py/more_interfaces/srv/__init__.py: rosidl_generator_py/more_interfaces/_more_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/more_interfaces/srv/__init__.py
 
 rosidl_generator_py/more_interfaces/msg/_marinelink_packet_s.c: rosidl_generator_py/more_interfaces/_more_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/more_interfaces/msg/_marinelink_packet_s.c
 
 rosidl_generator_py/more_interfaces/msg/_mavlink_packet_s.c: rosidl_generator_py/more_interfaces/_more_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/more_interfaces/msg/_mavlink_packet_s.c
+
+rosidl_generator_py/more_interfaces/srv/_videoformat_s.c: rosidl_generator_py/more_interfaces/_more_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/more_interfaces/srv/_videoformat_s.c
 
 more_interfaces__py: more_interfaces__py/CMakeFiles/more_interfaces__py
 more_interfaces__py: rosidl_generator_py/more_interfaces/_more_interfaces_s.ep.rosidl_typesupport_c.c
@@ -123,6 +136,9 @@ more_interfaces__py: rosidl_generator_py/more_interfaces/msg/_marinelink_packet.
 more_interfaces__py: rosidl_generator_py/more_interfaces/msg/_marinelink_packet_s.c
 more_interfaces__py: rosidl_generator_py/more_interfaces/msg/_mavlink_packet.py
 more_interfaces__py: rosidl_generator_py/more_interfaces/msg/_mavlink_packet_s.c
+more_interfaces__py: rosidl_generator_py/more_interfaces/srv/__init__.py
+more_interfaces__py: rosidl_generator_py/more_interfaces/srv/_videoformat.py
+more_interfaces__py: rosidl_generator_py/more_interfaces/srv/_videoformat_s.c
 more_interfaces__py: more_interfaces__py/CMakeFiles/more_interfaces__py.dir/build.make
 .PHONY : more_interfaces__py
 
