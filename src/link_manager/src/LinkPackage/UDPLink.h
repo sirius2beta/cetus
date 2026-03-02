@@ -119,7 +119,7 @@ signals:
     void connected();
     void disconnected();
     void errorOccurred(const QString &errorString);
-    void dataReceived(const QByteArray &data);
+    void dataReceived(const QHostAddress &senderAddress, const QByteArray &data);
     void dataSent(const QByteArray &data);
 
 private slots:
@@ -133,13 +133,12 @@ private:
     UDPConfiguration *_udpConfig = nullptr;
     QUdpSocket *_socket = nullptr;
     QMutex _sessionTargetsMutex;
-    QList<std::shared_ptr<UDPClient>> _sessionTargets;
     bool _isConnected = false;
     bool _errorEmitted = false;
     QSet<QHostAddress> _localAddresses;
 
     static const QHostAddress _multicastGroup;
-
+    UDPClient _lastSender;
 
 };
 
@@ -156,6 +155,7 @@ public:
     bool isConnected() const override;
     void disconnect() override;
     bool isSecureConnection() const override {return true;};
+    QHostAddress lastSenderAddress() const { return _lastSenderAddress; }
 
 protected:
     bool _connect() override;
@@ -165,11 +165,12 @@ private slots:
     void _onConnected();
     void _onDisconnected();
     void _onErrorOccurred(const QString &errorString);
-    void _onDataReceived(const QByteArray &data);
+    void _onDataReceived(const QHostAddress &senderAddress, const QByteArray &data);
     void _onDataSent(const QByteArray &data);
 
 private:
     UDPConfiguration *_udpConfig = nullptr;
     UDPWorker *_worker = nullptr;
     QThread *_workerThread = nullptr;
+    QHostAddress _lastSenderAddress;
 };

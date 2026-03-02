@@ -34,20 +34,22 @@ void RosInterface::onMavlinkToParse(LinkInterface *link, const mavlink_message_t
         mavlink_msg_custom_legacy_wrapper_decode(&message, &wrapper);
         RCLCPP_INFO(rclcpp::get_logger("RosInterface"), "Decoded MAVLink message - Target System: %d, Target Component: %d, Length: %d, Topic: %d", 
             wrapper.target_system, wrapper.target_component, wrapper.length, wrapper.topic);
-        // publish wrapper.payload if wrapper.topic == 1
+        auto msg = more_interfaces::msg::MarinelinkPacket();
+        msg.topic = wrapper.topic;
+        UDPLink* udpLink = dynamic_cast<UDPLink*>(link);
+        if(udpLink){
+            msg.address = udpLink->lastSenderAddress().toString().toStdString();
+        }
+        msg.payload = std::vector<uint8_t>(wrapper.payload, wrapper.payload + wrapper.length);
+    // publish wrapper.payload if wrapper.topic == 1
         if(wrapper.topic == 1){
             RCLCPP_INFO(rclcpp::get_logger("RosInterface"), "Publishing payload of length %d to topic %d", wrapper.length, wrapper.topic);
-            auto msg = more_interfaces::msg::MarinelinkPacket();
-            msg.topic = wrapper.topic;
-            SharedLinkConfigurationPtr sharedLinConfig = link->linkConfiguration();
-            if(sharedLinConfig){
-                UDPConfiguration* udpConfig = qobject_cast<UDPConfiguration*>(sharedLinConfig.get());
-                RCLCPP_INFO(rclcpp::get_logger("RosInterface"), "target hosts size: %d", udpConfig->targetHosts().size());
-                msg.address = udpConfig->targetHosts().size() > 0 ? udpConfig->targetHosts().constFirst()->address.toString().toStdString() : "0";
-            }
-            
-            msg.payload = std::vector<uint8_t>(wrapper.payload, wrapper.payload + wrapper.length);
-            // publish the message using the publisher node
+            pub_worker_->publish_payload(msg);
+        }else if(wrapper.topic == 2){
+            RCLCPP_INFO(rclcpp::get_logger("RosInterface"), "Videomanager play command", wrapper.topic);
+            pub_worker_->publish_payload(msg);
+        }else if(wrapper.topic == 3){
+            RCLCPP_INFO(rclcpp::get_logger("RosInterface"), "Videomanager quit command", wrapper.topic);
             pub_worker_->publish_payload(msg);
         }
     }

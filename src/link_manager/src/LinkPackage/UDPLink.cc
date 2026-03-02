@@ -233,6 +233,7 @@ const QHostAddress UDPWorker::_multicastGroup = QHostAddress(QStringLiteral("224
 UDPWorker::UDPWorker(UDPConfiguration *config, QObject *parent)
     : QObject(parent)
     , _udpConfig(config)
+    , _lastSender(QHostAddress::Any, 0)
 {
     // qCDebug(UDPLinkLog) << Q_FUNC_INFO << this;
 }
@@ -347,7 +348,7 @@ void UDPWorker::disconnectLink()
         _socket->close();
     }
 
-    _sessionTargets.clear();
+
 }
 
 void UDPWorker::writeData(const QByteArray &data)
@@ -359,10 +360,8 @@ void UDPWorker::writeData(const QByteArray &data)
 
     QMutexLocker locker(&_sessionTargetsMutex);
 
-
-    // Send to all connected systems
-    for (const std::shared_ptr<UDPClient> &target: _sessionTargets) {
-        if (_socket->writeDatagram(data, target->address, target->port) < 0) {
+    if(_lastSender.address != QHostAddress::Any){
+        if (_socket->writeDatagram(data, _lastSender.address, _lastSender.port) < 0) {
             qCWarning(UDPLinkLog) << "Could Not Send Data - Write Failed!";
         }
     }
@@ -409,26 +408,14 @@ void UDPWorker::_onSocketReadyRead()
         QNetworkDatagram datagramIn = _socket->receiveDatagram();
         if (datagramIn.isNull() || datagramIn.data().isEmpty()) continue;
 
-        // --- 核心修正：直接發送，不緩衝 ---
-        emit dataReceived(datagramIn.data());
-
         // 更新 Session Targets
         const QHostAddress senderAddress = (datagramIn.senderAddress().isLoopback() || _localAddresses.contains(datagramIn.senderAddress()))
                                                ? QHostAddress(QHostAddress::LocalHost)
                                                : datagramIn.senderAddress();
+        _lastSender.address = senderAddress;
+        _lastSender.port = datagramIn.senderPort();
 
-        QMutexLocker locker(&_sessionTargetsMutex);
-        if (!containsTarget(_sessionTargets, senderAddress, datagramIn.senderPort())) {
-            if(_sessionTargets.size() >= 1){
-                _sessionTargets[0].get()->address = senderAddress;
-                _sessionTargets[0].get()->port = datagramIn.senderPort();
-                _udpConfig->addHost(senderAddress.toString(), datagramIn.senderPort());
-                return;
-            }
-            qCDebug(UDPLinkLog) << "UDP Adding target:" << senderAddress << datagramIn.senderPort();
-            _sessionTargets.append(std::make_shared<UDPClient>(senderAddress, datagramIn.senderPort()));
-            _udpConfig->addHost(senderAddress.toString(), datagramIn.senderPort());
-        }
+        emit dataReceived(senderAddress, datagramIn.data());
     }
 }
 
@@ -519,8 +506,9 @@ void UDPLink::_onErrorOccurred(const QString &errorString)
     emit communicationError(tr("UDP Link Error"), tr("Link %1: %2").arg(_udpConfig->name(), errorString));
 }
 
-void UDPLink::_onDataReceived(const QByteArray &data)
+void UDPLink::_onDataReceived(const QHostAddress &senderAddress, const QByteArray &data)
 {
+    _lastSenderAddress = senderAddress;
     emit bytesReceived(this, data);
 }
 

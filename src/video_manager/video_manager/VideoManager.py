@@ -6,7 +6,7 @@ gi.require_version("Gst", "1.0")
 from gi.repository import Gst, GLib, GObject
 
 
-import video_manager.VideoFormat
+import video_manager.VideoFormat as VideoFormat
 
 def getOS():
 	try:
@@ -22,8 +22,8 @@ def getOS():
 
 
 class VideoManager():
-	def __init__(self, publisher):
-		self.publisher = publisher
+	def __init__(self, node):
+		self.node = node
 		self.sys = 'buster'
 
 
@@ -263,7 +263,7 @@ class VideoManager():
 		# 生成 GStreamer 指令
 		gstring = VideoFormat.getFormatCMD(getOS(), cam, fmtFound, width, height, fps, encoder, IP, port)
 		print(f"[Pipeline] cam={cam}, port={port}, encoder={encoder}")
-		print(gstring)
+		self.node.get_logger().info(f"Pipeline string: {gstring}")
 
 		# 釋放被占用的 port
 		if port in self.portOccupied:
@@ -288,9 +288,9 @@ class VideoManager():
 
 	def handleMsg(self, data, addr):
 		operation = int(data[0])
+		self.node.get_logger().info(f"handleMsg: operation={operation}, from {addr}")
 		if operation == 0 and len(data) >= 9:
-			print(f"handleMsg: GetFormat from {addr}")
-			self.handleGetFormat(data, addr)
+			self.handleSetFormat(data, addr)
 		elif operation == 1:
 			self.handleSetFormat(data, addr)
 		elif operation == 2:
@@ -302,16 +302,9 @@ class VideoManager():
 		elif operation == 5:
 			self.handleSeagrass(data, addr)
 		else:
-			print(f"Unknown operation: {operation}")
-	def handleGetFormat(self, data, addr):
-		if self.videoFormatList == {}:
-			print("no videoformat")
-		else:
-			for form in self.videoFormatList:
-				for video in self.videoFormatList[form]:
-					videoIndex = video[0]
-					msg += struct.pack("<2B", videoIndex, form)
-			self.publisher.publish(MarinelinkPacket(topic=1, payload=msg, address=addr))
+			logging.warning(f"Unknown operation: {operation}")
+
+
 	def handleSetFormat(self, data, addr):
 		"""
 		兼容舊版 formatIndex，呼叫新版 play()
@@ -321,18 +314,18 @@ class VideoManager():
 		encoder = 'h264' if int(data[3]) == 0 else 'mjpeg'
 		port = int.from_bytes(data[4:8], 'little')
 		ai_enabled = int(data[8])
-		ip = addr[0]
+		ip = addr
 
 		# 1. 取得舊版解析度
 		formatInfo = self.getFormatInfoByIndex(formatIndex)
 		if not formatInfo:
-			print(f"Invalid formatIndex {formatIndex}")
+			self.node.get_logger().warning(f"Invalid formatIndex {formatIndex}")
 			return
 		width, height, fps = formatInfo
 
 		# 2. 檢查相機是否存在，並確認有該解析度
 		if videoNo not in self.pipelines:
-			print(f"video{videoNo} not found")
+			self.node.get_logger().warning(f"video{videoNo} not found")
 			return
 
 		cam_formats = self.pipelines[videoNo]["formats"]
@@ -342,10 +335,10 @@ class VideoManager():
 				fmtFound = fmt
 				break
 		if not fmtFound:
-			print(f"video{videoNo} does not support {width}x{height}@{fps}")
+			self.node.get_logger().warning(f"video{videoNo} does not support {width}x{height}@{fps}")
 			return
 
 		# 3. 呼叫新版 play()
 		self.play(videoNo, width, height, fps, encoder, ip, port, ai_enabled)
-		print(f"handleSetFormat: video{videoNo} {fmtFound} {width}x{height}@{fps} encoder={encoder}, ai={ai_enabled}")
+		self.node.get_logger().info(f"handleSetFormat: video{videoNo} {fmtFound} {width}x{height}@{fps} encoder={encoder}, ai={ai_enabled}")
 
