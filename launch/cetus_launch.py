@@ -14,5 +14,11 @@ def generate_launch_description():
             namespace='video_manager',
             executable='video_manager',
             name='video_manager'
+        ),
+        Node(
+            package='log_manager',
+            namespace='log_manager',
+            executable='log_manager',
+            name='log_manager'
         )
     ])

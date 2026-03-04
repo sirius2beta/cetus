@@ -9,6 +9,8 @@ ros2 launch launch/cetus_launch.py
 
 ros2 topic list
 ros2 node list
+## 查看某topic訊息
+ros2 topic echo /sensor/mavlink_values
 
 
 from ament_index_python.packages import get_package_share_directory
@@ -32,3 +34,14 @@ def generate_launch_description():
 
 std::string shared_dir = ament_index_cpp::get_package_share_directory("my_shared_configs");
 std::string xml_path = shared_dir + "/config/params.xml";
+
+# Python
+In package.xml
+<exec_depend>rclpy</exec_depend>
+<exec_depend>more_interfaces</exec_depend>
+
+from more_interfaces.msg import MavlinkPacket, MarinelinkPacket
+import rclpy
+from rclpy.node import Node
+
+#寫到jetson detect的時候記得要 update IMU

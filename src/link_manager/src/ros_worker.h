@@ -33,11 +33,11 @@ public:
     PublishWorker() : Node("link_manager_publish_worker")
     {
         _marinelinkPublisher = this->create_publisher<more_interfaces::msg::MarinelinkPacket>("/video/cmd", 10);
-        _mavlinkValuesPublisher = this->create_publisher<more_interfaces::msg::MavlinkValues>("/mavlink/values", 10);
+        _mavlinkValuesPublisher = this->create_publisher<more_interfaces::msg::MavlinkValues>("/sensor/mavlink_values", 10);
     }
     ~PublishWorker() = default;
     void setTimerCallback(std::function<void()> timer_callback) {
-        auto timer = this->create_wall_timer(std::chrono::milliseconds(1000), timer_callback);
+        _timer = this->create_wall_timer(std::chrono::milliseconds(1000), timer_callback);
     }
     void publish_payload(const uint8_t* data, size_t length) {
         auto msg = more_interfaces::msg::MarinelinkPacket();
@@ -58,5 +58,5 @@ public:
 private:
     rclcpp::Publisher<more_interfaces::msg::MarinelinkPacket>::SharedPtr _marinelinkPublisher;
     rclcpp::Publisher<more_interfaces::msg::MavlinkValues>::SharedPtr _mavlinkValuesPublisher;
-    rclcpp::TimerBase::SharedPtr timer_;
+    rclcpp::TimerBase::SharedPtr _timer;
 };

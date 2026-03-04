@@ -1,3 +1,12 @@
+uint8 fix_type
 uint16 yaw
 float32 pitch
 float32 roll
+int32 lon
+int32 lat
+int32 alt
+uint16 depth
+float32 groundspeed
+uint16 voltage_battery
+uint16 current_battery
+uint8 battery_remaining
