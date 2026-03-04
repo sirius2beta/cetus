@@ -25,6 +25,7 @@ find_package(rosidl_default_generators REQUIRED)
 set(msg_files
   "msg/MarinelinkPacket.msg" 
   "msg/MavlinkPacket.msg"
+  "msg/MavlinkValues.msg"
   "srv/Videoformat.srv"
 )
 

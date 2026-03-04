@@ -1,5 +1,6 @@
 #include "rclcpp/rclcpp.hpp"
 #include "more_interfaces/msg/marinelink_packet.hpp"
+#include "more_interfaces/msg/mavlink_values.hpp"
 
 #include <QThread>
 
@@ -31,21 +32,31 @@ class PublishWorker : public rclcpp::Node
 public:
     PublishWorker() : Node("link_manager_publish_worker")
     {
-        marinelink_publisher_ = this->create_publisher<more_interfaces::msg::MarinelinkPacket>("/video/cmd", 10);
+        _marinelinkPublisher = this->create_publisher<more_interfaces::msg::MarinelinkPacket>("/video/cmd", 10);
+        _mavlinkValuesPublisher = this->create_publisher<more_interfaces::msg::MavlinkValues>("/mavlink/values", 10);
     }
     ~PublishWorker() = default;
+    void setTimerCallback(std::function<void()> timer_callback) {
+        auto timer = this->create_wall_timer(std::chrono::milliseconds(1000), timer_callback);
+    }
     void publish_payload(const uint8_t* data, size_t length) {
         auto msg = more_interfaces::msg::MarinelinkPacket();
         // 將原始資料填入 msg.payload (std::vector<uint8_t>)
         msg.payload.assign(data, data + length);
         msg.topic = 1; // 假設 topic_type 為 1
         // 直接發布
-        marinelink_publisher_->publish(msg);
+        _marinelinkPublisher->publish(msg);
         RCLCPP_DEBUG(this->get_logger(), "Forwarded payload to ROS topic");
     }
     void publish_payload(const more_interfaces::msg::MarinelinkPacket & msg) {
-        marinelink_publisher_->publish(msg);
+        _marinelinkPublisher->publish(msg);
+    }
+    void publishMavlinkValues(const more_interfaces::msg::MavlinkValues &values) {
+        
+        _mavlinkValuesPublisher->publish(values);
     }
 private:
-    rclcpp::Publisher<more_interfaces::msg::MarinelinkPacket>::SharedPtr marinelink_publisher_;
+    rclcpp::Publisher<more_interfaces::msg::MarinelinkPacket>::SharedPtr _marinelinkPublisher;
+    rclcpp::Publisher<more_interfaces::msg::MavlinkValues>::SharedPtr _mavlinkValuesPublisher;
+    rclcpp::TimerBase::SharedPtr timer_;
 };

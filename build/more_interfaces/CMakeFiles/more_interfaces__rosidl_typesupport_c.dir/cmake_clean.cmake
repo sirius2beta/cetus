@@ -3,12 +3,15 @@ file(REMOVE_RECURSE
   "CMakeFiles/more_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/more_interfaces/msg/marinelink_packet__type_support.cpp.o.d"
   "CMakeFiles/more_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/more_interfaces/msg/mavlink_packet__type_support.cpp.o"
   "CMakeFiles/more_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/more_interfaces/msg/mavlink_packet__type_support.cpp.o.d"
+  "CMakeFiles/more_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/more_interfaces/msg/mavlink_values__type_support.cpp.o"
+  "CMakeFiles/more_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/more_interfaces/msg/mavlink_values__type_support.cpp.o.d"
   "CMakeFiles/more_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/more_interfaces/srv/videoformat__type_support.cpp.o"
   "CMakeFiles/more_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/more_interfaces/srv/videoformat__type_support.cpp.o.d"
   "libmore_interfaces__rosidl_typesupport_c.pdb"
   "libmore_interfaces__rosidl_typesupport_c.so"
   "rosidl_typesupport_c/more_interfaces/msg/marinelink_packet__type_support.cpp"
   "rosidl_typesupport_c/more_interfaces/msg/mavlink_packet__type_support.cpp"
+  "rosidl_typesupport_c/more_interfaces/msg/mavlink_values__type_support.cpp"
   "rosidl_typesupport_c/more_interfaces/srv/videoformat__type_support.cpp"
 )
 

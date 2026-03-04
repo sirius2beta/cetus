@@ -1,5 +1,8 @@
 #include "RosInterface.h"
 #include "LinkPackage/UDPLink.h"
+#include "more_interfaces/msg/mavlink_values.hpp"
+
+
 void RosInterface::run()
 {
     auto executor = std::make_shared<rclcpp::executors::SingleThreadedExecutor>();
@@ -19,6 +22,10 @@ void RosInterface::run()
     RCLCPP_INFO(rclcpp::get_logger("RosInterface"), "--- NODES ADDED, SPINNING ---");
     sub_worker_ = sub_worker;
     pub_worker_ = pub_worker;
+
+    pub_worker_->setTimerCallback([this]() {
+        this->publishMavlinkValues();
+    });
 
     executor->spin();
     
@@ -52,7 +59,26 @@ void RosInterface::onMavlinkToParse(LinkInterface *link, const mavlink_message_t
             RCLCPP_INFO(rclcpp::get_logger("RosInterface"), "Videomanager quit command", wrapper.topic);
             pub_worker_->publish_payload(msg);
         }
+    }else if(message.msgid == MAVLINK_MSG_ID_GLOBAL_POSITION_INT){
+        mavlink_global_position_int_t pos;
+        mavlink_msg_global_position_int_decode(&message, &pos);
+        mavlink_values_.yaw = static_cast<uint16_t>(pos.hdg);
+        //RCLCPP_INFO(rclcpp::get_logger("RosInterface"), "Received GLOBAL_POSITION_INT -  Yaw: %d",  pos.hdg);
+    }else if(message.msgid == MAVLINK_MSG_ID_ATTITUDE){
+        mavlink_attitude_t att;
+        mavlink_msg_attitude_decode(&message, &att);
+        mavlink_values_.pitch = att.pitch;
+        mavlink_values_.roll = att.roll;
+        //RCLCPP_INFO(rclcpp::get_logger("RosInterface"), "Received ATTITUDE - Pitch: %f, Roll: %f", att.pitch, att.roll);
     }
+
+}
+void RosInterface::publishMavlinkValues() {
+    auto values = more_interfaces::msg::MavlinkValues();
+    values.yaw = mavlink_values_.yaw;
+    values.pitch = mavlink_values_.pitch;
+    values.roll = mavlink_values_.roll;
+    pub_worker_->publishMavlinkValues(values);
 }
 
 void RosInterface::handleMavlinkAssembly(uint8_t topic_type, const std::vector<uint8_t>& raw_payload) 

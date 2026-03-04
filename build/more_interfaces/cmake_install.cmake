@@ -364,6 +364,10 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/more_interfaces/msg" TYPE FILE FILES "/home/sirius2beta/cetus/build/more_interfaces/rosidl_adapter/more_interfaces/msg/MavlinkValues.idl")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/more_interfaces/srv" TYPE FILE FILES "/home/sirius2beta/cetus/build/more_interfaces/rosidl_adapter/more_interfaces/srv/Videoformat.idl")
 endif()
 
@@ -373,6 +377,10 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/more_interfaces/msg" TYPE FILE FILES "/home/sirius2beta/cetus/src/more_interfaces/msg/MavlinkPacket.msg")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/more_interfaces/msg" TYPE FILE FILES "/home/sirius2beta/cetus/src/more_interfaces/msg/MavlinkValues.msg")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)

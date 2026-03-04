@@ -76,6 +76,11 @@ CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail
 CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/mavlink_packet__struct.hpp
 CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/mavlink_packet__traits.hpp
 CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/mavlink_packet__type_support.hpp
+CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/mavlink_values.hpp
+CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/mavlink_values__builder.hpp
+CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/mavlink_values__struct.hpp
+CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/mavlink_values__traits.hpp
+CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/mavlink_values__type_support.hpp
 CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/srv/videoformat.hpp
 CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/srv/detail/videoformat__builder.hpp
 CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/srv/detail/videoformat__struct.hpp
@@ -100,6 +105,7 @@ rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp: /opt/ros/humble/
 rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp: /opt/ros/humble/share/rosidl_generator_cpp/resource/srv__traits.hpp.em
 rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp: rosidl_adapter/more_interfaces/msg/MarinelinkPacket.idl
 rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp: rosidl_adapter/more_interfaces/msg/MavlinkPacket.idl
+rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp: rosidl_adapter/more_interfaces/msg/MavlinkValues.idl
 rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp: rosidl_adapter/more_interfaces/srv/Videoformat.idl
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sirius2beta/cetus/build/more_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code for ROS interfaces"
 	/usr/bin/python3 /opt/ros/humble/share/rosidl_generator_cpp/cmake/../../../lib/rosidl_generator_cpp/rosidl_generator_cpp --generator-arguments-file /home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_cpp__arguments.json
@@ -131,6 +137,21 @@ rosidl_generator_cpp/more_interfaces/msg/detail/mavlink_packet__traits.hpp: rosi
 rosidl_generator_cpp/more_interfaces/msg/detail/mavlink_packet__type_support.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/detail/mavlink_packet__type_support.hpp
 
+rosidl_generator_cpp/more_interfaces/msg/mavlink_values.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/mavlink_values.hpp
+
+rosidl_generator_cpp/more_interfaces/msg/detail/mavlink_values__builder.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/detail/mavlink_values__builder.hpp
+
+rosidl_generator_cpp/more_interfaces/msg/detail/mavlink_values__struct.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/detail/mavlink_values__struct.hpp
+
+rosidl_generator_cpp/more_interfaces/msg/detail/mavlink_values__traits.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/detail/mavlink_values__traits.hpp
+
+rosidl_generator_cpp/more_interfaces/msg/detail/mavlink_values__type_support.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/detail/mavlink_values__type_support.hpp
+
 rosidl_generator_cpp/more_interfaces/srv/videoformat.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/srv/videoformat.hpp
 
@@ -155,8 +176,13 @@ more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/mavlink_pa
 more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/mavlink_packet__struct.hpp
 more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/mavlink_packet__traits.hpp
 more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/mavlink_packet__type_support.hpp
+more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/mavlink_values__builder.hpp
+more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/mavlink_values__struct.hpp
+more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/mavlink_values__traits.hpp
+more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/mavlink_values__type_support.hpp
 more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
 more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/mavlink_packet.hpp
+more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/mavlink_values.hpp
 more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/srv/detail/videoformat__builder.hpp
 more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/srv/detail/videoformat__struct.hpp
 more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/srv/detail/videoformat__traits.hpp

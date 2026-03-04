@@ -14,6 +14,10 @@ ros2 node list
 from ament_index_python.packages import get_package_share_directory
 import os
 
+# create packaage with c++
+ros2 pkg create --build-type ament_cmake
+ros2 pkg create --build-type ament_python --node-name my_node my_package
+
 def generate_launch_description():
     # 獲取來源 Package 的 share 路徑
     shared_dir = get_package_share_directory('my_shared_configs')

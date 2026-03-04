@@ -210,6 +210,9 @@ CMakeFiles/more_interfaces__rosidl_typesupport_introspection_c__pyext.dir/rosidl
  /home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_c/more_interfaces/msg/detail/mavlink_packet__type_support.h \
  /home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_c/more_interfaces/msg/detail/mavlink_packet__struct.h \
  /home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_c/more_interfaces/msg/detail/mavlink_packet__functions.h \
+ /home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_c/more_interfaces/msg/detail/mavlink_values__type_support.h \
+ /home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_c/more_interfaces/msg/detail/mavlink_values__struct.h \
+ /home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_c/more_interfaces/msg/detail/mavlink_values__functions.h \
  /home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_c/more_interfaces/srv/detail/videoformat__type_support.h \
  /home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_c/more_interfaces/srv/detail/videoformat__struct.h \
  /home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_c/more_interfaces/srv/detail/videoformat__functions.h

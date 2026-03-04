@@ -7,6 +7,8 @@ file(REMOVE_RECURSE
   "../rosidl_generator_py/more_interfaces/msg/_marinelink_packet_s.c"
   "../rosidl_generator_py/more_interfaces/msg/_mavlink_packet.py"
   "../rosidl_generator_py/more_interfaces/msg/_mavlink_packet_s.c"
+  "../rosidl_generator_py/more_interfaces/msg/_mavlink_values.py"
+  "../rosidl_generator_py/more_interfaces/msg/_mavlink_values_s.c"
   "../rosidl_generator_py/more_interfaces/srv/__init__.py"
   "../rosidl_generator_py/more_interfaces/srv/_videoformat.py"
   "../rosidl_generator_py/more_interfaces/srv/_videoformat_s.c"

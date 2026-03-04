@@ -2,6 +2,8 @@ msg/MarinelinkPacket.idl
 msg/MarinelinkPacket.msg
 msg/MavlinkPacket.idl
 msg/MavlinkPacket.msg
+msg/MavlinkValues.idl
+msg/MavlinkValues.msg
 srv/Videoformat.idl
 srv/Videoformat.srv
 srv/Videoformat_Request.msg
