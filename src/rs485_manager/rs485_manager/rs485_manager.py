@@ -5,7 +5,7 @@ import sys
 from rclpy.node import Node
 from .config import Config
 from .RS485Device import RS485Device
-from more_interfaces.msg import AquaValue, WinchStatus
+from more_interfaces.msg import AquaValue, WinchStatus, MarinelinkPacket
 
 def find_device_by_ids(vid, pid):
     # 取得所有序列埠清單
@@ -28,13 +28,24 @@ class RS485ManagerNode(Node):
         device_path = find_device_by_ids(target_vid, target_pid)
         self.aqua_value_publisher_ = self.create_publisher(AquaValue, '/sensor/aqua_value', 10)
         self.winch_status_publisher_ = self.create_publisher(WinchStatus, '/sensor/winch_status', 10)
+        self.marinelink_subscriber_ = self.create_subscription(
+            MarinelinkPacket,
+            '/control/winch',
+            self.winch_control_callback,
+            10
+        )
         if device_path:
             self.get_logger().info(f"找到裝置！路徑為: {device_path}")
-            RS485_device = RS485Device(4, device_path, self)
-            RS485_device.start_loop()
+            self.RS485_device = RS485Device(4, device_path, self)
+            self.RS485_device.start_loop()
         else:
             self.get_logger().error("找不到匹配的裝置。")
             sys.exit(1) # 退出碼非 0 會讓 Launch 知道這是不正常退出
+    def winch_control_callback(self, msg):
+        
+        payload_bytes = bytes(msg.payload)
+        control_type = payload_bytes[0]
+        self.RS485_device.processCMD(control_type, payload_bytes[1:])
 
 def main(args=None):
     rclpy.init(args=args)

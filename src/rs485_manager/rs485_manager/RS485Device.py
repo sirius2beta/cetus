@@ -41,9 +41,9 @@ class RS485Device(Device):
             
             self.node.get_logger().info("RS485Device: Connected to RS485 device.") 
         except Exception as e:
-            logging.info(f"   [X] RS485Device failed to start")
+            self.node.get_logger().info(f"   [X] RS485Device failed to start")
             raise e
-        logging.info("   [O] RS485Device initialized")
+        self.node.get_logger().info("   [O] RS485Device initialized")
     def start_loop(self):
         threading.Thread(target = self._io_loop, daemon=True).start()
         threading.Thread(target = self.reader, daemon = True).start() # start the reader thread
@@ -57,10 +57,10 @@ class RS485Device(Device):
             coil_addr = 0  
             self.client.write_coil(coil_addr, on, device_id=self.node1_addr)
             self.sonarPWR = 1 if on else 0
-            logging.info(f"RS485Device: [Node1] Set sonar {'ON' if on else 'OFF'}")
+            self.node.get_logger().info(f"RS485Device: [Node1] Set sonar {'ON' if on else 'OFF'}")
             self.node1Connected = True
         except ModbusException as e:
-            logging.info(f"RS485Device: [Node1] Set sonar failed: {e}")
+            self.node.get_logger().info(f"RS485Device: [Node1] Set sonar failed: {e}")
             self.node1Connected = False
 
     # ---------- Node 2 (Motor Controller) ----------
@@ -69,25 +69,25 @@ class RS485Device(Device):
         try:
             coil_addr = 0  
             self.client.write_coil(coil_addr, False, device_id=self.node2_addr)
-            logging.info(f"RS485Device: [Node2] stop motor")
+            self.node.get_logger().info(f"RS485Device: [Node2] stop motor")
         except ModbusException as e:
-            logging.info(f"RS485Device: [Node2] Set motor failed: {e}")
+            self.node.get_logger().info(f"RS485Device: [Node2] Set motor failed: {e}")
             self.node2Connected = False
 
     def setMaxSpeed(self, speed):
         try:
             self.client.write_register(0, speed, device_id=self.node2_addr)
-            logging.info(f"RS485Device: [Node2] Set MaxSpeed = {speed}")
+            self.node.get_logger().info(f"RS485Device: [Node2] Set MaxSpeed = {speed}")
         except ModbusException as e:
-            logging.info(f"RS485Device: [Node2] Set MaxSpeed failed: {e}")
+            self.node.get_logger().info(f"RS485Device: [Node2] Set MaxSpeed failed: {e}")
             self.node2Connected = False
 
     def setAcc(self, acc):
         try:
             self.client.write_register(1, acc, device_id=self.node2_addr)
-            logging.info(f"RS485Device: [Node2] Set Acc = {acc}")
+            self.node.get_logger().info(f"RS485Device: [Node2] Set Acc = {acc}")
         except ModbusException as e:
-            logging.info(f"RS485Device: [Node2] Set Acc failed: {e}")
+            self.node.get_logger().info(f"RS485Device: [Node2] Set Acc failed: {e}")
             self.node2Connected = False
 
     def setTensionThreshold(self, tension):
@@ -95,25 +95,25 @@ class RS485Device(Device):
             high = (tension >> 16) & 0xFFFF
             low = tension & 0xFFFF
             self.client.write_registers(2, [high, low], device_id=self.node2_addr)
-            logging.info(f"RS485Device: [Node2] Set Tension Threshold = {tension}")
+            self.node.get_logger().info(f"RS485Device: [Node2] Set Tension Threshold = {tension}")
         except ModbusException as e:
-            logging.info(f"RS485Device: [Node2] Set Tension Threshold failed: {e}")
+            self.node.get_logger().info(f"RS485Device: [Node2] Set Tension Threshold failed: {e}")
             self.node2Connected = False
 
     def getCurrentStep(self):
         try:
             result = self.client.read_input_registers(8, count=2, device_id=self.node2_addr)
             if result.isError():
-                logging.info("RS485Device: [Node2] Get Current Step failed")
+                self.node.get_logger().info("RS485Device: [Node2] Get Current Step failed")
             else:
                 high, low = result.registers
                 step = (high << 16) | low
                 if step & 0x80000000:  # 補 signed
                     step -= 0x100000000
-                logging.info(f"RS485Device: [Node2] Current Step = {step}")
+                self.node.get_logger().info(f"RS485Device: [Node2] Current Step = {step}")
                 return step
         except ModbusException as e:
-            logging.info(f"[Node2] Get Current Step failed: {e}")
+            self.node.get_logger().info(f"[Node2] Get Current Step failed: {e}")
             self.node2Connected = False
         return None
 
@@ -122,9 +122,9 @@ class RS485Device(Device):
             high = (step >> 16) & 0xFFFF
             low = step & 0xFFFF
             self.client.write_registers(6, [high, low], device_id=self.node2_addr)
-            logging.info(f"RS485Device: [Node2] Set Current Step = {step}")
+            self.node.get_logger().info(f"RS485Device: [Node2] Set Current Step = {step}")
         except ModbusException as e:
-            logging.info(f"RS485Device: [Node2] Set Current Step failed: {e}")
+            self.node.get_logger().info(f"RS485Device: [Node2] Set Current Step failed: {e}")
             self.node2Connected = False
 
     def setTargetStep(self, step):
@@ -133,9 +133,9 @@ class RS485Device(Device):
             low = step & 0xFFFF
             # ESP 定義在 Hreg[4] → 40005
             self.client.write_registers(4, [high, low], device_id=self.node2_addr)
-            logging.info(f"RS485Device: [Node2] Set Target Step = {step}")
+            self.node.get_logger().info(f"RS485Device: [Node2] Set Target Step = {step}")
         except ModbusException as e:
-            logging.info(f"RS485Device: [Node2] Set Target Step failed: {e}")
+            self.node.get_logger().info(f"RS485Device: [Node2] Set Target Step failed: {e}")
             self.node2Connected = False
 
     def getStatus(self):
@@ -153,7 +153,7 @@ class RS485Device(Device):
                 if step & 0x80000000:  # 補 signed
                     step -= 0x100000000
                 runningState = regs[4]
-                #logging.info(f"[Node2] Status - Tension: {tension}, Step: {step}, RunningState: {'Running' if runningState==0xFF else 'Stopped'}")
+                #self.node.get_logger().info(f"[Node2] Status - Tension: {tension}, Step: {step}, RunningState: {'Running' if runningState==0xFF else 'Stopped'}")
                 tension = (regs[0] << 16) | regs[1]
                 if runningState == 0:
                     status = 0
@@ -173,7 +173,7 @@ class RS485Device(Device):
                 self.node.winch_status_publisher_.publish(winch_status)
                 return tension, step
         except Exception as e:
-            logging.info(f"RS485Device: [Node2] Get Status failed: {e}")
+            self.node.get_logger().info(f"RS485Device: [Node2] Get Status failed: {e}")
             self.node2Connected = False
         return None
         
@@ -182,7 +182,7 @@ class RS485Device(Device):
         try:
             result = self.client.read_input_registers(20, count=42, device_id=self.node2_addr)
             if result.isError():
-                logging.info("RS485Device: [Node2] Get Aqua Data failed")
+                self.node.get_logger().info("RS485Device: [Node2] Get Aqua Data failed")
                 self.node2Connected = False
                 self.status_code = 0
                 return None
@@ -220,12 +220,12 @@ class RS485Device(Device):
                 msg.external_voltage = aqua_data[19]
                 msg.battery_capacity_remaining = aqua_data[20]
                 # for debug
-                logging.info(f"[Node2] Aqua Data")
+                #self.node.get_logger().info(f"[Node2] Aqua Data")
                 self.node.aqua_value_publisher_.publish(msg)
                 self.status_code = 2
                 return aqua_data
         except ModbusException as e:
-            logging.info(f"RS485Device: [Node2] Get Aqua Data failed: {e}")
+            self.node.get_logger().info(f"RS485Device: [Node2] Get Aqua Data failed: {e}")
             self.node2Connected = False
             return None
 
@@ -275,9 +275,9 @@ class RS485Device(Device):
             return
         if control_type == node2_control_type:
             command_type = int(cmd[0])
-            logging.info(f"RS485Device: control:{control_type}, command type:{command_type}, ")
+            self.node.get_logger().info(f"RS485Device: control:{control_type}, command type:{command_type}, ")
             if command_type == 0:  # 讀取全部參數
-                logging.info("  - set")
+                self.node.get_logger().info("  - set")
                 # 待新增
             elif command_type == 1:  # 讀取部分參數
                 pass
@@ -286,7 +286,7 @@ class RS485Device(Device):
 
             elif command_type == 3: #寫入部分參數
                 index = int(cmd[1])
-                logging.info(f"RS485Device: write index:{index}")
+                self.node.get_logger().info(f"RS485Device: write index:{index}")
                 if index == 0: #maxspeed
                     maxSpeed = int(struct.unpack("<I", cmd[2:])[0])
                     if maxSpeed>2000: #  maxspeed cant exceed 2000
@@ -295,7 +295,7 @@ class RS485Device(Device):
                     self.setMaxSpeed(maxSpeed)
                     time.sleep(0.1)
                     self.setAcc(maxSpeed/2)
-                    logging.info(f"RS485Device: set maxspeed:{maxSpeed}")
+                    self.node.get_logger().info(f"RS485Device: set maxspeed:{maxSpeed}")
 
             elif command_type == 4: #回傳全部參數
                 pass
@@ -303,21 +303,23 @@ class RS485Device(Device):
                 pass
             elif command_type == 6: #move
                 step = int(struct.unpack("<i", cmd[1:])[0])
-                logging.info(f"RS485Device: [Winch] move step {step}")
+                
                 if self.isSerialInit == True:
-                    self.setTargetStep(step)
+                    self.node.get_logger().info(f"RS485Device: [Winch] move step {step}")
+                    #self.setTargetStep(step)
+                    pass
             elif command_type == 7: #stop
                 self.stopMotor()
-                logging.info("RS485Device: [Winch] stop")
+                self.node.get_logger().info("RS485Device: [Winch] stop")
             elif command_type == 8: # report step tension
                 pass
             elif command_type == 9: # reset position
                 self.setCurrentStep(0)
-                logging.info("RS485Device: [winch] reset")
+                self.node.get_logger().info("RS485Device: [winch] reset")
         elif control_type == 2:
-            logging.info("RS485Device: SonarDevice::getMsg")
+            self.node.get_logger().info("RS485Device: SonarDevice::getMsg")
             command_type = int(cmd[0])
-            logging.info(f"RS485Device: control:{control_type}, command type:{command_type}, ")
+            self.node.get_logger().info(f"RS485Device: control:{control_type}, command type:{command_type}, ")
             if command_type == 0:  # 讀取全部參數
                 pass
             elif command_type == 1:  # 讀取部分參數
@@ -334,10 +336,10 @@ class RS485Device(Device):
                 self.power = cmd[1]
                 if self.power == 1:
                     self.setSonarPWR(True)
-                    logging.info("power on")
+                    self.node.get_logger().info("power on")
                 else:
                     self.setSonarPWR(False)
-                    logging.info("power off")
+                    self.node.get_logger().info("power off")
             elif command_type == 7: #power
                 data = struct.pack("<B", 2)
                 data += struct.pack("<B", 7)

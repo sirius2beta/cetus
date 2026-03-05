@@ -33,6 +33,7 @@ public:
     PublishWorker() : Node("link_manager_publish_worker")
     {
         _marinelinkPublisher = this->create_publisher<more_interfaces::msg::MarinelinkPacket>("/video/cmd", 10);
+        _winchControlPublisher = this->create_publisher<more_interfaces::msg::MarinelinkPacket>("/control/winch", 10);
         _mavlinkValuesPublisher = this->create_publisher<more_interfaces::msg::MavlinkValues>("/sensor/mavlink_values", 10);
     }
     ~PublishWorker() = default;
@@ -52,11 +53,14 @@ public:
         _marinelinkPublisher->publish(msg);
     }
     void publishMavlinkValues(const more_interfaces::msg::MavlinkValues &values) {
-        
         _mavlinkValuesPublisher->publish(values);
+    }
+    void publishWinchControl(const more_interfaces::msg::MarinelinkPacket &msg) {
+        _winchControlPublisher->publish(msg);
     }
 private:
     rclcpp::Publisher<more_interfaces::msg::MarinelinkPacket>::SharedPtr _marinelinkPublisher;
     rclcpp::Publisher<more_interfaces::msg::MavlinkValues>::SharedPtr _mavlinkValuesPublisher;
+    rclcpp::Publisher<more_interfaces::msg::MarinelinkPacket>::SharedPtr _winchControlPublisher;
     rclcpp::TimerBase::SharedPtr _timer;
 };

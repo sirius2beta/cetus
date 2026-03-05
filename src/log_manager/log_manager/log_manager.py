@@ -178,7 +178,7 @@ class LogManager(Node):
         data += struct.pack("<i", tension)
         data += struct.pack("<B", status)
         self.publisher_.publish(MarinelinkPacket(topic=5, payload=data))
-        self.get_logger().info(f"Updated WinchStatus - Step: {step}, Tension: {tension}, Status: {status}")
+        #self.get_logger().info(f"Updated WinchStatus - Step: {step}, Tension: {tension}, Status: {status}")
 
 def main(args=None):
     # 修正 2: 加入必要的 ROS 2 啟動流程

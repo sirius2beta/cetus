@@ -38,9 +38,9 @@ void RosInterface::onMavlinkToParse(LinkInterface *link, const mavlink_message_t
         mavlink_custom_legacy_wrapper_t wrapper;
         mavlink_msg_custom_legacy_wrapper_decode(&message, &wrapper);
 
-        RCLCPP_INFO(rclcpp::get_logger("RosInterface"),
-                    "Decoded MAVLink message - Target System: %d, Target Component: %d, Length: %d, Topic: %d",
-                    wrapper.target_system, wrapper.target_component, wrapper.length, wrapper.topic);
+        //RCLCPP_INFO(rclcpp::get_logger("RosInterface"),
+        //            "Decoded MAVLink message - Target System: %d, Target Component: %d, Length: %d, Topic: %d",
+        //            wrapper.target_system, wrapper.target_component, wrapper.length, wrapper.topic);
 
         auto msg = more_interfaces::msg::MarinelinkPacket();
         msg.topic = wrapper.topic;
@@ -66,6 +66,10 @@ void RosInterface::onMavlinkToParse(LinkInterface *link, const mavlink_message_t
         case 3:
             RCLCPP_INFO(rclcpp::get_logger("RosInterface"), "Videomanager quit command (Topic 3)");
             pub_worker_->publish_payload(msg);
+            break;
+        case 5:
+            RCLCPP_INFO(rclcpp::get_logger("RosInterface"), "WinchStatus update (Topic 5)");
+            pub_worker_->publishWinchControl(msg);
             break;
         default:
             // 可選：處理未定義的 topic
@@ -163,6 +167,6 @@ void RosInterface::handleMavlinkAssembly(uint8_t topic_type, const std::vector<u
         raw_payload.size(),
         topic_type,
         raw_payload.data());
-    RCLCPP_INFO(rclcpp::get_logger("RosInterface"), "Assembled MAVLink message with topic type: %d and payload length: %d", topic_type, raw_payload.size());
+    //RCLCPP_INFO(rclcpp::get_logger("RosInterface"), "Assembled MAVLink message with topic type: %d and payload length: %d", topic_type, raw_payload.size());
     emit mavlinkToSend(mav_msg);
 }
