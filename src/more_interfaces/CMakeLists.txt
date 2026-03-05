@@ -26,6 +26,8 @@ set(msg_files
   "msg/MarinelinkPacket.msg" 
   "msg/MavlinkPacket.msg"
   "msg/MavlinkValues.msg"
+  "msg/AquaValue.msg"
+  "msg/WinchStatus.msg"
   "srv/Videoformat.srv"
 )
 

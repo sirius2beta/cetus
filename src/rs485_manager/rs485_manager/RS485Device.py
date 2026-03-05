@@ -2,6 +2,7 @@ import time
 import serial
 from pymodbus.client import ModbusSerialClient
 from pymodbus.exceptions import ModbusException
+from more_interfaces.msg import AquaValue, WinchStatus
 import struct
 import logging
 import threading
@@ -13,7 +14,7 @@ node1_control_type = 2 # sonar control type: 2
 node2_control_type = 0 # winch control type: 0
 
 class RS485Device(Device):
-    def __init__(self, device_type, dev_path=""):
+    def __init__(self, device_type, dev_path="", node=None):
         try:
             super().__init__(device_type, dev_path)
             self.client = ModbusSerialClient(
@@ -36,8 +37,9 @@ class RS485Device(Device):
             self.status_code = 1
 
             self.aqua_data = [0.0] * 21
+            self.node = node
             
-            logging.info("RS485Device: Connected to RS485 device.") 
+            self.node.get_logger().info("RS485Device: Connected to RS485 device.") 
         except Exception as e:
             logging.info(f"   [X] RS485Device failed to start")
             raise e
@@ -142,7 +144,7 @@ class RS485Device(Device):
         try:
             result = self.client.read_input_registers(6, count=5, device_id=self.node2_addr)
             if result.isError():
-                logging.info("RS485Device: [Node2] Get Status failed")
+                self.node.get_logger().info("RS485Device: [Node2] Get Status failed")
                 return None
             else:
                 regs = result.registers
@@ -163,8 +165,12 @@ class RS485Device(Device):
                 data += struct.pack("<i", step)
                 data += struct.pack("<i", tension)
                 data += struct.pack("<B", status)
-                self.networkManager.sendMsg(b'\x05', data)
-                
+
+                winch_status = WinchStatus()
+                winch_status.step = step
+                winch_status.tension = tension
+                winch_status.status = status
+                self.node.winch_status_publisher_.publish(winch_status)
                 return tension, step
         except Exception as e:
             logging.info(f"RS485Device: [Node2] Get Status failed: {e}")
@@ -190,13 +196,32 @@ class RS485Device(Device):
                     float_value = struct.unpack('>f', struct.pack('>I', combined))[0]
                     aqua_data.append(float_value)
                     self.aqua_data[i//2] = float_value # store the data in the aqua_data list
-                    #save to sensor group 1
-                    if i//2 < len(self.sensor_group_list[1].get_all()):
-                        self.sensor_group_list[1].get_sensor(i//2).data = float_value
-                self.networkManager.sendMsg(SENSOR, self.sensor_group_list[1].pack()) # send the data to the network manager
-                    
+
+                msg = AquaValue()
+                msg.temperature = aqua_data[0]
+                msg.pressure = aqua_data[1]
+                msg.depth = aqua_data[2]
+                msg.level_depth_to_water = aqua_data[3]
+                msg.level_surface_elevation = aqua_data[4]
+                msg.actual_conductivity = aqua_data[5]
+                msg.specific_conductivity = aqua_data[6]
+                msg.resistivity = aqua_data[7]
+                msg.saltinity = aqua_data[8]
+                msg.total_dissolved_solids = aqua_data[9]
+                msg.density_of_water = aqua_data[10]
+                msg.barometric_pressure = aqua_data[11]
+                msg.ph = aqua_data[12]
+                msg.ph_mv = aqua_data[13]
+                msg.orp = aqua_data[14]
+                msg.dissolved_oxygen_concentration = aqua_data[15]
+                msg.dissolved_oxygen_saturation = aqua_data[16]
+                msg.turbidity = aqua_data[17]
+                msg.oxygen_partial_pressure = aqua_data[18]
+                msg.external_voltage = aqua_data[19]
+                msg.battery_capacity_remaining = aqua_data[20]
                 # for debug
-                #logging.info(f"[Node2] Aqua Data: {aqua_data}")
+                logging.info(f"[Node2] Aqua Data")
+                self.node.aqua_value_publisher_.publish(msg)
                 self.status_code = 2
                 return aqua_data
         except ModbusException as e:

@@ -4,6 +4,8 @@
     "/home/sirius2beta/cetus/src/more_interfaces:msg/MarinelinkPacket.msg",
     "/home/sirius2beta/cetus/src/more_interfaces:msg/MavlinkPacket.msg",
     "/home/sirius2beta/cetus/src/more_interfaces:msg/MavlinkValues.msg",
+    "/home/sirius2beta/cetus/src/more_interfaces:msg/AquaValue.msg",
+    "/home/sirius2beta/cetus/src/more_interfaces:msg/WinchStatus.msg",
     "/home/sirius2beta/cetus/src/more_interfaces:srv/Videoformat.srv"
   ]
 }

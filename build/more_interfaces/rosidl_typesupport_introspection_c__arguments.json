@@ -6,6 +6,8 @@
     "/home/sirius2beta/cetus/build/more_interfaces/rosidl_adapter/more_interfaces:msg/MarinelinkPacket.idl",
     "/home/sirius2beta/cetus/build/more_interfaces/rosidl_adapter/more_interfaces:msg/MavlinkPacket.idl",
     "/home/sirius2beta/cetus/build/more_interfaces/rosidl_adapter/more_interfaces:msg/MavlinkValues.idl",
+    "/home/sirius2beta/cetus/build/more_interfaces/rosidl_adapter/more_interfaces:msg/AquaValue.idl",
+    "/home/sirius2beta/cetus/build/more_interfaces/rosidl_adapter/more_interfaces:msg/WinchStatus.idl",
     "/home/sirius2beta/cetus/build/more_interfaces/rosidl_adapter/more_interfaces:srv/Videoformat.idl"
   ],
   "target_dependencies": [
@@ -20,6 +22,8 @@
     "/home/sirius2beta/cetus/build/more_interfaces/rosidl_adapter/more_interfaces/msg/MarinelinkPacket.idl",
     "/home/sirius2beta/cetus/build/more_interfaces/rosidl_adapter/more_interfaces/msg/MavlinkPacket.idl",
     "/home/sirius2beta/cetus/build/more_interfaces/rosidl_adapter/more_interfaces/msg/MavlinkValues.idl",
+    "/home/sirius2beta/cetus/build/more_interfaces/rosidl_adapter/more_interfaces/msg/AquaValue.idl",
+    "/home/sirius2beta/cetus/build/more_interfaces/rosidl_adapter/more_interfaces/msg/WinchStatus.idl",
     "/home/sirius2beta/cetus/build/more_interfaces/rosidl_adapter/more_interfaces/srv/Videoformat.idl"
   ]
 }

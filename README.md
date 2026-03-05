@@ -45,3 +45,17 @@ import rclpy
 from rclpy.node import Node
 
 #寫到jetson detect的時候記得要 update IMU
+
+sudo nano /etc/udev/rules.d/99-robot.rules
+
+# Septentrio GNSS - 數據主通道 (Interface 02 為 CDC-ACM)
+SUBSYSTEM=="tty", ATTRS{idVendor}=="152a", ATTRS{idProduct}=="85c0", ENV{ID_USB_INTERFACE_NUM}=="02", SYMLINK+="sensors/gps_data", MODE="0666"
+
+# Septentrio GNSS - 配置通道 (Interface 04 為 CDC-ACM)
+SUBSYSTEM=="tty", ATTRS{idVendor}=="152a", ATTRS{idProduct}=="85c0", ENV{ID_USB_INTERFACE_NUM}=="04", SYMLINK+="sensors/gps_config", MODE="0666"
+
+sudo udevadm control --reload-rules && sudo udevadm trigger
+
+sudo apt install ros-humble-septentrio-gnss-driver
+
+ros2 run septentrio_gnss_driver septentrio_gnss_driver_node --ros-args -p device:=serial:/dev/sensors/gps_data -p baudrate:=115200
