@@ -6,23 +6,19 @@ void RosInterface::run()
 {
     auto executor = std::make_shared<rclcpp::executors::SingleThreadedExecutor>();
 
-    printf("DEBUG: Creating SubWorker...\n");
     auto sub_worker = std::make_shared<SubscribeWorker>(
         [this](uint8_t type, const std::vector<uint8_t> &payload)
         {
             this->handleMavlinkAssembly(type, payload);
         });
-    RCLCPP_INFO(rclcpp::get_logger("RosInterface"), "Creating PubWorker...");
     auto pub_worker = std::make_shared<PublishWorker>();
-    RCLCPP_INFO(rclcpp::get_logger("RosInterface"), "Adding nodes to executor...");
     executor->add_node(sub_worker);
     executor->add_node(pub_worker);
-    RCLCPP_INFO(rclcpp::get_logger("RosInterface"), "--- NODES ADDED, SPINNING ---");
     sub_worker_ = sub_worker;
     pub_worker_ = pub_worker;
 
     pub_worker_->setTimerCallback([this]()
-                                  { this->publishMavlinkValues(); });
+                                  { this->publishMavlinkValues(); }, mavlinkMsgUpdateTimeout);
 
     executor->spin();
 }

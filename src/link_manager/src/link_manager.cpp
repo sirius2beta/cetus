@@ -13,8 +13,10 @@ int main(int argc, char *argv[])
     QCoreApplication app(argc, argv);
     RosInterface* ros_interface = new RosInterface();
     LinkManager* linkManager = LinkManager::instance();
+
     linkManager->startAutoConnectedLinks();
     linkManager->init();
+    
     QObject::connect(ros_interface, &QThread::finished, []() {
         QCoreApplication::quit(); 
     });

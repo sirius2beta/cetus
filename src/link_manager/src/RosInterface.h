@@ -35,6 +35,7 @@ protected:
     void run() override;
 
 private:
+    int mavlinkMsgUpdateTimeout = 500;
     void handleMavlinkAssembly(uint8_t topic_type, const std::vector<uint8_t> &raw_payload);
     std::shared_ptr<SubscribeWorker> sub_worker_;
     std::shared_ptr<PublishWorker> pub_worker_;

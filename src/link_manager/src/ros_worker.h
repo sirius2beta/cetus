@@ -32,13 +32,13 @@ class PublishWorker : public rclcpp::Node
 public:
     PublishWorker() : Node("link_manager_publish_worker")
     {
-        _marinelinkPublisher = this->create_publisher<more_interfaces::msg::MarinelinkPacket>("/video/cmd", 10);
+        _marinelinkPublisher = this->create_publisher<more_interfaces::msg::MarinelinkPacket>("/control/video", 10);
         _winchControlPublisher = this->create_publisher<more_interfaces::msg::MarinelinkPacket>("/control/winch", 10);
         _mavlinkValuesPublisher = this->create_publisher<more_interfaces::msg::MavlinkValues>("/sensor/mavlink_values", 10);
     }
     ~PublishWorker() = default;
-    void setTimerCallback(std::function<void()> timer_callback) {
-        _timer = this->create_wall_timer(std::chrono::milliseconds(1000), timer_callback);
+    void setTimerCallback(std::function<void()> timer_callback, int timeout_ms = 1000) {
+        _timer = this->create_wall_timer(std::chrono::milliseconds(timeout_ms), timer_callback);
     }
     void publish_payload(const uint8_t* data, size_t length) {
         auto msg = more_interfaces::msg::MarinelinkPacket();

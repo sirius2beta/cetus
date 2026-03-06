@@ -55,6 +55,7 @@ void Bridge::addUdpLinks(LinkInterface* primaryUdpLink, LinkInterface* secondary
     _secondaryUdpLink = secondaryUdpLink;
     _secondaryUdpLinkInfo.link = LinkManager::instance()->sharedLinkInterfacePointerForLink(secondaryUdpLink);
     _secondaryUdpLinkInfo.heartbeatElapsedTimer.start();
+    
     _commLostCheckTimer->start();
     _bridgeHearbeatTimer->start();
 }
@@ -92,6 +93,9 @@ void Bridge::mavlinkMessageReceived(LinkInterface *link, const mavlink_message_t
 
 void Bridge::onMavlinkToSend(const mavlink_message_t &message)
 {
+    if (!_primaryUdpLink || !_secondaryUdpLink) {
+        return; 
+    }
     uint8_t buf[MAVLINK_MAX_PACKET_LEN]{};
     const uint16_t len = mavlink_msg_to_send_buffer(buf, &message);
 
@@ -178,6 +182,9 @@ void Bridge::_commLostCheck()
 
 void Bridge::_sendGCSHeartbeat()
 {
+    if (!_primaryUdpLink || !_secondaryUdpLink) {
+        return; 
+    }
     uint8_t target_sys = 1;
     uint8_t target_comp = 1;
     uint8_t topic = 0; // heartbeat topic

@@ -8,8 +8,10 @@ def generate_launch_description():
             namespace='link_manager',
             executable='link_manager',
             name='link_manager',
+            output='both',
             respawn=True,
             respawn_delay=2.0,
+            #prefix=['gdb -ex run --args']
         ),
         Node(
             package='video_manager',
