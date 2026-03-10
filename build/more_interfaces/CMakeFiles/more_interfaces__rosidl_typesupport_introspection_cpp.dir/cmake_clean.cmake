@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/more_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/more_interfaces/msg/detail/aqua_value__type_support.cpp.o"
   "CMakeFiles/more_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/more_interfaces/msg/detail/aqua_value__type_support.cpp.o.d"
+  "CMakeFiles/more_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/more_interfaces/msg/detail/ardusimple_value__type_support.cpp.o"
+  "CMakeFiles/more_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/more_interfaces/msg/detail/ardusimple_value__type_support.cpp.o.d"
   "CMakeFiles/more_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/more_interfaces/msg/detail/marinelink_packet__type_support.cpp.o"
   "CMakeFiles/more_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/more_interfaces/msg/detail/marinelink_packet__type_support.cpp.o.d"
   "CMakeFiles/more_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/more_interfaces/msg/detail/mavlink_packet__type_support.cpp.o"
@@ -15,6 +17,8 @@ file(REMOVE_RECURSE
   "libmore_interfaces__rosidl_typesupport_introspection_cpp.so"
   "rosidl_typesupport_introspection_cpp/more_interfaces/msg/detail/aqua_value__rosidl_typesupport_introspection_cpp.hpp"
   "rosidl_typesupport_introspection_cpp/more_interfaces/msg/detail/aqua_value__type_support.cpp"
+  "rosidl_typesupport_introspection_cpp/more_interfaces/msg/detail/ardusimple_value__rosidl_typesupport_introspection_cpp.hpp"
+  "rosidl_typesupport_introspection_cpp/more_interfaces/msg/detail/ardusimple_value__type_support.cpp"
   "rosidl_typesupport_introspection_cpp/more_interfaces/msg/detail/marinelink_packet__rosidl_typesupport_introspection_cpp.hpp"
   "rosidl_typesupport_introspection_cpp/more_interfaces/msg/detail/marinelink_packet__type_support.cpp"
   "rosidl_typesupport_introspection_cpp/more_interfaces/msg/detail/mavlink_packet__rosidl_typesupport_introspection_cpp.hpp"

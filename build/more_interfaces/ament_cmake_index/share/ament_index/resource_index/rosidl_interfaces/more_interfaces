@@ -1,5 +1,7 @@
 msg/AquaValue.idl
 msg/AquaValue.msg
+msg/ArdusimpleValue.idl
+msg/ArdusimpleValue.msg
 msg/MarinelinkPacket.idl
 msg/MarinelinkPacket.msg
 msg/MavlinkPacket.idl

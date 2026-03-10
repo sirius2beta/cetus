@@ -28,7 +28,9 @@ set(msg_files
   "msg/MavlinkValues.msg"
   "msg/AquaValue.msg"
   "msg/WinchStatus.msg"
+  "msg/ArdusimpleValue.msg"
   "srv/Videoformat.srv"
+
 )
 
 rosidl_generate_interfaces(${PROJECT_NAME}

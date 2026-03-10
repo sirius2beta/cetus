@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "../rosidl_generator_py/more_interfaces/msg/__init__.py"
   "../rosidl_generator_py/more_interfaces/msg/_aqua_value.py"
   "../rosidl_generator_py/more_interfaces/msg/_aqua_value_s.c"
+  "../rosidl_generator_py/more_interfaces/msg/_ardusimple_value.py"
+  "../rosidl_generator_py/more_interfaces/msg/_ardusimple_value_s.c"
   "../rosidl_generator_py/more_interfaces/msg/_marinelink_packet.py"
   "../rosidl_generator_py/more_interfaces/msg/_marinelink_packet_s.c"
   "../rosidl_generator_py/more_interfaces/msg/_mavlink_packet.py"

@@ -91,6 +91,11 @@ CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail
 CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/winch_status__struct.hpp
 CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/winch_status__traits.hpp
 CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/winch_status__type_support.hpp
+CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/ardusimple_value.hpp
+CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/ardusimple_value__builder.hpp
+CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/ardusimple_value__struct.hpp
+CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/ardusimple_value__traits.hpp
+CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/ardusimple_value__type_support.hpp
 CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/srv/videoformat.hpp
 CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/srv/detail/videoformat__builder.hpp
 CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/srv/detail/videoformat__struct.hpp
@@ -118,6 +123,7 @@ rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp: rosidl_adapter/m
 rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp: rosidl_adapter/more_interfaces/msg/MavlinkValues.idl
 rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp: rosidl_adapter/more_interfaces/msg/AquaValue.idl
 rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp: rosidl_adapter/more_interfaces/msg/WinchStatus.idl
+rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp: rosidl_adapter/more_interfaces/msg/ArdusimpleValue.idl
 rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp: rosidl_adapter/more_interfaces/srv/Videoformat.idl
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sirius2beta/cetus/build/more_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code for ROS interfaces"
 	/usr/bin/python3 /opt/ros/humble/share/rosidl_generator_cpp/cmake/../../../lib/rosidl_generator_cpp/rosidl_generator_cpp --generator-arguments-file /home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_cpp__arguments.json
@@ -194,6 +200,21 @@ rosidl_generator_cpp/more_interfaces/msg/detail/winch_status__traits.hpp: rosidl
 rosidl_generator_cpp/more_interfaces/msg/detail/winch_status__type_support.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/detail/winch_status__type_support.hpp
 
+rosidl_generator_cpp/more_interfaces/msg/ardusimple_value.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/ardusimple_value.hpp
+
+rosidl_generator_cpp/more_interfaces/msg/detail/ardusimple_value__builder.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/detail/ardusimple_value__builder.hpp
+
+rosidl_generator_cpp/more_interfaces/msg/detail/ardusimple_value__struct.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/detail/ardusimple_value__struct.hpp
+
+rosidl_generator_cpp/more_interfaces/msg/detail/ardusimple_value__traits.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/detail/ardusimple_value__traits.hpp
+
+rosidl_generator_cpp/more_interfaces/msg/detail/ardusimple_value__type_support.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/detail/ardusimple_value__type_support.hpp
+
 rosidl_generator_cpp/more_interfaces/srv/videoformat.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/srv/videoformat.hpp
 
@@ -211,10 +232,15 @@ rosidl_generator_cpp/more_interfaces/srv/detail/videoformat__type_support.hpp: r
 
 more_interfaces__cpp: CMakeFiles/more_interfaces__cpp
 more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/aqua_value.hpp
+more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/ardusimple_value.hpp
 more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/aqua_value__builder.hpp
 more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/aqua_value__struct.hpp
 more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/aqua_value__traits.hpp
 more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/aqua_value__type_support.hpp
+more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/ardusimple_value__builder.hpp
+more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/ardusimple_value__struct.hpp
+more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/ardusimple_value__traits.hpp
+more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/ardusimple_value__type_support.hpp
 more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/marinelink_packet__builder.hpp
 more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/marinelink_packet__struct.hpp
 more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/marinelink_packet__traits.hpp

@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/aqua_value__type_support.cpp.o"
   "CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/aqua_value__type_support.cpp.o.d"
+  "CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/ardusimple_value__type_support.cpp.o"
+  "CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/ardusimple_value__type_support.cpp.o.d"
   "CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/marinelink_packet__type_support.cpp.o"
   "CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/marinelink_packet__type_support.cpp.o.d"
   "CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/mavlink_packet__type_support.cpp.o"
@@ -14,7 +16,9 @@ file(REMOVE_RECURSE
   "libmore_interfaces__rosidl_typesupport_fastrtps_cpp.pdb"
   "libmore_interfaces__rosidl_typesupport_fastrtps_cpp.so"
   "rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/aqua_value__rosidl_typesupport_fastrtps_cpp.hpp"
+  "rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/ardusimple_value__rosidl_typesupport_fastrtps_cpp.hpp"
   "rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/aqua_value__type_support.cpp"
+  "rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/ardusimple_value__type_support.cpp"
   "rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/marinelink_packet__type_support.cpp"
   "rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/mavlink_packet__type_support.cpp"
   "rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/mavlink_values__type_support.cpp"

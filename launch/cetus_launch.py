@@ -34,17 +34,12 @@ def generate_launch_description():
             respawn_delay=3.0,
         ),
         Node(
-            package='septentrio_gnss_driver',
-            executable='septentrio_gnss_driver_node',
-            name='septentrio_gnss',
-            output='screen',
-            # 這裡開啟熱插拔自動重連
+            package='gps_manager',
+            namespace='gps_manager',
+            executable='gps_manager',
+            name='gps_manager',
             respawn=True,
-            respawn_delay=2.0,
-            parameters=[{
-                'device': 'serial:/dev/sensors/gps_data',
-                'baudrate': 115200,
-                'frame_id': 'gps_link',
-            }]
+            respawn_delay=3.0,
+            output='both',
         )
     ])

@@ -6,6 +6,7 @@
     "/home/sirius2beta/cetus/src/more_interfaces:msg/MavlinkValues.msg",
     "/home/sirius2beta/cetus/src/more_interfaces:msg/AquaValue.msg",
     "/home/sirius2beta/cetus/src/more_interfaces:msg/WinchStatus.msg",
+    "/home/sirius2beta/cetus/src/more_interfaces:msg/ArdusimpleValue.msg",
     "/home/sirius2beta/cetus/src/more_interfaces:srv/Videoformat.srv"
   ]
 }

@@ -1,0 +1,13 @@
+string utc_time
+float64 latitude          
+float64 longitude     
+float64 height    
+float32 undulation
+float64 hdop
+float64 vdop
+float32 lat_acc
+float32 lon_acc
+float32 alt_acc
+float32 tilt
+float32 yaw
+float32 speed

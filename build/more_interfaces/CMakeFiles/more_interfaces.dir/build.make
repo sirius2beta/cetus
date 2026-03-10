@@ -71,6 +71,7 @@ CMakeFiles/more_interfaces: /home/sirius2beta/cetus/src/more_interfaces/msg/Mavl
 CMakeFiles/more_interfaces: /home/sirius2beta/cetus/src/more_interfaces/msg/MavlinkValues.msg
 CMakeFiles/more_interfaces: /home/sirius2beta/cetus/src/more_interfaces/msg/AquaValue.msg
 CMakeFiles/more_interfaces: /home/sirius2beta/cetus/src/more_interfaces/msg/WinchStatus.msg
+CMakeFiles/more_interfaces: /home/sirius2beta/cetus/src/more_interfaces/msg/ArdusimpleValue.msg
 CMakeFiles/more_interfaces: /home/sirius2beta/cetus/src/more_interfaces/srv/Videoformat.srv
 CMakeFiles/more_interfaces: rosidl_cmake/srv/Videoformat_Request.msg
 CMakeFiles/more_interfaces: rosidl_cmake/srv/Videoformat_Response.msg

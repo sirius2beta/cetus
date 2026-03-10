@@ -59,3 +59,19 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 sudo apt install ros-humble-septentrio-gnss-driver
 
 ros2 run septentrio_gnss_driver septentrio_gnss_driver_node --ros-args -p device:=serial:/dev/sensors/gps_data -p baudrate:=115200
+
+Node(
+            package='septentrio_gnss_driver',
+            executable='septentrio_gnss_driver_node',
+            name='septentrio_gnss',
+            output='screen',
+            # 這裡開啟熱插拔自動重連
+            respawn=True,
+            respawn_delay=2.0,
+            parameters=[{
+                'device': 'serial:/dev/sensors/gps_data',
+                'baudrate': 115200,
+                'frame_id': 'gps_link',
+                'activate_configuration': False,
+            }]
+        )

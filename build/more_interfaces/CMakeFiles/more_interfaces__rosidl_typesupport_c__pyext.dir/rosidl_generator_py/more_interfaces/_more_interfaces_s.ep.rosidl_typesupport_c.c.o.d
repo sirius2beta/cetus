@@ -219,6 +219,9 @@ CMakeFiles/more_interfaces__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/
  /home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_c/more_interfaces/msg/detail/winch_status__type_support.h \
  /home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_c/more_interfaces/msg/detail/winch_status__struct.h \
  /home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_c/more_interfaces/msg/detail/winch_status__functions.h \
+ /home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_c/more_interfaces/msg/detail/ardusimple_value__type_support.h \
+ /home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_c/more_interfaces/msg/detail/ardusimple_value__struct.h \
+ /home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_c/more_interfaces/msg/detail/ardusimple_value__functions.h \
  /home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_c/more_interfaces/srv/detail/videoformat__type_support.h \
  /home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_c/more_interfaces/srv/detail/videoformat__struct.h \
  /home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_c/more_interfaces/srv/detail/videoformat__functions.h
