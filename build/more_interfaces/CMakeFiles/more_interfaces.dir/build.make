@@ -69,9 +69,11 @@ include CMakeFiles/more_interfaces.dir/progress.make
 CMakeFiles/more_interfaces: /home/sirius2beta/cetus/src/more_interfaces/msg/MarinelinkPacket.msg
 CMakeFiles/more_interfaces: /home/sirius2beta/cetus/src/more_interfaces/msg/MavlinkPacket.msg
 CMakeFiles/more_interfaces: /home/sirius2beta/cetus/src/more_interfaces/msg/MavlinkValues.msg
-CMakeFiles/more_interfaces: /home/sirius2beta/cetus/src/more_interfaces/msg/AquaValue.msg
+CMakeFiles/more_interfaces: /home/sirius2beta/cetus/src/more_interfaces/msg/AquaValues.msg
 CMakeFiles/more_interfaces: /home/sirius2beta/cetus/src/more_interfaces/msg/WinchStatus.msg
-CMakeFiles/more_interfaces: /home/sirius2beta/cetus/src/more_interfaces/msg/ArdusimpleValue.msg
+CMakeFiles/more_interfaces: /home/sirius2beta/cetus/src/more_interfaces/msg/ArdusimpleValues.msg
+CMakeFiles/more_interfaces: /home/sirius2beta/cetus/src/more_interfaces/msg/KBestValues.msg
+CMakeFiles/more_interfaces: /home/sirius2beta/cetus/src/more_interfaces/msg/SupertairaValues.msg
 CMakeFiles/more_interfaces: /home/sirius2beta/cetus/src/more_interfaces/srv/Videoformat.srv
 CMakeFiles/more_interfaces: rosidl_cmake/srv/Videoformat_Request.msg
 CMakeFiles/more_interfaces: rosidl_cmake/srv/Videoformat_Response.msg

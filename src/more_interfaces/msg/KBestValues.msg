@@ -1,0 +1,4 @@
+int16 kbest_boat_rssi
+int16 kbest_ground_rssi
+int16 tx_rate
+int16 rx_rate

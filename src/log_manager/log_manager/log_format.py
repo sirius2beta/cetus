@@ -3,31 +3,28 @@ from io import StringIO
 
 class LogFormat:
     def __init__(self):
+        self.time_usec = None     # 時間戳記 (微秒)
         self.timestamp = None      # 時間戳記 (YYYYMMDD_HHMM)
         # Pixhawk 資料
-        self.time_usec = None     # 時間戳記 (微秒)
         self.fix_type = None      # 定位類型
-        self.lat = None           # 緯度
-        self.lon = None           # 經度
-        self.alt = None           # 海拔高度
-        self.HDOP = None          # 水平精度因子 (HDOP)
-        self.VDOP = None          # 垂直精度因子 (VDOP)
         self.depth = None         # 深度
-        # V2新增
         self.speed = None         # 速度
         self.roll = None          # 姿態-翻滚
         self.pitch = None         # 姿態-俯仰
         self.yaw = None           # 姿態-航偏
 
-        # ArduSimple 精度數據
+        # ArduSimple 資料
+        self.lat = None           # 緯度
+        self.lon = None           # 經度
+        self.alt = None           # 海拔高度
+        self.HDOP = None          # 水平精度因子 (HDOP)
+        self.VDOP = None          # 垂直精度因子 (VDOP)
         self.lat_acc = None       # 緯度精度
         self.lon_acc = None       # 經度精度
         self.alt_acc = None       # 高度精度
-        # V2新增
         self.gps_speed = None         # GPS-速度
         self.gps_tilt = None          # GPS-俯仰
         self.gps_yaw = None           # GPS-航偏
-        # V3新增
         self.gps_orthometric_height = None  # GPS-正高
         self.geoid_separation = None        # GPS-大地起伏
 

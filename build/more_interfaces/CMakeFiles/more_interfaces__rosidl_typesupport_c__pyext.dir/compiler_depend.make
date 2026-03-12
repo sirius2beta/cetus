@@ -253,15 +253,21 @@ CMakeFiles/more_interfaces__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/
   rosidl_generator_c/more_interfaces/msg/detail/mavlink_values__type_support.h \
   rosidl_generator_c/more_interfaces/msg/detail/mavlink_values__struct.h \
   rosidl_generator_c/more_interfaces/msg/detail/mavlink_values__functions.h \
-  rosidl_generator_c/more_interfaces/msg/detail/aqua_value__type_support.h \
-  rosidl_generator_c/more_interfaces/msg/detail/aqua_value__struct.h \
-  rosidl_generator_c/more_interfaces/msg/detail/aqua_value__functions.h \
+  rosidl_generator_c/more_interfaces/msg/detail/aqua_values__type_support.h \
+  rosidl_generator_c/more_interfaces/msg/detail/aqua_values__struct.h \
+  rosidl_generator_c/more_interfaces/msg/detail/aqua_values__functions.h \
   rosidl_generator_c/more_interfaces/msg/detail/winch_status__type_support.h \
   rosidl_generator_c/more_interfaces/msg/detail/winch_status__struct.h \
   rosidl_generator_c/more_interfaces/msg/detail/winch_status__functions.h \
-  rosidl_generator_c/more_interfaces/msg/detail/ardusimple_value__type_support.h \
-  rosidl_generator_c/more_interfaces/msg/detail/ardusimple_value__struct.h \
-  rosidl_generator_c/more_interfaces/msg/detail/ardusimple_value__functions.h \
+  rosidl_generator_c/more_interfaces/msg/detail/ardusimple_values__type_support.h \
+  rosidl_generator_c/more_interfaces/msg/detail/ardusimple_values__struct.h \
+  rosidl_generator_c/more_interfaces/msg/detail/ardusimple_values__functions.h \
+  rosidl_generator_c/more_interfaces/msg/detail/k_best_values__type_support.h \
+  rosidl_generator_c/more_interfaces/msg/detail/k_best_values__struct.h \
+  rosidl_generator_c/more_interfaces/msg/detail/k_best_values__functions.h \
+  rosidl_generator_c/more_interfaces/msg/detail/supertaira_values__type_support.h \
+  rosidl_generator_c/more_interfaces/msg/detail/supertaira_values__struct.h \
+  rosidl_generator_c/more_interfaces/msg/detail/supertaira_values__functions.h \
   rosidl_generator_c/more_interfaces/srv/detail/videoformat__type_support.h \
   rosidl_generator_c/more_interfaces/srv/detail/videoformat__struct.h \
   rosidl_generator_c/more_interfaces/srv/detail/videoformat__functions.h
@@ -271,9 +277,11 @@ rosidl_generator_c/more_interfaces/srv/detail/videoformat__struct.h:
 
 rosidl_generator_c/more_interfaces/srv/detail/videoformat__type_support.h:
 
-rosidl_generator_c/more_interfaces/msg/detail/ardusimple_value__functions.h:
+rosidl_generator_c/more_interfaces/msg/detail/supertaira_values__struct.h:
 
-rosidl_generator_c/more_interfaces/msg/detail/ardusimple_value__type_support.h:
+rosidl_generator_c/more_interfaces/msg/detail/k_best_values__struct.h:
+
+rosidl_generator_c/more_interfaces/msg/detail/ardusimple_values__struct.h:
 
 rosidl_generator_c/more_interfaces/msg/detail/winch_status__functions.h:
 
@@ -285,11 +293,15 @@ rosidl_generator_c/more_interfaces/msg/detail/marinelink_packet__functions.h:
 
 /usr/include/linux/stddef.h:
 
+rosidl_generator_c/more_interfaces/msg/detail/aqua_values__type_support.h:
+
 /usr/include/linux/stat.h:
 
 /usr/include/aarch64-linux-gnu/bits/statx.h:
 
 /usr/include/python3.10/traceback.h:
+
+rosidl_generator_c/more_interfaces/msg/detail/k_best_values__type_support.h:
 
 /usr/include/aarch64-linux-gnu/bits/stat.h:
 
@@ -303,11 +315,15 @@ rosidl_generator_c/more_interfaces/msg/detail/winch_status__type_support.h:
 
 /usr/include/time.h:
 
+rosidl_generator_c/more_interfaces/msg/detail/supertaira_values__type_support.h:
+
 /usr/lib/gcc/aarch64-linux-gnu/11/include/stdint.h:
 
 /usr/include/aarch64-linux-gnu/bits/endian.h:
 
 /usr/include/aarch64-linux-gnu/bits/mathcalls-narrow.h:
+
+rosidl_generator_c/more_interfaces/msg/detail/k_best_values__functions.h:
 
 /usr/include/python3.10/longobject.h:
 
@@ -324,6 +340,10 @@ rosidl_generator_c/more_interfaces/msg/detail/winch_status__type_support.h:
 /usr/include/linux/close_range.h:
 
 /usr/include/aarch64-linux-gnu/bits/unistd_ext.h:
+
+/usr/include/aarch64-linux-gnu/bits/byteswap.h:
+
+rosidl_generator_c/more_interfaces/msg/detail/ardusimple_values__type_support.h:
 
 /usr/include/python3.10/cpython/listobject.h:
 
@@ -415,6 +435,8 @@ rosidl_generator_c/more_interfaces/msg/detail/winch_status__type_support.h:
 
 /usr/include/python3.10/floatobject.h:
 
+rosidl_generator_c/more_interfaces/msg/detail/ardusimple_values__functions.h:
+
 /usr/include/aarch64-linux-gnu/bits/types/time_t.h:
 
 /usr/include/aarch64-linux-gnu/bits/timex.h:
@@ -465,10 +487,6 @@ rosidl_generator_py/more_interfaces/_more_interfaces_s.ep.rosidl_typesupport_c.c
 
 /usr/include/aarch64-linux-gnu/bits/fp-logb.h:
 
-/usr/include/aarch64-linux-gnu/bits/byteswap.h:
-
-rosidl_generator_c/more_interfaces/msg/detail/aqua_value__type_support.h:
-
 /usr/include/aarch64-linux-gnu/bits/struct_mutex.h:
 
 /usr/include/aarch64-linux-gnu/bits/types.h:
@@ -500,8 +518,6 @@ rosidl_generator_c/more_interfaces/msg/detail/aqua_value__type_support.h:
 /usr/lib/gcc/aarch64-linux-gnu/11/include/stdarg.h:
 
 /usr/include/aarch64-linux-gnu/bits/types/__locale_t.h:
-
-rosidl_generator_c/more_interfaces/msg/detail/ardusimple_value__struct.h:
 
 /usr/include/python3.10/rangeobject.h:
 
@@ -609,6 +625,8 @@ rosidl_generator_c/more_interfaces/msg/detail/marinelink_packet__type_support.h:
 
 /usr/include/python3.10/pymacro.h:
 
+rosidl_generator_c/more_interfaces/msg/detail/supertaira_values__functions.h:
+
 /usr/include/python3.10/warnings.h:
 
 /usr/include/python3.10/pymem.h:
@@ -662,10 +680,6 @@ rosidl_generator_c/more_interfaces/msg/detail/mavlink_packet__struct.h:
 /usr/include/python3.10/cpython/tupleobject.h:
 
 /usr/include/python3.10/dictobject.h:
-
-/usr/include/python3.10/pylifecycle.h:
-
-/usr/include/python3.10/cpython/methodobject.h:
 
 /usr/include/aarch64-linux-gnu/bits/types/struct___jmp_buf_tag.h:
 
@@ -791,6 +805,10 @@ rosidl_generator_c/more_interfaces/msg/detail/mavlink_values__type_support.h:
 
 rosidl_generator_c/more_interfaces/msg/detail/mavlink_values__struct.h:
 
-rosidl_generator_c/more_interfaces/msg/detail/aqua_value__struct.h:
+/usr/include/python3.10/pylifecycle.h:
 
-rosidl_generator_c/more_interfaces/msg/detail/aqua_value__functions.h:
+/usr/include/python3.10/cpython/methodobject.h:
+
+rosidl_generator_c/more_interfaces/msg/detail/aqua_values__struct.h:
+
+rosidl_generator_c/more_interfaces/msg/detail/aqua_values__functions.h:

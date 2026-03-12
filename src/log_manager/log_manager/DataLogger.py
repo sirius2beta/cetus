@@ -9,6 +9,7 @@ from .log_format import LogFormat
 
 class DataLogger():
     def __init__(self):
+        self.logging_interval = 0.5 # 設定每秒記錄一次
         self.log_data = LogFormat() # 存放資料的地方
         """
         1. 在初始化 DataLogger 時，會檢查是否存在存放log的資料夾 "../GPlayerLog"，
@@ -50,7 +51,7 @@ class DataLogger():
 
     def save_data(self):   
         try:
-            self.log_data.timestamp = time.time() # 以秒為單位的 Unix 時間戳
+            self.log_data.time_usec = time.monotonic()
             # 保存到日誌檔案
             with open(self.log_file, 'a', newline='', encoding="utf-8") as csvfile:
                 writer = csv.DictWriter(csvfile, fieldnames=self.log_data.__dict__.keys())
@@ -62,4 +63,4 @@ class DataLogger():
     def looper(self):
         while True:
             self.save_data()
-            time.sleep(1)
+            time.sleep(self.logging_interval)

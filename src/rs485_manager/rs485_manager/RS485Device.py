@@ -1,15 +1,16 @@
 import time
 import serial
-from pymodbus.client import ModbusSerialClient
-from pymodbus.exceptions import ModbusException
-from more_interfaces.msg import AquaValue, WinchStatus
 import struct
 import logging
 import threading
+from pymodbus.client import ModbusSerialClient
+from pymodbus.exceptions import ModbusException
 
+from more_interfaces.msg import AquaValues, WinchStatus
 from .Device import Device
 
 SENSOR = b'\x04'
+
 node1_control_type = 2 # sonar control type: 2
 node2_control_type = 0 # winch control type: 0
 
@@ -197,7 +198,7 @@ class RS485Device(Device):
                     aqua_data.append(float_value)
                     self.aqua_data[i//2] = float_value # store the data in the aqua_data list
 
-                msg = AquaValue()
+                msg = AquaValues()
                 msg.temperature = aqua_data[0]
                 msg.pressure = aqua_data[1]
                 msg.depth = aqua_data[2]
@@ -206,7 +207,7 @@ class RS485Device(Device):
                 msg.actual_conductivity = aqua_data[5]
                 msg.specific_conductivity = aqua_data[6]
                 msg.resistivity = aqua_data[7]
-                msg.saltinity = aqua_data[8]
+                msg.salinity = aqua_data[8]
                 msg.total_dissolved_solids = aqua_data[9]
                 msg.density_of_water = aqua_data[10]
                 msg.barometric_pressure = aqua_data[11]

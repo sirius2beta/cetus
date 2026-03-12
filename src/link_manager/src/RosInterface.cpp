@@ -64,8 +64,8 @@ void RosInterface::onMavlinkToParse(LinkInterface *link, const mavlink_message_t
             pub_worker_->publish_payload(msg);
             break;
         case 5:
-            RCLCPP_INFO(rclcpp::get_logger("RosInterface"), "WinchStatus update (Topic 5)");
-            pub_worker_->publishWinchControl(msg);
+            RCLCPP_INFO(rclcpp::get_logger("RosInterface"), "Control command (Topic 5)");
+            pub_worker_->publishControl(msg);
             break;
         default:
             // 可選：處理未定義的 topic

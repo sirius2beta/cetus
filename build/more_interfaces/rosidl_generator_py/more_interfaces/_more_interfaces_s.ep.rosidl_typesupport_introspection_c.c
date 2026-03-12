@@ -441,39 +441,39 @@ _register_msg_type__msg__mavlink_values(PyObject * pymodule)
 // #include "rosidl_runtime_c/service_type_support_struct.h"
 // already included above
 // #include "rosidl_runtime_c/action_type_support_struct.h"
-#include "more_interfaces/msg/detail/aqua_value__type_support.h"
-#include "more_interfaces/msg/detail/aqua_value__struct.h"
-#include "more_interfaces/msg/detail/aqua_value__functions.h"
+#include "more_interfaces/msg/detail/aqua_values__type_support.h"
+#include "more_interfaces/msg/detail/aqua_values__struct.h"
+#include "more_interfaces/msg/detail/aqua_values__functions.h"
 
-static void * more_interfaces__msg__aqua_value__create_ros_message(void)
+static void * more_interfaces__msg__aqua_values__create_ros_message(void)
 {
-  return more_interfaces__msg__AquaValue__create();
+  return more_interfaces__msg__AquaValues__create();
 }
 
-static void more_interfaces__msg__aqua_value__destroy_ros_message(void * raw_ros_message)
+static void more_interfaces__msg__aqua_values__destroy_ros_message(void * raw_ros_message)
 {
-  more_interfaces__msg__AquaValue * ros_message = (more_interfaces__msg__AquaValue *)raw_ros_message;
-  more_interfaces__msg__AquaValue__destroy(ros_message);
+  more_interfaces__msg__AquaValues * ros_message = (more_interfaces__msg__AquaValues *)raw_ros_message;
+  more_interfaces__msg__AquaValues__destroy(ros_message);
 }
 
 ROSIDL_GENERATOR_C_IMPORT
-bool more_interfaces__msg__aqua_value__convert_from_py(PyObject * _pymsg, void * ros_message);
+bool more_interfaces__msg__aqua_values__convert_from_py(PyObject * _pymsg, void * ros_message);
 ROSIDL_GENERATOR_C_IMPORT
-PyObject * more_interfaces__msg__aqua_value__convert_to_py(void * raw_ros_message);
+PyObject * more_interfaces__msg__aqua_values__convert_to_py(void * raw_ros_message);
 
 
 ROSIDL_GENERATOR_C_IMPORT
 const rosidl_message_type_support_t *
-ROSIDL_GET_MSG_TYPE_SUPPORT(more_interfaces, msg, AquaValue);
+ROSIDL_GET_MSG_TYPE_SUPPORT(more_interfaces, msg, AquaValues);
 
 int8_t
-_register_msg_type__msg__aqua_value(PyObject * pymodule)
+_register_msg_type__msg__aqua_values(PyObject * pymodule)
 {
   int8_t err;
 
   PyObject * pyobject_create_ros_message = NULL;
   pyobject_create_ros_message = PyCapsule_New(
-    (void *)&more_interfaces__msg__aqua_value__create_ros_message,
+    (void *)&more_interfaces__msg__aqua_values__create_ros_message,
     NULL, NULL);
   if (!pyobject_create_ros_message) {
     // previously added objects will be removed when the module is destroyed
@@ -481,7 +481,7 @@ _register_msg_type__msg__aqua_value(PyObject * pymodule)
   }
   err = PyModule_AddObject(
     pymodule,
-    "create_ros_message_msg__msg__aqua_value",
+    "create_ros_message_msg__msg__aqua_values",
     pyobject_create_ros_message);
   if (err) {
     // the created capsule needs to be decremented
@@ -492,7 +492,7 @@ _register_msg_type__msg__aqua_value(PyObject * pymodule)
 
   PyObject * pyobject_destroy_ros_message = NULL;
   pyobject_destroy_ros_message = PyCapsule_New(
-    (void *)&more_interfaces__msg__aqua_value__destroy_ros_message,
+    (void *)&more_interfaces__msg__aqua_values__destroy_ros_message,
     NULL, NULL);
   if (!pyobject_destroy_ros_message) {
     // previously added objects will be removed when the module is destroyed
@@ -500,7 +500,7 @@ _register_msg_type__msg__aqua_value(PyObject * pymodule)
   }
   err = PyModule_AddObject(
     pymodule,
-    "destroy_ros_message_msg__msg__aqua_value",
+    "destroy_ros_message_msg__msg__aqua_values",
     pyobject_destroy_ros_message);
   if (err) {
     // the created capsule needs to be decremented
@@ -511,7 +511,7 @@ _register_msg_type__msg__aqua_value(PyObject * pymodule)
 
   PyObject * pyobject_convert_from_py = NULL;
   pyobject_convert_from_py = PyCapsule_New(
-    (void *)&more_interfaces__msg__aqua_value__convert_from_py,
+    (void *)&more_interfaces__msg__aqua_values__convert_from_py,
     NULL, NULL);
   if (!pyobject_convert_from_py) {
     // previously added objects will be removed when the module is destroyed
@@ -519,7 +519,7 @@ _register_msg_type__msg__aqua_value(PyObject * pymodule)
   }
   err = PyModule_AddObject(
     pymodule,
-    "convert_from_py_msg__msg__aqua_value",
+    "convert_from_py_msg__msg__aqua_values",
     pyobject_convert_from_py);
   if (err) {
     // the created capsule needs to be decremented
@@ -530,7 +530,7 @@ _register_msg_type__msg__aqua_value(PyObject * pymodule)
 
   PyObject * pyobject_convert_to_py = NULL;
   pyobject_convert_to_py = PyCapsule_New(
-    (void *)&more_interfaces__msg__aqua_value__convert_to_py,
+    (void *)&more_interfaces__msg__aqua_values__convert_to_py,
     NULL, NULL);
   if (!pyobject_convert_to_py) {
     // previously added objects will be removed when the module is destroyed
@@ -538,7 +538,7 @@ _register_msg_type__msg__aqua_value(PyObject * pymodule)
   }
   err = PyModule_AddObject(
     pymodule,
-    "convert_to_py_msg__msg__aqua_value",
+    "convert_to_py_msg__msg__aqua_values",
     pyobject_convert_to_py);
   if (err) {
     // the created capsule needs to be decremented
@@ -549,7 +549,7 @@ _register_msg_type__msg__aqua_value(PyObject * pymodule)
 
   PyObject * pyobject_type_support = NULL;
   pyobject_type_support = PyCapsule_New(
-    (void *)ROSIDL_GET_MSG_TYPE_SUPPORT(more_interfaces, msg, AquaValue),
+    (void *)ROSIDL_GET_MSG_TYPE_SUPPORT(more_interfaces, msg, AquaValues),
     NULL, NULL);
   if (!pyobject_type_support) {
     // previously added objects will be removed when the module is destroyed
@@ -557,7 +557,7 @@ _register_msg_type__msg__aqua_value(PyObject * pymodule)
   }
   err = PyModule_AddObject(
     pymodule,
-    "type_support_msg__msg__aqua_value",
+    "type_support_msg__msg__aqua_values",
     pyobject_type_support);
   if (err) {
     // the created capsule needs to be decremented
@@ -719,39 +719,39 @@ _register_msg_type__msg__winch_status(PyObject * pymodule)
 // #include "rosidl_runtime_c/service_type_support_struct.h"
 // already included above
 // #include "rosidl_runtime_c/action_type_support_struct.h"
-#include "more_interfaces/msg/detail/ardusimple_value__type_support.h"
-#include "more_interfaces/msg/detail/ardusimple_value__struct.h"
-#include "more_interfaces/msg/detail/ardusimple_value__functions.h"
+#include "more_interfaces/msg/detail/ardusimple_values__type_support.h"
+#include "more_interfaces/msg/detail/ardusimple_values__struct.h"
+#include "more_interfaces/msg/detail/ardusimple_values__functions.h"
 
-static void * more_interfaces__msg__ardusimple_value__create_ros_message(void)
+static void * more_interfaces__msg__ardusimple_values__create_ros_message(void)
 {
-  return more_interfaces__msg__ArdusimpleValue__create();
+  return more_interfaces__msg__ArdusimpleValues__create();
 }
 
-static void more_interfaces__msg__ardusimple_value__destroy_ros_message(void * raw_ros_message)
+static void more_interfaces__msg__ardusimple_values__destroy_ros_message(void * raw_ros_message)
 {
-  more_interfaces__msg__ArdusimpleValue * ros_message = (more_interfaces__msg__ArdusimpleValue *)raw_ros_message;
-  more_interfaces__msg__ArdusimpleValue__destroy(ros_message);
+  more_interfaces__msg__ArdusimpleValues * ros_message = (more_interfaces__msg__ArdusimpleValues *)raw_ros_message;
+  more_interfaces__msg__ArdusimpleValues__destroy(ros_message);
 }
 
 ROSIDL_GENERATOR_C_IMPORT
-bool more_interfaces__msg__ardusimple_value__convert_from_py(PyObject * _pymsg, void * ros_message);
+bool more_interfaces__msg__ardusimple_values__convert_from_py(PyObject * _pymsg, void * ros_message);
 ROSIDL_GENERATOR_C_IMPORT
-PyObject * more_interfaces__msg__ardusimple_value__convert_to_py(void * raw_ros_message);
+PyObject * more_interfaces__msg__ardusimple_values__convert_to_py(void * raw_ros_message);
 
 
 ROSIDL_GENERATOR_C_IMPORT
 const rosidl_message_type_support_t *
-ROSIDL_GET_MSG_TYPE_SUPPORT(more_interfaces, msg, ArdusimpleValue);
+ROSIDL_GET_MSG_TYPE_SUPPORT(more_interfaces, msg, ArdusimpleValues);
 
 int8_t
-_register_msg_type__msg__ardusimple_value(PyObject * pymodule)
+_register_msg_type__msg__ardusimple_values(PyObject * pymodule)
 {
   int8_t err;
 
   PyObject * pyobject_create_ros_message = NULL;
   pyobject_create_ros_message = PyCapsule_New(
-    (void *)&more_interfaces__msg__ardusimple_value__create_ros_message,
+    (void *)&more_interfaces__msg__ardusimple_values__create_ros_message,
     NULL, NULL);
   if (!pyobject_create_ros_message) {
     // previously added objects will be removed when the module is destroyed
@@ -759,7 +759,7 @@ _register_msg_type__msg__ardusimple_value(PyObject * pymodule)
   }
   err = PyModule_AddObject(
     pymodule,
-    "create_ros_message_msg__msg__ardusimple_value",
+    "create_ros_message_msg__msg__ardusimple_values",
     pyobject_create_ros_message);
   if (err) {
     // the created capsule needs to be decremented
@@ -770,7 +770,7 @@ _register_msg_type__msg__ardusimple_value(PyObject * pymodule)
 
   PyObject * pyobject_destroy_ros_message = NULL;
   pyobject_destroy_ros_message = PyCapsule_New(
-    (void *)&more_interfaces__msg__ardusimple_value__destroy_ros_message,
+    (void *)&more_interfaces__msg__ardusimple_values__destroy_ros_message,
     NULL, NULL);
   if (!pyobject_destroy_ros_message) {
     // previously added objects will be removed when the module is destroyed
@@ -778,7 +778,7 @@ _register_msg_type__msg__ardusimple_value(PyObject * pymodule)
   }
   err = PyModule_AddObject(
     pymodule,
-    "destroy_ros_message_msg__msg__ardusimple_value",
+    "destroy_ros_message_msg__msg__ardusimple_values",
     pyobject_destroy_ros_message);
   if (err) {
     // the created capsule needs to be decremented
@@ -789,7 +789,7 @@ _register_msg_type__msg__ardusimple_value(PyObject * pymodule)
 
   PyObject * pyobject_convert_from_py = NULL;
   pyobject_convert_from_py = PyCapsule_New(
-    (void *)&more_interfaces__msg__ardusimple_value__convert_from_py,
+    (void *)&more_interfaces__msg__ardusimple_values__convert_from_py,
     NULL, NULL);
   if (!pyobject_convert_from_py) {
     // previously added objects will be removed when the module is destroyed
@@ -797,7 +797,7 @@ _register_msg_type__msg__ardusimple_value(PyObject * pymodule)
   }
   err = PyModule_AddObject(
     pymodule,
-    "convert_from_py_msg__msg__ardusimple_value",
+    "convert_from_py_msg__msg__ardusimple_values",
     pyobject_convert_from_py);
   if (err) {
     // the created capsule needs to be decremented
@@ -808,7 +808,7 @@ _register_msg_type__msg__ardusimple_value(PyObject * pymodule)
 
   PyObject * pyobject_convert_to_py = NULL;
   pyobject_convert_to_py = PyCapsule_New(
-    (void *)&more_interfaces__msg__ardusimple_value__convert_to_py,
+    (void *)&more_interfaces__msg__ardusimple_values__convert_to_py,
     NULL, NULL);
   if (!pyobject_convert_to_py) {
     // previously added objects will be removed when the module is destroyed
@@ -816,7 +816,7 @@ _register_msg_type__msg__ardusimple_value(PyObject * pymodule)
   }
   err = PyModule_AddObject(
     pymodule,
-    "convert_to_py_msg__msg__ardusimple_value",
+    "convert_to_py_msg__msg__ardusimple_values",
     pyobject_convert_to_py);
   if (err) {
     // the created capsule needs to be decremented
@@ -827,7 +827,7 @@ _register_msg_type__msg__ardusimple_value(PyObject * pymodule)
 
   PyObject * pyobject_type_support = NULL;
   pyobject_type_support = PyCapsule_New(
-    (void *)ROSIDL_GET_MSG_TYPE_SUPPORT(more_interfaces, msg, ArdusimpleValue),
+    (void *)ROSIDL_GET_MSG_TYPE_SUPPORT(more_interfaces, msg, ArdusimpleValues),
     NULL, NULL);
   if (!pyobject_type_support) {
     // previously added objects will be removed when the module is destroyed
@@ -835,7 +835,285 @@ _register_msg_type__msg__ardusimple_value(PyObject * pymodule)
   }
   err = PyModule_AddObject(
     pymodule,
-    "type_support_msg__msg__ardusimple_value",
+    "type_support_msg__msg__ardusimple_values",
+    pyobject_type_support);
+  if (err) {
+    // the created capsule needs to be decremented
+    Py_XDECREF(pyobject_type_support);
+    // previously added objects will be removed when the module is destroyed
+    return err;
+  }
+  return 0;
+}
+
+// already included above
+// #include <stdbool.h>
+// already included above
+// #include <stdint.h>
+// already included above
+// #include "rosidl_runtime_c/visibility_control.h"
+// already included above
+// #include "rosidl_runtime_c/message_type_support_struct.h"
+// already included above
+// #include "rosidl_runtime_c/service_type_support_struct.h"
+// already included above
+// #include "rosidl_runtime_c/action_type_support_struct.h"
+#include "more_interfaces/msg/detail/k_best_values__type_support.h"
+#include "more_interfaces/msg/detail/k_best_values__struct.h"
+#include "more_interfaces/msg/detail/k_best_values__functions.h"
+
+static void * more_interfaces__msg__k_best_values__create_ros_message(void)
+{
+  return more_interfaces__msg__KBestValues__create();
+}
+
+static void more_interfaces__msg__k_best_values__destroy_ros_message(void * raw_ros_message)
+{
+  more_interfaces__msg__KBestValues * ros_message = (more_interfaces__msg__KBestValues *)raw_ros_message;
+  more_interfaces__msg__KBestValues__destroy(ros_message);
+}
+
+ROSIDL_GENERATOR_C_IMPORT
+bool more_interfaces__msg__k_best_values__convert_from_py(PyObject * _pymsg, void * ros_message);
+ROSIDL_GENERATOR_C_IMPORT
+PyObject * more_interfaces__msg__k_best_values__convert_to_py(void * raw_ros_message);
+
+
+ROSIDL_GENERATOR_C_IMPORT
+const rosidl_message_type_support_t *
+ROSIDL_GET_MSG_TYPE_SUPPORT(more_interfaces, msg, KBestValues);
+
+int8_t
+_register_msg_type__msg__k_best_values(PyObject * pymodule)
+{
+  int8_t err;
+
+  PyObject * pyobject_create_ros_message = NULL;
+  pyobject_create_ros_message = PyCapsule_New(
+    (void *)&more_interfaces__msg__k_best_values__create_ros_message,
+    NULL, NULL);
+  if (!pyobject_create_ros_message) {
+    // previously added objects will be removed when the module is destroyed
+    return -1;
+  }
+  err = PyModule_AddObject(
+    pymodule,
+    "create_ros_message_msg__msg__k_best_values",
+    pyobject_create_ros_message);
+  if (err) {
+    // the created capsule needs to be decremented
+    Py_XDECREF(pyobject_create_ros_message);
+    // previously added objects will be removed when the module is destroyed
+    return err;
+  }
+
+  PyObject * pyobject_destroy_ros_message = NULL;
+  pyobject_destroy_ros_message = PyCapsule_New(
+    (void *)&more_interfaces__msg__k_best_values__destroy_ros_message,
+    NULL, NULL);
+  if (!pyobject_destroy_ros_message) {
+    // previously added objects will be removed when the module is destroyed
+    return -1;
+  }
+  err = PyModule_AddObject(
+    pymodule,
+    "destroy_ros_message_msg__msg__k_best_values",
+    pyobject_destroy_ros_message);
+  if (err) {
+    // the created capsule needs to be decremented
+    Py_XDECREF(pyobject_destroy_ros_message);
+    // previously added objects will be removed when the module is destroyed
+    return err;
+  }
+
+  PyObject * pyobject_convert_from_py = NULL;
+  pyobject_convert_from_py = PyCapsule_New(
+    (void *)&more_interfaces__msg__k_best_values__convert_from_py,
+    NULL, NULL);
+  if (!pyobject_convert_from_py) {
+    // previously added objects will be removed when the module is destroyed
+    return -1;
+  }
+  err = PyModule_AddObject(
+    pymodule,
+    "convert_from_py_msg__msg__k_best_values",
+    pyobject_convert_from_py);
+  if (err) {
+    // the created capsule needs to be decremented
+    Py_XDECREF(pyobject_convert_from_py);
+    // previously added objects will be removed when the module is destroyed
+    return err;
+  }
+
+  PyObject * pyobject_convert_to_py = NULL;
+  pyobject_convert_to_py = PyCapsule_New(
+    (void *)&more_interfaces__msg__k_best_values__convert_to_py,
+    NULL, NULL);
+  if (!pyobject_convert_to_py) {
+    // previously added objects will be removed when the module is destroyed
+    return -1;
+  }
+  err = PyModule_AddObject(
+    pymodule,
+    "convert_to_py_msg__msg__k_best_values",
+    pyobject_convert_to_py);
+  if (err) {
+    // the created capsule needs to be decremented
+    Py_XDECREF(pyobject_convert_to_py);
+    // previously added objects will be removed when the module is destroyed
+    return err;
+  }
+
+  PyObject * pyobject_type_support = NULL;
+  pyobject_type_support = PyCapsule_New(
+    (void *)ROSIDL_GET_MSG_TYPE_SUPPORT(more_interfaces, msg, KBestValues),
+    NULL, NULL);
+  if (!pyobject_type_support) {
+    // previously added objects will be removed when the module is destroyed
+    return -1;
+  }
+  err = PyModule_AddObject(
+    pymodule,
+    "type_support_msg__msg__k_best_values",
+    pyobject_type_support);
+  if (err) {
+    // the created capsule needs to be decremented
+    Py_XDECREF(pyobject_type_support);
+    // previously added objects will be removed when the module is destroyed
+    return err;
+  }
+  return 0;
+}
+
+// already included above
+// #include <stdbool.h>
+// already included above
+// #include <stdint.h>
+// already included above
+// #include "rosidl_runtime_c/visibility_control.h"
+// already included above
+// #include "rosidl_runtime_c/message_type_support_struct.h"
+// already included above
+// #include "rosidl_runtime_c/service_type_support_struct.h"
+// already included above
+// #include "rosidl_runtime_c/action_type_support_struct.h"
+#include "more_interfaces/msg/detail/supertaira_values__type_support.h"
+#include "more_interfaces/msg/detail/supertaira_values__struct.h"
+#include "more_interfaces/msg/detail/supertaira_values__functions.h"
+
+static void * more_interfaces__msg__supertaira_values__create_ros_message(void)
+{
+  return more_interfaces__msg__SupertairaValues__create();
+}
+
+static void more_interfaces__msg__supertaira_values__destroy_ros_message(void * raw_ros_message)
+{
+  more_interfaces__msg__SupertairaValues * ros_message = (more_interfaces__msg__SupertairaValues *)raw_ros_message;
+  more_interfaces__msg__SupertairaValues__destroy(ros_message);
+}
+
+ROSIDL_GENERATOR_C_IMPORT
+bool more_interfaces__msg__supertaira_values__convert_from_py(PyObject * _pymsg, void * ros_message);
+ROSIDL_GENERATOR_C_IMPORT
+PyObject * more_interfaces__msg__supertaira_values__convert_to_py(void * raw_ros_message);
+
+
+ROSIDL_GENERATOR_C_IMPORT
+const rosidl_message_type_support_t *
+ROSIDL_GET_MSG_TYPE_SUPPORT(more_interfaces, msg, SupertairaValues);
+
+int8_t
+_register_msg_type__msg__supertaira_values(PyObject * pymodule)
+{
+  int8_t err;
+
+  PyObject * pyobject_create_ros_message = NULL;
+  pyobject_create_ros_message = PyCapsule_New(
+    (void *)&more_interfaces__msg__supertaira_values__create_ros_message,
+    NULL, NULL);
+  if (!pyobject_create_ros_message) {
+    // previously added objects will be removed when the module is destroyed
+    return -1;
+  }
+  err = PyModule_AddObject(
+    pymodule,
+    "create_ros_message_msg__msg__supertaira_values",
+    pyobject_create_ros_message);
+  if (err) {
+    // the created capsule needs to be decremented
+    Py_XDECREF(pyobject_create_ros_message);
+    // previously added objects will be removed when the module is destroyed
+    return err;
+  }
+
+  PyObject * pyobject_destroy_ros_message = NULL;
+  pyobject_destroy_ros_message = PyCapsule_New(
+    (void *)&more_interfaces__msg__supertaira_values__destroy_ros_message,
+    NULL, NULL);
+  if (!pyobject_destroy_ros_message) {
+    // previously added objects will be removed when the module is destroyed
+    return -1;
+  }
+  err = PyModule_AddObject(
+    pymodule,
+    "destroy_ros_message_msg__msg__supertaira_values",
+    pyobject_destroy_ros_message);
+  if (err) {
+    // the created capsule needs to be decremented
+    Py_XDECREF(pyobject_destroy_ros_message);
+    // previously added objects will be removed when the module is destroyed
+    return err;
+  }
+
+  PyObject * pyobject_convert_from_py = NULL;
+  pyobject_convert_from_py = PyCapsule_New(
+    (void *)&more_interfaces__msg__supertaira_values__convert_from_py,
+    NULL, NULL);
+  if (!pyobject_convert_from_py) {
+    // previously added objects will be removed when the module is destroyed
+    return -1;
+  }
+  err = PyModule_AddObject(
+    pymodule,
+    "convert_from_py_msg__msg__supertaira_values",
+    pyobject_convert_from_py);
+  if (err) {
+    // the created capsule needs to be decremented
+    Py_XDECREF(pyobject_convert_from_py);
+    // previously added objects will be removed when the module is destroyed
+    return err;
+  }
+
+  PyObject * pyobject_convert_to_py = NULL;
+  pyobject_convert_to_py = PyCapsule_New(
+    (void *)&more_interfaces__msg__supertaira_values__convert_to_py,
+    NULL, NULL);
+  if (!pyobject_convert_to_py) {
+    // previously added objects will be removed when the module is destroyed
+    return -1;
+  }
+  err = PyModule_AddObject(
+    pymodule,
+    "convert_to_py_msg__msg__supertaira_values",
+    pyobject_convert_to_py);
+  if (err) {
+    // the created capsule needs to be decremented
+    Py_XDECREF(pyobject_convert_to_py);
+    // previously added objects will be removed when the module is destroyed
+    return err;
+  }
+
+  PyObject * pyobject_type_support = NULL;
+  pyobject_type_support = PyCapsule_New(
+    (void *)ROSIDL_GET_MSG_TYPE_SUPPORT(more_interfaces, msg, SupertairaValues),
+    NULL, NULL);
+  if (!pyobject_type_support) {
+    // previously added objects will be removed when the module is destroyed
+    return -1;
+  }
+  err = PyModule_AddObject(
+    pymodule,
+    "type_support_msg__msg__supertaira_values",
     pyobject_type_support);
   if (err) {
     // the created capsule needs to be decremented
@@ -1184,7 +1462,7 @@ PyInit_more_interfaces_s__rosidl_typesupport_introspection_c(void)
     return NULL;
   }
 
-  err = _register_msg_type__msg__aqua_value(pymodule);
+  err = _register_msg_type__msg__aqua_values(pymodule);
   if (err) {
     Py_XDECREF(pymodule);
     return NULL;
@@ -1196,7 +1474,19 @@ PyInit_more_interfaces_s__rosidl_typesupport_introspection_c(void)
     return NULL;
   }
 
-  err = _register_msg_type__msg__ardusimple_value(pymodule);
+  err = _register_msg_type__msg__ardusimple_values(pymodule);
+  if (err) {
+    Py_XDECREF(pymodule);
+    return NULL;
+  }
+
+  err = _register_msg_type__msg__k_best_values(pymodule);
+  if (err) {
+    Py_XDECREF(pymodule);
+    return NULL;
+  }
+
+  err = _register_msg_type__msg__supertaira_values(pymodule);
   if (err) {
     Py_XDECREF(pymodule);
     return NULL;

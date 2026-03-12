@@ -1,7 +1,7 @@
 import time
 import serial
 import threading
-from threading import Lock # 引入鎖
+from threading import Lock
 from pysbf2.sbfreader import SBFReader
 from pysbf2.sbftypes_core import SBF_PROTOCOL, NMEA_PROTOCOL
 import math
@@ -10,7 +10,15 @@ import rclpy
 
 
 from .Device import Device
-from more_interfaces.msg import ArdusimpleValue
+from more_interfaces.msg import ArdusimpleValues
+
+def safe_float(value, default=0.0):
+    if value is None or value == '':
+        return default
+    try:
+        return float(value)
+    except (ValueError, TypeError):
+        return default
 
 def gps_time_to_utc(wnc, tow):
     gps_start = datetime(1980, 1, 6)
@@ -62,7 +70,7 @@ class ArduSimpleDevice(Device):
         threading.Thread(target = self.reader, daemon = True).start() # start the reader thread
         threading.Thread(target = self.log_data, daemon = True).start() # start the logger thread
         self.node = node
-        self.node.get_logger().info("RS485Device: Connected to RS485 device.") 
+        self.node.get_logger().info("ArdusimpleDevice: Connected to Ardusimple.") 
         
     def reader(self):
         try:
@@ -72,28 +80,27 @@ class ArduSimpleDevice(Device):
                 with self.data_lock:
                     if msg.identity == 'PVTGeodetic':
                         utc = gps_time_to_utc(msg.WNc, msg.TOW)
-                        self.utc_time = utc
+                        self.utc_time = utc + timedelta(hours=8)
                         self.lat = math.degrees(msg.Latitude)
                         self.lon = math.degrees(msg.Longitude)
                         self.alt = msg.Height
                         self.undulation = msg.Undulation
                         
                     elif msg.identity == 'DOP':
-                        self.HDOP = float(self.HDOP) if self.HDOP is not None else 0.0
-                        self.VDOP = float(self.VDOP) if self.VDOP is not None else 0.0
+                        self.HDOP = float(msg.HDOP) if msg.HDOP is not None else 0.0
+                        self.VDOP = float(msg.VDOP) if msg.VDOP is not None else 0.0
                         
                     elif msg.identity == 'PosCovGeodetic':
                         # 計算精度
                         self.lat_acc, self.lon_acc, self.alt_acc = position_accuracy(
                             msg.Cov_latlat, msg.Cov_lonlon, msg.Cov_hgthgt
-                        )
-                        
+                        )   
                     elif msg.identity == 'PTNLAVR': # 這通常是 NMEA
-                        self.tilt = float(msg.tilt) if msg.tilt is not None else 0.0
-                        self.yaw = float(msg.yaw) if msg.yaw is not None else 0.0
+                        self.tilt = safe_float(msg.tilt, 0.0)
+                        self.yaw = safe_float(msg.yaw, 0.0)
                         
                     elif msg.identity == 'GPRMC':
-                        self.speed = float(msg.spd) if msg.spd is not None else 0.0
+                        self.speed = safe_float(msg.spd, 0.0)
         except Exception as e:
             self.node.get_logger().error(f"解析過程中斷: {e}")
         
@@ -101,8 +108,7 @@ class ArduSimpleDevice(Device):
         while True: 
             # 使用鎖來保護數據讀取
             with self.data_lock:
-                msg = ArdusimpleValue()
-                # 轉換 datetime 為字串，或是根據你的 msg 定義處理
+                msg = ArdusimpleValues()
                 msg.utc_time = str(self.utc_time)
                 msg.latitude = self.lat
                 msg.longitude = self.lon
@@ -119,4 +125,4 @@ class ArduSimpleDevice(Device):
             
             # 發布數據
             self.node.ardusimple_value_publisher_.publish(msg)
-            time.sleep(0.5) # 提升到 10Hz，更適合無人船控制
+            time.sleep(0.2) # 提升到 10Hz，更適合無人船控制

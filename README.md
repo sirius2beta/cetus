@@ -1,15 +1,20 @@
 # cetus
 source /opt/ros/humble/setup.bash
 source install/setup.bash
-ros2 run link_manager link_manager
 
+# 建置某個
 colcon build --packages-select link_manager
+
+
+# 執行某個package
+ros2 run link_manager link_manager
 
 ros2 launch launch/cetus_launch.py
 
+
+# 查看某topic訊息
 ros2 topic list
 ros2 node list
-## 查看某topic訊息
 ros2 topic echo /sensor/mavlink_values
 
 
@@ -60,6 +65,11 @@ sudo apt install ros-humble-septentrio-gnss-driver
 
 ros2 run septentrio_gnss_driver septentrio_gnss_driver_node --ros-args -p device:=serial:/dev/sensors/gps_data -p baudrate:=115200
 
+ros2 run septentrio_gnss_driver septentrio_gnss_driver_node --ros-args \
+  -p device:=serial:/dev/ttyACM3 \
+  -p baudrate:=115200 \
+  -p activate_configuration:=false
+
 Node(
             package='septentrio_gnss_driver',
             executable='septentrio_gnss_driver_node',
@@ -75,3 +85,13 @@ Node(
                 'activate_configuration': False,
             }]
         )
+
+        Node(
+            package='gps_manager',
+            namespace='gps_manager',
+            executable='gps_manager',
+            name='gps_manager',
+            respawn=True,
+            respawn_delay=3.0,
+            output='both',
+        ),

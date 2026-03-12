@@ -41,5 +41,15 @@ def generate_launch_description():
             respawn=True,
             respawn_delay=3.0,
             output='both',
-        )
+        ),
+        Node(
+            package='kbest_manager',
+            namespace='kbest_manager',
+            executable='kbest_manager',
+            name='kbest_manager',
+            respawn=True,
+            respawn_delay=3.0,
+            output='both',
+        ),
+        
     ])

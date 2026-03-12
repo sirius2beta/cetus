@@ -81,21 +81,31 @@ CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail
 CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/mavlink_values__struct.hpp
 CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/mavlink_values__traits.hpp
 CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/mavlink_values__type_support.hpp
-CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/aqua_value.hpp
-CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/aqua_value__builder.hpp
-CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/aqua_value__struct.hpp
-CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/aqua_value__traits.hpp
-CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/aqua_value__type_support.hpp
+CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/aqua_values.hpp
+CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/aqua_values__builder.hpp
+CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/aqua_values__struct.hpp
+CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/aqua_values__traits.hpp
+CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/aqua_values__type_support.hpp
 CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/winch_status.hpp
 CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/winch_status__builder.hpp
 CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/winch_status__struct.hpp
 CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/winch_status__traits.hpp
 CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/winch_status__type_support.hpp
-CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/ardusimple_value.hpp
-CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/ardusimple_value__builder.hpp
-CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/ardusimple_value__struct.hpp
-CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/ardusimple_value__traits.hpp
-CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/ardusimple_value__type_support.hpp
+CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/ardusimple_values.hpp
+CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/ardusimple_values__builder.hpp
+CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/ardusimple_values__struct.hpp
+CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/ardusimple_values__traits.hpp
+CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/ardusimple_values__type_support.hpp
+CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/k_best_values.hpp
+CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/k_best_values__builder.hpp
+CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/k_best_values__struct.hpp
+CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/k_best_values__traits.hpp
+CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/k_best_values__type_support.hpp
+CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/supertaira_values.hpp
+CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/supertaira_values__builder.hpp
+CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/supertaira_values__struct.hpp
+CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/supertaira_values__traits.hpp
+CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/supertaira_values__type_support.hpp
 CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/srv/videoformat.hpp
 CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/srv/detail/videoformat__builder.hpp
 CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/srv/detail/videoformat__struct.hpp
@@ -121,9 +131,11 @@ rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp: /opt/ros/humble/
 rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp: rosidl_adapter/more_interfaces/msg/MarinelinkPacket.idl
 rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp: rosidl_adapter/more_interfaces/msg/MavlinkPacket.idl
 rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp: rosidl_adapter/more_interfaces/msg/MavlinkValues.idl
-rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp: rosidl_adapter/more_interfaces/msg/AquaValue.idl
+rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp: rosidl_adapter/more_interfaces/msg/AquaValues.idl
 rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp: rosidl_adapter/more_interfaces/msg/WinchStatus.idl
-rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp: rosidl_adapter/more_interfaces/msg/ArdusimpleValue.idl
+rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp: rosidl_adapter/more_interfaces/msg/ArdusimpleValues.idl
+rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp: rosidl_adapter/more_interfaces/msg/KBestValues.idl
+rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp: rosidl_adapter/more_interfaces/msg/SupertairaValues.idl
 rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp: rosidl_adapter/more_interfaces/srv/Videoformat.idl
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sirius2beta/cetus/build/more_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code for ROS interfaces"
 	/usr/bin/python3 /opt/ros/humble/share/rosidl_generator_cpp/cmake/../../../lib/rosidl_generator_cpp/rosidl_generator_cpp --generator-arguments-file /home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_cpp__arguments.json
@@ -170,20 +182,20 @@ rosidl_generator_cpp/more_interfaces/msg/detail/mavlink_values__traits.hpp: rosi
 rosidl_generator_cpp/more_interfaces/msg/detail/mavlink_values__type_support.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/detail/mavlink_values__type_support.hpp
 
-rosidl_generator_cpp/more_interfaces/msg/aqua_value.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/aqua_value.hpp
+rosidl_generator_cpp/more_interfaces/msg/aqua_values.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/aqua_values.hpp
 
-rosidl_generator_cpp/more_interfaces/msg/detail/aqua_value__builder.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/detail/aqua_value__builder.hpp
+rosidl_generator_cpp/more_interfaces/msg/detail/aqua_values__builder.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/detail/aqua_values__builder.hpp
 
-rosidl_generator_cpp/more_interfaces/msg/detail/aqua_value__struct.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/detail/aqua_value__struct.hpp
+rosidl_generator_cpp/more_interfaces/msg/detail/aqua_values__struct.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/detail/aqua_values__struct.hpp
 
-rosidl_generator_cpp/more_interfaces/msg/detail/aqua_value__traits.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/detail/aqua_value__traits.hpp
+rosidl_generator_cpp/more_interfaces/msg/detail/aqua_values__traits.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/detail/aqua_values__traits.hpp
 
-rosidl_generator_cpp/more_interfaces/msg/detail/aqua_value__type_support.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/detail/aqua_value__type_support.hpp
+rosidl_generator_cpp/more_interfaces/msg/detail/aqua_values__type_support.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/detail/aqua_values__type_support.hpp
 
 rosidl_generator_cpp/more_interfaces/msg/winch_status.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/winch_status.hpp
@@ -200,20 +212,50 @@ rosidl_generator_cpp/more_interfaces/msg/detail/winch_status__traits.hpp: rosidl
 rosidl_generator_cpp/more_interfaces/msg/detail/winch_status__type_support.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/detail/winch_status__type_support.hpp
 
-rosidl_generator_cpp/more_interfaces/msg/ardusimple_value.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/ardusimple_value.hpp
+rosidl_generator_cpp/more_interfaces/msg/ardusimple_values.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/ardusimple_values.hpp
 
-rosidl_generator_cpp/more_interfaces/msg/detail/ardusimple_value__builder.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/detail/ardusimple_value__builder.hpp
+rosidl_generator_cpp/more_interfaces/msg/detail/ardusimple_values__builder.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/detail/ardusimple_values__builder.hpp
 
-rosidl_generator_cpp/more_interfaces/msg/detail/ardusimple_value__struct.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/detail/ardusimple_value__struct.hpp
+rosidl_generator_cpp/more_interfaces/msg/detail/ardusimple_values__struct.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/detail/ardusimple_values__struct.hpp
 
-rosidl_generator_cpp/more_interfaces/msg/detail/ardusimple_value__traits.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/detail/ardusimple_value__traits.hpp
+rosidl_generator_cpp/more_interfaces/msg/detail/ardusimple_values__traits.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/detail/ardusimple_values__traits.hpp
 
-rosidl_generator_cpp/more_interfaces/msg/detail/ardusimple_value__type_support.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/detail/ardusimple_value__type_support.hpp
+rosidl_generator_cpp/more_interfaces/msg/detail/ardusimple_values__type_support.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/detail/ardusimple_values__type_support.hpp
+
+rosidl_generator_cpp/more_interfaces/msg/k_best_values.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/k_best_values.hpp
+
+rosidl_generator_cpp/more_interfaces/msg/detail/k_best_values__builder.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/detail/k_best_values__builder.hpp
+
+rosidl_generator_cpp/more_interfaces/msg/detail/k_best_values__struct.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/detail/k_best_values__struct.hpp
+
+rosidl_generator_cpp/more_interfaces/msg/detail/k_best_values__traits.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/detail/k_best_values__traits.hpp
+
+rosidl_generator_cpp/more_interfaces/msg/detail/k_best_values__type_support.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/detail/k_best_values__type_support.hpp
+
+rosidl_generator_cpp/more_interfaces/msg/supertaira_values.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/supertaira_values.hpp
+
+rosidl_generator_cpp/more_interfaces/msg/detail/supertaira_values__builder.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/detail/supertaira_values__builder.hpp
+
+rosidl_generator_cpp/more_interfaces/msg/detail/supertaira_values__struct.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/detail/supertaira_values__struct.hpp
+
+rosidl_generator_cpp/more_interfaces/msg/detail/supertaira_values__traits.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/detail/supertaira_values__traits.hpp
+
+rosidl_generator_cpp/more_interfaces/msg/detail/supertaira_values__type_support.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/detail/supertaira_values__type_support.hpp
 
 rosidl_generator_cpp/more_interfaces/srv/videoformat.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/srv/videoformat.hpp
@@ -231,16 +273,20 @@ rosidl_generator_cpp/more_interfaces/srv/detail/videoformat__type_support.hpp: r
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/srv/detail/videoformat__type_support.hpp
 
 more_interfaces__cpp: CMakeFiles/more_interfaces__cpp
-more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/aqua_value.hpp
-more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/ardusimple_value.hpp
-more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/aqua_value__builder.hpp
-more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/aqua_value__struct.hpp
-more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/aqua_value__traits.hpp
-more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/aqua_value__type_support.hpp
-more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/ardusimple_value__builder.hpp
-more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/ardusimple_value__struct.hpp
-more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/ardusimple_value__traits.hpp
-more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/ardusimple_value__type_support.hpp
+more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/aqua_values.hpp
+more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/ardusimple_values.hpp
+more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/aqua_values__builder.hpp
+more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/aqua_values__struct.hpp
+more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/aqua_values__traits.hpp
+more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/aqua_values__type_support.hpp
+more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/ardusimple_values__builder.hpp
+more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/ardusimple_values__struct.hpp
+more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/ardusimple_values__traits.hpp
+more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/ardusimple_values__type_support.hpp
+more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/k_best_values__builder.hpp
+more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/k_best_values__struct.hpp
+more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/k_best_values__traits.hpp
+more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/k_best_values__type_support.hpp
 more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/marinelink_packet__builder.hpp
 more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/marinelink_packet__struct.hpp
 more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/marinelink_packet__traits.hpp
@@ -253,13 +299,19 @@ more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/mavlink_va
 more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/mavlink_values__struct.hpp
 more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/mavlink_values__traits.hpp
 more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/mavlink_values__type_support.hpp
+more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/supertaira_values__builder.hpp
+more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/supertaira_values__struct.hpp
+more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/supertaira_values__traits.hpp
+more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/supertaira_values__type_support.hpp
 more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/winch_status__builder.hpp
 more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/winch_status__struct.hpp
 more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/winch_status__traits.hpp
 more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/winch_status__type_support.hpp
+more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/k_best_values.hpp
 more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
 more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/mavlink_packet.hpp
 more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/mavlink_values.hpp
+more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/supertaira_values.hpp
 more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/winch_status.hpp
 more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/srv/detail/videoformat__builder.hpp
 more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/srv/detail/videoformat__struct.hpp

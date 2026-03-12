@@ -4,8 +4,9 @@ from rclpy.node import Node
 import math
 from datetime import datetime, timedelta
 import struct
+import time
 
-from more_interfaces.msg import MavlinkValues, MarinelinkPacket, AquaValue, WinchStatus
+from more_interfaces.msg import MavlinkValues, MarinelinkPacket, AquaValues, WinchStatus, ArdusimpleValues, KBestValues
 from septentrio_gnss_driver.msg import PVTGeodetic
 from gps_msgs.msg import GPSFix
 from .DataLogger import DataLogger
@@ -44,21 +45,9 @@ class LogManager(Node):
             self.mavlinkValues_callback, 
             10
         )
-        self.gpsfix_subscriber_ = self.create_subscription(
-            GPSFix,
-            '/gps/fix2',
-            self.gpsfix_callback,
-            10
-        )
-        self.pvtgeodetic_subscriber_ = self.create_subscription(
-            PVTGeodetic,
-            '/septentrio/pvtgeodetic',
-            self.pvtgeodetic_callback,
-            10
-        )
         self.aquastatus_subscriber_ = self.create_subscription(
-            AquaValue,
-            '/sensor/aqua_value',
+            AquaValues,
+            '/sensor/aqua_values',
             self.aquastatus_callback,
             10
         )
@@ -66,6 +55,18 @@ class LogManager(Node):
             WinchStatus,
             '/sensor/winch_status',
             self.winchstatus_callback,
+            10
+        )
+        self.ardusimple_subscriber_ = self.create_subscription(
+            ArdusimpleValues,
+            '/sensor/ardusimple_values',
+            self.ardusimple_callback,
+            10
+        )
+        self.kbest_subscriber_ = self.create_subscription(
+            KBestValues,
+            '/sensor/kbest_values',
+            self.kbest_callback,
             10
         )
         self.publisher_ = self.create_publisher(MarinelinkPacket, '/marinelink_tosend', 10)
@@ -99,28 +100,7 @@ class LogManager(Node):
         self.sensor_group_list[3].get_sensor(3).data = msg.battery_remaining    
         self.publisher_.publish(MarinelinkPacket(topic=4, payload=self.sensor_group_list[4].pack()))
         self.publisher_.publish(MarinelinkPacket(topic=4, payload=self.sensor_group_list[3].pack()))
-    
-    def gpsfix_callback(self, msg):
-        self.get_logger().info(f"Received GPSFix - hdop: {msg.hdop}, vdop: {msg.vdop}")
-        self.data_logger.log_data.HDOP = msg.hdop
-        self.data_logger.log_data.VDOP = msg.vdop
-
-    def pvtgeodetic_callback(self, msg):
-        tow = msg.tow  # 秒
-        wnc = msg.wnc  # 週
-        utc = gps_time_to_utc(wnc, tow)
-        
-        #print(f"🕒 GPS Time (UTC): {utc.strftime('%Y-%m-%d %H:%M:%S')} TOW:{tow}, WNC:{wnc}")
-        lat = msg.latitude  # 有些 PVT message 有這欄
-        lon = msg.longitude
-
-        self.data_logger.log_data.utc = utc
-        self.data_logger.log_data.lat = math.degrees(lat)
-        self.data_logger.log_data.lon = math.degrees(lon)
-        self.data_logger.log_data.alt = msg.height
-        self.data_logger.log_data.undulation = msg.undulation
-        self.get_logger().info(f"Updated GPS Time (UTC): {utc.strftime('%Y-%m-%d %H:%M:%S')}, Lat: {math.degrees(lat)}, Lon: {math.degrees(lon)}, Alt: {msg.height}, Undulation: {msg.undulation}")
-    
+ 
     def aquastatus_callback(self, msg):
         self.data_logger.log_data.temperature = msg.temperature
         self.data_logger.log_data.pressure = msg.pressure
@@ -130,7 +110,7 @@ class LogManager(Node):
         self.data_logger.log_data.actual_conductivity = msg.actual_conductivity
         self.data_logger.log_data.specific_conductivity = msg.specific_conductivity
         self.data_logger.log_data.resistivity = msg.resistivity
-        self.data_logger.log_data.saltinity = msg.saltinity
+        self.data_logger.log_data.salinity = msg.salinity
         self.data_logger.log_data.total_dissolved_solids = msg.total_dissolved_solids
         self.data_logger.log_data.density_of_water = msg.density_of_water
         self.data_logger.log_data.barometric_pressure = msg.barometric_pressure
@@ -152,7 +132,7 @@ class LogManager(Node):
         self.sensor_group_list[1].get_sensor(5).data = msg.actual_conductivity
         self.sensor_group_list[1].get_sensor(6).data = msg.specific_conductivity
         self.sensor_group_list[1].get_sensor(7).data = msg.resistivity
-        self.sensor_group_list[1].get_sensor(8).data = msg.saltinity
+        self.sensor_group_list[1].get_sensor(8).data = msg.salinity
         self.sensor_group_list[1].get_sensor(9).data = msg.total_dissolved_solids
         self.sensor_group_list[1].get_sensor(10).data = msg.density_of_water
         self.sensor_group_list[1].get_sensor(11).data = msg.barometric_pressure
@@ -166,7 +146,8 @@ class LogManager(Node):
         self.sensor_group_list[1].get_sensor(19).data = msg.external_voltage
         self.sensor_group_list[1].get_sensor(20).data = msg.battery_capacity_remaining
         self.publisher_.publish(MarinelinkPacket(topic=4, payload=self.sensor_group_list[1].pack()))
-        #self.get_logger().info(f"Updated AquaValue - Temp: {msg.temperature}")
+        #self.get_logger().info(f"Updated AquaValues - Temp: {msg.temperature}")
+    
     def winchstatus_callback(self, msg):
         step = msg.step
         tension = msg.tension
@@ -179,14 +160,36 @@ class LogManager(Node):
         data += struct.pack("<B", status)
         self.publisher_.publish(MarinelinkPacket(topic=5, payload=data))
         #self.get_logger().info(f"Updated WinchStatus - Step: {step}, Tension: {tension}, Status: {status}")
+    
+    def ardusimple_callback(self, msg):
+        self.data_logger.log_data.timestamp = msg.utc_time
+        self.data_logger.log_data.lat = msg.latitude
+        self.data_logger.log_data.lon = msg.longitude
+        self.data_logger.log_data.alt = msg.height
+        self.data_logger.log_data.HDOP = msg.hdop
+        self.data_logger.log_data.VDOP = msg.vdop
+        self.data_logger.log_data.lon_acc = msg.lon_acc
+        self.data_logger.log_data.lat_acc = msg.lat_acc
+        self.data_logger.log_data.alt_acc = msg.alt_acc
+        self.data_logger.log_data.gps_speed = msg.speed
+        self.data_logger.log_data.gps_tilt = msg.tilt
+        self.data_logger.log_data.gps_yaw = msg.yaw
+        self.data_logger.log_data.gps_orthometric_height = msg.height - msg.undulation
+        self.data_logger.log_data.geoid_separation = msg.undulation
+    
+    def kbest_callback(self, msg):
+        self.sensor_group_list[5].get_sensor(0).data = msg.kbest_boat_rssi
+        self.sensor_group_list[5].get_sensor(1).data = msg.kbest_ground_rssi
+        self.sensor_group_list[5].get_sensor(2).data = msg.tx_rate
+        self.sensor_group_list[5].get_sensor(3).data = msg.rx_rate
+        self.publisher_.publish(MarinelinkPacket(topic=4, payload=self.sensor_group_list[5].pack()))
+        self.data_logger.log_data.kbest_boat_rssi = msg.kbest_boat_rssi
+        self.data_logger.log_data.kbest_ground_rssi = msg.kbest_ground_rssi
 
 def main(args=None):
-    # 修正 2: 加入必要的 ROS 2 啟動流程
     rclpy.init(args=args)
     log_manager = LogManager()
-    
     try:
-        # 保持節點運行，直到被手動停止 (Ctrl+C)
         rclpy.spin(log_manager)
     except KeyboardInterrupt:
         pass

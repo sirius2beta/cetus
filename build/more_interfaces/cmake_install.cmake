@@ -368,7 +368,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/more_interfaces/msg" TYPE FILE FILES "/home/sirius2beta/cetus/build/more_interfaces/rosidl_adapter/more_interfaces/msg/AquaValue.idl")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/more_interfaces/msg" TYPE FILE FILES "/home/sirius2beta/cetus/build/more_interfaces/rosidl_adapter/more_interfaces/msg/AquaValues.idl")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -376,7 +376,15 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/more_interfaces/msg" TYPE FILE FILES "/home/sirius2beta/cetus/build/more_interfaces/rosidl_adapter/more_interfaces/msg/ArdusimpleValue.idl")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/more_interfaces/msg" TYPE FILE FILES "/home/sirius2beta/cetus/build/more_interfaces/rosidl_adapter/more_interfaces/msg/ArdusimpleValues.idl")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/more_interfaces/msg" TYPE FILE FILES "/home/sirius2beta/cetus/build/more_interfaces/rosidl_adapter/more_interfaces/msg/KBestValues.idl")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/more_interfaces/msg" TYPE FILE FILES "/home/sirius2beta/cetus/build/more_interfaces/rosidl_adapter/more_interfaces/msg/SupertairaValues.idl")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -396,7 +404,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/more_interfaces/msg" TYPE FILE FILES "/home/sirius2beta/cetus/src/more_interfaces/msg/AquaValue.msg")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/more_interfaces/msg" TYPE FILE FILES "/home/sirius2beta/cetus/src/more_interfaces/msg/AquaValues.msg")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -404,7 +412,15 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/more_interfaces/msg" TYPE FILE FILES "/home/sirius2beta/cetus/src/more_interfaces/msg/ArdusimpleValue.msg")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/more_interfaces/msg" TYPE FILE FILES "/home/sirius2beta/cetus/src/more_interfaces/msg/ArdusimpleValues.msg")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/more_interfaces/msg" TYPE FILE FILES "/home/sirius2beta/cetus/src/more_interfaces/msg/KBestValues.msg")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/more_interfaces/msg" TYPE FILE FILES "/home/sirius2beta/cetus/src/more_interfaces/msg/SupertairaValues.msg")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)

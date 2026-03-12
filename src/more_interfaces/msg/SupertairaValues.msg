@@ -1,0 +1,2 @@
+int16 super_taira_strength
+int16 super_taira_error_byte

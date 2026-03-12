@@ -1,12 +1,13 @@
 import rclpy
 from rclpy.node import Node
-import gi
 import glob
 import logging
 import struct
 import subprocess
+import gi
 gi.require_version("Gst", "1.0")
 from gi.repository import Gst, GLib, GObject
+
 from video_manager.VideoManager import VideoManager
 from more_interfaces.msg import MavlinkPacket, MarinelinkPacket
 

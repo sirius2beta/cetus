@@ -26,9 +26,11 @@ set(msg_files
   "msg/MarinelinkPacket.msg" 
   "msg/MavlinkPacket.msg"
   "msg/MavlinkValues.msg"
-  "msg/AquaValue.msg"
+  "msg/AquaValues.msg"
   "msg/WinchStatus.msg"
-  "msg/ArdusimpleValue.msg"
+  "msg/ArdusimpleValues.msg"
+  "msg/KBestValues.msg"
+  "msg/SupertairaValues.msg"
   "srv/Videoformat.srv"
 
 )

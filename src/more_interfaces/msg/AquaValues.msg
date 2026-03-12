@@ -6,7 +6,7 @@ float32 level_surface_elevation
 float32 actual_conductivity
 float32 specific_conductivity
 float32 resistivity
-float32 saltinity
+float32 salinity
 float32 total_dissolved_solids
 float32 density_of_water
 float32 barometric_pressure
