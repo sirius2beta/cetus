@@ -4,22 +4,30 @@
 
 void RosInterface::run()
 {
-    auto executor = std::make_shared<rclcpp::executors::SingleThreadedExecutor>();
-
-    auto sub_worker = std::make_shared<SubscribeWorker>(
-        [this](uint8_t type, const std::vector<uint8_t> &payload)
-        {
+    // --- 1. 優先建立物件並賦值 (Critical Path) ---
+    auto pub = std::make_shared<PublishWorker>();
+    auto sub = std::make_shared<SubscribeWorker>(
+        [this](uint8_t type, const std::vector<uint8_t> &payload) {
             this->handleMavlinkAssembly(type, payload);
         });
-    auto pub_worker = std::make_shared<PublishWorker>();
-    executor->add_node(sub_worker);
-    executor->add_node(pub_worker);
-    sub_worker_ = sub_worker;
-    pub_worker_ = pub_worker;
 
-    pub_worker_->setTimerCallback([this]()
-                                  { this->publishMavlinkValues(); }, mavlinkMsgUpdateTimeout);
+    // 這裡的賦值必須在 executor 啟動和任何 Slot 被呼叫前完成
+    this->pub_worker_ = pub;
+    this->sub_worker_ = sub;
 
+    // --- 2. 配置功能 ---
+    pub_worker_->setTimerCallback([this]() { 
+        this->publishMavlinkValues(); 
+    }, mavlinkMsgUpdateTimeout);
+
+    // --- 3. 啟動 ROS 執行器 ---
+    auto executor = std::make_shared<rclcpp::executors::SingleThreadedExecutor>();
+    executor->add_node(sub_worker_);
+    executor->add_node(pub_worker_);
+
+    RCLCPP_INFO(rclcpp::get_logger("RosInterface"), "ROS Workers initialized.");
+
+    // spin() 會阻塞在這裡，直到 thread 被要求停止
     executor->spin();
 }
 
@@ -52,8 +60,12 @@ void RosInterface::onMavlinkToParse(LinkInterface *link, const mavlink_message_t
         switch (wrapper.topic)
         {
         case 1:
-            RCLCPP_INFO(rclcpp::get_logger("RosInterface"), "Publishing payload of length %d to topic 1", wrapper.length);
-            pub_worker_->publish_payload(msg);
+            RCLCPP_INFO(rclcpp::get_logger("RosInterface"), "Video control command (Topic 1)");
+            if (pub_worker_) {
+                pub_worker_->publish_payload(msg);
+            } else {
+                RCLCPP_ERROR(rclcpp::get_logger("RosInterface"), "pub_worker_ is null!");
+            }
             break;
         case 2:
             RCLCPP_INFO(rclcpp::get_logger("RosInterface"), "Videomanager play command (Topic 2)");

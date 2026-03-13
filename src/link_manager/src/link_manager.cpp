@@ -24,6 +24,7 @@ int main(int argc, char *argv[])
     QObject::connect(ros_interface, &RosInterface::mavlinkToSend, Bridge::instance(), &Bridge::onMavlinkToSend);
     ros_interface->start();
     int result = app.exec();
+    
     rclcpp::shutdown();
     return result;
 }

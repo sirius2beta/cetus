@@ -41,6 +41,7 @@ public:
         _timer = this->create_wall_timer(std::chrono::milliseconds(timeout_ms), timer_callback);
     }
     void publish_payload(const uint8_t* data, size_t length) {
+        RCLCPP_DEBUG(this->get_logger(), "Start Forwarded payload to ROS topic");
         auto msg = more_interfaces::msg::MarinelinkPacket();
         // 將原始資料填入 msg.payload (std::vector<uint8_t>)
         msg.payload.assign(data, data + length);
