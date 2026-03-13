@@ -307,8 +307,8 @@ class RS485Device(Device):
                 
                 if self.isSerialInit == True:
                     self.node.get_logger().info(f"RS485Device: [Winch] move step {step}")
-                    #self.setTargetStep(step)
-                    pass
+                    self.setTargetStep(step)
+                    
             elif command_type == 7: #stop
                 self.stopMotor()
                 self.node.get_logger().info("RS485Device: [Winch] stop")

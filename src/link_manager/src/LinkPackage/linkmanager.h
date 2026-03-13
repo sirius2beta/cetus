@@ -163,7 +163,7 @@ private:
     // Have to manually let the bootloader go by on Windows to get a working connect
     static constexpr int _autoconnectConnectDelayMSecs = 6000;
 #else
-    static constexpr int _autoconnectConnectDelayMSecs = 1000;
+    static constexpr int _autoconnectConnectDelayMSecs = 3000;
 #endif
 
 #ifndef QGC_NO_SERIAL_LINK

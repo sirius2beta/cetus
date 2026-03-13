@@ -77,10 +77,10 @@ class KBestReaderNode(Node):
             except:
                 self.rx_rate = -1
             msg = KBestValues()
-            msg.kbest_boat_rssi = self.local_rssi
-            msg.kbest_ground_rssi = self.remote_rssi
-            msg.tx_rate = self.tx_rate
-            msg.rx_rate = self.rx_rate
+            msg.kbest_boat_rssi = int(self.local_rssi) if self.local_rssi is not None else -1
+            msg.kbest_ground_rssi = int(self.remote_rssi) if self.remote_rssi is not None else -1
+            msg.tx_rate = int(self.tx_rate) if self.tx_rate is not None else -1
+            msg.rx_rate = int(self.rx_rate) if self.rx_rate is not None else -1
             self.kbest_values_publisher.publish(msg)
             time.sleep(1)
 

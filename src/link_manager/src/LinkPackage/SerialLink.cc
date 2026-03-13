@@ -383,6 +383,7 @@ void SerialWorker::_onPortErrorOccurred(QSerialPort::SerialPortError portError)
         qCDebug(SerialLinkLog) << "About to open port" << _port->portName();
         return;
     case QSerialPort::ResourceError:
+        
         // We get this when a usb cable is unplugged
         // Fallthrough
     case QSerialPort::PermissionError:
