@@ -1,4 +1,5 @@
 import time
+import os
 import serial
 import struct
 import logging
@@ -351,11 +352,20 @@ class RS485Device(Device):
             step = 0
             tension = 0
             status = 0
-            while True:
-                self.getStatus()
-                time.sleep(0.2)
+            try:
+                while True:
+                    self.getStatus()
+                    time.sleep(0.2)
+            except Exception as e:
+                self.node.get_logger().info(f"RS485Device: [Node2] IO loop exception: {e}")
+                self.node2Connected = False
+                os._exit(1) # 退出碼非 0 會讓 Launch
                 
     def reader(self): # read data from the device and store it in the data_list.
-        while True:
-            self.get_aqua_data()
-            time.sleep(1)
+        try:
+            while True:
+                self.get_aqua_data()
+                time.sleep(1)
+        except Exception as e:
+            self.node.get_logger().info(f"RS485Device: [Node2] Reader thread exception: {e}")
+            os._exit(1)

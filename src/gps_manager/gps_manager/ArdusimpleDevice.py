@@ -1,3 +1,4 @@
+import os
 import time
 import serial
 import threading
@@ -65,6 +66,7 @@ class ArduSimpleDevice(Device):
             self.ser = serial.Serial(port=self.dev_path, baudrate=115200, timeout=2)
         except Exception as e:
             node.get_logger().error(f"無法開啟串口 {self.dev_path}: {e}")
+            os._exit(1) # 退出碼非 0 會讓 Launch 知道這是不正常退出
             return
 
         threading.Thread(target = self.reader, daemon = True).start() # start the reader thread
@@ -103,6 +105,7 @@ class ArduSimpleDevice(Device):
                         self.speed = safe_float(msg.spd, 0.0)
         except Exception as e:
             self.node.get_logger().error(f"解析過程中斷: {e}")
+            os._exit(1)
         
     def log_data(self):
         while True: 

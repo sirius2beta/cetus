@@ -17,19 +17,24 @@ def generate_launch_description():
             package='video_manager',
             namespace='video_manager',
             executable='video_manager',
+            output='both',
+            respawn=True,
+            respawn_delay=2.0,
             name='video_manager'
         ),
         Node(
             package='log_manager',
             namespace='log_manager',
             executable='log_manager',
+            respawn=True,
+            respawn_delay=2.0,
             name='log_manager'
         ),
         Node(
             package='rs485_manager',
             namespace='rs485_manager',
             executable='rs485_manager',
-            name='rs485_manager',\
+            name='rs485_manager',
             respawn=True,
             respawn_delay=3.0,
         ),

@@ -1,0 +1,14 @@
+尋找裝置
+ls /sys/bus/usb/drivers/cdc_acm/
+#測試斷連
+echo "1-2.3:1.0" | sudo tee /sys/bus/usb/drivers/cdc_acm/unbind
+#重連
+echo "1-2.3:1.0" | sudo tee /sys/bus/usb/drivers/cdc_acm/bind
+
+echo "1-2.4.4:1.0" | sudo tee /sys/bus/usb/drivers/ch34x/unbind
+
+echo "1-2.4.4:1.0" | sudo tee /sys/bus/usb/drivers/ch34x/bind
+
+echo "1-2.4.2:1.2" | sudo tee /sys/bus/usb/drivers/cdc_acm/unbind
+
+echo "1-2.4.2:1.2" | sudo tee /sys/bus/usb/drivers/cdc_acm/bind
