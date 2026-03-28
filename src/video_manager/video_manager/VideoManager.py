@@ -2,6 +2,8 @@ import gi
 import glob
 import logging
 import subprocess
+import threading
+import re
 gi.require_version("Gst", "1.0")
 from gi.repository import Gst, GLib, GObject
 
@@ -40,7 +42,12 @@ class VideoManager():
 		self.portOccupied = {} # {port, videoNo}
 
 		GObject.threads_init()
+		
 		Gst.init(None)
+		self.loop = GLib.MainLoop()
+		self.loop_thread = threading.Thread(target=self.loop.run)
+		self.loop_thread.daemon = True  # 設為守護進程，主程式關閉時它會自動結束
+		self.loop_thread.start()
 		
 		print("[o] VideoManager: started")
 
@@ -191,7 +198,27 @@ class VideoManager():
 			return int(max(fps_list))  # 回傳最高 fps
 		return ""
 
+	def _on_message(self, bus, message, cam_name):
+		t = message.type
+		if t == Gst.MessageType.ERROR:
+			err, debug = message.parse_error()
+			print(f"攝影機 {cam_name} 發生錯誤: {err.message}")
+			
+			# 重要：當電壓不穩影像斷掉時，這裡會被觸發
+			self._stop_pipeline(cam_name)  # 先停止並釋放資源
+			self._handle_reconnect(cam_name) 
+			
+		elif t == Gst.MessageType.EOS:
+			print(f"攝影機 {cam_name} 串流結束")
+			self._stop_pipeline(cam_name)
 
+		return True # 保持監聽
+	def _handle_reconnect(self, cam):
+		"""處理斷線重連邏輯"""
+		print(f"嘗試重新啟動 {cam}...")
+		# 延遲 3 秒後重試，避免在硬體未就緒時狂刷
+		GLib.timeout_add(3000, self._start_pipeline, cam)
+	
 	# ---------------- Pipeline 管理 ---------------- #
 	def _create_pipeline(self, cam, gstring, port, encoder):
 		"""建立新的 pipeline，若已存在則先釋放"""
@@ -211,30 +238,43 @@ class VideoManager():
 		if cam not in self.pipelines:
 			return False
 		pipeline = self.pipelines[cam]["pipeline"]
+		bus = pipeline.get_bus()
+		bus.add_signal_watch()
+		loop = GLib.MainLoop()
+		bus.connect("message", self._on_message, cam)
 		pipeline.set_state(Gst.State.PLAYING)
+		ret = pipeline.set_state(Gst.State.PLAYING)
+		if ret == Gst.StateChangeReturn.FAILURE:
+			print(f"無法啟動 {cam}")
+			return False
+			
 		self.pipelines[cam]["state"] = True
 		return True
 
 	def _stop_pipeline(self, cam):
 		"""停止並釋放 pipeline，但保留 camera 格式資訊"""
-		if cam not in self.pipelines:
+		if cam not in self.pipelines or not self.pipelines[cam].get("pipeline"):
+			print(f"Camera {cam} 已經是停止狀態或不存在")
 			return
 
 		pipeline = self.pipelines[cam].get("pipeline")
-		if pipeline:
-			pipeline.set_state(Gst.State.NULL)
-			pipeline.get_state(Gst.CLOCK_TIME_NONE)  # 等待切換完成
-			self.pipelines[cam]["pipeline"] = None  # 清掉 pipeline，但保留格式
 
-		# 更新 pipeline 狀態
+		bus = pipeline.get_bus()
+		bus.remove_signal_watch()
+		pipeline.set_state(Gst.State.NULL)
+		pipeline.get_state(Gst.CLOCK_TIME_NONE)  # 等待切換完成
+		
+		res, state, pending = pipeline.get_state(1 * Gst.SECOND) 
+		if res == Gst.StateChangeReturn.FAILURE:
+			print(f"警告: {cam} 無法完全切換至 NULL 狀態")
+
+		self.pipelines[cam]["pipeline"] = None  # 清掉 pipeline，但保留格式
 		self.pipelines[cam]["state"] = False
 
 		# 釋放 portOccupied
 		ports_to_remove = [p for p, c in self.portOccupied.items() if c == cam]
 		for p in ports_to_remove:
 			self.portOccupied.pop(p, None)
-
-
 
 		print(f"_stop_pipeline: video{cam} stopped and cleaned")
 
@@ -288,7 +328,7 @@ class VideoManager():
 
 	def handleMsg(self, data, addr):
 		operation = int(data[0])
-		self.node.get_logger().info(f"handleMsg: operation={operation}, from {addr}")
+		self.node.get_logger().info(f"handleMsg: operation={operation}, from {addr}, length={len(data)}")
 		if operation == 0 and len(data) >= 9:
 			self.handleSetFormat(data, addr)
 		elif operation == 1:
@@ -296,14 +336,104 @@ class VideoManager():
 		elif operation == 2:
 			self.handleQuit(data, addr)
 		elif operation == 3:
-			self.handleControl(data, addr)
+			self.handleSetSeagrassCameraFormat(data, addr)
 		elif operation == 4:
 			self.handleDetect(data, addr)
 		elif operation == 5:
 			self.handleSeagrass(data, addr)
 		else:
 			logging.warning(f"Unknown operation: {operation}")
+	def handleSetSeagrassCameraFormat(self, data, addr):
+		if len(data) < 8:
+			self.node.get_logger().warning("handleSetSeagrassCameraFormat: insufficient data length")
+			return
+		videoNo = int(data[1])
+		formatIndex = int(data[2])
+		encoder = 'h264' if int(data[3]) == 0 else 'mjpeg'
+		port = int.from_bytes(data[4:8], 'little')
 
+		fmtMap = self.getFormatInfoByIndexMap()
+		if formatIndex not in fmtMap:
+			self.node.get_logger().warning(f"handleSetSeagrassCameraFormat: invalid formatIndex {formatIndex}")
+			return
+		width, height, fps = fmtMap[formatIndex]
+		if videoNo not in self.pipelines:
+			self.node.get_logger().warning(f"handleSetSeagrassCameraFormat: video{videoNo} not found")
+			return
+		cam_formats = self.pipelines[videoNo]["formats"]
+		fmtFound = next((f for f, w2, h2, f2 in cam_formats if w2 == width and h2 == height and f2 == fps), None)
+		if not fmtFound:
+			self.node.get_logger().warning(f"handleSetSeagrassCameraFormat: video{videoNo} does not support {width}x{height}@{fps}")
+			return
+		self.setSeagrassCamera(videoNo, fmtFound, width, height, fps, encoder, addr, port)
+	def setSeagrassCamera(self, cam, format, width, height, framerate, encoder, IP, port):
+		self.node.get_logger().info(f"set seagrass camera: {cam} {format} {width} {height} {framerate} {encoder} {IP} {port}")
+		MJPGfps = self.getMJPGFrameRate(cam, width, height)
+		if MJPGfps != "":
+			self.node.get_logger().info(f"MJPG fps for video{cam}: {MJPGfps}")
+			self.seagrass_cam_format = [cam, "MJPG", width, height, MJPGfps, IP, port]
+			self.node.get_logger().info(f"start ai on cam:{cam}")
+			self.seagrass_cam = cam
+			#self._toolBox.seagrassDetect.setFormat(self.seagrass_cam_format)
+		else:
+			self.node.get_logger().warning(f"video{cam} had no MJPG format")
+	def getMJPGFrameRate(self, cam, width=None, height=None):
+		"""
+		從系統抓出 cam 支援的 MJPG 格式最高 fps。
+		如果 width/height 提供，就限定解析度。
+		"""
+		
+		dev = f"/dev/video{cam}"
+		try:
+			output = subprocess.check_output(
+				["v4l2-ctl", "-d", dev, "--list-formats-ext"],
+				stderr=subprocess.DEVNULL,
+				text=True
+			)
+		except subprocess.CalledProcessError:
+			return ""
+
+		fmt = None
+		match_res = False
+		fps_list = []
+
+		for line in output.splitlines():
+			line = line.strip()
+
+			# --- 找格式 ---
+			if line.startswith("[") and "]" in line:
+				# e.g. [0]: 'YUYV' (YUYV 4:2:2)
+				parts = line.split("'")
+				fmt = parts[1] if len(parts) > 1 else None
+				continue
+
+			# --- 找尺寸 ---
+			if fmt == "MJPG" and line.startswith("Size: Discrete"):
+				# e.g. Size: Discrete 1280x720
+				toks = line.replace("Size: Discrete", "").strip().split("x")
+				if len(toks) == 2:
+					w, h = map(int, toks)
+					if (width is None or w == width) and (height is None or h == height):
+						match_res = True
+					else:
+						match_res = False
+				continue
+
+			# --- 找 fps ---
+			if match_res and line.startswith("Interval: Discrete"):
+				# e.g. Interval: Discrete 0.033s (30.000 fps)
+				m = re.search(r"\(([\d\.]+)\s*fps\)", line)
+				if m:
+					fps_list.append(float(m.group(1)))
+
+		if fps_list:
+			return int(max(fps_list))  # 回傳最高 fps
+		return ""
+
+	def handleQuit(self, data, addr):
+		videoNo = int(data[1])
+		self.stop(videoNo)
+		self.node.get_logger().info(f"handleQuit: Stopped video {videoNo}")
 
 	def handleSetFormat(self, data, addr):
 		"""

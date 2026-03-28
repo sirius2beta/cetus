@@ -67,7 +67,7 @@ void RosInterface::onMavlinkToParse(LinkInterface *link, const mavlink_message_t
                 RCLCPP_ERROR(rclcpp::get_logger("RosInterface"), "pub_worker_ is null!");
             }
             break;
-        case 2:
+        case 2: //未來video command整合
             RCLCPP_INFO(rclcpp::get_logger("RosInterface"), "Videomanager play command (Topic 2)");
             pub_worker_->publish_payload(msg);
             break;
