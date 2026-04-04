@@ -77,6 +77,7 @@ more_interfaces__py/CMakeFiles/more_interfaces__py: rosidl_generator_py/more_int
 more_interfaces__py/CMakeFiles/more_interfaces__py: rosidl_generator_py/more_interfaces/msg/_ardusimple_values.py
 more_interfaces__py/CMakeFiles/more_interfaces__py: rosidl_generator_py/more_interfaces/msg/_k_best_values.py
 more_interfaces__py/CMakeFiles/more_interfaces__py: rosidl_generator_py/more_interfaces/msg/_supertaira_values.py
+more_interfaces__py/CMakeFiles/more_interfaces__py: rosidl_generator_py/more_interfaces/msg/_video_format.py
 more_interfaces__py/CMakeFiles/more_interfaces__py: rosidl_generator_py/more_interfaces/srv/_videoformat.py
 more_interfaces__py/CMakeFiles/more_interfaces__py: rosidl_generator_py/more_interfaces/msg/__init__.py
 more_interfaces__py/CMakeFiles/more_interfaces__py: rosidl_generator_py/more_interfaces/srv/__init__.py
@@ -88,6 +89,7 @@ more_interfaces__py/CMakeFiles/more_interfaces__py: rosidl_generator_py/more_int
 more_interfaces__py/CMakeFiles/more_interfaces__py: rosidl_generator_py/more_interfaces/msg/_ardusimple_values_s.c
 more_interfaces__py/CMakeFiles/more_interfaces__py: rosidl_generator_py/more_interfaces/msg/_k_best_values_s.c
 more_interfaces__py/CMakeFiles/more_interfaces__py: rosidl_generator_py/more_interfaces/msg/_supertaira_values_s.c
+more_interfaces__py/CMakeFiles/more_interfaces__py: rosidl_generator_py/more_interfaces/msg/_video_format_s.c
 more_interfaces__py/CMakeFiles/more_interfaces__py: rosidl_generator_py/more_interfaces/srv/_videoformat_s.c
 
 rosidl_generator_py/more_interfaces/_more_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c: /opt/ros/humble/lib/rosidl_generator_py/rosidl_generator_py
@@ -111,6 +113,7 @@ rosidl_generator_py/more_interfaces/_more_interfaces_s.ep.rosidl_typesupport_fas
 rosidl_generator_py/more_interfaces/_more_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/more_interfaces/msg/ArdusimpleValues.idl
 rosidl_generator_py/more_interfaces/_more_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/more_interfaces/msg/KBestValues.idl
 rosidl_generator_py/more_interfaces/_more_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/more_interfaces/msg/SupertairaValues.idl
+rosidl_generator_py/more_interfaces/_more_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/more_interfaces/msg/VideoFormat.idl
 rosidl_generator_py/more_interfaces/_more_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/more_interfaces/srv/Videoformat.idl
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sirius2beta/cetus/build/more_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python code for ROS interfaces"
 	cd /home/sirius2beta/cetus/build/more_interfaces/more_interfaces__py && /usr/bin/python3 /opt/ros/humble/share/rosidl_generator_py/cmake/../../../lib/rosidl_generator_py/rosidl_generator_py --generator-arguments-file /home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_py__arguments.json --typesupport-impls "rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c;rosidl_typesupport_c"
@@ -145,6 +148,9 @@ rosidl_generator_py/more_interfaces/msg/_k_best_values.py: rosidl_generator_py/m
 rosidl_generator_py/more_interfaces/msg/_supertaira_values.py: rosidl_generator_py/more_interfaces/_more_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/more_interfaces/msg/_supertaira_values.py
 
+rosidl_generator_py/more_interfaces/msg/_video_format.py: rosidl_generator_py/more_interfaces/_more_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/more_interfaces/msg/_video_format.py
+
 rosidl_generator_py/more_interfaces/srv/_videoformat.py: rosidl_generator_py/more_interfaces/_more_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/more_interfaces/srv/_videoformat.py
 
@@ -178,6 +184,9 @@ rosidl_generator_py/more_interfaces/msg/_k_best_values_s.c: rosidl_generator_py/
 rosidl_generator_py/more_interfaces/msg/_supertaira_values_s.c: rosidl_generator_py/more_interfaces/_more_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/more_interfaces/msg/_supertaira_values_s.c
 
+rosidl_generator_py/more_interfaces/msg/_video_format_s.c: rosidl_generator_py/more_interfaces/_more_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/more_interfaces/msg/_video_format_s.c
+
 rosidl_generator_py/more_interfaces/srv/_videoformat_s.c: rosidl_generator_py/more_interfaces/_more_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/more_interfaces/srv/_videoformat_s.c
 
@@ -200,6 +209,8 @@ more_interfaces__py: rosidl_generator_py/more_interfaces/msg/_mavlink_values.py
 more_interfaces__py: rosidl_generator_py/more_interfaces/msg/_mavlink_values_s.c
 more_interfaces__py: rosidl_generator_py/more_interfaces/msg/_supertaira_values.py
 more_interfaces__py: rosidl_generator_py/more_interfaces/msg/_supertaira_values_s.c
+more_interfaces__py: rosidl_generator_py/more_interfaces/msg/_video_format.py
+more_interfaces__py: rosidl_generator_py/more_interfaces/msg/_video_format_s.c
 more_interfaces__py: rosidl_generator_py/more_interfaces/msg/_winch_status.py
 more_interfaces__py: rosidl_generator_py/more_interfaces/msg/_winch_status_s.c
 more_interfaces__py: rosidl_generator_py/more_interfaces/srv/__init__.py

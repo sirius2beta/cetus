@@ -9,6 +9,7 @@ from gi.repository import Gst, GLib, GObject
 
 
 import video_manager.VideoFormat as VideoFormat
+from more_interfaces.msg import VideoFormat as VideoFormatMsg
 
 def getOS():
 	try:
@@ -33,16 +34,17 @@ class VideoManager():
 		self.pipelines = {}  # { cam: {"pipeline": Gst.Pipeline, "state": bool, "port": int, "encoder": str} }
 		self.camera_format = []
 		self.videoFormatList = {}
-		self.videoWithYUYV = []
 		self.portOccupied = {}  # {port: cam}
-		
+		self.ai_cam = -1
+		self.seagrass_cam = -1
+		self.seagrass_cam_format = None
+			
+
 
 		self.get_video_format_generic()
 
 		self.portOccupied = {} # {port, videoNo}
-
 		GObject.threads_init()
-		
 		Gst.init(None)
 		self.loop = GLib.MainLoop()
 		self.loop_thread = threading.Thread(target=self.loop.run)
@@ -71,14 +73,14 @@ class VideoManager():
 	#get video format from existing camera devices
 	def get_video_format_generic(self):
 		"""掃描 /dev/video*，只保留 MJPEG>YUYV，h264 不加入"""
-		devices = sorted(glob.glob("/dev/video*"))
+		devices = sorted(glob.glob("/dev/cetusvideo*"))
 		if not devices:
 			print("[x] no video devices found")
 			return
 
 		for dev in devices:
 			try:
-				cam = int(dev.replace("/dev/video", ""))
+				cam = int(dev.replace("/dev/cetusvideo", ""))
 			except ValueError:
 				continue
 
@@ -108,7 +110,7 @@ class VideoManager():
 						fps = 30
 						key = (w, h, fps)
 						all_formats.append((fmt, w, h, fps	))
-			print(f"video{cam} formats: {all_formats}")
+			print(f"cetusvideo{cam} formats: {all_formats}")
 			self.pipelines[cam]["formats"] = all_formats
 	def get_videoFormatList_legacy(self):
 		"""
@@ -151,7 +153,7 @@ class VideoManager():
 		如果 width/height 提供，就限定解析度。
 		"""
 		import re, subprocess
-		dev = f"/dev/video{cam}"
+		dev = f"/dev/cetusvideo{cam}"
 		try:
 			output = subprocess.check_output(
 				["v4l2-ctl", "-d", dev, "--list-formats-ext"],
@@ -310,7 +312,10 @@ class VideoManager():
 			videoToStop = self.portOccupied[port]
 			self._stop_pipeline(videoToStop)
 			print(f"  -quit occupied: video{videoToStop}")
-
+		if cam == self.seagrass_cam:
+			self.node.seagrassCommandPublisher.publish(String(data="start"))
+			self.node.get_logger().info(f"Start seagrass AI on cam:{cam}")
+			self.portOccupied[port] = cam
 		# 一般播放
 		pipeline = self._create_pipeline(cam, gstring, port, encoder)
 		self._start_pipeline(cam)
@@ -366,6 +371,7 @@ class VideoManager():
 			self.node.get_logger().warning(f"handleSetSeagrassCameraFormat: video{videoNo} does not support {width}x{height}@{fps}")
 			return
 		self.setSeagrassCamera(videoNo, fmtFound, width, height, fps, encoder, addr, port)
+	
 	def setSeagrassCamera(self, cam, format, width, height, framerate, encoder, IP, port):
 		self.node.get_logger().info(f"set seagrass camera: {cam} {format} {width} {height} {framerate} {encoder} {IP} {port}")
 		MJPGfps = self.getMJPGFrameRate(cam, width, height)
@@ -374,16 +380,27 @@ class VideoManager():
 			self.seagrass_cam_format = [cam, "MJPG", width, height, MJPGfps, IP, port]
 			self.node.get_logger().info(f"start ai on cam:{cam}")
 			self.seagrass_cam = cam
+			videoFormatMsg = VideoFormatMsg()
+			videoFormatMsg.videono = cam
+			videoFormatMsg.format = "MJPG"
+			videoFormatMsg.width = width
+			videoFormatMsg.height = height
+			videoFormatMsg.framerate = MJPGfps
+			videoFormatMsg.encoder = encoder
+			videoFormatMsg.ip = IP
+			self.node.seagrassVideoformatPublisher.publish(videoFormatMsg)
 			#self._toolBox.seagrassDetect.setFormat(self.seagrass_cam_format)
+
 		else:
 			self.node.get_logger().warning(f"video{cam} had no MJPG format")
+	
 	def getMJPGFrameRate(self, cam, width=None, height=None):
 		"""
 		從系統抓出 cam 支援的 MJPG 格式最高 fps。
 		如果 width/height 提供，就限定解析度。
 		"""
 		
-		dev = f"/dev/video{cam}"
+		dev = f"/dev/cetusvideo{cam}"
 		try:
 			output = subprocess.check_output(
 				["v4l2-ctl", "-d", dev, "--list-formats-ext"],

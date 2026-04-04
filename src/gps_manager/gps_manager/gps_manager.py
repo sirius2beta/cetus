@@ -9,7 +9,7 @@ class GPSManagerNode(Node):
     def __init__(self):
         super().__init__('gps_manager')
         self.ardusimple_value_publisher_ = self.create_publisher(ArdusimpleValues, '/sensor/ardusimple_values', 10)
-        self.ardu_simple_device = ArduSimpleDevice(None, "/dev/sensors/gps_data", self)
+        self.ardu_simple_device = ArduSimpleDevice(None, "/dev/sensors/gps_config", self)
         
 
 def main(args=None):

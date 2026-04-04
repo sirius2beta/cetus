@@ -9,7 +9,8 @@ gi.require_version("Gst", "1.0")
 from gi.repository import Gst, GLib, GObject
 
 from video_manager.VideoManager import VideoManager
-from more_interfaces.msg import MavlinkPacket, MarinelinkPacket
+from more_interfaces.msg import MavlinkPacket, MarinelinkPacket, VideoFormat
+from std_msgs.msg import String
 
 class VideoControl(Node):
     def __init__(self):
@@ -17,6 +18,8 @@ class VideoControl(Node):
         
         self.subscriber_ = self.create_subscription(MarinelinkPacket, '/control/video', self.marinelink_callback, 10)
         self.publisher_ = self.create_publisher(MarinelinkPacket, '/marinelink_tosend', 10)
+        self.seagrassVideoFormatPublisher = self.create_publisher(VideoFormat, '/control/seagrass/videoformat', 10)
+        self.seagrassCommandPublisher = self.create_publisher(String, '/control/seagrass/command', 10)
         self.videoManager = VideoManager(self)
         
 

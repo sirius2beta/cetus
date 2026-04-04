@@ -19,13 +19,15 @@ import multiprocessing
 import threading
 import logging
 
+from more_interfaces.msg import VideoFormat
+from std_msgs.msg import String
+
 class SeagrassDetectNode(Node):
     def __init__(self, ):
         super().__init__('seagrass_detect')
         self.seagrassDetect = SeagrassDetect()
         self.seagrassDetect.startLoop()
-
-        
+        self.subscriber = self.create_subscription(VideoFormat, '/control/seagrass/videoformat', self.video_format_callback, 10)
 
 def main(args=None):
     rclpy.init(args=args)

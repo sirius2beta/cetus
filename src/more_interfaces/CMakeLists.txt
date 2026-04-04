@@ -31,6 +31,7 @@ set(msg_files
   "msg/ArdusimpleValues.msg"
   "msg/KBestValues.msg"
   "msg/SupertairaValues.msg"
+  "msg/VideoFormat.msg"
   "srv/Videoformat.srv"
 
 )

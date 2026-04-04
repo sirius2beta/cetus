@@ -1,0 +1,8 @@
+# 轉發設定網站
+sudo apt install socat
+sudo socat TCP4-LISTEN:8080,fork,reuseaddr TCP4:192.168.3.1:80
+開啟網頁 100.127.136.93:8080
+
+# 監測輸出
+sudo screen /dev/ttyACM2 115200
+ctrl+A -> K -> y 退出

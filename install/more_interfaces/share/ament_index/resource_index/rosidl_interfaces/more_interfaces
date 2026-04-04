@@ -12,6 +12,8 @@ msg/MavlinkValues.idl
 msg/MavlinkValues.msg
 msg/SupertairaValues.idl
 msg/SupertairaValues.msg
+msg/VideoFormat.idl
+msg/VideoFormat.msg
 msg/WinchStatus.idl
 msg/WinchStatus.msg
 srv/Videoformat.idl

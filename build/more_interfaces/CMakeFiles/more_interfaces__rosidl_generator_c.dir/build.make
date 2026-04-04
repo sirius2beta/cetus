@@ -90,6 +90,7 @@ rosidl_generator_c/more_interfaces/msg/marinelink_packet.h: rosidl_adapter/more_
 rosidl_generator_c/more_interfaces/msg/marinelink_packet.h: rosidl_adapter/more_interfaces/msg/ArdusimpleValues.idl
 rosidl_generator_c/more_interfaces/msg/marinelink_packet.h: rosidl_adapter/more_interfaces/msg/KBestValues.idl
 rosidl_generator_c/more_interfaces/msg/marinelink_packet.h: rosidl_adapter/more_interfaces/msg/SupertairaValues.idl
+rosidl_generator_c/more_interfaces/msg/marinelink_packet.h: rosidl_adapter/more_interfaces/msg/VideoFormat.idl
 rosidl_generator_c/more_interfaces/msg/marinelink_packet.h: rosidl_adapter/more_interfaces/srv/Videoformat.idl
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sirius2beta/cetus/build/more_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C code for ROS interfaces"
 	/usr/bin/python3 /opt/ros/humble/share/rosidl_generator_c/cmake/../../../lib/rosidl_generator_c/rosidl_generator_c --generator-arguments-file /home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_c__arguments.json
@@ -187,6 +188,18 @@ rosidl_generator_c/more_interfaces/msg/detail/supertaira_values__struct.h: rosid
 rosidl_generator_c/more_interfaces/msg/detail/supertaira_values__type_support.h: rosidl_generator_c/more_interfaces/msg/marinelink_packet.h
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/more_interfaces/msg/detail/supertaira_values__type_support.h
 
+rosidl_generator_c/more_interfaces/msg/video_format.h: rosidl_generator_c/more_interfaces/msg/marinelink_packet.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/more_interfaces/msg/video_format.h
+
+rosidl_generator_c/more_interfaces/msg/detail/video_format__functions.h: rosidl_generator_c/more_interfaces/msg/marinelink_packet.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/more_interfaces/msg/detail/video_format__functions.h
+
+rosidl_generator_c/more_interfaces/msg/detail/video_format__struct.h: rosidl_generator_c/more_interfaces/msg/marinelink_packet.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/more_interfaces/msg/detail/video_format__struct.h
+
+rosidl_generator_c/more_interfaces/msg/detail/video_format__type_support.h: rosidl_generator_c/more_interfaces/msg/marinelink_packet.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/more_interfaces/msg/detail/video_format__type_support.h
+
 rosidl_generator_c/more_interfaces/srv/videoformat.h: rosidl_generator_c/more_interfaces/msg/marinelink_packet.h
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/more_interfaces/srv/videoformat.h
 
@@ -222,6 +235,9 @@ rosidl_generator_c/more_interfaces/msg/detail/k_best_values__functions.c: rosidl
 
 rosidl_generator_c/more_interfaces/msg/detail/supertaira_values__functions.c: rosidl_generator_c/more_interfaces/msg/marinelink_packet.h
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/more_interfaces/msg/detail/supertaira_values__functions.c
+
+rosidl_generator_c/more_interfaces/msg/detail/video_format__functions.c: rosidl_generator_c/more_interfaces/msg/marinelink_packet.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/more_interfaces/msg/detail/video_format__functions.c
 
 rosidl_generator_c/more_interfaces/srv/detail/videoformat__functions.c: rosidl_generator_c/more_interfaces/msg/marinelink_packet.h
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/more_interfaces/srv/detail/videoformat__functions.c
@@ -338,10 +354,24 @@ CMakeFiles/more_interfaces__rosidl_generator_c.dir/rosidl_generator_c/more_inter
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/more_interfaces__rosidl_generator_c.dir/rosidl_generator_c/more_interfaces/msg/detail/supertaira_values__functions.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_c/more_interfaces/msg/detail/supertaira_values__functions.c -o CMakeFiles/more_interfaces__rosidl_generator_c.dir/rosidl_generator_c/more_interfaces/msg/detail/supertaira_values__functions.c.s
 
+CMakeFiles/more_interfaces__rosidl_generator_c.dir/rosidl_generator_c/more_interfaces/msg/detail/video_format__functions.c.o: CMakeFiles/more_interfaces__rosidl_generator_c.dir/flags.make
+CMakeFiles/more_interfaces__rosidl_generator_c.dir/rosidl_generator_c/more_interfaces/msg/detail/video_format__functions.c.o: rosidl_generator_c/more_interfaces/msg/detail/video_format__functions.c
+CMakeFiles/more_interfaces__rosidl_generator_c.dir/rosidl_generator_c/more_interfaces/msg/detail/video_format__functions.c.o: CMakeFiles/more_interfaces__rosidl_generator_c.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sirius2beta/cetus/build/more_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/more_interfaces__rosidl_generator_c.dir/rosidl_generator_c/more_interfaces/msg/detail/video_format__functions.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/more_interfaces__rosidl_generator_c.dir/rosidl_generator_c/more_interfaces/msg/detail/video_format__functions.c.o -MF CMakeFiles/more_interfaces__rosidl_generator_c.dir/rosidl_generator_c/more_interfaces/msg/detail/video_format__functions.c.o.d -o CMakeFiles/more_interfaces__rosidl_generator_c.dir/rosidl_generator_c/more_interfaces/msg/detail/video_format__functions.c.o -c /home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_c/more_interfaces/msg/detail/video_format__functions.c
+
+CMakeFiles/more_interfaces__rosidl_generator_c.dir/rosidl_generator_c/more_interfaces/msg/detail/video_format__functions.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/more_interfaces__rosidl_generator_c.dir/rosidl_generator_c/more_interfaces/msg/detail/video_format__functions.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_c/more_interfaces/msg/detail/video_format__functions.c > CMakeFiles/more_interfaces__rosidl_generator_c.dir/rosidl_generator_c/more_interfaces/msg/detail/video_format__functions.c.i
+
+CMakeFiles/more_interfaces__rosidl_generator_c.dir/rosidl_generator_c/more_interfaces/msg/detail/video_format__functions.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/more_interfaces__rosidl_generator_c.dir/rosidl_generator_c/more_interfaces/msg/detail/video_format__functions.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_c/more_interfaces/msg/detail/video_format__functions.c -o CMakeFiles/more_interfaces__rosidl_generator_c.dir/rosidl_generator_c/more_interfaces/msg/detail/video_format__functions.c.s
+
 CMakeFiles/more_interfaces__rosidl_generator_c.dir/rosidl_generator_c/more_interfaces/srv/detail/videoformat__functions.c.o: CMakeFiles/more_interfaces__rosidl_generator_c.dir/flags.make
 CMakeFiles/more_interfaces__rosidl_generator_c.dir/rosidl_generator_c/more_interfaces/srv/detail/videoformat__functions.c.o: rosidl_generator_c/more_interfaces/srv/detail/videoformat__functions.c
 CMakeFiles/more_interfaces__rosidl_generator_c.dir/rosidl_generator_c/more_interfaces/srv/detail/videoformat__functions.c.o: CMakeFiles/more_interfaces__rosidl_generator_c.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sirius2beta/cetus/build/more_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/more_interfaces__rosidl_generator_c.dir/rosidl_generator_c/more_interfaces/srv/detail/videoformat__functions.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sirius2beta/cetus/build/more_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/more_interfaces__rosidl_generator_c.dir/rosidl_generator_c/more_interfaces/srv/detail/videoformat__functions.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/more_interfaces__rosidl_generator_c.dir/rosidl_generator_c/more_interfaces/srv/detail/videoformat__functions.c.o -MF CMakeFiles/more_interfaces__rosidl_generator_c.dir/rosidl_generator_c/more_interfaces/srv/detail/videoformat__functions.c.o.d -o CMakeFiles/more_interfaces__rosidl_generator_c.dir/rosidl_generator_c/more_interfaces/srv/detail/videoformat__functions.c.o -c /home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_c/more_interfaces/srv/detail/videoformat__functions.c
 
 CMakeFiles/more_interfaces__rosidl_generator_c.dir/rosidl_generator_c/more_interfaces/srv/detail/videoformat__functions.c.i: cmake_force
@@ -362,6 +392,7 @@ more_interfaces__rosidl_generator_c_OBJECTS = \
 "CMakeFiles/more_interfaces__rosidl_generator_c.dir/rosidl_generator_c/more_interfaces/msg/detail/ardusimple_values__functions.c.o" \
 "CMakeFiles/more_interfaces__rosidl_generator_c.dir/rosidl_generator_c/more_interfaces/msg/detail/k_best_values__functions.c.o" \
 "CMakeFiles/more_interfaces__rosidl_generator_c.dir/rosidl_generator_c/more_interfaces/msg/detail/supertaira_values__functions.c.o" \
+"CMakeFiles/more_interfaces__rosidl_generator_c.dir/rosidl_generator_c/more_interfaces/msg/detail/video_format__functions.c.o" \
 "CMakeFiles/more_interfaces__rosidl_generator_c.dir/rosidl_generator_c/more_interfaces/srv/detail/videoformat__functions.c.o"
 
 # External object files for target more_interfaces__rosidl_generator_c
@@ -375,12 +406,13 @@ libmore_interfaces__rosidl_generator_c.so: CMakeFiles/more_interfaces__rosidl_ge
 libmore_interfaces__rosidl_generator_c.so: CMakeFiles/more_interfaces__rosidl_generator_c.dir/rosidl_generator_c/more_interfaces/msg/detail/ardusimple_values__functions.c.o
 libmore_interfaces__rosidl_generator_c.so: CMakeFiles/more_interfaces__rosidl_generator_c.dir/rosidl_generator_c/more_interfaces/msg/detail/k_best_values__functions.c.o
 libmore_interfaces__rosidl_generator_c.so: CMakeFiles/more_interfaces__rosidl_generator_c.dir/rosidl_generator_c/more_interfaces/msg/detail/supertaira_values__functions.c.o
+libmore_interfaces__rosidl_generator_c.so: CMakeFiles/more_interfaces__rosidl_generator_c.dir/rosidl_generator_c/more_interfaces/msg/detail/video_format__functions.c.o
 libmore_interfaces__rosidl_generator_c.so: CMakeFiles/more_interfaces__rosidl_generator_c.dir/rosidl_generator_c/more_interfaces/srv/detail/videoformat__functions.c.o
 libmore_interfaces__rosidl_generator_c.so: CMakeFiles/more_interfaces__rosidl_generator_c.dir/build.make
 libmore_interfaces__rosidl_generator_c.so: /opt/ros/humble/lib/librosidl_runtime_c.so
 libmore_interfaces__rosidl_generator_c.so: /opt/ros/humble/lib/librcutils.so
 libmore_interfaces__rosidl_generator_c.so: CMakeFiles/more_interfaces__rosidl_generator_c.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/sirius2beta/cetus/build/more_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking C shared library libmore_interfaces__rosidl_generator_c.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/sirius2beta/cetus/build/more_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking C shared library libmore_interfaces__rosidl_generator_c.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/more_interfaces__rosidl_generator_c.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -421,6 +453,10 @@ CMakeFiles/more_interfaces__rosidl_generator_c.dir/depend: rosidl_generator_c/mo
 CMakeFiles/more_interfaces__rosidl_generator_c.dir/depend: rosidl_generator_c/more_interfaces/msg/detail/supertaira_values__functions.h
 CMakeFiles/more_interfaces__rosidl_generator_c.dir/depend: rosidl_generator_c/more_interfaces/msg/detail/supertaira_values__struct.h
 CMakeFiles/more_interfaces__rosidl_generator_c.dir/depend: rosidl_generator_c/more_interfaces/msg/detail/supertaira_values__type_support.h
+CMakeFiles/more_interfaces__rosidl_generator_c.dir/depend: rosidl_generator_c/more_interfaces/msg/detail/video_format__functions.c
+CMakeFiles/more_interfaces__rosidl_generator_c.dir/depend: rosidl_generator_c/more_interfaces/msg/detail/video_format__functions.h
+CMakeFiles/more_interfaces__rosidl_generator_c.dir/depend: rosidl_generator_c/more_interfaces/msg/detail/video_format__struct.h
+CMakeFiles/more_interfaces__rosidl_generator_c.dir/depend: rosidl_generator_c/more_interfaces/msg/detail/video_format__type_support.h
 CMakeFiles/more_interfaces__rosidl_generator_c.dir/depend: rosidl_generator_c/more_interfaces/msg/detail/winch_status__functions.c
 CMakeFiles/more_interfaces__rosidl_generator_c.dir/depend: rosidl_generator_c/more_interfaces/msg/detail/winch_status__functions.h
 CMakeFiles/more_interfaces__rosidl_generator_c.dir/depend: rosidl_generator_c/more_interfaces/msg/detail/winch_status__struct.h
@@ -430,6 +466,7 @@ CMakeFiles/more_interfaces__rosidl_generator_c.dir/depend: rosidl_generator_c/mo
 CMakeFiles/more_interfaces__rosidl_generator_c.dir/depend: rosidl_generator_c/more_interfaces/msg/mavlink_packet.h
 CMakeFiles/more_interfaces__rosidl_generator_c.dir/depend: rosidl_generator_c/more_interfaces/msg/mavlink_values.h
 CMakeFiles/more_interfaces__rosidl_generator_c.dir/depend: rosidl_generator_c/more_interfaces/msg/supertaira_values.h
+CMakeFiles/more_interfaces__rosidl_generator_c.dir/depend: rosidl_generator_c/more_interfaces/msg/video_format.h
 CMakeFiles/more_interfaces__rosidl_generator_c.dir/depend: rosidl_generator_c/more_interfaces/msg/winch_status.h
 CMakeFiles/more_interfaces__rosidl_generator_c.dir/depend: rosidl_generator_c/more_interfaces/srv/detail/videoformat__functions.c
 CMakeFiles/more_interfaces__rosidl_generator_c.dir/depend: rosidl_generator_c/more_interfaces/srv/detail/videoformat__functions.h

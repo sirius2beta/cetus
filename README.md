@@ -61,6 +61,14 @@ SUBSYSTEM=="tty", ATTRS{idVendor}=="152a", ATTRS{idProduct}=="85c0", ENV{ID_USB_
 
 sudo udevadm control --reload-rules && sudo udevadm trigger
 
+sudo nano /etc/udev/rules.d/99-usb-webcam.rules
+
+KERNEL=="video*", KERNELS=="1-2.1:1.0", ATTR{index}=="0", SYMLINK+="cetus_underwater_cam", MODE="0666"
+
+KERNEL=="video*", KERNELS=="1-2.2:1.0", ATTR{index}=="0", SYMLINK+="cetus_front_cam", MODE="0666"
+
+
+
 sudo apt install ros-humble-septentrio-gnss-driver
 
 ros2 run septentrio_gnss_driver septentrio_gnss_driver_node --ros-args -p device:=serial:/dev/sensors/gps_data -p baudrate:=115200

@@ -228,6 +228,9 @@ CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_gene
  /home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_c/more_interfaces/msg/detail/supertaira_values__type_support.h \
  /home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_c/more_interfaces/msg/detail/supertaira_values__struct.h \
  /home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_c/more_interfaces/msg/detail/supertaira_values__functions.h \
+ /home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_c/more_interfaces/msg/detail/video_format__type_support.h \
+ /home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_c/more_interfaces/msg/detail/video_format__struct.h \
+ /home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_c/more_interfaces/msg/detail/video_format__functions.h \
  /home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_c/more_interfaces/srv/detail/videoformat__type_support.h \
  /home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_c/more_interfaces/srv/detail/videoformat__struct.h \
  /home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_c/more_interfaces/srv/detail/videoformat__functions.h

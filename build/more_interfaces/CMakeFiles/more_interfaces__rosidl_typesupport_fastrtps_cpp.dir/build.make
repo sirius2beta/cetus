@@ -85,6 +85,7 @@ rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/marineli
 rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/marinelink_packet__type_support.cpp: rosidl_adapter/more_interfaces/msg/ArdusimpleValues.idl
 rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/marinelink_packet__type_support.cpp: rosidl_adapter/more_interfaces/msg/KBestValues.idl
 rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/marinelink_packet__type_support.cpp: rosidl_adapter/more_interfaces/msg/SupertairaValues.idl
+rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/marinelink_packet__type_support.cpp: rosidl_adapter/more_interfaces/msg/VideoFormat.idl
 rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/marinelink_packet__type_support.cpp: rosidl_adapter/more_interfaces/srv/Videoformat.idl
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sirius2beta/cetus/build/more_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ type support for eProsima Fast-RTPS"
 	/usr/bin/python3 /opt/ros/humble/lib/rosidl_typesupport_fastrtps_cpp/rosidl_typesupport_fastrtps_cpp --generator-arguments-file /home/sirius2beta/cetus/build/more_interfaces/rosidl_typesupport_fastrtps_cpp__arguments.json
@@ -133,6 +134,12 @@ rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/supertai
 
 rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/supertaira_values__rosidl_typesupport_fastrtps_cpp.hpp: rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/marinelink_packet__type_support.cpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/supertaira_values__rosidl_typesupport_fastrtps_cpp.hpp
+
+rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/video_format__type_support.cpp: rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/marinelink_packet__type_support.cpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/video_format__type_support.cpp
+
+rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/video_format__rosidl_typesupport_fastrtps_cpp.hpp: rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/marinelink_packet__type_support.cpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/video_format__rosidl_typesupport_fastrtps_cpp.hpp
 
 rosidl_typesupport_fastrtps_cpp/more_interfaces/srv/detail/dds_fastrtps/videoformat__type_support.cpp: rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/marinelink_packet__type_support.cpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_fastrtps_cpp/more_interfaces/srv/detail/dds_fastrtps/videoformat__type_support.cpp
@@ -252,10 +259,24 @@ CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesuppo
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/supertaira_values__type_support.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sirius2beta/cetus/build/more_interfaces/rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/supertaira_values__type_support.cpp -o CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/supertaira_values__type_support.cpp.s
 
+CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/video_format__type_support.cpp.o: CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/flags.make
+CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/video_format__type_support.cpp.o: rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/video_format__type_support.cpp
+CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/video_format__type_support.cpp.o: CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sirius2beta/cetus/build/more_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/video_format__type_support.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/video_format__type_support.cpp.o -MF CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/video_format__type_support.cpp.o.d -o CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/video_format__type_support.cpp.o -c /home/sirius2beta/cetus/build/more_interfaces/rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/video_format__type_support.cpp
+
+CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/video_format__type_support.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/video_format__type_support.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sirius2beta/cetus/build/more_interfaces/rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/video_format__type_support.cpp > CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/video_format__type_support.cpp.i
+
+CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/video_format__type_support.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/video_format__type_support.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sirius2beta/cetus/build/more_interfaces/rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/video_format__type_support.cpp -o CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/video_format__type_support.cpp.s
+
 CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/more_interfaces/srv/detail/dds_fastrtps/videoformat__type_support.cpp.o: CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/flags.make
 CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/more_interfaces/srv/detail/dds_fastrtps/videoformat__type_support.cpp.o: rosidl_typesupport_fastrtps_cpp/more_interfaces/srv/detail/dds_fastrtps/videoformat__type_support.cpp
 CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/more_interfaces/srv/detail/dds_fastrtps/videoformat__type_support.cpp.o: CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sirius2beta/cetus/build/more_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/more_interfaces/srv/detail/dds_fastrtps/videoformat__type_support.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sirius2beta/cetus/build/more_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/more_interfaces/srv/detail/dds_fastrtps/videoformat__type_support.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/more_interfaces/srv/detail/dds_fastrtps/videoformat__type_support.cpp.o -MF CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/more_interfaces/srv/detail/dds_fastrtps/videoformat__type_support.cpp.o.d -o CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/more_interfaces/srv/detail/dds_fastrtps/videoformat__type_support.cpp.o -c /home/sirius2beta/cetus/build/more_interfaces/rosidl_typesupport_fastrtps_cpp/more_interfaces/srv/detail/dds_fastrtps/videoformat__type_support.cpp
 
 CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/more_interfaces/srv/detail/dds_fastrtps/videoformat__type_support.cpp.i: cmake_force
@@ -276,6 +297,7 @@ more_interfaces__rosidl_typesupport_fastrtps_cpp_OBJECTS = \
 "CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/ardusimple_values__type_support.cpp.o" \
 "CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/k_best_values__type_support.cpp.o" \
 "CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/supertaira_values__type_support.cpp.o" \
+"CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/video_format__type_support.cpp.o" \
 "CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/more_interfaces/srv/detail/dds_fastrtps/videoformat__type_support.cpp.o"
 
 # External object files for target more_interfaces__rosidl_typesupport_fastrtps_cpp
@@ -289,6 +311,7 @@ libmore_interfaces__rosidl_typesupport_fastrtps_cpp.so: CMakeFiles/more_interfac
 libmore_interfaces__rosidl_typesupport_fastrtps_cpp.so: CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/ardusimple_values__type_support.cpp.o
 libmore_interfaces__rosidl_typesupport_fastrtps_cpp.so: CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/k_best_values__type_support.cpp.o
 libmore_interfaces__rosidl_typesupport_fastrtps_cpp.so: CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/supertaira_values__type_support.cpp.o
+libmore_interfaces__rosidl_typesupport_fastrtps_cpp.so: CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/video_format__type_support.cpp.o
 libmore_interfaces__rosidl_typesupport_fastrtps_cpp.so: CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/more_interfaces/srv/detail/dds_fastrtps/videoformat__type_support.cpp.o
 libmore_interfaces__rosidl_typesupport_fastrtps_cpp.so: CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/build.make
 libmore_interfaces__rosidl_typesupport_fastrtps_cpp.so: /opt/ros/humble/lib/librosidl_typesupport_fastrtps_cpp.so
@@ -297,7 +320,7 @@ libmore_interfaces__rosidl_typesupport_fastrtps_cpp.so: /opt/ros/humble/lib/libr
 libmore_interfaces__rosidl_typesupport_fastrtps_cpp.so: /opt/ros/humble/lib/librosidl_runtime_c.so
 libmore_interfaces__rosidl_typesupport_fastrtps_cpp.so: /opt/ros/humble/lib/librcutils.so
 libmore_interfaces__rosidl_typesupport_fastrtps_cpp.so: CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/sirius2beta/cetus/build/more_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX shared library libmore_interfaces__rosidl_typesupport_fastrtps_cpp.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/sirius2beta/cetus/build/more_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX shared library libmore_interfaces__rosidl_typesupport_fastrtps_cpp.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -317,12 +340,14 @@ CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/depend: rosidl_t
 CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/depend: rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/mavlink_packet__type_support.cpp
 CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/depend: rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/mavlink_values__type_support.cpp
 CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/depend: rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/supertaira_values__type_support.cpp
+CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/depend: rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/video_format__type_support.cpp
 CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/depend: rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/dds_fastrtps/winch_status__type_support.cpp
 CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/depend: rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/k_best_values__rosidl_typesupport_fastrtps_cpp.hpp
 CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/depend: rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/marinelink_packet__rosidl_typesupport_fastrtps_cpp.hpp
 CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/depend: rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/mavlink_packet__rosidl_typesupport_fastrtps_cpp.hpp
 CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/depend: rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/mavlink_values__rosidl_typesupport_fastrtps_cpp.hpp
 CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/depend: rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/supertaira_values__rosidl_typesupport_fastrtps_cpp.hpp
+CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/depend: rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/video_format__rosidl_typesupport_fastrtps_cpp.hpp
 CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/depend: rosidl_typesupport_fastrtps_cpp/more_interfaces/msg/detail/winch_status__rosidl_typesupport_fastrtps_cpp.hpp
 CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/depend: rosidl_typesupport_fastrtps_cpp/more_interfaces/srv/detail/dds_fastrtps/videoformat__type_support.cpp
 CMakeFiles/more_interfaces__rosidl_typesupport_fastrtps_cpp.dir/depend: rosidl_typesupport_fastrtps_cpp/more_interfaces/srv/detail/videoformat__rosidl_typesupport_fastrtps_cpp.hpp

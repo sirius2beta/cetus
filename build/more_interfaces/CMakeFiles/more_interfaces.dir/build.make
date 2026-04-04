@@ -74,6 +74,7 @@ CMakeFiles/more_interfaces: /home/sirius2beta/cetus/src/more_interfaces/msg/Winc
 CMakeFiles/more_interfaces: /home/sirius2beta/cetus/src/more_interfaces/msg/ArdusimpleValues.msg
 CMakeFiles/more_interfaces: /home/sirius2beta/cetus/src/more_interfaces/msg/KBestValues.msg
 CMakeFiles/more_interfaces: /home/sirius2beta/cetus/src/more_interfaces/msg/SupertairaValues.msg
+CMakeFiles/more_interfaces: /home/sirius2beta/cetus/src/more_interfaces/msg/VideoFormat.msg
 CMakeFiles/more_interfaces: /home/sirius2beta/cetus/src/more_interfaces/srv/Videoformat.srv
 CMakeFiles/more_interfaces: rosidl_cmake/srv/Videoformat_Request.msg
 CMakeFiles/more_interfaces: rosidl_cmake/srv/Videoformat_Response.msg

@@ -106,6 +106,11 @@ CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail
 CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/supertaira_values__struct.hpp
 CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/supertaira_values__traits.hpp
 CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/supertaira_values__type_support.hpp
+CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/video_format.hpp
+CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/video_format__builder.hpp
+CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/video_format__struct.hpp
+CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/video_format__traits.hpp
+CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/video_format__type_support.hpp
 CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/srv/videoformat.hpp
 CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/srv/detail/videoformat__builder.hpp
 CMakeFiles/more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/srv/detail/videoformat__struct.hpp
@@ -136,6 +141,7 @@ rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp: rosidl_adapter/m
 rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp: rosidl_adapter/more_interfaces/msg/ArdusimpleValues.idl
 rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp: rosidl_adapter/more_interfaces/msg/KBestValues.idl
 rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp: rosidl_adapter/more_interfaces/msg/SupertairaValues.idl
+rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp: rosidl_adapter/more_interfaces/msg/VideoFormat.idl
 rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp: rosidl_adapter/more_interfaces/srv/Videoformat.idl
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sirius2beta/cetus/build/more_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code for ROS interfaces"
 	/usr/bin/python3 /opt/ros/humble/share/rosidl_generator_cpp/cmake/../../../lib/rosidl_generator_cpp/rosidl_generator_cpp --generator-arguments-file /home/sirius2beta/cetus/build/more_interfaces/rosidl_generator_cpp__arguments.json
@@ -257,6 +263,21 @@ rosidl_generator_cpp/more_interfaces/msg/detail/supertaira_values__traits.hpp: r
 rosidl_generator_cpp/more_interfaces/msg/detail/supertaira_values__type_support.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/detail/supertaira_values__type_support.hpp
 
+rosidl_generator_cpp/more_interfaces/msg/video_format.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/video_format.hpp
+
+rosidl_generator_cpp/more_interfaces/msg/detail/video_format__builder.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/detail/video_format__builder.hpp
+
+rosidl_generator_cpp/more_interfaces/msg/detail/video_format__struct.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/detail/video_format__struct.hpp
+
+rosidl_generator_cpp/more_interfaces/msg/detail/video_format__traits.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/detail/video_format__traits.hpp
+
+rosidl_generator_cpp/more_interfaces/msg/detail/video_format__type_support.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/msg/detail/video_format__type_support.hpp
+
 rosidl_generator_cpp/more_interfaces/srv/videoformat.hpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/more_interfaces/srv/videoformat.hpp
 
@@ -303,6 +324,10 @@ more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/supertaira
 more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/supertaira_values__struct.hpp
 more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/supertaira_values__traits.hpp
 more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/supertaira_values__type_support.hpp
+more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/video_format__builder.hpp
+more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/video_format__struct.hpp
+more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/video_format__traits.hpp
+more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/video_format__type_support.hpp
 more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/winch_status__builder.hpp
 more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/winch_status__struct.hpp
 more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/detail/winch_status__traits.hpp
@@ -312,6 +337,7 @@ more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/marinelink_packet
 more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/mavlink_packet.hpp
 more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/mavlink_values.hpp
 more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/supertaira_values.hpp
+more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/video_format.hpp
 more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/msg/winch_status.hpp
 more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/srv/detail/videoformat__builder.hpp
 more_interfaces__cpp: rosidl_generator_cpp/more_interfaces/srv/detail/videoformat__struct.hpp

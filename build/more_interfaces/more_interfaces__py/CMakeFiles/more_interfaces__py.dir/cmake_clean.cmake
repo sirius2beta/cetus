@@ -17,6 +17,8 @@ file(REMOVE_RECURSE
   "../rosidl_generator_py/more_interfaces/msg/_mavlink_values_s.c"
   "../rosidl_generator_py/more_interfaces/msg/_supertaira_values.py"
   "../rosidl_generator_py/more_interfaces/msg/_supertaira_values_s.c"
+  "../rosidl_generator_py/more_interfaces/msg/_video_format.py"
+  "../rosidl_generator_py/more_interfaces/msg/_video_format_s.c"
   "../rosidl_generator_py/more_interfaces/msg/_winch_status.py"
   "../rosidl_generator_py/more_interfaces/msg/_winch_status_s.c"
   "../rosidl_generator_py/more_interfaces/srv/__init__.py"
