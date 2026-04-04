@@ -4,12 +4,13 @@ import logging
 import subprocess
 import threading
 import re
+import os
 gi.require_version("Gst", "1.0")
 from gi.repository import Gst, GLib, GObject
 
 
 import video_manager.VideoFormat as VideoFormat
-from more_interfaces.msg import VideoFormat as VideoFormatMsg
+from std_msgs.msg import String
 
 def getOS():
 	try:
@@ -23,7 +24,6 @@ def getOS():
 		print("Failed to get OS information. Defaulting to 'None'.")
 		return 'None'
 
-
 class VideoManager():
 	def __init__(self, node):
 		self.node = node
@@ -31,16 +31,13 @@ class VideoManager():
 
 
 		# pipeline 管理：key=cam index, value=dict
-		self.pipelines = {}  # { cam: {"pipeline": Gst.Pipeline, "state": bool, "port": int, "encoder": str} }
+		self.pipelines = {}  # { cam: {"pipeline": Gst.Pipeline, "state": int, "port": int, "encoder": str} }
 		self.camera_format = []
 		self.videoFormatList = {}
 		self.portOccupied = {}  # {port: cam}
 		self.ai_cam = -1
 		self.seagrass_cam = -1
 		self.seagrass_cam_format = None
-			
-
-
 		self.get_video_format_generic()
 
 		self.portOccupied = {} # {port, videoNo}
@@ -72,7 +69,7 @@ class VideoManager():
 
 	#get video format from existing camera devices
 	def get_video_format_generic(self):
-		"""掃描 /dev/video*，只保留 MJPEG>YUYV，h264 不加入"""
+		"""掃描 /dev/cetusvideo*，只保留 MJPEG>YUYV，h264 不加入"""
 		devices = sorted(glob.glob("/dev/cetusvideo*"))
 		if not devices:
 			print("[x] no video devices found")
@@ -80,11 +77,17 @@ class VideoManager():
 
 		for dev in devices:
 			try:
-				cam = int(dev.replace("/dev/cetusvideo", ""))
+				videoNo = int(dev.replace("/dev/cetusvideo", ""))
 			except ValueError:
 				continue
 
-			self.pipelines[cam] = {"pipeline": None, "state": False, "formats": []}
+			self.pipelines[videoNo] = {
+				"pipeline": None, 
+				"state": False, # 0 = stopped, 1 = playing, 2 = error (等待重啟)
+				"formats": [],
+				"port": None, 
+				"encoder": None, 
+			"gstring": ""}  # 初始化 pipeline 管理結構
 
 			try:
 				output = subprocess.check_output(
@@ -110,8 +113,9 @@ class VideoManager():
 						fps = 30
 						key = (w, h, fps)
 						all_formats.append((fmt, w, h, fps	))
-			print(f"cetusvideo{cam} formats: {all_formats}")
-			self.pipelines[cam]["formats"] = all_formats
+			print(f"cetusvideo{videoNo} formats: {all_formats}")
+			self.pipelines[videoNo]["formats"] = all_formats
+	# for jetson nano
 	def get_videoFormatList_legacy(self):
 		"""
 		產生舊版 videoFormatList 結構：
@@ -208,6 +212,7 @@ class VideoManager():
 			
 			# 重要：當電壓不穩影像斷掉時，這裡會被觸發
 			self._stop_pipeline(cam_name)  # 先停止並釋放資源
+			self.pipelines[cam_name]["state"] = 2  # 設置為錯誤狀態
 			self._handle_reconnect(cam_name) 
 			
 		elif t == Gst.MessageType.EOS:
@@ -215,42 +220,69 @@ class VideoManager():
 			self._stop_pipeline(cam_name)
 
 		return True # 保持監聽
+
 	def _handle_reconnect(self, cam):
 		"""處理斷線重連邏輯"""
 		print(f"嘗試重新啟動 {cam}...")
+		# see if cetusvideo{cam} is back
+		dev_path = f"/dev/cetusvideo{cam}"
+		
+		if self.pipelines[cam]["state"] != 2:  # 如果不是錯誤狀態，表示已經被其他邏輯處理了，不需要重啟
+			return  # 已經被其他邏輯處理了，不需要重啟
+		if os.path.exists(dev_path):
+			print(f"{dev_path} 已回來，嘗試啟動 pipeline")
+			self._create_pipeline(cam, self.pipelines[cam]['gstring'], self.pipelines[cam]['port'], self.pipelines[cam]['encoder'])
+			self._start_pipeline(cam)
+			self.portOccupied[self.pipelines[cam]['port']] = cam  # 重新占用 port
+			return
+		else:
+			print(f"{dev_path} 還沒回來，繼續等待...")
+			# 繼續等待，3 秒後再檢查一次
 		# 延遲 3 秒後重試，避免在硬體未就緒時狂刷
-		GLib.timeout_add(3000, self._start_pipeline, cam)
+		GLib.timeout_add(3000, self._handle_reconnect, cam)
 	
 	# ---------------- Pipeline 管理 ---------------- #
 	def _create_pipeline(self, cam, gstring, port, encoder):
 		"""建立新的 pipeline，若已存在則先釋放"""
 		if cam in self.pipelines:
 			self._stop_pipeline(cam)
-
 		pipeline = Gst.parse_launch(gstring)
-		self.pipelines[cam]['pipeline'] = pipeline
-		self.pipelines[cam]['state'] = False
+		self.pipelines[cam]['gstring'] = gstring
 		self.pipelines[cam]['port'] = port
 		self.pipelines[cam]['encoder'] = encoder
+		self.pipelines[cam]['pipeline'] = pipeline
 		
+		if not pipeline:
+			print(f"無法建立 {cam} 的 pipeline")
+			self.pipelines[cam]['pipeline'] = None
+			self.pipelines[cam]['state'] = 2  # 設置為錯誤狀態
+		else:
+			print(f"{cam} pipeline created successfully")
+			self.pipelines[cam]['state'] = 0  # 設置為停止狀態，等待 play 時啟動
 		return pipeline
 
 	def _start_pipeline(self, cam):
 		"""啟動 pipeline"""
 		if cam not in self.pipelines:
 			return False
+
+		if self.pipelines[cam]["state"] == 2:
+			print(f"{cam} pipeline is in error state, cannot start")
+			return False
+
 		pipeline = self.pipelines[cam]["pipeline"]
 		bus = pipeline.get_bus()
 		bus.add_signal_watch()
-		loop = GLib.MainLoop()
 		bus.connect("message", self._on_message, cam)
 		pipeline.set_state(Gst.State.PLAYING)
 		ret = pipeline.set_state(Gst.State.PLAYING)
 		if ret == Gst.StateChangeReturn.FAILURE:
 			print(f"無法啟動 {cam}")
+			self.pipelines[cam]['state'] = 0  # 設置為停止狀態，等待下一次 play 時重試
 			return False
-			
-		self.pipelines[cam]["state"] = True
+		else:
+			print(f"{cam} pipeline started")
+			self.pipelines[cam]['state'] = 1  # 設置為播放狀態
 		return True
 
 	def _stop_pipeline(self, cam):
@@ -269,9 +301,9 @@ class VideoManager():
 		res, state, pending = pipeline.get_state(1 * Gst.SECOND) 
 		if res == Gst.StateChangeReturn.FAILURE:
 			print(f"警告: {cam} 無法完全切換至 NULL 狀態")
-
+		
 		self.pipelines[cam]["pipeline"] = None  # 清掉 pipeline，但保留格式
-		self.pipelines[cam]["state"] = False
+		self.pipelines[cam]["state"] = 0  # 設置為停止狀態
 
 		# 釋放 portOccupied
 		ports_to_remove = [p for p, c in self.portOccupied.items() if c == cam]
@@ -279,8 +311,6 @@ class VideoManager():
 			self.portOccupied.pop(p, None)
 
 		print(f"_stop_pipeline: video{cam} stopped and cleaned")
-
-
 
 	# ---------------- 播放控制 ---------------- #
 	def play(self, cam, width, height, fps, encoder, IP, port, YOLO_detection_enabled):
@@ -301,7 +331,6 @@ class VideoManager():
 			print(f"video{cam} has no format {width}x{height}@{fps}")
 			return
 
-		
 		# 生成 GStreamer 指令
 		gstring = VideoFormat.getFormatCMD(getOS(), cam, fmtFound, width, height, fps, encoder, IP, port)
 		print(f"[Pipeline] cam={cam}, port={port}, encoder={encoder}")
@@ -313,23 +342,19 @@ class VideoManager():
 			self._stop_pipeline(videoToStop)
 			print(f"  -quit occupied: video{videoToStop}")
 		if cam == self.seagrass_cam:
-			self.node.seagrassCommandPublisher.publish(String(data="start"))
+			self.node.seagrassCommandPublisher.publish(String(data="p"))
 			self.node.get_logger().info(f"Start seagrass AI on cam:{cam}")
 			self.portOccupied[port] = cam
+			return
 		# 一般播放
 		pipeline = self._create_pipeline(cam, gstring, port, encoder)
 		self._start_pipeline(cam)
 		self.portOccupied[port] = cam
 
-
 	def stop(self, cam):
 		# 停止 pipeline
 		self._stop_pipeline(cam)
 		print(f"stop pipeline on cam:{cam}")
-
-	
-
-
 
 	def handleMsg(self, data, addr):
 		operation = int(data[0])
@@ -348,6 +373,7 @@ class VideoManager():
 			self.handleSeagrass(data, addr)
 		else:
 			logging.warning(f"Unknown operation: {operation}")
+	
 	def handleSetSeagrassCameraFormat(self, data, addr):
 		if len(data) < 8:
 			self.node.get_logger().warning("handleSetSeagrassCameraFormat: insufficient data length")
@@ -380,15 +406,10 @@ class VideoManager():
 			self.seagrass_cam_format = [cam, "MJPG", width, height, MJPGfps, IP, port]
 			self.node.get_logger().info(f"start ai on cam:{cam}")
 			self.seagrass_cam = cam
-			videoFormatMsg = VideoFormatMsg()
-			videoFormatMsg.videono = cam
-			videoFormatMsg.format = "MJPG"
-			videoFormatMsg.width = width
-			videoFormatMsg.height = height
-			videoFormatMsg.framerate = MJPGfps
-			videoFormatMsg.encoder = encoder
-			videoFormatMsg.ip = IP
-			self.node.seagrassVideoformatPublisher.publish(videoFormatMsg)
+			StringMsg = String()
+			StringMsg.data = f"f {cam} {format} {width} {height} {framerate} {encoder} {IP} {port}"
+			
+			self.node.seagrassCommandPublisher.publish(StringMsg)
 			#self._toolBox.seagrassDetect.setFormat(self.seagrass_cam_format)
 
 		else:
@@ -449,6 +470,11 @@ class VideoManager():
 
 	def handleQuit(self, data, addr):
 		videoNo = int(data[1])
+		self.node.get_logger().info(f"handleQuit: videoNo={videoNo}, seagrass_cam={self.seagrass_cam}")
+		if videoNo == self.seagrass_cam:
+			self.node.seagrassCommandPublisher.publish(String(data="x"))
+			self.node.get_logger().info(f"Stop seagrass AI on cam:{videoNo}")
+			return
 		self.stop(videoNo)
 		self.node.get_logger().info(f"handleQuit: Stopped video {videoNo}")
 

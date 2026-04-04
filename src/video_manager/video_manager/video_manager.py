@@ -9,7 +9,7 @@ gi.require_version("Gst", "1.0")
 from gi.repository import Gst, GLib, GObject
 
 from video_manager.VideoManager import VideoManager
-from more_interfaces.msg import MavlinkPacket, MarinelinkPacket, VideoFormat
+from more_interfaces.msg import MavlinkPacket, MarinelinkPacket
 from std_msgs.msg import String
 
 class VideoControl(Node):
@@ -18,7 +18,6 @@ class VideoControl(Node):
         
         self.subscriber_ = self.create_subscription(MarinelinkPacket, '/control/video', self.marinelink_callback, 10)
         self.publisher_ = self.create_publisher(MarinelinkPacket, '/marinelink_tosend', 10)
-        self.seagrassVideoFormatPublisher = self.create_publisher(VideoFormat, '/control/seagrass/videoformat', 10)
         self.seagrassCommandPublisher = self.create_publisher(String, '/control/seagrass/command', 10)
         self.videoManager = VideoManager(self)
         
@@ -45,7 +44,7 @@ class VideoControl(Node):
                 self.get_logger().info("[PLAY COMMAND (video command) future combine)]")
                 self.videoManager.handleMsg(payload_bytes, msg.address)
                 operation = int(payload_bytes[0])
-                self.get_logger().info(f"[PLAY (video command)] ok {operation}")
+                self.get_logger().info(f"[PLAY (video command)] topic {operation}")
             except Exception as e:
                 self.get_logger().warning(f"PLAY packet parse error: {e}")
 

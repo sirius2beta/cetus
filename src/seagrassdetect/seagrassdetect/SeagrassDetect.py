@@ -16,12 +16,13 @@ import threading
 import logging
 
 class SeagrassDetect():
-    def __init__(self):
+    def __init__(self,node=None):
         self.video_no = -1
         self.enabled = True
         self.format_setted = False
         self.is_playing = False
         self.is_recording = False
+        self.node = node
 
         self.os = 'None'
         try:
@@ -60,10 +61,24 @@ class SeagrassDetect():
             except Exception:
                 logging.warning(f"SeagrassDetect: failed to enqueue message {msg}")
 
+    def video_format_callback(self, stringmsg):
+        msg = stringmsg.data
+        self.node.get_logger().info(f"SeagrassDetect: Received message: {msg}")
+        if msg[0] == "f":
+            self.video_no = msg[0]
+            self.setFormat(msg)
+        elif msg[0] == "p":
+            self.play()
+        elif msg[0] == "x":
+            self.stop()
+        elif msg[0] == "r":
+            self.startRecording()
+        elif msg[0] == "s":
+            self.stopRecording()
+        elif msg[0] == "i":
+            self.updateIMU(msg[1:])
     def setFormat(self, msg):
-        msg_cpy = ["f"] + msg
-        self.video_no = msg[0]
-        self.safe_enqueue(self.in_conn, msg_cpy)
+        self.safe_enqueue(self.in_conn, msg)
 
     def play(self):
         self.safe_enqueue(self.in_conn, ["p"])
@@ -177,12 +192,12 @@ def detectTask(os_type, conn, input_q, seagrass_dir):
             msg = input_q.get()
             logging.info(f"SeagrassDetect: Received:{msg}")
             if msg[0] == "f":
-                device_id, vformat, width, height, fps, host, port = msg[1:]
+                device_id, vformat, width, height, fps, encoder, ip, port = msg.split(" ")[1:]
                 video_pipeline = f'v4l2src device=/dev/video{device_id} !  video/x-mpeg format=YUY2, width={width}, height={height}, framerate={fps}/1 ! videoconvert ! appsink'
                 cap_send = reopen_camera(device_id, video_pipeline)
 
                 out_send = cv2.VideoWriter(
-                    f'appsrc ! videoconvert ! {encode_string} ! rtph264pay pt=96 config-interval=1 ! udpsink host={host} port={port}',
+                    f'appsrc ! videoconvert ! {encode_string} ! rtph264pay pt=96 config-interval=1 ! udpsink host={ip} port={port}',
                     cv2.CAP_GSTREAMER, 0, int(fps), (int(width), int(height)), True
                 )
 

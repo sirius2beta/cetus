@@ -56,5 +56,14 @@ def generate_launch_description():
             respawn_delay=3.0,
             output='both',
         ),
+        Node(
+            package='seagrassdetect',
+            namespace='seagrassdetect',
+            executable='seagrassdetect',
+            name='seagrassdetect',
+            respawn=True,
+            respawn_delay=3.0,
+            output='both',
+        ),
         
     ])

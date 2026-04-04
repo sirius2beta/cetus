@@ -103,3 +103,13 @@ Node(
             respawn_delay=3.0,
             output='both',
         ),
+
+# 如果AI無法載入，記憶體缺
+# 檢查快取
+free -h 
+如果 Swap 那一列是 0B，請立刻執行：
+# 快速建立 4G Swap
+sudo fallocate -l 4G /var/swapfile
+sudo chmod 600 /var/swapfile
+sudo mkswap /var/swapfile
+sudo swapon /var/swapfile
