@@ -62,3 +62,10 @@ sudo fallocate -l 4G /var/swapfile
 sudo chmod 600 /var/swapfile
 sudo mkswap /var/swapfile
 sudo swapon /var/swapfile
+
+# 載入 ROS 2 Humble 核心環境
+source /opt/ros/humble/setup.bash
+
+# 載入你的 Workspace 環境 (請替換成你實際的絕對路徑)
+# 例如: source /home/user/ros2_ws/install/setup.bash
+source /home/sirius2beta/cetus/install/setup.bash

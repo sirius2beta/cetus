@@ -53,6 +53,7 @@ void MAVLinkProtocol::receiveBytes(LinkInterface *link, const QByteArray &data)
         }
 
         if(link->linkConfiguration()->type() == LinkConfiguration::TypeSerial){
+            //qDebug()<<"mavlink protocol version:"<<message.magic;
             _forward(message);
         }else{
             

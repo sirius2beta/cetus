@@ -1,0 +1,28 @@
+
+[Unit]
+Description=Cetus Service
+# 等網路跟磁碟都準備好再啟動
+After=network.target local-fs.target
+
+[Service]
+# 以 root 執行，取代 sudo su
+User=root
+Group=root
+
+# 設定工作目錄
+WorkingDirectory=/home/sirius2beta/cetus
+
+# 執行剛才寫好的腳本
+ExecStart=/bin/bash /home/sirius2beta/cetus/start_service.sh
+
+# 自動重啟設定 (這對 RTCM 穩定性很重要)
+Restart=always
+RestartSec=3
+
+# 讓輸出即時顯示在 journalctl 中
+StandardOutput=inherit
+StandardError=inherit
+
+
+[Install]
+WantedBy=multi-user.target

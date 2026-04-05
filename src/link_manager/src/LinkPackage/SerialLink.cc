@@ -487,6 +487,7 @@ void SerialLink::_onDisconnected()
 void SerialLink::_onErrorOccurred(const QString &errorString)
 {
     qCWarning(SerialLinkLog) << "Communication error:" << errorString;
+    exit(1);
     emit communicationError(tr("Serial Link Error"), tr("Link %1: (Port: %2) %3").arg(_serialConfig->name(), _serialConfig->portName(), errorString));
 }
 
