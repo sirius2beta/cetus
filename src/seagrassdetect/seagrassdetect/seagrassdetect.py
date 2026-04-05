@@ -28,7 +28,7 @@ class SeagrassDetectNode(Node):
         self.seagrassDetect = SeagrassDetect(self)
         self.seagrassDetect.startLoop()
         self.subscriber = self.create_subscription(String, '/control/seagrass/command', self.seagrassDetect.video_format_callback, 10)
-
+        self.publisher = self.create_publisher(String, '/seagrass_detect/img_name', 10)
 def main(args=None):
     rclpy.init(args=args)
     seagrass_detect_node = SeagrassDetectNode()

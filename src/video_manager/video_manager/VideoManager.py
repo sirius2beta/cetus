@@ -370,7 +370,9 @@ class VideoManager():
 		elif operation == 4:
 			self.handleDetect(data, addr)
 		elif operation == 5:
-			self.handleSeagrass(data, addr)
+			self.handleStartSeagrassRecording()
+		elif operation == 6:
+			self.handleStopSeagrassRecording()
 		else:
 			logging.warning(f"Unknown operation: {operation}")
 	
@@ -401,9 +403,10 @@ class VideoManager():
 	def setSeagrassCamera(self, cam, format, width, height, framerate, encoder, IP, port):
 		self.node.get_logger().info(f"set seagrass camera: {cam} {format} {width} {height} {framerate} {encoder} {IP} {port}")
 		MJPGfps = self.getMJPGFrameRate(cam, width, height)
+		YUYVfps = self.getYUYVFrameRate(cam, width, height)
+		format = "MJPG"
 		if MJPGfps != "":
 			self.node.get_logger().info(f"MJPG fps for video{cam}: {MJPGfps}")
-			self.seagrass_cam_format = [cam, "MJPG", width, height, MJPGfps, IP, port]
 			self.node.get_logger().info(f"start ai on cam:{cam}")
 			self.seagrass_cam = cam
 			StringMsg = String()
@@ -413,7 +416,7 @@ class VideoManager():
 			#self._toolBox.seagrassDetect.setFormat(self.seagrass_cam_format)
 
 		else:
-			self.node.get_logger().warning(f"video{cam} had no MJPG format")
+			self.node.get_logger().warning(f"video{cam} had no YUYV format")
 	
 	def getMJPGFrameRate(self, cam, width=None, height=None):
 		"""
@@ -515,3 +518,10 @@ class VideoManager():
 		self.play(videoNo, width, height, fps, encoder, ip, port, ai_enabled)
 		self.node.get_logger().info(f"handleSetFormat: video{videoNo} {fmtFound} {width}x{height}@{fps} encoder={encoder}, ai={ai_enabled}")
 
+	def handleStartSeagrassRecording(self):
+		self.node.get_logger().info("handleStartSeagrassRecording: Starting seagrass recording")
+		self.node.seagrassCommandPublisher.publish(String(data="r"))
+	
+	def handleStopSeagrassRecording(self):
+		self.node.get_logger().info("handleStopSeagrassRecording: Stopping seagrass recording")
+		self.node.seagrassCommandPublisher.publish(String(data="s"))

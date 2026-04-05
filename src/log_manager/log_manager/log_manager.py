@@ -9,6 +9,7 @@ import time
 from more_interfaces.msg import MavlinkValues, MarinelinkPacket, AquaValues, WinchStatus, ArdusimpleValues, KBestValues
 from septentrio_gnss_driver.msg import PVTGeodetic
 from gps_msgs.msg import GPSFix
+from std_msgs.msg import String
 from .DataLogger import DataLogger
 from .config import Config
 
@@ -69,12 +70,21 @@ class LogManager(Node):
             self.kbest_callback,
             10
         )
+        self.seagrass_image_subscriber_ = self.create_subscription(
+            String,
+            '/seagrass_detect/img_name',
+            self.seagrass_image_callback,
+            10
+        )
         self.publisher_ = self.create_publisher(MarinelinkPacket, '/marinelink_tosend', 10)
         #self.get_logger().info('LogManager has started and is listening to /sensor/mavlink_values')
         
         self.config = Config()
         self.sensor_group_list = self.config.sensor_group_list
         self.data_logger = DataLogger()
+
+    def seagrass_image_callback(self, msg):
+        self.data_logger.log_data.seagrass_image_name = msg.data
 
     def mavlinkValues_callback(self, msg):
         #self.get_logger().info(f'Received MavlinkValues - Yaw: {msg.yaw}, Pitch: {msg.pitch}, Roll: {msg.roll}')
@@ -185,7 +195,9 @@ class LogManager(Node):
         self.publisher_.publish(MarinelinkPacket(topic=4, payload=self.sensor_group_list[5].pack()))
         self.data_logger.log_data.kbest_boat_rssi = msg.kbest_boat_rssi
         self.data_logger.log_data.kbest_ground_rssi = msg.kbest_ground_rssi
-
+    
+    def seagrass_image_callback(self, msg):
+        self.data_logger.log_data.seagrass_image_name = msg.data
 def main(args=None):
     rclpy.init(args=args)
     log_manager = LogManager()

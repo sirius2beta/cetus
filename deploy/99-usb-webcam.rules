@@ -1,0 +1,3 @@
+KERNEL=="video*", KERNELS=="1-2.1:1.0", ATTR{index}=="0", SYMLINK+="cetusvideo3", MODE="0666"
+
+KERNEL=="video*", KERNELS=="1-2.2:1.0", ATTR{index}=="0", SYMLINK+="cetusvideo0", MODE="0666"

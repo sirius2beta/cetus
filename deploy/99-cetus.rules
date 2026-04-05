@@ -1,0 +1,17 @@
+# ---------------------------------------------------------
+# Septentrio GNSS 模組
+# ---------------------------------------------------------
+# 數據主通道 (Interface 02)
+SUBSYSTEM=="tty", ATTRS{idVendor}=="152a", ATTRS{idProduct}=="85c0", ENV{ID_USB_INTERFACE_NUM}=="02", SYMLINK+="sensors/gps_data", MODE="0666"
+
+# 配置通道 (Interface 04)
+SUBSYSTEM=="tty", ATTRS{idVendor}=="152a", ATTRS{idProduct}=="85c0", ENV{ID_USB_INTERFACE_NUM}=="04", SYMLINK+="sensors/gps_config", MODE="0666"
+
+# ---------------------------------------------------------
+# USB 攝影機 (使用實體插槽路徑 KERNELS 綁定)
+# ---------------------------------------------------------
+# 綁定插槽 1-2.1 的第 0 個索引為 cetusvideo3
+KERNEL=="video*", KERNELS=="1-2.1:1.0", ATTR{index}=="0", SYMLINK+="cetusvideo3", MODE="0666"
+
+# 綁定插槽 1-2.2 的第 0 個索引為 cetusvideo0
+KERNEL=="video*", KERNELS=="1-2.2:1.0", ATTR{index}=="0", SYMLINK+="cetusvideo0", MODE="0666"

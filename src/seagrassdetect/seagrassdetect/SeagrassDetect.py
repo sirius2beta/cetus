@@ -5,6 +5,11 @@ import csv
 import cv2
 import math
 import subprocess
+import torch
+from torch2trt import TRTModule
+from .unet import Unet
+import re
+from std_msgs.msg import String
 
 import queue as _queue
 import numpy as np
@@ -21,10 +26,16 @@ class SeagrassDetect():
         self.enabled = True
         self.format_setted = False
         self.is_playing = False
-        self.is_recording = False
         self.node = node
-
+        self.streaming = False
+        self.recording = False
         self.os = 'None'
+
+        self.model = None
+        self.out_send = None
+        self.cap_send = None
+        self.video_pipeline = ""
+        self.device_id = -1
         try:
             cmd = " grep '^VERSION_CODENAME=' /etc/os-release"
             returned_value = subprocess.check_output(cmd,shell=True,stderr=subprocess.DEVNULL).replace(b'\t',b'').decode("utf-8")
@@ -38,224 +49,139 @@ class SeagrassDetect():
             'jammy': 'x264enc tune=zerolatency speed-preset=superfast',
             'focal': 'video/x-raw,format=I420 ! nvvideoconvert ! video/x-raw(memory:NVMM) ! nvv4l2h264enc'
         }.get(self.os, None)
-
-        today_str = datetime.now().strftime("%Y%m%d")
         
-        base_path = "../record/seagrass"
-        self.seagrass_directory = os.path.join(os.path.expanduser(base_path), today_str)
-        os.makedirs(self.seagrass_directory, exist_ok=True)
+        self.base_folder_path = "/home/sirius2beta/GPlayerLogNew/image"
+        self.base_directory = os.path.expanduser(self.base_folder_path)
+        os.makedirs(self.base_directory, exist_ok=True)
 
-        self.csv_lock = threading.Lock()
+        # 找出所有 seagrass_xxxxx 資料夾
+        existing_folders = [f for f in os.listdir(self.base_directory) if f.startswith("seagrass_")]
+        indices = [int(re.search(r"seagrass_(\d+)", f).group(1)) for f in existing_folders if re.search(r"seagrass_(\d+)", f)]
+        file_index = max(indices) + 1 if indices else 1
+        
+        self.image_directory = os.path.join(self.base_directory, f"seagrass_{file_index:06d}")
+        os.makedirs(self.image_directory, exist_ok=True)
 
-    def safe_enqueue(self, queue, msg):
-        """Safely put a message into a queue without blocking."""
-        try:
-            queue.put_nowait(msg)
-        except _queue.Full:
-            try:
-                queue.get_nowait()
-            except Exception:
-                pass
-            try:
-                queue.put_nowait(msg)
-            except Exception:
-                logging.warning(f"SeagrassDetect: failed to enqueue message {msg}")
 
     def video_format_callback(self, stringmsg):
         msg = stringmsg.data
         self.node.get_logger().info(f"SeagrassDetect: Received message: {msg}")
         if msg[0] == "f":
-            self.video_no = msg[0]
-            self.setFormat(msg)
+            self.device_id, vformat, self.width, self.height, self.fps, encoder, ip, port = msg.split(" ")[1:]
+            if vformat == "MJPG":
+                self.video_pipeline = (
+                    f'v4l2src device=/dev/cetusvideo{self.device_id} ! '
+                    f'image/jpeg, width={self.width}, height={self.height}, framerate={self.fps}/1 ! '
+                    f'jpegdec ! videoconvert ! appsink drop=True max-buffers=1'
+                )
+            else: # default to YUYV
+                self.video_pipeline = (
+                    f'v4l2src device=/dev/cetusvideo{self.device_id} ! '
+                    f'video/x-raw, format=YUY2, width={self.width}, height={self.height}, framerate={self.fps}/1 ! '
+                    f'videoconvert ! appsink drop=True max-buffers=1'
+                )
+            self.cap_send = self.reopen_camera(self.device_id, self.video_pipeline)
+
+            self.out_send = cv2.VideoWriter(
+                f'appsrc ! videoconvert ! {self.encode_string} ! rtph264pay pt=96 config-interval=1 ! udpsink host={ip} port={port}',
+                cv2.CAP_GSTREAMER, 0, int(self.fps), (int(self.width), int(self.height)), True
+            )
+
+
         elif msg[0] == "p":
-            self.play()
+            self.streaming = True
         elif msg[0] == "x":
-            self.stop()
+            self.streaming = False
         elif msg[0] == "r":
-            self.startRecording()
+            self.recording = True
         elif msg[0] == "s":
-            self.stopRecording()
-        elif msg[0] == "i":
-            self.updateIMU(msg[1:])
-    def setFormat(self, msg):
-        self.safe_enqueue(self.in_conn, msg)
+            self.recording = False
 
-    def play(self):
-        self.safe_enqueue(self.in_conn, ["p"])
-        self.is_playing = True
-    def stop(self):
-        self.safe_enqueue(self.in_conn, ["x"])
-        self.is_playing = False
 
-    def updateIMU(self, msg):
-        self.safe_enqueue(self.in_conn, ["i"] + msg)
-
-    def sendMsg(self, msg):
-        self.safe_enqueue(self.in_conn, msg)
 
     def startLoop(self):
-        self.out_conn = multiprocessing.Queue()
-        self.in_conn = multiprocessing.Queue()
-
-        self.p = multiprocessing.Process(
-            target=detectTask,
-            args=(self.os, self.out_conn, self.in_conn, self.seagrass_directory)
-        )
-        self.p.start()
-
-        self.outputLoop = threading.Thread(target=self.OutputLoop, daemon=True)
-        self.outputLoop.start()
+        if not self.encode_string:
+            print("SeagrassDetect: Unsupported OS type")
+            return
+        try:
+            self.load_model()
+        except Exception as e:
+            print(f"SeagrassDetect: Failed to load model: {e}")
+            return
+        threading.Thread(target=self.detectTask, daemon=True).start()
         print(" [O] SeagrassDetect initialized")
 
-    def OutputLoop(self):
-        while True:
-            results = self.out_conn.get()
-            self.sendDetectionResult(results)
-            time.sleep(0.05)
+ 
 
-    def sendDetectionResult(self, results):
-        index_path = os.path.join(self.seagrass_directory, "index.csv")
-        with self.csv_lock:
-            with open(index_path, mode='a', newline='') as f:
-                csv.writer(f).writerow([results[0], results[1]])
-        logging.info(f"SeagrassDetect: Detection results:{results}")
-
-    def startRecording(self):
-        self.safe_enqueue(self.in_conn, ["r"])
-        self.is_recording = True
-
-    def stopRecording(self):
-        self.safe_enqueue(self.in_conn, ["s"])
-        self.is_recording = False
-
-def detectTask(os_type, conn, input_q, seagrass_dir):
-    import torch
-    from torch2trt import TRTModule
-    from .unet import Unet
-
-    def load_model():
+    def load_model(self):
         current_dir = os.path.dirname(os.path.abspath(__file__))
         package_share_path = get_package_share_directory('seagrassdetect')
         trt_path = os.path.join(package_share_path, "model", "seagrass_model_resnet50_trt.pth")
         model_path = os.path.join(package_share_path, "model", "seagrass_model_resnet50.pth")
-        model = Unet(model_path=model_path, num_classes=2, backbone="resnet50",
+        self.model = Unet(model_path=model_path, num_classes=2, backbone="resnet50",
                     input_shape=[512, 512], mix_type=0, cuda=True)
 
-        if isinstance(model.net, torch.nn.DataParallel):
-            model.net = model.net.module
+        if isinstance(self.model.net, torch.nn.DataParallel):
+            self.model.net = self.model.net.module
 
         trt_model = TRTModule()
         trt_model.load_state_dict(torch.load(trt_path))
-        model.net = trt_model
+        self.model.net = trt_model
         print("SeagrassDetect: ✅ TensorRT model loaded!")
-        return model
+        torch.cuda.empty_cache()
 
 
-    def reopen_camera(device_id, pipeline):
-        while not os.path.exists(f"/dev/video{device_id}"):
-            time.sleep(1)
+
+    def reopen_camera(self, device_id, pipeline):
+        while not os.path.exists(f"/dev/cetusvideo{device_id}"):
+            time.sleep(3)
         cap = cv2.VideoCapture(pipeline, cv2.CAP_GSTREAMER)
         time.sleep(1)
         return cap
 
     
-        
-    encode_string = {
-            'jammy': 'x264enc tune=zerolatency speed-preset=superfast',
-            'focal': 'video/x-raw,format=I420 ! nvvideoconvert ! video/x-raw(memory:NVMM) ! nvv4l2h264enc'
-        }.get(os_type, None)
-
-    if not encode_string:
-        print("SeagrassDetect: Unsupported OS type")
-        return
-    cap_send = None
-    out_send = None
-    playing = False
-    recording = False
-    model_loaded = False
-    model = None
-    video_pipeline = ""
-    device_id = 0
-    frame_count = 0
-    last_infer_time = time.time()
-    # 設定為 +8 時區
-    tz = timezone(timedelta(hours=+8))
-    hourtime_str = datetime.now(tz).strftime("%H%M")
-    
-    if not model_loaded:
-        model = load_model()
-        model_loaded = True
-    
-    while True:
-        # Process incoming commands
-        while not input_q.empty():
-            msg = input_q.get()
-            logging.info(f"SeagrassDetect: Received:{msg}")
-            if msg[0] == "f":
-                device_id, vformat, width, height, fps, encoder, ip, port = msg.split(" ")[1:]
-                video_pipeline = f'v4l2src device=/dev/video{device_id} !  video/x-mpeg format=YUY2, width={width}, height={height}, framerate={fps}/1 ! videoconvert ! appsink'
-                cap_send = reopen_camera(device_id, video_pipeline)
-
-                out_send = cv2.VideoWriter(
-                    f'appsrc ! videoconvert ! {encode_string} ! rtph264pay pt=96 config-interval=1 ! udpsink host={ip} port={port}',
-                    cv2.CAP_GSTREAMER, 0, int(fps), (int(width), int(height)), True
-                )
-
-                if not model_loaded:
-                    model = load_model()
-                    model_loaded = True
-
-            elif msg[0] == "p":
-                playing = True
-            elif msg[0] == "x":
-                playing = False
-            elif msg[0] == "r":
-                recording = True
-            elif msg[0] == "s":
-                recording = False
-
-        if not (recording or playing):
-            time.sleep(0.05)
-            continue
-
-        if time.time() - last_infer_time < 0.5:
-            time.sleep(0.02)
-            continue
+    def detectTask(self):
         last_infer_time = time.time()
+        frame_count = 0
+        while True:
+            if not (self.recording or self.streaming):
+                time.sleep(0.05)
+                continue
 
-        ret, frame = cap_send.read()
-        file_name = ""
-        if not ret or frame is None:
-            logging.warning("SeagrassDetect: ⚠️ Camera disconnected...")
-            cap_send = reopen_camera(device_id, video_pipeline)
-            continue
-        
+            if time.time() - last_infer_time < 0.5:
+                time.sleep(0.02)
+                continue
+            last_infer_time = time.time()
+
+            ret, frame = self.cap_send.read()
+            file_name = ""
+            if not ret or frame is None:
+                print("SeagrassDetect: ⚠️ Camera disconnected...")
+                self.cap_send = self.reopen_camera(self.device_id, self.video_pipeline)
+                continue
             
+            t1 = time.time()
+            frame = cv2.resize(frame, (640, 480))
+            image_pil = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
+            result_pil, mask = self.model.detect_image(image_pil, return_mask=True)
 
-        t1 = time.time()
-        frame = cv2.resize(frame, (640, 480))
-        image_pil = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
-        result_pil, mask = model.detect_image(image_pil, return_mask=True)
+            seagrass_pixels = np.sum(mask == 0)
+            ratio = seagrass_pixels / mask.size * 100
+            latency = time.time() - t1
 
-        seagrass_pixels = np.sum(mask == 0)
-        ratio = seagrass_pixels / mask.size * 100
-        latency = time.time() - t1
-
-        result_bgr = cv2.cvtColor(np.array(result_pil), cv2.COLOR_RGB2BGR)
-        result_bgr = cv2.resize(result_bgr, (int(width), int(height)))
-        frame = cv2.resize(frame, (int(width), int(height)))
-        cv2.putText(result_bgr, f"Seagrass: {ratio:.2f}%, Time: {latency:.2f}s",
-                    (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
-        if recording:
-            frame_count += 1
-            file_name = f"seagrass_{hourtime_str}_{frame_count:07d}.jpg"
-            cv2.imwrite(os.path.join(seagrass_dir, file_name), frame)
-            if not conn.full():
-                conn.put([file_name, ratio], block=False)
-        if out_send.isOpened() and playing:
-            out_send.write(result_bgr)
+            result_bgr = cv2.cvtColor(np.array(result_pil), cv2.COLOR_RGB2BGR)
+            result_bgr = cv2.resize(result_bgr, (int(self.width), int(self.height)))
+            frame = cv2.resize(frame, (int(self.width), int(self.height)))
+            cv2.putText(result_bgr, f"Seagrass: {ratio:.2f}%, Time: {latency:.2f}s",
+                        (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+            if self.recording:
+                frame_count += 1
+                file_name = f"{frame_count:07d}.jpg"
+                cv2.imwrite(os.path.join(self.image_directory, file_name), frame)
+                self.node.publisher.publish(String(data=os.path.basename(self.image_directory) + "/" + file_name))
+            if self.out_send.isOpened() and self.streaming:
+                self.out_send.write(result_bgr)
 
         
 
-    if out_send: out_send.release()
-    if cap_send: cap_send.release()
+    

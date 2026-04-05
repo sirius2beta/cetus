@@ -1,0 +1,13 @@
+[Unit]
+Description=Socat TCP Port Forwarding
+After=network.target
+
+[Service]
+Type=simple
+# 這裡路徑建議寫全稱 /usr/bin/socat
+ExecStart=/usr/bin/socat TCP4-LISTEN:8080,fork,reuseaddr TCP4:192.168.3.1:80
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

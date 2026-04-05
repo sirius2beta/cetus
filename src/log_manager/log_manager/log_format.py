@@ -57,6 +57,9 @@ class LogFormat:
         self.super_taira_strength = None      # SuperTaiRa-訊號強度指標
         self.super_taira_error_byte = None    # SuperTaiRa-錯誤碼
 
+        # seagrass image name
+        self.seagrass_image_name = None
+
     def get_all(self):
         """取得所有屬性和值，並返回 CSV 格式"""
         data = self.__dict__  # 獲取所有屬性和值，回傳型態為字典，key 為標題，value 為數值
@@ -67,7 +70,7 @@ class LogFormat:
         output = StringIO()  # 新增 StringIO 物件
         writer = csv.writer(output) 
         writer.writerow(values)   # 寫入值
-
+        self.seagrass_image_name = None # 寫入後重置圖片名稱，避免重複寫入同一張圖片
         # 返回 CSV 格式內容
         return output.getvalue()
     

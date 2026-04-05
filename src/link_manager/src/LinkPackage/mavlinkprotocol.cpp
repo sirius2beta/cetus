@@ -55,7 +55,14 @@ void MAVLinkProtocol::receiveBytes(LinkInterface *link, const QByteArray &data)
         if(link->linkConfiguration()->type() == LinkConfiguration::TypeSerial){
             _forward(message);
         }else{
+            
             if(message.msgid != MAVLINK_MSG_ID_CUSTOM_LEGACY_WRAPPER){
+                SharedLinkInterfacePtr pixhawkLink = LinkManager::instance()->mavlinkPixhawkLink();
+                
+                if (!pixhawkLink) {
+                    return;
+                }
+                //pixhawkLink->writeBytesThreadSafe(data.constData(), data.size());
                 _forwardtoPixhawk(message);
             }
         }

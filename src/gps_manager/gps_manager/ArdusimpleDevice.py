@@ -84,7 +84,12 @@ class ArduSimpleDevice(Device):
                 raw_data = self.ser.readline()
                 decode_data = raw_data.decode('utf-8').strip().lstrip('$')
                 fields = decode_data.split(',')
-                
+                if('*' in fields[-1]):
+                    checksum_data = fields[-1].split('*')
+                    fields[-1] = checksum_data[0]
+                    checksum = checksum_data[1]
+                else:
+                    checksum = None
                 with self.data_lock:
                     if(fields[0] == "GPGST" or fields[0] == "GLGST" or fields[0] == "GNGST"):
                         # fields[0] = "GPGST"

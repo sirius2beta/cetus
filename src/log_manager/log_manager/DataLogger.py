@@ -9,7 +9,7 @@ from .log_format import LogFormat
 
 class DataLogger():
     def __init__(self):
-        self.logging_interval = 0.5 # 設定每秒記錄一次
+        self.logging_interval = 0.25 # 設定每秒記錄一次
         self.log_data = LogFormat() # 存放資料的地方
         """
         1. 在初始化 DataLogger 時，會檢查是否存在存放log的資料夾 "../GPlayerLog"，
@@ -53,10 +53,11 @@ class DataLogger():
         try:
             self.log_data.time_usec = time.monotonic()
             # 保存到日誌檔案
+        
             with open(self.log_file, 'a', newline='', encoding="utf-8") as csvfile:
                 writer = csv.DictWriter(csvfile, fieldnames=self.log_data.__dict__.keys())
                 writer.writerow(self.log_data.__dict__)
-
+            self.log_data.seagrass_image_name = None # 寫入後重置圖片名稱，避免重複寫入同一張圖片
         except Exception as e:
             print(f'DataLogger exception: log_entry: msg:{e}')
 

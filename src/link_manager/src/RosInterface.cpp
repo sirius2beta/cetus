@@ -155,6 +155,7 @@ void RosInterface::publishMavlinkValues()
     values.lon = mavlink_values_.lon;
     values.lat = mavlink_values_.lat;
     values.alt = mavlink_values_.alt;
+    values.fix_type = mavlink_values_.fix_type;
     values.depth = mavlink_values_.depth;
     values.groundspeed = mavlink_values_.groundspeed;
     values.voltage_battery = mavlink_values_.voltage_battery;

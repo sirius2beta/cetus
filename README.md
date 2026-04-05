@@ -51,63 +51,12 @@ from rclpy.node import Node
 
 #寫到jetson detect的時候記得要 update IMU
 
-sudo nano /etc/udev/rules.d/99-robot.rules
-
-# Septentrio GNSS - 數據主通道 (Interface 02 為 CDC-ACM)
-SUBSYSTEM=="tty", ATTRS{idVendor}=="152a", ATTRS{idProduct}=="85c0", ENV{ID_USB_INTERFACE_NUM}=="02", SYMLINK+="sensors/gps_data", MODE="0666"
-
-# Septentrio GNSS - 配置通道 (Interface 04 為 CDC-ACM)
-SUBSYSTEM=="tty", ATTRS{idVendor}=="152a", ATTRS{idProduct}=="85c0", ENV{ID_USB_INTERFACE_NUM}=="04", SYMLINK+="sensors/gps_config", MODE="0666"
-
-sudo udevadm control --reload-rules && sudo udevadm trigger
-
-sudo nano /etc/udev/rules.d/99-usb-webcam.rules
-
-KERNEL=="video*", KERNELS=="1-2.1:1.0", ATTR{index}=="0", SYMLINK+="cetus_underwater_cam", MODE="0666"
-
-KERNEL=="video*", KERNELS=="1-2.2:1.0", ATTR{index}=="0", SYMLINK+="cetus_front_cam", MODE="0666"
-
-
-
-sudo apt install ros-humble-septentrio-gnss-driver
-
-ros2 run septentrio_gnss_driver septentrio_gnss_driver_node --ros-args -p device:=serial:/dev/sensors/gps_data -p baudrate:=115200
-
-ros2 run septentrio_gnss_driver septentrio_gnss_driver_node --ros-args \
-  -p device:=serial:/dev/ttyACM3 \
-  -p baudrate:=115200 \
-  -p activate_configuration:=false
-
-Node(
-            package='septentrio_gnss_driver',
-            executable='septentrio_gnss_driver_node',
-            name='septentrio_gnss',
-            output='screen',
-            # 這裡開啟熱插拔自動重連
-            respawn=True,
-            respawn_delay=2.0,
-            parameters=[{
-                'device': 'serial:/dev/sensors/gps_data',
-                'baudrate': 115200,
-                'frame_id': 'gps_link',
-                'activate_configuration': False,
-            }]
-        )
-
-        Node(
-            package='gps_manager',
-            namespace='gps_manager',
-            executable='gps_manager',
-            name='gps_manager',
-            respawn=True,
-            respawn_delay=3.0,
-            output='both',
-        ),
 
 # 如果AI無法載入，記憶體缺
 # 檢查快取
 free -h 
 如果 Swap 那一列是 0B，請立刻執行：
+
 # 快速建立 4G Swap
 sudo fallocate -l 4G /var/swapfile
 sudo chmod 600 /var/swapfile
