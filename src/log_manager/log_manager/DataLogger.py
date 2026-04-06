@@ -9,7 +9,7 @@ from .log_format import LogFormat
 
 class DataLogger():
     def __init__(self):
-        self.logging_interval = 0.25 # 設定每秒記錄一次
+        self.logging_interval = 0.25 
         self.log_data = LogFormat() # 存放資料的地方
         """
         1. 在初始化 DataLogger 時，會檢查是否存在存放log的資料夾 "../GPlayerLog"，

@@ -30,6 +30,7 @@ class SeagrassDetect():
         self.streaming = False
         self.recording = False
         self.os = 'None'
+        
 
         self.model = None
         self.out_send = None
@@ -67,7 +68,7 @@ class SeagrassDetect():
         msg = stringmsg.data
         self.node.get_logger().info(f"SeagrassDetect: Received message: {msg}")
         if msg[0] == "f":
-            self.device_id, vformat, self.width, self.height, self.fps, encoder, ip, port = msg.split(" ")[1:]
+            self.device_id, vformat, self.width, self.height, self.fps, encoder, self.ip, self.port = msg.split(" ")[1:]
             if vformat == "MJPG":
                 self.video_pipeline = (
                     f'v4l2src device=/dev/cetusvideo{self.device_id} ! '
@@ -83,12 +84,16 @@ class SeagrassDetect():
             self.cap_send = self.reopen_camera(self.device_id, self.video_pipeline)
 
             self.out_send = cv2.VideoWriter(
-                f'appsrc ! videoconvert ! {self.encode_string} ! rtph264pay pt=96 config-interval=1 ! udpsink host={ip} port={port}',
+                f'appsrc ! videoconvert ! {self.encode_string} ! rtph264pay pt=96 config-interval=1 ! udpsink host={self.ip} port={self.port}',
                 cv2.CAP_GSTREAMER, 0, int(self.fps), (int(self.width), int(self.height)), True
             )
 
 
         elif msg[0] == "p":
+            self.out_send = cv2.VideoWriter(
+                f'appsrc ! videoconvert ! {self.encode_string} ! rtph264pay pt=96 config-interval=1 ! udpsink host={self.ip} port={self.port}',
+                cv2.CAP_GSTREAMER, 0, int(self.fps), (int(self.width), int(self.height)), True
+            )
             self.streaming = True
         elif msg[0] == "x":
             self.streaming = False

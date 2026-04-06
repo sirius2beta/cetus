@@ -9,7 +9,6 @@ import math
 from datetime import datetime, timedelta
 import rclpy
 
-
 from .Device import Device
 from more_interfaces.msg import ArdusimpleValues
 
@@ -23,32 +22,11 @@ def safe_float(value, default=0.0):
     except (ValueError, TypeError):
         return default
 
-def gps_time_to_utc(wnc, tow):
-    gps_start = datetime(1980, 1, 6)
-    total_seconds = wnc * 7 * 86400 + tow/1000
-    utc_time = gps_start + timedelta(seconds=total_seconds)
-
-    # 注意：GPS 時間比 UTC 多 18 秒（截至目前），要減去 leap seconds
-    LEAP_SECONDS = 18  # 根據當前標準，可能會變
-    utc_time -= timedelta(seconds=LEAP_SECONDS)
-
-    return utc_time
-
-def position_accuracy(cov_latlat, cov_lonlon, cov_heightheight):
-    def safe_sqrt(x):
-        # 如果因浮點誤差導致略小於0，強制設為0
-        return math.sqrt(x) if x >= 0 else math.sqrt(max(0, x))
-    
-    sigma_lat = safe_sqrt(cov_latlat)
-    sigma_lon = safe_sqrt(cov_lonlon)
-    sigma_h   = safe_sqrt(cov_heightheight)
-    
-    return sigma_lat, sigma_lon, sigma_h
-
 class ArduSimpleDevice(Device):           
     def __init__(self, device_type, dev_path="", node=None):
         super().__init__(device_type, dev_path)
         self.node = node
+        self.node.get_logger().info("ArdusimpleDevice: Connected to Ardusimple.") 
         self.data_lock = Lock()
 
         self.date = ""
@@ -74,10 +52,8 @@ class ArduSimpleDevice(Device):
             return
         
         threading.Thread(target = self.reader, daemon = True).start() # start the reader thread
-        threading.Thread(target = self.log_data, daemon = True).start() # start the logger thread
-        self.node = node
-        self.node.get_logger().info("ArdusimpleDevice: Connected to Ardusimple.") 
-        
+        self.timer = self.node.create_timer(0.1, self.publish_callback)
+    
     def reader(self):
         while True:
             try:
@@ -101,6 +77,7 @@ class ArduSimpleDevice(Device):
                         # fields[6] = Standard deviation of latitude error
                         # fields[7] = Standard deviation of longitude error
                         # fields[8] = Standard deviation of altitude error
+                        # fields[9] = Checksum
 
                         self.lat_acc = safe_float(fields[6], 0.0)
                         self.lon_acc = safe_float(fields[7], 0.0)
@@ -137,7 +114,8 @@ class ArduSimpleDevice(Device):
                         # fields[4] = N/A
                         # fields[5] = tilt
                         # fields[6] = N/A
-
+                        # fields[8] = range
+                        # fields[9] = fix type: 0 = no fix, 1 = autonomous, 2 = RTK float, 3 = RTK fixed, 4 = DGPS
                         self.yaw = safe_float(fields[3], 0.0)
                         self.tilt = safe_float(fields[5], 0.0)                    
 
@@ -157,7 +135,7 @@ class ArduSimpleDevice(Device):
                         # fields[12] = M (unit of geoid separation)
                         # fields[13] = Age of differential GPS data (empty if not used)
                         # fields[14] = Differential reference station ID (empty if not used)
-
+                        # fields[15] = Checksum
                         
                         self.utc_time = fields[1]
                         self.lat = safe_float(fields[2], 0.0)
@@ -171,9 +149,8 @@ class ArduSimpleDevice(Device):
                 print(f"解析過程中斷: {e}")
                 os._exit(1)
         
-    def log_data(self):
+    def publish_callback(self):
         while True: 
-            # 使用鎖來保護數據讀取
             with self.data_lock:
                 msg = ArdusimpleValues()
                 msg.utc_time = str(self.utc_time)
