@@ -11,6 +11,7 @@ Group=root
 
 # 設定工作目錄
 WorkingDirectory=/home/sirius2beta/cetus
+#ExecStartPre=/bin/sleep 20
 
 # 執行剛才寫好的腳本
 ExecStart=/bin/bash /home/sirius2beta/cetus/start_service.sh
