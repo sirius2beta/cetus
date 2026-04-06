@@ -9,7 +9,7 @@ import time
 from more_interfaces.msg import MavlinkValues, MarinelinkPacket, AquaValues, WinchStatus, ArdusimpleValues, KBestValues
 from septentrio_gnss_driver.msg import PVTGeodetic
 from gps_msgs.msg import GPSFix
-from std_msgs.msg import String
+from std_msgs.msg import String, Float32
 from .DataLogger import DataLogger
 from .config import Config
 
@@ -76,6 +76,12 @@ class LogManager(Node):
             self.seagrass_image_callback,
             10
         )
+        self.seagrass_result_subscriber_ = self.create_subscription(
+            Float32,
+            '/seagrass_detect/result',
+            self.seagrass_result_callback,
+            10
+        )
         self.publisher_ = self.create_publisher(MarinelinkPacket, '/marinelink_tosend', 10)
         #self.get_logger().info('LogManager has started and is listening to /sensor/mavlink_values')
         
@@ -85,7 +91,10 @@ class LogManager(Node):
 
     def seagrass_image_callback(self, msg):
         self.data_logger.log_data.seagrass_image_name = msg.data
-
+    
+    def seagrass_result_callback(self, msg):
+        self.data_logger.log_data.seagrass_coverage_ratio = msg.data
+    
     def mavlinkValues_callback(self, msg):
         #self.get_logger().info(f'Received MavlinkValues - Yaw: {msg.yaw}, Pitch: {msg.pitch}, Roll: {msg.roll}')
         self.data_logger.log_data.fix_type = msg.fix_type

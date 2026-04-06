@@ -58,6 +58,7 @@ class LogFormat:
         self.super_taira_error_byte = None    # SuperTaiRa-錯誤碼
 
         # seagrass image name
+        self.seagrass_coverage_ratio = None
         self.seagrass_image_name = None
 
     def get_all(self):

@@ -20,7 +20,7 @@ import threading
 import logging
 
 from more_interfaces.msg import VideoFormat
-from std_msgs.msg import String
+from std_msgs.msg import String, Float32
 
 class SeagrassDetectNode(Node):
     def __init__(self, ):
@@ -29,6 +29,7 @@ class SeagrassDetectNode(Node):
         self.seagrassDetect.startLoop()
         self.subscriber = self.create_subscription(String, '/control/seagrass/command', self.seagrassDetect.video_format_callback, 10)
         self.publisher = self.create_publisher(String, '/seagrass_detect/img_name', 10)
+        self.result_publisher = self.create_publisher(Float32, '/seagrass_detect/result', 10)
 def main(args=None):
     rclpy.init(args=args)
     seagrass_detect_node = SeagrassDetectNode()

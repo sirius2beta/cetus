@@ -287,6 +287,12 @@ class VideoManager():
 
 	def _stop_pipeline(self, cam):
 		"""停止並釋放 pipeline，但保留 camera 格式資訊"""
+		if cam == self.seagrass_cam:
+			self.node.seagrassCommandPublisher.publish(String(data="x"))
+			self.node.get_logger().info(f"Stop seagrass AI on cam:{cam}")
+			self.releasePort(cam)
+			return
+		
 		if cam not in self.pipelines or not self.pipelines[cam].get("pipeline"):
 			print(f"Camera {cam} 已經是停止狀態或不存在")
 			return
@@ -306,12 +312,13 @@ class VideoManager():
 		self.pipelines[cam]["state"] = 0  # 設置為停止狀態
 
 		# 釋放 portOccupied
+		self.releasePort(cam)
+
+		print(f"_stop_pipeline: video{cam} stopped and cleaned")
+	def releasePort(self, cam):
 		ports_to_remove = [p for p, c in self.portOccupied.items() if c == cam]
 		for p in ports_to_remove:
 			self.portOccupied.pop(p, None)
-
-		print(f"_stop_pipeline: video{cam} stopped and cleaned")
-
 	# ---------------- 播放控制 ---------------- #
 	def play(self, cam, width, height, fps, encoder, IP, port, YOLO_detection_enabled):
 		"""
@@ -342,6 +349,7 @@ class VideoManager():
 			self._stop_pipeline(videoToStop)
 			print(f"  -quit occupied: video{videoToStop}")
 		if cam == self.seagrass_cam:
+			self.setSeagrassCamera(cam, fmtFound, width, height, fps, encoder, IP, port)
 			self.node.seagrassCommandPublisher.publish(String(data="p"))
 			self.node.get_logger().info(f"Start seagrass AI on cam:{cam}")
 			self.portOccupied[port] = cam
@@ -351,20 +359,15 @@ class VideoManager():
 		self._start_pipeline(cam)
 		self.portOccupied[port] = cam
 
-	def stop(self, cam):
-		# 停止 pipeline
-		self._stop_pipeline(cam)
-		print(f"stop pipeline on cam:{cam}")
-
 	def handleMsg(self, data, addr):
 		operation = int(data[0])
 		self.node.get_logger().info(f"handleMsg: operation={operation}, from {addr}, length={len(data)}")
 		if operation == 0 and len(data) >= 9:
-			self.handleSetFormat(data, addr)
+			self.handlePlay(data, addr)
 		elif operation == 1:
-			self.handleSetFormat(data, addr)
+			self.handlePlay(data, addr)
 		elif operation == 2:
-			self.handleQuit(data, addr)
+			self.handleStop(data, addr)
 		elif operation == 3:
 			self.handleSetSeagrassCameraFormat(data, addr)
 		elif operation == 4:
@@ -385,6 +388,7 @@ class VideoManager():
 		encoder = 'h264' if int(data[3]) == 0 else 'mjpeg'
 		port = int.from_bytes(data[4:8], 'little')
 
+		# get width, height, fps from formatIndex
 		fmtMap = self.getFormatInfoByIndexMap()
 		if formatIndex not in fmtMap:
 			self.node.get_logger().warning(f"handleSetSeagrassCameraFormat: invalid formatIndex {formatIndex}")
@@ -401,6 +405,12 @@ class VideoManager():
 		self.setSeagrassCamera(videoNo, fmtFound, width, height, fps, encoder, addr, port)
 	
 	def setSeagrassCamera(self, cam, format, width, height, framerate, encoder, IP, port):
+		# stop cam if it's playing
+		if cam in self.pipelines and self.pipelines[cam].get("pipeline"):
+			self._stop_pipeline(cam)
+			self.node.get_logger().info(f"setSeagrassCamera: Stopped existing pipeline on cam{cam}")
+		# wait a bit for pipeline to fully stop and release resources
+		GLib.usleep(500 * 1000)  # 500 ms
 		self.node.get_logger().info(f"set seagrass camera: {cam} {format} {width} {height} {framerate} {encoder} {IP} {port}")
 		MJPGfps = self.getMJPGFrameRate(cam, width, height)
 		YUYVfps = self.getYUYVFrameRate(cam, width, height)
@@ -413,8 +423,6 @@ class VideoManager():
 			StringMsg.data = f"f {cam} {format} {width} {height} {framerate} {encoder} {IP} {port}"
 			
 			self.node.seagrassCommandPublisher.publish(StringMsg)
-			#self._toolBox.seagrassDetect.setFormat(self.seagrass_cam_format)
-
 		else:
 			self.node.get_logger().warning(f"video{cam} had no YUYV format")
 	
@@ -471,17 +479,13 @@ class VideoManager():
 			return int(max(fps_list))  # 回傳最高 fps
 		return ""
 
-	def handleQuit(self, data, addr):
+	def handleStop(self, data, addr):
 		videoNo = int(data[1])
-		self.node.get_logger().info(f"handleQuit: videoNo={videoNo}, seagrass_cam={self.seagrass_cam}")
-		if videoNo == self.seagrass_cam:
-			self.node.seagrassCommandPublisher.publish(String(data="x"))
-			self.node.get_logger().info(f"Stop seagrass AI on cam:{videoNo}")
-			return
-		self.stop(videoNo)
-		self.node.get_logger().info(f"handleQuit: Stopped video {videoNo}")
+		self.node.get_logger().info(f"handleStop: videoNo={videoNo}, seagrass_cam={self.seagrass_cam}")
+		self._stop_pipeline(videoNo)
+		self.node.get_logger().info(f"handleStop: Stopped video {videoNo}")
 
-	def handleSetFormat(self, data, addr):
+	def handlePlay(self, data, addr):
 		"""
 		兼容舊版 formatIndex，呼叫新版 play()
 		"""
@@ -516,7 +520,7 @@ class VideoManager():
 
 		# 3. 呼叫新版 play()
 		self.play(videoNo, width, height, fps, encoder, ip, port, ai_enabled)
-		self.node.get_logger().info(f"handleSetFormat: video{videoNo} {fmtFound} {width}x{height}@{fps} encoder={encoder}, ai={ai_enabled}")
+		self.node.get_logger().info(f"handlePlay: video{videoNo} {fmtFound} {width}x{height}@{fps} encoder={encoder}, ai={ai_enabled}")
 
 	def handleStartSeagrassRecording(self):
 		self.node.get_logger().info("handleStartSeagrassRecording: Starting seagrass recording")

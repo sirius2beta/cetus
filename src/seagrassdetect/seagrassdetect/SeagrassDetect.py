@@ -9,7 +9,7 @@ import torch
 from torch2trt import TRTModule
 from .unet import Unet
 import re
-from std_msgs.msg import String
+from std_msgs.msg import String, Float32
 
 import queue as _queue
 import numpy as np
@@ -30,6 +30,11 @@ class SeagrassDetect():
         self.streaming = False
         self.recording = False
         self.os = 'None'
+        self.width = 0
+        self.height = 0
+        self.fps = 0
+        self.ip = ""
+        self.port = 0
         
 
         self.model = None
@@ -68,20 +73,30 @@ class SeagrassDetect():
         msg = stringmsg.data
         self.node.get_logger().info(f"SeagrassDetect: Received message: {msg}")
         if msg[0] == "f":
-            self.device_id, vformat, self.width, self.height, self.fps, encoder, self.ip, self.port = msg.split(" ")[1:]
-            if vformat == "MJPG":
-                self.video_pipeline = (
-                    f'v4l2src device=/dev/cetusvideo{self.device_id} ! '
-                    f'image/jpeg, width={self.width}, height={self.height}, framerate={self.fps}/1 ! '
-                    f'jpegdec ! videoconvert ! appsink drop=True max-buffers=1'
-                )
-            else: # default to YUYV
-                self.video_pipeline = (
-                    f'v4l2src device=/dev/cetusvideo{self.device_id} ! '
-                    f'video/x-raw, format=YUY2, width={self.width}, height={self.height}, framerate={self.fps}/1 ! '
-                    f'videoconvert ! appsink drop=True max-buffers=1'
-                )
-            self.cap_send = self.reopen_camera(self.device_id, self.video_pipeline)
+            device_id, vformat, width, height, fps, encoder, ip, port = msg.split(" ")[1:]
+            if self.device_id == device_id and self.width == width and self.height == height and self.fps == fps and self.ip == ip and self.port == port:
+                print("SeagrassDetect: Video format unchanged, skipping reinitialization.")
+            else:    
+                self.device_id = device_id
+                self.width = width
+                self.height = height
+                self.fps = fps
+                self.ip = ip
+                self.port = port   
+            
+                if vformat == "MJPG":
+                    self.video_pipeline = (
+                        f'v4l2src device=/dev/cetusvideo{self.device_id} ! '
+                        f'image/jpeg, width={self.width}, height={self.height}, framerate={self.fps}/1 ! '
+                        f'jpegdec ! videoconvert ! appsink drop=True max-buffers=1'
+                    )
+                else: # default to YUYV
+                    self.video_pipeline = (
+                        f'v4l2src device=/dev/cetusvideo{self.device_id} ! '
+                        f'video/x-raw, format=YUY2, width={self.width}, height={self.height}, framerate={self.fps}/1 ! '
+                        f'videoconvert ! appsink drop=True max-buffers=1'
+                    )
+                self.cap_send = cv2.VideoCapture(self.video_pipeline, cv2.CAP_GSTREAMER)
 
             self.out_send = cv2.VideoWriter(
                 f'appsrc ! videoconvert ! {self.encode_string} ! rtph264pay pt=96 config-interval=1 ! udpsink host={self.ip} port={self.port}',
@@ -95,6 +110,7 @@ class SeagrassDetect():
                 cv2.CAP_GSTREAMER, 0, int(self.fps), (int(self.width), int(self.height)), True
             )
             self.streaming = True
+        
         elif msg[0] == "x":
             self.streaming = False
         elif msg[0] == "r":
@@ -179,6 +195,7 @@ class SeagrassDetect():
             frame = cv2.resize(frame, (int(self.width), int(self.height)))
             cv2.putText(result_bgr, f"Seagrass: {ratio:.2f}%, Time: {latency:.2f}s",
                         (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+            self.node.result_publisher.publish(Float32(data=ratio))
             if self.recording:
                 frame_count += 1
                 file_name = f"{frame_count:07d}.jpg"
