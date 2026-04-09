@@ -23,6 +23,7 @@ import logging
 class SeagrassDetect():
     def __init__(self,node=None):
         self.video_no = -1
+        self.ready = False
         self.enabled = True
         self.format_setted = False
         self.is_playing = False
@@ -150,6 +151,7 @@ class SeagrassDetect():
         self.model.net = trt_model
         print("SeagrassDetect: ✅ TensorRT model loaded!")
         torch.cuda.empty_cache()
+        self.ready = True
 
 
 
@@ -165,16 +167,20 @@ class SeagrassDetect():
         last_infer_time = time.time()
         frame_count = 0
         while True:
+            if not self.ready:
+                time.sleep(0.1)
+                continue
             if not (self.recording or self.streaming):
                 time.sleep(0.05)
                 continue
 
-            if time.time() - last_infer_time < 0.5:
+            if time.time() - last_infer_time < 0.2:
                 time.sleep(0.02)
                 continue
             last_infer_time = time.time()
 
             ret, frame = self.cap_send.read()
+
             file_name = ""
             if not ret or frame is None:
                 print("SeagrassDetect: ⚠️ Camera disconnected...")
@@ -182,6 +188,11 @@ class SeagrassDetect():
                 continue
             
             t1 = time.time()
+            if self.recording:
+                frame_count += 1
+                file_name = f"{frame_count:07d}.jpg"
+                cv2.imwrite(os.path.join(self.image_directory, file_name), frame)
+                self.node.publisher.publish(String(data=os.path.basename(self.image_directory) + "/" + file_name))
             frame = cv2.resize(frame, (640, 480))
             image_pil = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
             result_pil, mask = self.model.detect_image(image_pil, return_mask=True)
@@ -196,11 +207,7 @@ class SeagrassDetect():
             cv2.putText(result_bgr, f"Seagrass: {ratio:.2f}%, Time: {latency:.2f}s",
                         (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
             self.node.result_publisher.publish(Float32(data=ratio))
-            if self.recording:
-                frame_count += 1
-                file_name = f"{frame_count:07d}.jpg"
-                cv2.imwrite(os.path.join(self.image_directory, file_name), frame)
-                self.node.publisher.publish(String(data=os.path.basename(self.image_directory) + "/" + file_name))
+            
             if self.out_send.isOpened() and self.streaming:
                 self.out_send.write(result_bgr)
 

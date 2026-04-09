@@ -16,17 +16,46 @@ from models.utils import blob, letterbox, path_to_list
 import os
 from ament_index_python.packages import get_package_share_directory
 
-from config import CLASSES, COLORS
-from GTool import GTool
-from distance import distance, getR0
 from more_interfaces.msg import MarinelinkPacket
 
 send_result_interval = 0.1
 
+from scipy.spatial.transform import Rotation
+import math
+import numpy as np
+
+
+def distance(K, R, h, u, v):
+    uv = np.array([[u], [v], [1]])
+    Pc = np.linalg.solve(K, uv)  # K 逆矩陣計算 Pc = np.matmul(np.linalg.inv(K), uv)
+    Pw = R.T @ Pc  # 轉換到世界座標 Pw = np.matmul(np.linalg.inv(R), Pc)
+    
+    scale = h / Pw[-1]  # 讓 Z = 0
+    Pw_ground = -Pw * scale  
+
+    #dist = np.linalg.norm(Pw_ground[:2])  # 只考慮 X, Y 平面上的距離
+    return Pw_ground
+
+def getR0(pitch, roll):
+    """
+    計算相機的旋轉矩陣
+    :param pitch: 俯仰角（與水平面的夾角，向上為正）
+    :param roll: 翻滾角（與水平面的夾角，順時針為正）
+    :return: 旋轉矩陣 (3x3)
+    """
+    # 先繞 X 軸旋轉 -90°，使得相機的初始 Z 軸對應世界 Y 軸
+    R_base = Rotation.from_euler('x', -np.pi / 2, degrees=False).as_matrix()
+    
+    # 然後應用 Pitch（繞 X 軸）和 Roll（繞 Z 軸）
+    R_pitch_roll = Rotation.from_euler('xz', [pitch, roll], degrees=False).as_matrix()
+    
+    # 總旋轉矩陣 = 基準旋轉 * Pitch-Roll 旋轉
+    return R_base @ R_pitch_roll
+
 class JetsonDetect():
     def __init__(self, node):
         self.video_no = -1
-        self.enabled = True
+        self.ready = False
         self.cap_send = None
         self.out_send = None
         self.w = 0
@@ -34,6 +63,7 @@ class JetsonDetect():
         self.streaming = False
         self.engine = ''
         self.encode_string = ''
+        self.R0 = getR0(0, 0)
 
         current_dir = os.path.dirname(os.path.abspath(__file__))
         package_share_path = get_package_share_directory('jetsondetect')
@@ -86,6 +116,9 @@ class JetsonDetect():
 
 
         elif msg[0] == "p":
+            if not self.ready:
+                print("JetsonDetect: Not ready to start streaming")
+                return
             self.out_send = cv2.VideoWriter(
                 f'appsrc ! videoconvert ! {self.encode_string} ! rtph264pay pt=96 config-interval=1 ! udpsink host={self.ip} port={self.port}',
                 cv2.CAP_GSTREAMER, 0, int(self.fps), (int(self.width), int(self.height)), True
@@ -98,20 +131,15 @@ class JetsonDetect():
             if self.out_send is not None:
                 self.out_send.release()
             self.streaming = False
+
         elif msg[0] == "r":
             self.recording = True
         elif msg[0] == "s":
             self.recording = False
         elif msg[0] == "i":
-            pitch = float(msg[1])  # 直接使用 pitch
-            roll = float(msg[2])   # 直接使用 roll
-            R0 = getR0(pitch, roll)
-            #print(R0)
-    
-    def updateIMU(self, msg): #[pitch, roll]
-        msg.insert(0, "i")
-        self.in_conn.put(msg)
-   
+            pitch, roll = msg.split(" ")[1:]
+            self.R0 = getR0(float(pitch), float(roll))
+
     def sendDetectionResult(self, results):
         data = struct.pack("<B", 1) #cmd id
         if self.video_no == -1:
@@ -157,7 +185,7 @@ class JetsonDetect():
             [0., 0., 1.]]
         )
         cam_height = 0.4
-        R0 = getR0(0, 0)
+        
         self.last_send_time = time.time()
         while True:  
             if not (self.recording or self.streaming):

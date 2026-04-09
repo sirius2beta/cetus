@@ -5,11 +5,13 @@ import subprocess
 import threading
 import re
 import os
+import struct
 gi.require_version("Gst", "1.0")
 from gi.repository import Gst, GLib, GObject
 
 
 import video_manager.VideoFormat as VideoFormat
+from more_interfaces.msg import MavlinkPacket, MarinelinkPacket
 from std_msgs.msg import String
 
 def getOS():
@@ -31,7 +33,7 @@ class VideoManager():
 
 
 		# pipeline 管理：key=cam index, value=dict
-		self.pipelines = {}  # { cam: {"pipeline": Gst.Pipeline, "state": int, "port": int, "encoder": str} }
+		self.pipelines = {}  # { cam: {"pipeline": Gst.Pipeline, "state": int, "port": int, "formatIndex": int, "AIType": uint8, "encoder": str} }
 		self.camera_format = []
 		self.videoFormatList = {}
 		self.portOccupied = {}  # {port: cam}
@@ -113,8 +115,11 @@ class VideoManager():
 						fps = 30
 						key = (w, h, fps)
 						all_formats.append((fmt, w, h, fps	))
-			print(f"cetusvideo{videoNo} formats: {all_formats}")
+			self.node.get_logger().info(f"cetusvideo{videoNo} formats: {all_formats}")
 			self.pipelines[videoNo]["formats"] = all_formats
+			self.pipelines[videoNo]["formatIndex"] = 0
+			self.pipelines[videoNo]["AIType"] = 0
+			self.pipelines[videoNo]["state"] = 0
 	# for jetson nano
 	def get_videoFormatList_legacy(self):
 		"""
@@ -232,7 +237,15 @@ class VideoManager():
 		if os.path.exists(dev_path):
 			print(f"{dev_path} 已回來，嘗試啟動 pipeline")
 			self._create_pipeline(cam, self.pipelines[cam]['gstring'], self.pipelines[cam]['port'], self.pipelines[cam]['encoder'])
-			self._start_pipeline(cam)
+			if self._start_pipeline(cam):
+				self.pipelines[cam]['state'] = 1
+				print(f"{cam} pipeline restarted successfully")
+			else:
+				self.pipelines[cam]['state'] = 2  # 設置為錯誤狀態
+				print(f"{cam} pipeline failed to restart")
+				return
+				# 重啟成功，更新 portOccupied
+
 			self.portOccupied[self.pipelines[cam]['port']] = cam  # 重新占用 port
 			return
 		else:
@@ -278,11 +291,10 @@ class VideoManager():
 		ret = pipeline.set_state(Gst.State.PLAYING)
 		if ret == Gst.StateChangeReturn.FAILURE:
 			print(f"無法啟動 {cam}")
-			self.pipelines[cam]['state'] = 0  # 設置為停止狀態，等待下一次 play 時重試
 			return False
 		else:
 			print(f"{cam} pipeline started")
-			self.pipelines[cam]['state'] = 1  # 設置為播放狀態
+			
 		return True
 
 	def _stop_pipeline(self, cam):
@@ -319,8 +331,9 @@ class VideoManager():
 		ports_to_remove = [p for p, c in self.portOccupied.items() if c == cam]
 		for p in ports_to_remove:
 			self.portOccupied.pop(p, None)
+
 	# ---------------- 播放控制 ---------------- #
-	def play(self, cam, width, height, fps, encoder, IP, port, YOLO_detection_enabled):
+	def play(self, cam, width, height, fps, encoder, IP, port, ai_type):
 		"""
 		新版 play()，完全用 self.pipelines 管理 pipeline
 		"""
@@ -342,22 +355,32 @@ class VideoManager():
 		gstring = VideoFormat.getFormatCMD(getOS(), cam, fmtFound, width, height, fps, encoder, IP, port)
 		print(f"[Pipeline] cam={cam}, port={port}, encoder={encoder}")
 		self.node.get_logger().info(f"Pipeline string: {gstring}")
-
+		
 		# 釋放被占用的 port
 		if port in self.portOccupied:
 			videoToStop = self.portOccupied[port]
 			self._stop_pipeline(videoToStop)
 			print(f"  -quit occupied: video{videoToStop}")
-		if cam == self.seagrass_cam:
+		if ai_type == 0:
+			if self.seagrass_cam == cam:
+				print(f"this is seagrass cam, stop seagrass ai on cam:{cam}")
+			# 一般播放
+			pipeline = self._create_pipeline(cam, gstring, port, encoder)
+			if self._start_pipeline(cam):
+				self.pipelines[cam]['state'] = 1
+			else:
+				self.pipelines[cam]['state'] = 2
+				return
+			self.portOccupied[port] = cam
+		if ai_type == 2: # 海草 AI
+	
 			self.setSeagrassCamera(cam, fmtFound, width, height, fps, encoder, IP, port)
 			self.node.seagrassCommandPublisher.publish(String(data="p"))
 			self.node.get_logger().info(f"Start seagrass AI on cam:{cam}")
+			self.pipelines[cam]['state'] = 1
 			self.portOccupied[port] = cam
 			return
-		# 一般播放
-		pipeline = self._create_pipeline(cam, gstring, port, encoder)
-		self._start_pipeline(cam)
-		self.portOccupied[port] = cam
+		
 
 	def handleMsg(self, data, addr):
 		operation = int(data[0])
@@ -376,9 +399,29 @@ class VideoManager():
 			self.handleStartSeagrassRecording()
 		elif operation == 6:
 			self.handleStopSeagrassRecording()
+		elif operation == 7:
+			self.node.get_logger().info("handleMsg: get video format on video ID")
+			self.handleGetVideoStatus(data, addr)
 		else:
 			logging.warning(f"Unknown operation: {operation}")
-	
+	def handleGetVideoStatus(self, data, addr):
+		if len(data) < 3:
+			self.node.get_logger().warning("handleGetVideoStatus: insufficient data length")
+			return
+		videoItemIndex = int(data[1])
+		videoIndex = int(data[2])
+		videoNo = list(self.pipelines)[videoIndex]
+		formatIndex = self.pipelines[videoNo].get("formatIndex", -1)
+		AIType = self.pipelines[videoNo].get("AIType", -1)
+		isPlaying = self.pipelines[videoNo]["state"]
+
+		msg = b''
+		 
+		msg += struct.pack("<B", 1)  # command type
+		msg += struct.pack("<B", videoItemIndex)
+		msg += struct.pack("<4B", videoIndex, formatIndex, AIType, int(isPlaying))
+		self.node.publisher_.publish(MarinelinkPacket(topic=1, payload=msg))
+
 	def handleSetSeagrassCameraFormat(self, data, addr):
 		if len(data) < 8:
 			self.node.get_logger().warning("handleSetSeagrassCameraFormat: insufficient data length")
@@ -493,7 +536,7 @@ class VideoManager():
 		formatIndex = int(data[2])
 		encoder = 'h264' if int(data[3]) == 0 else 'mjpeg'
 		port = int.from_bytes(data[4:8], 'little')
-		ai_enabled = int(data[8])
+		ai_type = int(data[8])
 		ip = addr
 
 		# 1. 取得舊版解析度
@@ -517,10 +560,11 @@ class VideoManager():
 		if not fmtFound:
 			self.node.get_logger().warning(f"video{videoNo} does not support {width}x{height}@{fps}")
 			return
-
+		self.pipelines[videoNo]["formatIndex"] = formatIndex
+		self.pipelines[videoNo]["AIType"] = ai_type
 		# 3. 呼叫新版 play()
-		self.play(videoNo, width, height, fps, encoder, ip, port, ai_enabled)
-		self.node.get_logger().info(f"handlePlay: video{videoNo} {fmtFound} {width}x{height}@{fps} encoder={encoder}, ai={ai_enabled}")
+		self.play(videoNo, width, height, fps, encoder, ip, port, ai_type)
+		self.node.get_logger().info(f"handlePlay: video{videoNo} {fmtFound} {width}x{height}@{fps} encoder={encoder}, ai={ai_type}")
 
 	def handleStartSeagrassRecording(self):
 		self.node.get_logger().info("handleStartSeagrassRecording: Starting seagrass recording")

@@ -33,6 +33,21 @@ class VideoControl(Node):
                 self.get_logger().info("No video format available")
                 return
             msg = b''
+            msg += struct.pack("<B", 0)  # command type
+            # videoIndex running on port 5201
+            port = 5201
+            videoIndex1 = 0
+            videoIndex2 = 0
+            if port in self.videoManager.portOccupied:
+                videoIndex1 = self.videoManager.portOccupied[port]
+
+            port = 5202
+            if port in self.videoManager.portOccupied:
+                videoIndex2 = self.videoManager.portOccupied[port]
+            
+            msg += struct.pack("<B", videoIndex1)  # video index
+            msg += struct.pack("<B", videoIndex2)  # video index
+
             for form in formatList:
                 for video in formatList[form]:
                     videoIndex = video[0]

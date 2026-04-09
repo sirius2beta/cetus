@@ -23,7 +23,6 @@ import os
 
 # create packaage with c++
 ros2 pkg create --build-type ament_cmake
-ros2 pkg create --build-type ament_python --node-name my_node my_package
 
 def generate_launch_description():
     # 獲取來源 Package 的 share 路徑
@@ -41,6 +40,8 @@ std::string shared_dir = ament_index_cpp::get_package_share_directory("my_shared
 std::string xml_path = shared_dir + "/config/params.xml";
 
 # Python
+ros2 pkg create --build-type ament_python my_package
+
 In package.xml
 <exec_depend>rclpy</exec_depend>
 <exec_depend>more_interfaces</exec_depend>
