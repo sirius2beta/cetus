@@ -114,6 +114,12 @@ class SeagrassDetect():
         
         elif msg[0] == "x":
             self.streaming = False
+            if not self.recording:
+                if self.cap_send is not None:
+                    self.cap_send.release()
+                if self.out_send is not None:
+                    self.out_send.release()
+                self.ip=""
         elif msg[0] == "r":
             self.recording = True
         elif msg[0] == "s":
