@@ -220,6 +220,7 @@ class VideoManager():
 			self._stop_pipeline(cam)  # 先停止並釋放資源
 			self.pipelines[cam]["state"] = 2  # 設置為錯誤狀態
 			self._handle_reconnect(cam) 
+			self.sendUpdateVideoStatus(cam)  # 更新狀態給上層
 			
 		elif t == Gst.MessageType.EOS:
 			print(f"攝影機 {cam_name} 串流結束")
@@ -235,23 +236,24 @@ class VideoManager():
 		dev_path = f"/dev/cetusvideo{cam}"
 		
 		if self.pipelines[cam]["state"] != 2:  # 如果不是錯誤狀態，表示已經被其他邏輯處理了，不需要重啟
+			self.sendUpdateVideoStatus(cam)  # 更新狀態給上層
 			return  # 已經被其他邏輯處理了，不需要重啟
 		if os.path.exists(dev_path):
-			print(f"{dev_path} 已回來，嘗試啟動 pipeline")
+			self.node.get_logger().info(f"{dev_path} 已回來，嘗試啟動 pipeline")
 			self._create_pipeline(cam, self.pipelines[cam]['gstring'], self.pipelines[cam]['port'], self.pipelines[cam]['encoder'])
-			if self._start_pipeline(cam):
-				self.pipelines[cam]['state'] = 1
-				print(f"{cam} pipeline restarted successfully")
-			else:
-				self.pipelines[cam]['state'] = 2  # 設置為錯誤狀態
-				print(f"{cam} pipeline failed to restart")
+			self._start_pipeline(cam)
+			if self.pipelines[cam]['state'] == 1:
+				self.node.get_logger().info(f"{cam} pipeline restarted successfully")
+				self.portOccupied[self.pipelines[cam]['port']] = cam  # 重新占用 port
+				self.sendUpdateVideoStatus(cam)  # 更新狀態給上層
 				return
-				# 重啟成功，更新 portOccupied
-
-			self.portOccupied[self.pipelines[cam]['port']] = cam  # 重新占用 port
-			return
+			else:
+				self.node.get_logger().error(f"{cam} pipeline failed to restart")
+				self.pipelines[cam]['state'] = 3 # 設置為重啟失敗狀態
+				self.sendUpdateVideoStatus(cam)
+				return			
 		else:
-			print(f"{dev_path} 還沒回來，繼續等待...")
+			self.node.get_logger().info(f"{dev_path} 還沒回來，繼續等待...")
 			# 繼續等待，3 秒後再檢查一次
 		# 延遲 3 秒後重試，避免在硬體未就緒時狂刷
 		GLib.timeout_add(3000, self._handle_reconnect, cam)
@@ -280,7 +282,7 @@ class VideoManager():
 			pipeline.set_state(Gst.State.PLAYING)
 			ret = pipeline.set_state(Gst.State.PLAYING)
 			if ret == Gst.StateChangeReturn.FAILURE:
-				self.pipelines[cam]['state'] = 2  # 設置為錯誤狀態
+				self.pipelines[cam]['state'] = 3  # 設置為錯誤狀態
 				print(f"無法啟動 {cam}")
 				return False
 			else:
@@ -320,7 +322,7 @@ class VideoManager():
 			self.node.seagrassCommandPublisher.publish(String(data="x"))
 			self.node.get_logger().info(f"Stop seagrass AI on cam:{cam}")			
 
-
+		
 		print(f"_stop_pipeline: video{cam} stopped and cleaned")
 	def releasePort(self, cam):
 		ports_to_remove = [p for p, c in self.portOccupied.items() if c == cam]
@@ -372,7 +374,24 @@ class VideoManager():
 		self.pipelines[cam]["formatIndex"] = formatIndex
 		self._start_pipeline(cam)
 		
-
+	def sendUpdateVideoStatus(self, videoNo):
+		videoIndex = -1
+		for idx, vno in enumerate(self.pipelines):
+			if vno == videoNo:
+				videoIndex = idx
+				break
+		if videoIndex == -1:
+			self.node.get_logger().warning(f"sendUpdateVideoStatus: video{videoNo} not found")
+			return
+		formatIndex = self.pipelines[videoNo].get("formatIndex", -1)
+		AIType = self.pipelines[videoNo].get("AIType", -1)
+		isPlaying = self.pipelines[videoNo]["state"]
+		isRecording = self.pipelines[videoNo]["recording"]
+		msg = b''
+		 
+		msg += struct.pack("<B", 2)  # command type
+		msg += struct.pack("<5B", videoIndex, formatIndex, AIType, int(isPlaying), int(isRecording))
+		self.node.publisher_.publish(MarinelinkPacket(topic=1, payload=msg))
 		
 		
 
@@ -527,6 +546,7 @@ class VideoManager():
 		self._stop_pipeline(videoNo)
 		self.pipelines[videoNo]["state"] = 0  # 設置為停止狀態
 		self.node.get_logger().info(f"handleStop: Stopped video {videoNo}")
+		self.sendUpdateVideoStatus(videoNo)
 
 	def handlePlay(self, data, addr):
 		"""
@@ -564,13 +584,14 @@ class VideoManager():
 		# 3. 呼叫新版 play()
 		self.play(videoNo, formatIndex, width, height, fps, encoder, ip, port, ai_type)
 		self.node.get_logger().info(f"handlePlay: video{videoNo} {fmtFound} {width}x{height}@{fps} encoder={encoder}, ai={ai_type}")
-
+		self.sendUpdateVideoStatus(videoNo)
 	def handleStartSeagrassRecording(self, data, addr):
 		videoNo = int(data[1])
 		if self.pipelines[videoNo]["AIType"] == 2:
 			self.node.seagrassCommandPublisher.publish(String(data="r"))
 			self.node.get_logger().info("handleStartSeagrassRecording: Starting seagrass recording")
 			self.pipelines[videoNo]["recording"] = True
+			self.sendUpdateVideoStatus(videoNo)
 		
 	
 	def handleStopSeagrassRecording(self, data, addr):
@@ -579,3 +600,4 @@ class VideoManager():
 			self.node.get_logger().info("handleStopSeagrassRecording: Stopping seagrass recording")
 			self.node.seagrassCommandPublisher.publish(String(data="s"))
 			self.pipelines[videoNo]["recording"] = False
+			self.sendUpdateVideoStatus(videoNo)
