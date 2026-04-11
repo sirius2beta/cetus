@@ -9,7 +9,7 @@ import math
 import torch
 from torch2trt import TRTModule
 from .unet import Unet
-from .SeagrassDetect import SeagrassDetect
+from seagrassdetect.SeagrassDetect import SeagrassDetect
 
 import numpy as np
 from PIL import Image
