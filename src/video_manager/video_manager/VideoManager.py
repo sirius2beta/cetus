@@ -31,6 +31,9 @@ class VideoManager():
 		self.node = node
 		self.sys = 'buster'
 
+		self.base_folder_path = "/home/sirius2beta/GPlayerLogNew/snapshot/video"
+        
+
 
 		# pipeline 管理：key=cam index, value=dict
 		self.pipelines = {}  # { cam: {"pipeline": Gst.Pipeline, "state": int, "port": int, "formatIndex": int, "AIType": uint8, "encoder": str} }
@@ -51,7 +54,19 @@ class VideoManager():
 		self.loop_thread.start()
 		
 		print("[o] VideoManager: started")
+	def createDirectory(self, cam):
+		# 為 cam 建立專屬資料夾
+		base_directory = os.path.expanduser(self.base_folder_path+f"{cam}")
+		os.makedirs(base_directory, exist_ok=True)
 
+		# 找出所有 record_xxxxx 資料夾
+		existing_folders = [f for f in os.listdir(base_directory) if f.startswith("record_")]
+		indices = [int(re.search(r"record_(\d+)", f).group(1)) for f in existing_folders if re.search(r"record_(\d+)", f)]
+		file_index = max(indices) + 1 if indices else 1
+
+		image_directory = os.path.join(base_directory, f"record_{file_index:06d}")
+		os.makedirs(image_directory, exist_ok=True)
+		return image_directory
 	def getFormatInfoByIndex(self, formatIndex):
 		formatMap = {
 			0: (1920, 1080, 30),
@@ -215,10 +230,15 @@ class VideoManager():
 		if t == Gst.MessageType.ERROR:
 			err, debug = message.parse_error()
 			print(f"攝影機 {cam} 發生錯誤: {err.message}")
+			#if dev is busy( Device '/dev/cetusvideo... is busy), return
 			
 			# 重要：當電壓不穩影像斷掉時，這裡會被觸發
 			self._stop_pipeline(cam)  # 先停止並釋放資源
-			self.pipelines[cam]["state"] = 2  # 設置為錯誤狀態
+			if "is busy" in err.message:
+				self.pipelines[cam]["state"] = 3
+				return
+			else:
+				self.pipelines[cam]["state"] = 2  # 設置為錯誤狀態
 			self._handle_reconnect(cam) 
 			self.sendUpdateVideoStatus(cam)  # 更新狀態給上層
 			
@@ -265,6 +285,7 @@ class VideoManager():
 		self.pipelines[cam]['port'] = port
 		self.pipelines[cam]['encoder'] = encoder
 		self.pipelines[cam]['pipeline'] = pipeline
+		self.pipelines[cam]['record_valve'] = pipeline.get_by_name("photo_valve")
 		
 		if not pipeline:
 			print(f"無法建立 {cam} 的 pipeline")
@@ -317,7 +338,8 @@ class VideoManager():
 				print(f"警告: {cam} 無法完全切換至 NULL 狀態")
 			
 			self.pipelines[cam]["pipeline"] = None  # 清掉 pipeline，但保留格式
-			
+			self.pipelines[cam]['record_valve'] = False
+			self.pipelines[cam]['recording'] = False
 		elif self.pipelines[cam]["AIType"] == 2: # 海草 AI
 			self.node.seagrassCommandPublisher.publish(String(data="x"))
 			self.node.get_logger().info(f"Stop seagrass AI on cam:{cam}")			
@@ -345,23 +367,23 @@ class VideoManager():
 		if fmtFound is None:
 			self.node.get_logger().error(f"video{cam} has no format {width}x{height}@{fps}")
 			return
-		if self.pipelines[cam]["recording"]:
-			self.node.get_logger().warning(f"video{cam} is currently recording, cannot change format until recording is stopped")
-			return
+		
 		if self.pipelines[cam]["state"] == 1:
 			self._stop_pipeline(cam)
 		
 		if port in self.portOccupied:
 			videoToStop = self.portOccupied[port]
 			self._stop_pipeline(videoToStop)
-			self.pipelines[cam]["state"] = 0  # 設置為停止狀態
+			self.pipelines[videoToStop]["state"] = 0  # 設置為停止狀態
 			# 釋放 portOccupied
-			self.releasePort(cam)
+			self.releasePort(videoToStop)
+			self.sendUpdateVideoStatus(videoToStop)  # 更新狀態給上層
 			print(f"  -quit occupied: video{videoToStop}")
 		
 		# 生成 GStreamer 指令
 		if ai_type == 0:
-			gstring = VideoFormat.getFormatCMD(getOS(), cam, fmtFound, width, height, fps, encoder, IP, port)
+			image_directory = self.createDirectory(cam)
+			gstring = VideoFormat.getFormatCMD(getOS(), cam, fmtFound, width, height, fps, encoder, IP, port, image_directory)
 			print(f"[Pipeline] cam={cam}, port={port}, encoder={encoder}")
 			self.node.get_logger().info(f"Pipeline string: {gstring}")
 			
@@ -398,9 +420,8 @@ class VideoManager():
 	def handleMsg(self, data, addr):
 		operation = int(data[0])
 		self.node.get_logger().info(f"handleMsg: operation={operation}, from {addr}, length={len(data)}")
-		if operation == 0 and len(data) >= 9:
-			#self.handlePlay(data, addr)
-			pass
+		if operation == 0:
+			self.handleGetFormatList(data, addr)
 		elif operation == 1:
 			self.handlePlay(data, addr)
 		elif operation == 2:
@@ -410,14 +431,49 @@ class VideoManager():
 		elif operation == 4:
 			self.handleDetect(data, addr)
 		elif operation == 5:
-			self.handleStartSeagrassRecording(data, addr)
+			self.handleStartRecording(data, addr)
 		elif operation == 6:
-			self.handleStopSeagrassRecording(data, addr)
+			self.handleStopRecording(data, addr)
 		elif operation == 7:
 			self.node.get_logger().info("handleMsg: get video format on video ID")
 			self.handleGetVideoStatus(data, addr)
 		else:
 			logging.warning(f"Unknown operation: {operation}")
+	def handleGetFormatList(self, data, addr):
+		self.node.get_logger().info("[FORMAT]")
+		formatList = self.get_videoFormatList_legacy()
+		if not formatList:
+			self.node.get_logger().info("Format list is empty")
+			return
+		msg = b''
+		msg += struct.pack("<B", 0)  # command type
+		# videoIndex running on port 5201
+		viewport = int(data[1])
+		port = 5201 + viewport
+		videoIndex = 0
+		if port in self.portOccupied:
+			videoNo = self.portOccupied[port]
+			
+			# iterate videomanager pipelines keys as videoNo to find the videoIndex
+			videoIndex = self.getVideoIndex(videoNo)
+				
+		msg += struct.pack("<B", viewport)  # viewport
+		msg += struct.pack("<B", videoIndex)  # video index
+
+		for form in formatList:
+			for video in formatList[form]:
+				videoIndex = video[0]
+				msg += struct.pack("<2B", videoIndex, form)
+		self.node.get_logger().info(f"Publishing format list with {len(formatList)} formats")
+		self.node.publisher_.publish(MarinelinkPacket(topic=1, payload=msg))
+	def getVideoIndex(self,cam):
+		videoIndex = 0
+		for key in self.pipelines:
+			if key == cam:
+				return videoIndex
+			else:
+				videoIndex += 1
+		return -1
 	def handleGetVideoStatus(self, data, addr):
 		if len(data) < 3:
 			self.node.get_logger().warning("handleGetVideoStatus: insufficient data length")
@@ -585,18 +641,26 @@ class VideoManager():
 		self.play(videoNo, formatIndex, width, height, fps, encoder, ip, port, ai_type)
 		self.node.get_logger().info(f"handlePlay: video{videoNo} {fmtFound} {width}x{height}@{fps} encoder={encoder}, ai={ai_type}")
 		self.sendUpdateVideoStatus(videoNo)
-	def handleStartSeagrassRecording(self, data, addr):
+	def handleStartRecording(self, data, addr):
 		videoNo = int(data[1])
-		if self.pipelines[videoNo]["AIType"] == 2:
+		if self.pipelines[videoNo]["AIType"] == 0:
+			self.pipelines[videoNo]["record_valve"].set_property("drop", False)
+			self.pipelines[videoNo]["recording"] = True
+			self.sendUpdateVideoStatus(videoNo)
+		elif self.pipelines[videoNo]["AIType"] == 2:
 			self.node.seagrassCommandPublisher.publish(String(data="r"))
 			self.node.get_logger().info("handleStartSeagrassRecording: Starting seagrass recording")
 			self.pipelines[videoNo]["recording"] = True
 			self.sendUpdateVideoStatus(videoNo)
 		
 	
-	def handleStopSeagrassRecording(self, data, addr):
+	def handleStopRecording(self, data, addr):
 		videoNo = int(data[1])
-		if self.pipelines[videoNo]["AIType"] == 2:
+		if self.pipelines[videoNo]["AIType"] == 0:
+			self.pipelines[videoNo]["record_valve"].set_property("drop", True)
+			self.pipelines[videoNo]["recording"] = False
+			self.sendUpdateVideoStatus(videoNo)
+		elif self.pipelines[videoNo]["AIType"] == 2:
 			self.node.get_logger().info("handleStopSeagrassRecording: Stopping seagrass recording")
 			self.node.seagrassCommandPublisher.publish(String(data="s"))
 			self.pipelines[videoNo]["recording"] = False

@@ -35,18 +35,21 @@ class VideoControl(Node):
             msg = b''
             msg += struct.pack("<B", 0)  # command type
             # videoIndex running on port 5201
-            port = 5201
-            videoIndex1 = 0
-            videoIndex2 = 0
+            viewport = int(payload_bytes[0])
+            port = 5201 + viewport
+            videoIndex = 0
             if port in self.videoManager.portOccupied:
-                videoIndex1 = self.videoManager.portOccupied[port]
-
-            port = 5202
-            if port in self.videoManager.portOccupied:
-                videoIndex2 = self.videoManager.portOccupied[port]
-            
-            msg += struct.pack("<B", videoIndex1)  # video index
-            msg += struct.pack("<B", videoIndex2)  # video index
+                videoNo = self.videoManager.portOccupied[port]
+                
+                # iterate videomanager pipelines keys as videoNo to find the videoIndex
+                for key in self.videoManager.pipelines:
+                    if key == videoNo:
+                        break
+                    else:
+                        videoIndex += 1
+                    
+            msg += struct.pack("<B", viewport)  # viewport
+            msg += struct.pack("<B", videoIndex)  # video index
 
             for form in formatList:
                 for video in formatList[form]:

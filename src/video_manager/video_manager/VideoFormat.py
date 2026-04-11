@@ -1,4 +1,4 @@
-def getFormatCMD(sys, cam, format, width, height, framerate, encoder, IP, port):
+def getFormatCMD(sys, cam, format, width, height, framerate, encoder, IP, port, img_directory):
 		gstring = 'v4l2src device=/dev/cetusvideo'+str(cam)
 		mid = 'nan'
 		if format == 'YUYV':
@@ -27,7 +27,7 @@ def getFormatCMD(sys, cam, format, width, height, framerate, encoder, IP, port):
 					# Jetson hardware encode H264
 					#gstring +='jpegparse ! jpegdec ! videoconvert ! videoconvert ! nvvideoconvert ! nvv4l2h264enc ! rtph264pay pt=96 config-interval=1 ! udpsink host={} port={}'.format(IP, port)	
 					# Software encode, more stable?
-					gstring +='jpegparse ! nvv4l2decoder mjpeg=1 ! nvvidconv ! video/x-raw,format=I420 ! x264enc bitrate=1000 tune=zerolatency speed-preset=superfast ! rtph264pay pt=96 config-interval=1 ! udpsink host={} port={}'.format(IP, port)	
+					gstring +='jpegparse ! nvv4l2decoder mjpeg=1 ! nvvidconv ! video/x-raw,format=I420 ! tee name=t t. ! queue ! x264enc bitrate=1000 tune=zerolatency speed-preset=superfast ! rtph264pay pt=96 config-interval=1 ! udpsink host={} port={} sync=false  t. ! queue ! valve name=photo_valve drop=True ! videorate ! video/x-raw,framerate=1/1 ! jpegenc ! multifilesink location={}/img_%05d.jpg async=false'.format(IP, port, img_directory)	
 			else:
 				gstring +='jpegparse ! jpegdec ! jpegenc quality=30 ! rtpjpegpay ! udpsink host={} port={}'.format(IP, port)
 
