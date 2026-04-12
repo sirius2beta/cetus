@@ -19,6 +19,7 @@ class VideoControl(Node):
         self.subscriber_ = self.create_subscription(MarinelinkPacket, '/control/video', self.marinelink_callback, 10)
         self.publisher_ = self.create_publisher(MarinelinkPacket, '/marinelink_tosend', 10)
         self.seagrassCommandPublisher = self.create_publisher(String, '/control/seagrass/command', 10)
+        self.jetsonDetectCommandPublisher = self.create_publisher(String, '/control/jetsondetect/command', 10)
         self.videoManager = VideoManager(self)
         
 

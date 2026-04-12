@@ -72,5 +72,13 @@ def generate_launch_description():
             output='screen',
             emulate_tty=True,
         ),
+        Node(
+            package='jetsondetect',
+            namespace='jetsondetect',
+            executable='jetsondetect',
+            name='jetsondetect',
+            output='screen',
+            emulate_tty=True,
+        ),
         
     ])

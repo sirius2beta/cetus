@@ -22,11 +22,9 @@ import logging
 
 class SeagrassDetect():
     def __init__(self,node=None):
-        self.video_no = -1
         self.ready = False
         self.enabled = True
         self.format_setted = False
-        self.is_playing = False
         self.node = node
         self.streaming = False
         self.recording = False

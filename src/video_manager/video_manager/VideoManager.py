@@ -312,12 +312,16 @@ class VideoManager():
 			bus = pipeline.get_bus()
 			bus.add_signal_watch()
 			bus.connect("message", self._on_message, cam)
-			
-		if self.pipelines[cam]["AIType"] == 2: # 海草 AI
-			
+		elif self.pipelines[cam]["AIType"] == 1:
+			self.node.jetsonDetectCommandPublisher.publish(String(data="p"))
+			self.node.get_logger().info(f"Start JetsonDetect AI on cam:{cam}")
+			self.pipelines[cam]['state'] = 1
+
+		elif self.pipelines[cam]["AIType"] == 2: # 海草 AI
 			self.node.seagrassCommandPublisher.publish(String(data="p"))
 			self.node.get_logger().info(f"Start seagrass AI on cam:{cam}")
 			self.pipelines[cam]['state'] = 1
+		
 		self.portOccupied[self.pipelines[cam]['port']] = cam
 
 	def _stop_pipeline(self, cam):
@@ -340,6 +344,10 @@ class VideoManager():
 			self.pipelines[cam]["pipeline"] = None  # 清掉 pipeline，但保留格式
 			self.pipelines[cam]['record_valve'] = False
 			self.pipelines[cam]['recording'] = False
+		elif self.pipelines[cam]["AIType"] == 1: # 海草 AI
+			self.node.jetsonDetectCommandPublisher.publish(String(data="x"))
+			self.node.get_logger().info(f"Stop jetsonDetect AI on cam:{cam}")			
+
 		elif self.pipelines[cam]["AIType"] == 2: # 海草 AI
 			self.node.seagrassCommandPublisher.publish(String(data="x"))
 			self.node.get_logger().info(f"Stop seagrass AI on cam:{cam}")			
@@ -388,6 +396,8 @@ class VideoManager():
 			self.node.get_logger().info(f"Pipeline string: {gstring}")
 			
 			self.pipelines[cam]['gstring'] = gstring
+		if ai_type == 1:
+			self.setJetsonCamera(cam, fmtFound, width, height, fps, encoder, IP, port)
 		elif ai_type == 2: # 海草 AI
 			self.setSeagrassCamera(cam, fmtFound, width, height, fps, encoder, IP, port)
 		self.pipelines[cam]['port'] = port
@@ -437,6 +447,7 @@ class VideoManager():
 		elif operation == 7:
 			self.node.get_logger().info("handleMsg: get video format on video ID")
 			self.handleGetVideoStatus(data, addr)
+
 		else:
 			logging.warning(f"Unknown operation: {operation}")
 	def handleGetFormatList(self, data, addr):
@@ -516,7 +527,32 @@ class VideoManager():
 			self.node.get_logger().warning(f"handleSetSeagrassCameraFormat: video{videoNo} does not support {width}x{height}@{fps}")
 			return
 		self.setSeagrassCamera(videoNo, fmtFound, width, height, fps, encoder, addr, port)
-	
+	def setJetsonCamera(self, cam, format, width, height, framerate, encoder, IP, port):
+		# stop cam if it's playing
+		if cam in self.pipelines and self.pipelines[cam].get("pipeline"):
+			self._stop_pipeline(cam)
+			self.pipelines[cam]["state"] = 0  # 設置為停止狀態
+
+			# 釋放 portOccupied
+			self.releasePort(cam)
+			self.node.get_logger().info(f"setJetsonCamera: Stopped existing pipeline on cam{cam}")
+		# wait a bit for pipeline to fully stop and release resources
+		GLib.usleep(500 * 1000)  # 500 ms
+		self.node.get_logger().info(f"set jetsondetect camera: {cam} {format} {width} {height} {framerate} {encoder} {IP} {port}")
+		MJPGfps = self.getMJPGFrameRate(cam, width, height)
+		YUYVfps = self.getYUYVFrameRate(cam, width, height)
+		format = "MJPG"
+		if MJPGfps != "":
+			self.node.get_logger().info(f"MJPG fps for video{cam}: {MJPGfps}")
+			self.node.get_logger().info(f"start ai on cam:{cam}")
+			self.seagrass_cam = cam
+			StringMsg = String()
+			StringMsg.data = f"f {cam} {format} {width} {height} {framerate} {encoder} {IP} {port}"
+			
+			self.node.jetsonDetectCommandPublisher.publish(StringMsg)
+		else:
+			self.node.get_logger().warning(f"video{cam} had no YUYV format")
+
 	def setSeagrassCamera(self, cam, format, width, height, framerate, encoder, IP, port):
 		# stop cam if it's playing
 		if cam in self.pipelines and self.pipelines[cam].get("pipeline"):
@@ -641,10 +677,16 @@ class VideoManager():
 		self.play(videoNo, formatIndex, width, height, fps, encoder, ip, port, ai_type)
 		self.node.get_logger().info(f"handlePlay: video{videoNo} {fmtFound} {width}x{height}@{fps} encoder={encoder}, ai={ai_type}")
 		self.sendUpdateVideoStatus(videoNo)
+
 	def handleStartRecording(self, data, addr):
 		videoNo = int(data[1])
 		if self.pipelines[videoNo]["AIType"] == 0:
 			self.pipelines[videoNo]["record_valve"].set_property("drop", False)
+			self.pipelines[videoNo]["recording"] = True
+			self.sendUpdateVideoStatus(videoNo)
+		elif self.pipelines[videoNo]["AIType"] == 1:
+			self.node.jetsonDetectCommandPublisher.publish(String(data="r"))
+			self.node.get_logger().info("handleStartSeagrassRecording: Starting seagrass recording")
 			self.pipelines[videoNo]["recording"] = True
 			self.sendUpdateVideoStatus(videoNo)
 		elif self.pipelines[videoNo]["AIType"] == 2:
@@ -658,6 +700,11 @@ class VideoManager():
 		videoNo = int(data[1])
 		if self.pipelines[videoNo]["AIType"] == 0:
 			self.pipelines[videoNo]["record_valve"].set_property("drop", True)
+			self.pipelines[videoNo]["recording"] = False
+			self.sendUpdateVideoStatus(videoNo)
+		elif self.pipelines[videoNo]["AIType"] == 1:
+			self.node.get_logger().info("handleStopSeagrassRecording: Stopping seagrass recording")
+			self.node.jetsonDetectCommandPublisher.publish(String(data="s"))
 			self.pipelines[videoNo]["recording"] = False
 			self.sendUpdateVideoStatus(videoNo)
 		elif self.pipelines[videoNo]["AIType"] == 2:
