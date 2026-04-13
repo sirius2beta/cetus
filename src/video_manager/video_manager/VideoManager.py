@@ -477,6 +477,11 @@ class VideoManager():
 				msg += struct.pack("<2B", videoIndex, form)
 		self.node.get_logger().info(f"Publishing format list with {len(formatList)} formats")
 		self.node.publisher_.publish(MarinelinkPacket(topic=1, payload=msg))
+		StringMsg = String()
+		StringMsg.data = "i"
+		self.node.jetsonDetectCommandPublisher.publish(StringMsg)
+		self.node.seagrassCommandPublisher.publish(StringMsg)
+
 	def getVideoIndex(self,cam):
 		videoIndex = 0
 		for key in self.pipelines:

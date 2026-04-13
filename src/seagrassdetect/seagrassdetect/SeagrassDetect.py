@@ -9,6 +9,9 @@ import torch
 from torch2trt import TRTModule
 from .unet import Unet
 import re
+import struct
+
+from more_interfaces.msg import MarinelinkPacket
 from std_msgs.msg import String, Float32
 
 import queue as _queue
@@ -122,6 +125,8 @@ class SeagrassDetect():
             self.recording = True
         elif msg[0] == "s":
             self.recording = False
+        elif msg[0] == "i":
+            self.sendAIModelStatus()
 
 
 
@@ -140,6 +145,7 @@ class SeagrassDetect():
  
 
     def load_model(self):
+        self.sendAIModelStatus()
         current_dir = os.path.dirname(os.path.abspath(__file__))
         package_share_path = get_package_share_directory('seagrassdetect')
         trt_path = os.path.join(package_share_path, "model", "seagrass_model_resnet50_trt.pth")
@@ -156,16 +162,27 @@ class SeagrassDetect():
         print("SeagrassDetect: ✅ TensorRT model loaded!")
         torch.cuda.empty_cache()
         self.ready = True
-
+        self.sendAIModelStatus()
 
 
     def reopen_camera(self, device_id, pipeline):
         while not os.path.exists(f"/dev/cetusvideo{device_id}"):
             time.sleep(3)
+        if self.cap_send is not None:
+            self.cap_send.release()
+            time.sleep(0.5) # Give the OS time to release the V4L2 handle
+        if not (self.recording or self.streaming):
+            return
         cap = cv2.VideoCapture(pipeline, cv2.CAP_GSTREAMER)
         time.sleep(1)
         return cap
+    def sendAIModelStatus(self):
+        data = struct.pack("<B", 3) #cmd id
+        data += struct.pack("<B", 2)
+        data += struct.pack("<B", int(self.ready)) #video no
 
+
+        self.node.mavlink_publisher.publish(MarinelinkPacket(topic=1, payload=data))
     
     def detectTask(self):
         last_infer_time = time.time()

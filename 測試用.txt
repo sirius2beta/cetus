@@ -14,3 +14,6 @@ echo "1-2.4.2:1.2" | sudo tee /sys/bus/usb/drivers/cdc_acm/unbind
 echo "1-2.4.2:1.2" | sudo tee /sys/bus/usb/drivers/cdc_acm/bind
 
 echo "1-2.2.2:1.0" | sudo tee /sys/bus/usb/drivers/uvcvideo/unbind
+
+
+ros2 topic pub -1 /control/jetsondetect/command std_msgs/msg/String  "{data: 'f 3 MJPG 640 480 30 MJPG 100.98.35.65 5201'}"
