@@ -79,8 +79,8 @@ class ArduSimpleDevice(Device):
                         # fields[8] = Standard deviation of altitude error
                         # fields[9] = Checksum
 
-                        self.lat_acc = safe_float(fields[6], 0.0)
-                        self.lon_acc = safe_float(fields[7], 0.0)
+                        self.lat_acc = safe_float(fields[6], 0.0)/100
+                        self.lon_acc = safe_float(fields[7], 0.0)/100
                         self.alt_acc = safe_float(fields[8], 0.0)
 
                     if(fields[0] == "GPRMC" or fields[0] == "GMRMC"):
@@ -153,6 +153,7 @@ class ArduSimpleDevice(Device):
         while True: 
             with self.data_lock:
                 msg = ArdusimpleValues()
+                msg.date = str(self.date)
                 msg.utc_time = str(self.utc_time)
                 msg.latitude = self.lat
                 msg.longitude = self.lon

@@ -4,7 +4,8 @@ from io import StringIO
 class LogFormat:
     def __init__(self):
         self.time_usec = None     # 時間戳記 (微秒)
-        self.timestamp = None      # 時間戳記 (YYYYMMDD_HHMM)
+        self.gps_date = None
+        self.gps_timestamp = None      # 時間戳記 (YYYYMMDD_HHMM)
         # Pixhawk 資料
         self.fix_type = None      # 定位類型
         self.depth = None         # 深度

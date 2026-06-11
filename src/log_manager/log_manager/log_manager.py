@@ -181,7 +181,8 @@ class LogManager(Node):
         #self.get_logger().info(f"Updated WinchStatus - Step: {step}, Tension: {tension}, Status: {status}")
     
     def ardusimple_callback(self, msg):
-        self.data_logger.log_data.timestamp = msg.utc_time
+        self.data_logger.log_data.gps_date = msg.date
+        self.data_logger.log_data.gps_timestamp = msg.utc_time
         self.data_logger.log_data.lat = msg.latitude
         self.data_logger.log_data.lon = msg.longitude
         self.data_logger.log_data.alt = msg.height

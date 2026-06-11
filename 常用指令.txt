@@ -1,0 +1,13 @@
+關閉
+sudo systemctl stop cetus
+
+重啟
+sudo systemctl restart cetus
+
+查看CPU
+jtop
+
+查看log最末端
+tail -n 1  GPlayerLogNew/log_00000002.csv
+
+gst-launch-1.0 v4l2src device=/dev/cetusvideo0 num-buffers=-1 ! image/jpeg,width=1920,height=1080,framerate=30/1 ! jpegparse ! nvv4l2decoder mjpeg=1 ! nvvidconv ! video/x-raw,format=I420 ! x264enc bitrate=1000 tune=zerolatency speed-preset=superfast ! rtph264pay pt=96 config-interval=1 ! udpsink host=100.98.35.65 port=5202 sync=false 

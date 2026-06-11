@@ -1,3 +1,4 @@
+string date
 string utc_time
 float64 latitude          
 float64 longitude     

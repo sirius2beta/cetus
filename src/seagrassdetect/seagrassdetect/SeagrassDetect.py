@@ -69,7 +69,33 @@ class SeagrassDetect():
         
         self.image_directory = os.path.join(self.base_directory, f"seagrass_{file_index:06d}")
         os.makedirs(self.image_directory, exist_ok=True)
-
+        # 建立一個執行緒安全的佇列
+        self.save_queue = _queue.Queue(maxsize=100) # 限制大小防止記憶體溢出
+        
+        # 啟動背景儲存執行緒
+        threading.Thread(target=self._async_storage_worker, daemon=True).start()
+    def _async_storage_worker(self):
+        """專門在背景處理磁碟寫入的執行緒，不影響主推論迴圈"""
+        while True:
+            try:
+                # 從佇列取得任務 (如果佇列空了會自動 block 等待，不浪費 CPU)
+                task = self.save_queue.get()
+                if task is None:
+                    continue
+                
+                frame_path, frame, mask_path, mask = task
+                
+                # 在背景執行慢速的 I/O 操作
+                if frame is not None:
+                    cv2.imwrite(frame_path, frame)
+                if mask is not None:
+                    # 將 0/1 的 mask 轉成 0/255 的灰階圖儲存
+                    # 這裡用 jpg 雖然是有損，但速度比 png 快非常多
+                    cv2.imwrite(mask_path, (mask * 255).astype(np.uint8))
+                    
+                self.save_queue.task_done()
+            except Exception as e:
+                print(f"SeagrassDetect Storage Error: {e}")
 
     def video_format_callback(self, stringmsg):
         msg = stringmsg.data
@@ -198,40 +224,57 @@ class SeagrassDetect():
             if time.time() - last_infer_time < 0.2:
                 time.sleep(0.02)
                 continue
-            last_infer_time = time.time()
-
+            
             ret, frame = self.cap_send.read()
 
-            file_name = ""
             if not ret or frame is None:
                 print("SeagrassDetect: ⚠️ Camera disconnected...")
                 self.cap_send = self.reopen_camera(self.device_id, self.video_pipeline)
                 continue
             
+            # 更新推論時間
+            last_infer_time = time.time()
             t1 = time.time()
+
+            # --- 1. AI 推論 ---
+            # 備份原始解析度的 frame，避免被後續的 resize 覆蓋
+            orig_frame = frame.copy() 
+            
+            frame_resized = cv2.resize(frame, (640, 480))
+            image_pil = Image.fromarray(cv2.cvtColor(frame_resized, cv2.COLOR_BGR2RGB))
+            result_pil, mask = self.model.detect_image(image_pil, return_mask=True)
+            # 建立 result_bgr 供影像串流寫入 (解決之前的 NameError)
+            result_bgr = cv2.cvtColor(np.array(result_pil), cv2.COLOR_RGB2BGR)
+            result_bgr = cv2.resize(result_bgr, (int(self.width), int(self.height)))
+            
+            cv2.putText(result_bgr, f"Seagrass: {ratio:.2f}%, Time: {latency:.2f}s",
+                        (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+            
+            # --- 2. 影像與 Mask 儲存 (使用背景佇列) ---
             if self.recording:
                 frame_count += 1
                 file_name = f"{frame_count:07d}.jpg"
-                cv2.imwrite(os.path.join(self.image_directory, file_name), frame)
-                self.node.publisher.publish(String(data=os.path.basename(self.image_directory) + "/" + file_name))
-            frame = cv2.resize(frame, (640, 480))
-            image_pil = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
-            result_pil, mask = self.model.detect_image(image_pil, return_mask=True)
+                mask_name = f"{frame_count:07d}_mask.jpg"
+                
+                frame_path = os.path.join(self.image_directory, file_name)
+                mask_path = os.path.join(self.image_directory, mask_name)
+                
+                try:
+                    # 丟進 Queue，儲存高畫質的 orig_frame 與 mask
+                    self.save_queue.put_nowait((frame_path, orig_frame, mask_path, mask))
+                except _queue.Full:
+                    print("SeagrassDetect: ⚠️ Storage queue full, dropping storage frame!")
 
+                self.node.publisher.publish(String(data=os.path.basename(self.image_directory) + "/" + file_name))
+
+            # --- 3. 影像後處理與數值計算 ---
             seagrass_pixels = np.sum(mask == 0)
             ratio = seagrass_pixels / mask.size * 100
             latency = time.time() - t1
 
-            result_bgr = cv2.cvtColor(np.array(result_pil), cv2.COLOR_RGB2BGR)
-            result_bgr = cv2.resize(result_bgr, (int(self.width), int(self.height)))
-            frame = cv2.resize(frame, (int(self.width), int(self.height)))
-            cv2.putText(result_bgr, f"Seagrass: {ratio:.2f}%, Time: {latency:.2f}s",
-                        (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+            
             self.node.result_publisher.publish(Float32(data=ratio))
             
-            if self.out_send.isOpened() and self.streaming:
+            # --- 4. 串流輸出 ---
+            if self.streaming and self.out_send.isOpened():
                 self.out_send.write(result_bgr)
-
-        
-
-    

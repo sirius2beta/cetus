@@ -68,7 +68,7 @@ class Unet(object):
         if self.num_classes <= 21:
             # 顏色對調，海草背景顏色交換
             # self.colors = [ (0, 0, 0), (128, 0, 0), (0, 128, 0)]
-            self.colors = [(60, 0, 0), (0, 0, 0)]
+            self.colors = [(180, 0, 0), (0, 0, 0)]
         else:
             hsv_tuples = [(x / self.num_classes, 1., 1.) for x in range(self.num_classes)]
             self.colors = list(map(lambda x: colorsys.hsv_to_rgb(*x), hsv_tuples))
@@ -137,7 +137,7 @@ class Unet(object):
         if self.mix_type == 0:
             seg_img = np.reshape(np.array(self.colors, np.uint8)[np.reshape(pr, [-1])], [orininal_h, orininal_w, -1])
             image = Image.fromarray(np.uint8(seg_img))
-            image = Image.blend(old_img, image, 0.7)
+            image = Image.blend(old_img, image, 0.2)
 
         elif self.mix_type == 1:
             seg_img = np.reshape(np.array(self.colors, np.uint8)[np.reshape(pr, [-1])], [orininal_h, orininal_w, -1])
