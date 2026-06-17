@@ -246,7 +246,13 @@ class SeagrassDetect():
             # 建立 result_bgr 供影像串流寫入 (解決之前的 NameError)
             result_bgr = cv2.cvtColor(np.array(result_pil), cv2.COLOR_RGB2BGR)
             result_bgr = cv2.resize(result_bgr, (int(self.width), int(self.height)))
+            # --- 3. 影像後處理與數值計算 ---
+            seagrass_pixels = np.sum(mask == 0)
+            ratio = seagrass_pixels / mask.size * 100
+            latency = time.time() - t1
+
             
+            self.node.result_publisher.publish(Float32(data=ratio))
             cv2.putText(result_bgr, f"Seagrass: {ratio:.2f}%, Time: {latency:.2f}s",
                         (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
             
@@ -267,13 +273,7 @@ class SeagrassDetect():
 
                 self.node.publisher.publish(String(data=os.path.basename(self.image_directory) + "/" + file_name))
 
-            # --- 3. 影像後處理與數值計算 ---
-            seagrass_pixels = np.sum(mask == 0)
-            ratio = seagrass_pixels / mask.size * 100
-            latency = time.time() - t1
-
             
-            self.node.result_publisher.publish(Float32(data=ratio))
             
             # --- 4. 串流輸出 ---
             if self.streaming and self.out_send.isOpened():

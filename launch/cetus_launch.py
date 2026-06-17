@@ -80,5 +80,14 @@ def generate_launch_description():
             output='screen',
             emulate_tty=True,
         ),
+        Node(
+            package='httpserver',
+            namespace='httpserver',
+            executable='httpserver',
+            name='httpserver',
+            respawn=True,
+            respawn_delay=3.0,
+            output='both',
+        ),
         
     ])
