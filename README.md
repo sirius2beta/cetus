@@ -11,6 +11,10 @@ ros2 run link_manager link_manager
 
 ros2 launch launch/cetus_launch.py
 
+# 模擬回放模式（不建立新的任務 SQLite log，也不啟動 RS485/GPS/KBest 實體資料來源）
+# 會依 logs.time_usec 的相鄰時間差，將 log 中的 sensor 資料傳送至陸地端
+ros2 launch launch/cetus_launch.py simulation_mode:=true replay_log:=/absolute/path/to/log_00000001.db
+
 
 # 查看某topic訊息
 ros2 topic list
@@ -70,3 +74,13 @@ source /opt/ros/humble/setup.bash
 # 載入你的 Workspace 環境 (請替換成你實際的絕對路徑)
 # 例如: source /home/user/ros2_ws/install/setup.bash
 source /home/sirius2beta/cetus/install/setup.bash
+
+
+ros2 launch launch/cetus_launch.py \
+    simulation_mode:=true \
+    replay_log:=/absolute/path/to/log_00000001.db
+    
+ros2 launch launch/cetus_launch.py \
+    simulation_mode:=true \
+    replay_log:=/home/sirius2beta/GPlayerLogNew/log_00000004.db
+    /home/sirius2beta/GPlayerLogNew/log_00000001.db

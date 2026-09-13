@@ -1,14 +1,19 @@
 import os
 import glob 
+import json
 import re
 import sqlite3
 import threading  # 💡 引入執行緒模組
-from flask import Flask, jsonify, send_from_directory, abort
+from flask import Flask, jsonify, send_from_directory, abort, request
 from flask_cors import CORS 
 
 # 💡 引入 ROS 2 核心庫
 import rclpy
 from rclpy.node import Node
+from rclpy.qos import DurabilityPolicy, QoSProfile, ReliabilityPolicy
+from std_msgs.msg import String
+import logging
+
 
 # ==========================================
 # 1. 保持你原本的 Flask 設定與路徑
@@ -18,6 +23,17 @@ CORS(app)
 
 BASE_DIR = "/home/sirius2beta/GPlayerLogNew/snapshot/seagrass"
 LOG_DIR = "/home/sirius2beta/GPlayerLogNew"
+REPLAY_ROW_LOCK = threading.Lock()
+
+
+@app.after_request
+def print_json_response(response):
+    """Print every JSON response so it can be inspected in the server log."""
+    if response.mimetype == 'application/json':
+        print('HTTP {} {}'.format(
+            response.status_code,
+            request.path))
+    return response
 
 def safe_path_join(base, *paths):
     target_path = os.path.abspath(os.path.join(base, *paths))
@@ -26,6 +42,10 @@ def safe_path_join(base, *paths):
     return target_path
 
 def get_latest_db_path():
+    replay_log = app.config.get("REPLAY_LOG")
+    if replay_log:
+        return replay_log
+
     if not os.path.exists(LOG_DIR): return None
     db_files = [f for f in os.listdir(LOG_DIR) if f.startswith("log_") and f.endswith(".db")]
     if not db_files: return None
@@ -43,6 +63,20 @@ def get_latest_db_path():
 @app.route('/api/log/latest', methods=['GET'])
 def get_latest_log():
     try:
+        if app.config.get('SIMULATION_MODE'):
+            with REPLAY_ROW_LOCK:
+                row = app.config.get('REPLAY_ROW')
+            if row is None:
+                return jsonify({
+                    "message": "等待 log_manager 的第一筆回放資料",
+                    "file": os.path.basename(app.config['REPLAY_LOG']),
+                }), 503
+            return jsonify({
+                "status": "success",
+                "database_file": os.path.basename(app.config['REPLAY_LOG']),
+                "data": row,
+            })
+
         db_path = get_latest_db_path()
         if not db_path: return jsonify({"error": "找不到任何 Log 資料庫檔案"}), 404
         conn = sqlite3.connect(db_path)
@@ -53,6 +87,7 @@ def get_latest_log():
         conn.close()
         if row is None: return jsonify({"message": "資料庫目前尚無資料", "file": os.path.basename(db_path)}), 200
         return jsonify({"status": "success", "database_file": os.path.basename(db_path), "data": dict(row)})
+    
     except Exception as e:
         return jsonify({"error": f"讀取資料庫失敗: {str(e)}"}), 500
 
@@ -100,6 +135,30 @@ def get_image(record_dir, filename):
 class LogServerNode(Node):
     def __init__(self):
         super().__init__('log_server_node')
+        simulation_mode = self.declare_parameter('simulation_mode', False).value
+        replay_log = self.declare_parameter('replay_log', '').value
+
+        if simulation_mode:
+            if not replay_log:
+                raise ValueError('simulation_mode requires the replay_log parameter')
+            replay_log = os.path.abspath(os.path.expanduser(replay_log))
+            if not os.path.isfile(replay_log):
+                raise FileNotFoundError(
+                    'Replay log does not exist: {}'.format(replay_log))
+            app.config['REPLAY_LOG'] = replay_log
+            app.config['SIMULATION_MODE'] = True
+            app.config['REPLAY_ROW'] = None
+            replay_qos = QoSProfile(
+                depth=1,
+                reliability=ReliabilityPolicy.RELIABLE,
+                durability=DurabilityPolicy.TRANSIENT_LOCAL)
+            self.replay_row_subscriber = self.create_subscription(
+                String, '/simulation/current_log_row',
+                self.replay_row_callback, replay_qos)
+            self.get_logger().info(
+                'Simulation mode: HTTP server is reading {}.'
+                .format(replay_log))
+
         self.get_logger().info("海草 Log 服務節點已啟動！")
         
         # 💡 未來擴充：你可以在這裡訂閱 ROS 2 Topic (例如 GPS 或相機點位)
@@ -109,6 +168,17 @@ class LogServerNode(Node):
         self.flask_thread = threading.Thread(target=self.run_flask)
         self.flask_thread.daemon = True  # 當主程式關閉時，此 Thread 會自動結束
         self.flask_thread.start()
+
+    def replay_row_callback(self, msg):
+        try:
+            row = json.loads(msg.data)
+            if not isinstance(row, dict):
+                raise ValueError('replay row must be a JSON object')
+            with REPLAY_ROW_LOCK:
+                app.config['REPLAY_ROW'] = row
+        except (TypeError, ValueError, json.JSONDecodeError) as error:
+            self.get_logger().error(
+                'Could not decode simulated replay row: {}'.format(error))
 
     def run_flask(self):
         self.get_logger().info("正在背景啟動 Flask Web 伺服器 (Port: 5000)...")

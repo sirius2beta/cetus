@@ -2,6 +2,7 @@ import rclpy
 from rclpy.node import Node
 
 import math
+import json
 from datetime import datetime, timedelta
 import struct
 import time
@@ -10,8 +11,10 @@ from more_interfaces.msg import MavlinkValues, MarinelinkPacket, AquaValues, Win
 from septentrio_gnss_driver.msg import PVTGeodetic
 from gps_msgs.msg import GPSFix
 from std_msgs.msg import String, Float32
+from rclpy.qos import DurabilityPolicy, QoSProfile, ReliabilityPolicy
 from .DataLogger import DataLogger
 from .config import Config
+from .replay import LogReplay
 
 node1_control_type = 2 # sonar control type: 2
 node2_control_type = 0 # winch control type: 0
@@ -56,55 +59,103 @@ def position_accuracy(cov_latlat, cov_lonlon, cov_heightheight):
 class LogManager(Node):
     def __init__(self):
         super().__init__('log_manager')
-        
-        self.subscriber_ = self.create_subscription(
-            MavlinkValues, 
-            '/sensor/mavlink_values', 
-            self.mavlinkValues_callback, 
-            10
-        )
-        self.aquastatus_subscriber_ = self.create_subscription(
-            AquaValues,
-            '/sensor/aqua_values',
-            self.aquastatus_callback,
-            10
-        )
-        self.winchstatus_subscriber_ = self.create_subscription(
-            WinchStatus,
-            '/sensor/winch_status',
-            self.winchstatus_callback,
-            10
-        )
-        self.ardusimple_subscriber_ = self.create_subscription(
-            ArdusimpleValues,
-            '/sensor/ardusimple_values',
-            self.ardusimple_callback,
-            10
-        )
-        self.kbest_subscriber_ = self.create_subscription(
-            KBestValues,
-            '/sensor/kbest_values',
-            self.kbest_callback,
-            10
-        )
-        self.seagrass_image_subscriber_ = self.create_subscription(
-            String,
-            '/seagrass_detect/img_name',
-            self.seagrass_image_callback,
-            10
-        )
-        self.seagrass_result_subscriber_ = self.create_subscription(
-            Float32,
-            '/seagrass_detect/result',
-            self.seagrass_result_callback,
-            10
-        )
         self.publisher_ = self.create_publisher(MarinelinkPacket, '/marinelink_tosend', 10)
-        #self.get_logger().info('LogManager has started and is listening to /sensor/mavlink_values')
-        
         self.config = Config()
         self.sensor_group_list = self.config.sensor_group_list
+        self.simulation_mode = self.declare_parameter('simulation_mode', False).value
+        self.replay_log = self.declare_parameter('replay_log', '').value
+
+        if self.simulation_mode:
+            if not self.replay_log:
+                raise ValueError('simulation_mode requires the replay_log parameter')
+            self.data_logger = None
+            self.replay = LogReplay(self.replay_log)
+            self.replay_index = 0
+            replay_qos = QoSProfile(
+                depth=1,
+                reliability=ReliabilityPolicy.RELIABLE,
+                durability=DurabilityPolicy.TRANSIENT_LOCAL)
+            self.replay_row_publisher = self.create_publisher(
+                String, '/simulation/current_log_row', replay_qos)
+            # rclpy timers require a positive period.  This only delays the
+            # first sample by 1 ms; subsequent samples use recorded timing.
+            self.replay_timer = self.create_timer(0.001, self.replay_next)
+            self.get_logger().info(
+                'Simulation mode: replaying {} rows from {}; database logging and live flight data are disabled.'
+                .format(len(self.replay.rows), self.replay_log))
+            return
+
+        self.subscriber_ = self.create_subscription(MavlinkValues, '/sensor/mavlink_values', self.mavlinkValues_callback, 10)
+        self.aquastatus_subscriber_ = self.create_subscription(AquaValues, '/sensor/aqua_values', self.aquastatus_callback, 10)
+        self.winchstatus_subscriber_ = self.create_subscription(WinchStatus, '/sensor/winch_status', self.winchstatus_callback, 10)
+        self.ardusimple_subscriber_ = self.create_subscription(ArdusimpleValues, '/sensor/ardusimple_values', self.ardusimple_callback, 10)
+        self.kbest_subscriber_ = self.create_subscription(KBestValues, '/sensor/kbest_values', self.kbest_callback, 10)
+        self.seagrass_image_subscriber_ = self.create_subscription(String, '/seagrass_detect/img_name', self.seagrass_image_callback, 10)
+        self.seagrass_result_subscriber_ = self.create_subscription(Float32, '/seagrass_detect/result', self.seagrass_result_callback, 10)
         self.data_logger = DataLogger()
+
+    @staticmethod
+    def _number(row, name, default=0):
+        value = row.get(name)
+        return default if value is None else value
+
+    @staticmethod
+    def _coordinate(value):
+        """Convert decimal-degree legacy log coordinates to MAVLink E7 values."""
+        value = float(value)
+        return int(round(value * 10000000)) if abs(value) <= 180 else int(value)
+
+    def replay_next(self):
+        self.replay_timer.cancel()
+        row = self.replay.rows[self.replay_index]
+        self._publish_replay_row(row)
+        delay = self.replay.delay_after(self.replay_index)
+        self.replay_index += 1
+        if delay is None:
+            self.get_logger().info('Simulation replay completed.')
+            return
+        self.replay_timer = self.create_timer(max(delay, 0.001), self.replay_next)
+
+    def _publish_replay_row(self, row):
+        # Publish the unmodified database row so all demo clients present the
+        # same sample currently being sent through the simulated sensors.
+        self.replay_row_publisher.publish(String(data=json.dumps(row)))
+
+        mav0 = self.sensor_group_list[3]
+        mav1 = self.sensor_group_list[4]
+        aqua = self.sensor_group_list[1]
+        kbest = self.sensor_group_list[5]
+
+        mav0.get_sensor(0).data = int(self._number(row, 'depth'))
+        mav0.get_sensor(1).data = 0
+        mav0.get_sensor(2).data = 0
+        mav0.get_sensor(3).data = 0
+        mav1.get_sensor(0).data = int(self._number(row, 'fix_type'))
+        mav1.get_sensor(1).data = self._coordinate(self._number(row, 'lon'))
+        mav1.get_sensor(2).data = self._coordinate(self._number(row, 'lat'))
+        mav1.get_sensor(3).data = int(self._number(row, 'alt'))
+        mav1.get_sensor(4).data = int(self._number(row, 'yaw'))
+        mav1.get_sensor(5).data = float(self._number(row, 'pitch'))
+        mav1.get_sensor(6).data = float(self._number(row, 'roll'))
+        mav1.get_sensor(7).data = float(self._number(row, 'speed'))
+
+        aqua_fields = (
+            'temperature', 'pressure', 'aqua_depth', 'level_depth_to_water',
+            'level_surface_elevation', 'actual_conductivity', 'specific_conductivity',
+            'resistivity', 'salinity', 'total_dissolved_solids', 'density_of_water',
+            'barometric_pressure', 'ph', 'ph_mv', 'orp',
+            'dissolved_oxygen_concentration', 'dissolved_oxygen_saturation',
+            'turbidity', 'oxygen_partial_pressure', 'external_voltage',
+            'battery_capacity_remaining')
+        for index, field in enumerate(aqua_fields):
+            aqua.get_sensor(index).data = float(self._number(row, field))
+        kbest.get_sensor(0).data = int(self._number(row, 'kbest_boat_rssi'))
+        kbest.get_sensor(1).data = int(self._number(row, 'kbest_ground_rssi'))
+        kbest.get_sensor(2).data = 0.0
+        kbest.get_sensor(3).data = 0.0
+
+        for group in (mav1, mav0, aqua, kbest):
+            self.publisher_.publish(MarinelinkPacket(topic=4, payload=group.pack()))
 
 
     

@@ -1,6 +1,8 @@
 from launch import LaunchDescription
 from launch_ros.actions import Node
 from launch.actions import SetEnvironmentVariable, DeclareLaunchArgument
+from launch.conditions import UnlessCondition
+from launch.substitutions import LaunchConfiguration
 import os
 def generate_launch_description():
     custom_log_dir = '/home/sirius2beta/GPlayerLogNew/debug'
@@ -8,6 +10,8 @@ def generate_launch_description():
     # 如果目錄不存在，可以考慮在啟動前手動建立，或者讓系統自動生成
     os.makedirs(custom_log_dir, exist_ok=True)
     return LaunchDescription([
+        DeclareLaunchArgument('simulation_mode', default_value='false'),
+        DeclareLaunchArgument('replay_log', default_value=''),
         SetEnvironmentVariable('ROS_LOG_DIR', custom_log_dir),
         Node(
             package='link_manager',
@@ -32,6 +36,10 @@ def generate_launch_description():
             package='log_manager',
             namespace='log_manager',
             executable='log_manager',
+            parameters=[{
+                'simulation_mode': LaunchConfiguration('simulation_mode'),
+                'replay_log': LaunchConfiguration('replay_log'),
+            }],
             respawn=True,
             respawn_delay=2.0,
             name='log_manager'
@@ -41,6 +49,7 @@ def generate_launch_description():
             namespace='rs485_manager',
             executable='rs485_manager',
             name='rs485_manager',
+            condition=UnlessCondition(LaunchConfiguration('simulation_mode')),
             respawn=True,
             respawn_delay=3.0,
         ),
@@ -49,6 +58,7 @@ def generate_launch_description():
             namespace='gps_manager',
             executable='gps_manager',
             name='gps_manager',
+            condition=UnlessCondition(LaunchConfiguration('simulation_mode')),
             respawn=True,
             respawn_delay=3.0,
             output='both',
@@ -58,6 +68,7 @@ def generate_launch_description():
             namespace='kbest_manager',
             executable='kbest_manager',
             name='kbest_manager',
+            condition=UnlessCondition(LaunchConfiguration('simulation_mode')),
             respawn=True,
             respawn_delay=3.0,
             output='both',
@@ -85,6 +96,10 @@ def generate_launch_description():
             namespace='httpserver',
             executable='httpserver',
             name='httpserver',
+            parameters=[{
+                'simulation_mode': LaunchConfiguration('simulation_mode'),
+                'replay_log': LaunchConfiguration('replay_log'),
+            }],
             respawn=True,
             respawn_delay=3.0,
             output='both',
