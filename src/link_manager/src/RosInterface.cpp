@@ -79,6 +79,57 @@ void RosInterface::onMavlinkToParse(LinkInterface *link, const mavlink_message_t
             RCLCPP_INFO(rclcpp::get_logger("RosInterface"), "Control command (Topic 5)");
             pub_worker_->publishControl(msg);
             break;
+        case 9:
+            RCLCPP_INFO(rclcpp::get_logger("RosInterface"), "Control command (Topic 9)");
+            
+            if (msg.payload.size() >= 2) {
+                uint8_t boat_id = msg.payload[0];
+                uint8_t command_type = msg.payload[1];
+                
+                if (command_type == 0) {
+                    RCLCPP_INFO(rclcpp::get_logger("RosInterface"), "Restarting service for Boat ID: %d, Type: %d", boat_id, command_type);
+                    std::async(std::launch::async, []() {
+                        RCLCPP_INFO(rclcpp::get_logger("RosInterface"), "Executing: sudo systemctl restart cetus.service");
+                        
+                        // 執行系統指令
+                        int result = std::system("sudo systemctl restart cetus.service");
+                        
+                        if (result == 0) {
+                            RCLCPP_INFO(rclcpp::get_logger("RosInterface"), "cetus.service restarted successfully.");
+                        } else {
+                            RCLCPP_ERROR(rclcpp::get_logger("RosInterface"), "Failed to restart cetus.service, return code: %d", result);
+                        }
+                    });
+                } else if (command_type == 1) {
+                    RCLCPP_INFO(rclcpp::get_logger("RosInterface"), "Rebooting computer for Boat ID: %d, Type: %d", boat_id, command_type);
+                    std::async(std::launch::async, []() {
+                        RCLCPP_INFO(rclcpp::get_logger("RosInterface"), "Executing: sudo reboot");
+                        
+                        // 執行系統指令
+                        int result = std::system("sudo reboot");
+                        
+                        if (result == 0) {
+                            RCLCPP_INFO(rclcpp::get_logger("RosInterface"), "Computer is rebooting...");
+                        } else {
+                            RCLCPP_ERROR(rclcpp::get_logger("RosInterface"), "Failed to reboot computer, return code: %d", result);
+                        }
+                    });
+                } else if (command_type == 2) {
+                    RCLCPP_INFO(rclcpp::get_logger("RosInterface"), "Stopping service for Boat ID: %d, Type: %d", boat_id, command_type);
+                    std::async(std::launch::async, []() {
+                        RCLCPP_INFO(rclcpp::get_logger("RosInterface"), "Executing: sudo systemctl stop cetus.service");
+                        
+                        // 執行系統指令
+                        int result = std::system("sudo systemctl stop cetus.service");
+                        
+                        if (result == 0) {
+                            RCLCPP_INFO(rclcpp::get_logger("RosInterface"), "cetus.service stop successfully.");
+                        } else {
+                            RCLCPP_ERROR(rclcpp::get_logger("RosInterface"), "Failed to stop cetus.service, return code: %d", result);
+                        }
+                    });
+                }
+            }
         default:
             // 可選：處理未定義的 topic
             break;

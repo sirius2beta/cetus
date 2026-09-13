@@ -16,6 +16,23 @@ from .config import Config
 node1_control_type = 2 # sonar control type: 2
 node2_control_type = 0 # winch control type: 0
 
+# 把 self 拿掉
+def nmea_to_decimal(nmea_val):
+    """
+    將 NMEA GGA 的 DDMM.MMMMM 格式轉換為十進制度 (Decimal Degrees)
+    """
+    if not nmea_val:
+        return 0.0
+    
+    sign = -1 if nmea_val < 0 else 1
+    val = abs(nmea_val)
+    
+    degrees = int(val / 100)
+    minutes = val - (degrees * 100)
+    decimal_degrees = sign * (degrees + (minutes / 60.0))
+    
+    return decimal_degrees
+
 def gps_time_to_utc(wnc, tow):
     gps_start = datetime(1980, 1, 6)
     total_seconds = wnc * 7 * 86400 + tow/1000
@@ -89,8 +106,7 @@ class LogManager(Node):
         self.sensor_group_list = self.config.sensor_group_list
         self.data_logger = DataLogger()
 
-    def seagrass_image_callback(self, msg):
-        self.data_logger.log_data.seagrass_image_name = msg.data
+
     
     def seagrass_result_callback(self, msg):
         self.data_logger.log_data.seagrass_coverage_ratio = msg.data
@@ -183,8 +199,8 @@ class LogManager(Node):
     def ardusimple_callback(self, msg):
         self.data_logger.log_data.gps_date = msg.date
         self.data_logger.log_data.gps_timestamp = msg.utc_time
-        self.data_logger.log_data.lat = msg.latitude
-        self.data_logger.log_data.lon = msg.longitude
+        self.data_logger.log_data.lat = nmea_to_decimal(msg.latitude)
+        self.data_logger.log_data.lon = nmea_to_decimal(msg.longitude)
         self.data_logger.log_data.alt = msg.height
         self.data_logger.log_data.HDOP = msg.hdop
         self.data_logger.log_data.VDOP = msg.vdop
@@ -208,6 +224,7 @@ class LogManager(Node):
     
     def seagrass_image_callback(self, msg):
         self.data_logger.log_data.seagrass_image_name = msg.data
+
 def main(args=None):
     rclpy.init(args=args)
     log_manager = LogManager()

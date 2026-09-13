@@ -9,4 +9,4 @@ uint16 depth
 float32 groundspeed
 uint16 voltage_battery
 uint16 current_battery
-uint8 battery_remaining
+int8 battery_remaining

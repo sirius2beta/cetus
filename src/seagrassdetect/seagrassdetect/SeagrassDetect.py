@@ -89,10 +89,15 @@ class SeagrassDetect():
                 if frame is not None:
                     cv2.imwrite(frame_path, frame)
                 if mask is not None:
-                    # 將 0/1 的 mask 轉成 0/255 的灰階圖儲存
-                    # 這裡用 jpg 雖然是有損，但速度比 png 快非常多
-                    cv2.imwrite(mask_path, (mask * 255).astype(np.uint8))
+                    mask_array = np.array(mask)
                     
+                    # 2. 強制定義：只要 mask 的值 == 0，我就把它當作海草 (白色 255)
+                    # 如果你發現反了，只要把 mask_array == 0 改成 mask_array == 1 即可
+                    final_mask = np.zeros_like(mask_array, dtype=np.uint8)
+                    final_mask[mask_array > 0] = 255
+                    
+                    # 3. 儲存這張強制映射後的標準黑白圖
+                    cv2.imwrite(mask_path, final_mask)
                 self.save_queue.task_done()
             except Exception as e:
                 print(f"SeagrassDetect Storage Error: {e}")
@@ -264,10 +269,10 @@ class SeagrassDetect():
                 
                 frame_path = os.path.join(self.image_directory, file_name)
                 mask_path = os.path.join(self.image_directory, mask_name)
-                
+                inverted_mask = np.where(mask == 0, 255, 0).astype(np.uint8)
                 try:
                     # 丟進 Queue，儲存高畫質的 orig_frame 與 mask
-                    self.save_queue.put_nowait((frame_path, orig_frame, mask_path, mask))
+                    self.save_queue.put_nowait((frame_path, orig_frame, mask_path, inverted_mask))
                 except _queue.Full:
                     print("SeagrassDetect: ⚠️ Storage queue full, dropping storage frame!")
 
