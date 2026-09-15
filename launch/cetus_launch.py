@@ -12,6 +12,7 @@ def generate_launch_description():
     return LaunchDescription([
         DeclareLaunchArgument('simulation_mode', default_value='false'),
         DeclareLaunchArgument('replay_log', default_value=''),
+        DeclareLaunchArgument('simulation_video_dir', default_value=''),
         SetEnvironmentVariable('ROS_LOG_DIR', custom_log_dir),
         Node(
             package='link_manager',
@@ -28,6 +29,10 @@ def generate_launch_description():
             namespace='video_manager',
             executable='video_manager',
             output='both',
+            parameters=[{
+                'simulation_mode': LaunchConfiguration('simulation_mode'),
+                'simulation_video_dir': LaunchConfiguration('simulation_video_dir'),
+            }],
             respawn=True,
             respawn_delay=2.0,
             name='video_manager'

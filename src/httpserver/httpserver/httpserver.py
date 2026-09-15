@@ -4,7 +4,7 @@ import json
 import re
 import sqlite3
 import threading  # 💡 引入執行緒模組
-from flask import Flask, jsonify, send_from_directory, abort, request
+from flask import Flask, jsonify, send_file, send_from_directory, abort, request
 from flask_cors import CORS 
 
 # 💡 引入 ROS 2 核心庫
@@ -56,6 +56,51 @@ def get_latest_db_path():
     if not indices: return None
     latest_file = max(indices, key=lambda x: x[0])[1]
     return os.path.join(LOG_DIR, latest_file)
+
+def get_newest_file(paths):
+    """Return the newest regular file from an iterable, or None."""
+    files = [path for path in paths if os.path.isfile(path)]
+    return max(files, key=os.path.getmtime_ns) if files else None
+
+def send_current_image(path, simulation_fallback=False):
+    if not path:
+        return jsonify({"error": "No current image available"}), 404
+    response = send_file(path, mimetype='image/jpeg', conditional=False)
+    # Query parameter t is deliberately ignored.  These headers also prevent
+    # browsers and proxies from reusing a prior frame.
+    response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, max-age=0'
+    response.headers['Pragma'] = 'no-cache'
+    response.headers['Expires'] = '0'
+    if simulation_fallback:
+        response.headers['X-Image-Source'] = 'simulation-seagrass-log'
+    return response
+
+def get_simulation_image(mask):
+    """Resolve the image named by the current replay database row."""
+    with REPLAY_ROW_LOCK:
+        image_name = app.config.get('REPLAY_SEAGRASS_IMAGE_NAME')
+        if not image_name:
+            row = app.config.get('REPLAY_ROW')
+            image_name = row.get('seagrass_image_name') if isinstance(row, dict) else None
+    if not image_name or not isinstance(image_name, str):
+        return None
+    image_name = image_name.replace('\\', '/')
+    directory, filename = os.path.split(image_name)
+    if mask and not filename.endswith('_mask.jpg'):
+        stem, extension = os.path.splitext(filename)
+        filename = '{}_mask{}'.format(stem, extension)
+    try:
+        return safe_path_join(BASE_DIR, directory, filename)
+    except ValueError:
+        return None
+
+def get_live_image(mask):
+    images = glob.glob(os.path.join(BASE_DIR, '**', '*.jpg'), recursive=True)
+    if mask:
+        images = [path for path in images if os.path.basename(path).endswith('_mask.jpg')]
+    else:
+        images = [path for path in images if not os.path.basename(path).endswith('_mask.jpg')]
+    return get_newest_file(images)
 
 # ==========================================
 # 2. 你原本的所有 Flask Routes (完全保留)
@@ -128,6 +173,22 @@ def get_image(record_dir, filename):
     except ValueError: abort(403)
     except FileNotFoundError: abort(404)
 
+@app.route('/api/image/latest', methods=['GET'])
+def get_latest_image():
+    # request.args.get('t') is intentionally ignored; callers use it only as
+    # a cache-busting value.
+    if app.config.get('SIMULATION_MODE'):
+        return send_current_image(get_simulation_image(mask=False))
+    return send_current_image(get_live_image(mask=False))
+
+@app.route('/api/image/latestmask', methods=['GET'])
+def get_latest_mask():
+    # AI is intentionally disabled in simulation mode.  Use the mask from the
+    # replay's corresponding seagrass frame instead of an MP4-derived image.
+    if app.config.get('SIMULATION_MODE'):
+        return send_current_image(get_simulation_image(mask=True), simulation_fallback=True)
+    return send_current_image(get_live_image(mask=True))
+
 
 # ==========================================
 # 3. 🆕 定義 ROS 2 Node 與啟動邏輯
@@ -148,6 +209,7 @@ class LogServerNode(Node):
             app.config['REPLAY_LOG'] = replay_log
             app.config['SIMULATION_MODE'] = True
             app.config['REPLAY_ROW'] = None
+            app.config['REPLAY_SEAGRASS_IMAGE_NAME'] = None
             replay_qos = QoSProfile(
                 depth=1,
                 reliability=ReliabilityPolicy.RELIABLE,
@@ -176,6 +238,9 @@ class LogServerNode(Node):
                 raise ValueError('replay row must be a JSON object')
             with REPLAY_ROW_LOCK:
                 app.config['REPLAY_ROW'] = row
+                image_name = row.get('seagrass_image_name')
+                if isinstance(image_name, str) and image_name.strip():
+                    app.config['REPLAY_SEAGRASS_IMAGE_NAME'] = image_name
         except (TypeError, ValueError, json.JSONDecodeError) as error:
             self.get_logger().error(
                 'Could not decode simulated replay row: {}'.format(error))

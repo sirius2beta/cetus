@@ -15,6 +15,12 @@ ros2 launch launch/cetus_launch.py
 # 會依 logs.time_usec 的相鄰時間差，將 log 中的 sensor 資料傳送至陸地端
 ros2 launch launch/cetus_launch.py simulation_mode:=true replay_log:=/absolute/path/to/log_00000001.db
 
+# 模擬影像：資料夾中的 MP4 依檔名排序，分別提供 cetusvideo1 與 cetusvideo3，並循環播放
+ros2 launch launch/cetus_launch.py \
+    simulation_mode:=true \
+    replay_log:=/absolute/path/to/log_00000008.db \
+    simulation_video_dir:=/absolute/path/to/mp4_directory
+
 
 # 查看某topic訊息
 ros2 topic list
@@ -82,5 +88,7 @@ ros2 launch launch/cetus_launch.py \
     
 ros2 launch launch/cetus_launch.py \
     simulation_mode:=true \
-    replay_log:=/home/sirius2beta/GPlayerLogNew/log_00000004.db
+    replay_log:=/home/sirius2beta/GPlayerLogNew/log_00000008.db \
+    simulation_video_dir:=/home/sirius2beta/simulation
     /home/sirius2beta/GPlayerLogNew/log_00000001.db
+    /home/sirius2beta/simulation

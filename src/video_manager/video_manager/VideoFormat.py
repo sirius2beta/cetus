@@ -1,3 +1,38 @@
+from pathlib import Path
+
+
+def getSimulationFormatCMD(video_path, width, height, framerate, encoder, IP, port, img_directory):
+	"""Build a looping MP4 playback pipeline with the normal RTP outputs."""
+	uri = Path(video_path).resolve().as_uri()
+	source = (
+		# uridecodebin selects nvv4l2decoder on Jetson.  Its output is NVMM
+		# memory, which videoconvert cannot negotiate directly; nvvidconv first
+		# converts it to ordinary I420 buffers.
+		'uridecodebin uri="{}" ! queue ! nvvidconv ! video/x-raw,format=I420 ! '
+		'videoconvert ! videoscale ! videorate ! '
+		'video/x-raw,width={},height={},framerate={}/1 ! tee name=t '
+	).format(uri, width, height, framerate)
+	if encoder == 'h264':
+		return (
+			source +
+			't. ! queue ! x264enc tune=zerolatency speed-preset=superfast ! '
+			# Keep the MP4's timestamps: sync=false would transmit every frame as
+			# fast as it can be encoded, which makes the receiver play in fast-forward.
+			'rtph264pay pt=96 config-interval=1 ! udpsink host={} port={} sync=true '
+			't. ! queue ! valve name=photo_valve drop=True ! videorate ! '
+			'video/x-raw,framerate=1/1 ! jpegenc ! '
+			'multifilesink location={}/img_%05d.jpg async=false'
+		).format(IP, port, img_directory)
+	return (
+		source +
+		't. ! queue ! jpegenc quality=30 ! rtpjpegpay ! '
+		'udpsink host={} port={} sync=true '
+		't. ! queue ! valve name=photo_valve drop=True ! videorate ! '
+			'video/x-raw,framerate=1/1 ! jpegenc ! '
+			'multifilesink location={}/img_%05d.jpg async=false'
+	).format(IP, port, img_directory)
+
+
 def getFormatCMD(sys, cam, format, width, height, framerate, encoder, IP, port, img_directory):
 		gstring = 'v4l2src device=/dev/cetusvideo'+str(cam)
 		mid = 'nan'

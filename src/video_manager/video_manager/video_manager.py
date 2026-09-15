@@ -15,12 +15,17 @@ from std_msgs.msg import String
 class VideoControl(Node):
     def __init__(self):
         super().__init__('video_manager')
+        simulation_mode = self.declare_parameter('simulation_mode', False).value
+        simulation_video_dir = self.declare_parameter(
+            'simulation_video_dir', '').value
         
         self.subscriber_ = self.create_subscription(MarinelinkPacket, '/control/video', self.marinelink_callback, 10)
         self.publisher_ = self.create_publisher(MarinelinkPacket, '/marinelink_tosend', 10)
         self.seagrassCommandPublisher = self.create_publisher(String, '/control/seagrass/command', 10)
         self.jetsonDetectCommandPublisher = self.create_publisher(String, '/control/jetsondetect/command', 10)
-        self.videoManager = VideoManager(self)
+        self.videoManager = VideoManager(
+            self, simulation_mode=simulation_mode,
+            simulation_video_dir=simulation_video_dir)
         
 
     def marinelink_callback(self, msg):

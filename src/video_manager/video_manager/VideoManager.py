@@ -27,9 +27,11 @@ def getOS():
 		return 'None'
 
 class VideoManager():
-	def __init__(self, node):
+	def __init__(self, node, simulation_mode=False, simulation_video_dir=''):
 		self.node = node
 		self.sys = 'buster'
+		self.simulation_mode = simulation_mode
+		self.simulation_video_dir = simulation_video_dir
 
 		self.base_folder_path = "/home/sirius2beta/GPlayerLogNew/snapshot/video"
         
@@ -43,7 +45,10 @@ class VideoManager():
 		self.ai_cam = -1
 		self.seagrass_cam = -1
 		self.seagrass_cam_format = None
-		self.get_video_format_generic()
+		if self.simulation_mode:
+			self._configure_simulated_cameras()
+		else:
+			self.get_video_format_generic()
 
 		self.portOccupied = {} # {port, videoNo}
 		GObject.threads_init()
@@ -54,6 +59,46 @@ class VideoManager():
 		self.loop_thread.start()
 		
 		print("[o] VideoManager: started")
+
+	def _configure_simulated_cameras(self):
+		"""Expose two virtual cameras backed by looping MP4 files."""
+		if not self.simulation_video_dir:
+			raise ValueError(
+				'simulation_mode requires the simulation_video_dir parameter')
+
+		video_dir = os.path.abspath(os.path.expanduser(self.simulation_video_dir))
+		if not os.path.isdir(video_dir):
+			raise NotADirectoryError(
+				'Simulation video directory does not exist: {}'.format(video_dir))
+
+		mp4_files = sorted(glob.glob(os.path.join(video_dir, '*.mp4')))
+		mp4_files += sorted(glob.glob(os.path.join(video_dir, '*.MP4')))
+		if not mp4_files:
+			raise FileNotFoundError(
+				'No MP4 files found in simulation video directory: {}'.format(video_dir))
+
+		formats = [
+			('MJPEG', 1920, 1080, 30),
+			('MJPEG', 1280, 720, 30),
+			('MJPEG', 640, 480, 30),
+			('MJPEG', 320, 240, 30),
+		]
+		for index, cam in enumerate((1, 3)):
+			source = mp4_files[index % len(mp4_files)]
+			self.pipelines[cam] = {
+				"pipeline": None,
+				"state": 0,
+				"formats": formats.copy(),
+				"port": None,
+				"encoder": None,
+				"gstring": "",
+				"recording": False,
+				"formatIndex": 0,
+				"AIType": 0,
+				"source": source,
+			}
+			self.node.get_logger().info(
+				'Simulation camera cetusvideo{} uses {}'.format(cam, source))
 	def createDirectory(self, cam):
 		# 為 cam 建立專屬資料夾
 		base_directory = os.path.expanduser(self.base_folder_path+f"{cam}")
@@ -229,7 +274,9 @@ class VideoManager():
 		t = message.type
 		if t == Gst.MessageType.ERROR:
 			err, debug = message.parse_error()
-			print(f"攝影機 {cam} 發生錯誤: {err.message}")
+			self.node.get_logger().error(
+				"video{} GStreamer error: {}; debug: {}".format(
+					cam, err.message, debug or "(none)"))
 			#if dev is busy( Device '/dev/cetusvideo... is busy), return
 			
 			# 重要：當電壓不穩影像斷掉時，這裡會被觸發
@@ -239,15 +286,45 @@ class VideoManager():
 				return
 			else:
 				self.pipelines[cam]["state"] = 2  # 設置為錯誤狀態
-			self._handle_reconnect(cam) 
+			if self.simulation_mode:
+				# 模擬來源是 MP4，不存在可等待重連的 /dev/cetusvideo*。
+				# 延遲後以既有 MP4 pipeline 設定重建即可。
+				GLib.timeout_add(1000, self._restart_simulation_pipeline, cam)
+			else:
+				self._handle_reconnect(cam)
 			self.sendUpdateVideoStatus(cam)  # 更新狀態給上層
 			
 		elif t == Gst.MessageType.EOS:
-			print(f"攝影機 {cam_name} 串流結束")
-			self._stop_pipeline(cam_name)
-			self.pipelines[cam]["state"] = 0  # 設置為停止狀態
+			if self.simulation_mode:
+				# uridecodebin/qtdemux does not reliably resume after EOS with a
+				# seek alone.  Recreate the MP4 pipeline so playback truly loops.
+				self.node.get_logger().info(
+					"Simulation video{} reached EOS; recreating pipeline".format(cam))
+				self._stop_pipeline(cam)
+				self.pipelines[cam]["state"] = 2
+				GLib.timeout_add(100, self._restart_simulation_pipeline, cam)
+			else:
+				print(f"攝影機 {cam} 串流結束")
+				self._stop_pipeline(cam)
+				self.pipelines[cam]["state"] = 0  # 設置為停止狀態
 
 		return True # 保持監聽
+
+	def _restart_simulation_pipeline(self, cam):
+		"""Recreate an MP4-backed pipeline after an asynchronous GStreamer error."""
+		if self.pipelines[cam]["state"] != 2:
+			return False
+		self.node.get_logger().info(
+			"Restarting simulated video{} from {}".format(
+				cam, self.pipelines[cam]['source']))
+		self._start_pipeline(cam)
+		if self.pipelines[cam]["state"] == 1:
+			self.sendUpdateVideoStatus(cam)
+		else:
+			self.node.get_logger().error(
+				"Simulated video{} could not be restarted".format(cam))
+			self.sendUpdateVideoStatus(cam)
+		return False
 
 	def _handle_reconnect(self, cam):
 		"""處理斷線重連邏輯"""
@@ -312,6 +389,11 @@ class VideoManager():
 			bus = pipeline.get_bus()
 			bus.add_signal_watch()
 			bus.connect("message", self._on_message, cam)
+			if self.simulation_mode:
+				# Some Jetson qtdemux/nvv4l2decoder combinations do not forward EOS
+				# to the pipeline bus.  Query the MP4 duration after preroll and use
+				# it as a fallback loop trigger.
+				GLib.timeout_add(1000, self._schedule_simulation_loop, cam, pipeline)
 		elif self.pipelines[cam]["AIType"] == 1:
 			self.node.jetsonDetectCommandPublisher.publish(String(data="p"))
 			self.node.get_logger().info(f"Start JetsonDetect AI on cam:{cam}")
@@ -323,6 +405,33 @@ class VideoManager():
 			self.pipelines[cam]['state'] = 1
 		
 		self.portOccupied[self.pipelines[cam]['port']] = cam
+
+	def _schedule_simulation_loop(self, cam, pipeline):
+		"""Schedule a fallback restart at the MP4 duration when EOS is absent."""
+		if self.pipelines[cam].get("pipeline") is not pipeline:
+			return False
+		success, duration = pipeline.query_duration(Gst.Format.TIME)
+		if not success or duration <= 0 or duration == Gst.CLOCK_TIME_NONE:
+			return True  # Pipeline has not exposed its duration yet; retry in 1 s.
+		# The query happens after playback begins, so leave a small margin.
+		delay_ms = max(100, int(duration / Gst.MSECOND) - 750)
+		self.node.get_logger().info(
+			"Simulation video{} duration is {} ms; loop watchdog armed".format(
+				cam, int(duration / Gst.MSECOND)))
+		GLib.timeout_add(delay_ms, self._loop_simulation_pipeline, cam, pipeline)
+		return False
+
+	def _loop_simulation_pipeline(self, cam, pipeline):
+		"""Loop only if this is still the active pipeline (not an EOS restart)."""
+		if (self.pipelines[cam].get("pipeline") is not pipeline or
+				self.pipelines[cam]["state"] != 1):
+			return False
+		self.node.get_logger().info(
+			"Simulation video{} loop watchdog recreating pipeline".format(cam))
+		self._stop_pipeline(cam)
+		self.pipelines[cam]["state"] = 2
+		GLib.timeout_add(100, self._restart_simulation_pipeline, cam)
+		return False
 
 	def _stop_pipeline(self, cam):
 		"""停止並釋放 pipeline，但保留 camera 格式資訊"""
@@ -388,10 +497,16 @@ class VideoManager():
 			self.sendUpdateVideoStatus(videoToStop)  # 更新狀態給上層
 			print(f"  -quit occupied: video{videoToStop}")
 		
+
 		# 生成 GStreamer 指令
 		if ai_type == 0:
 			image_directory = self.createDirectory(cam)
-			gstring = VideoFormat.getFormatCMD(getOS(), cam, fmtFound, width, height, fps, encoder, IP, port, image_directory)
+			if self.simulation_mode:
+				gstring = VideoFormat.getSimulationFormatCMD(
+					self.pipelines[cam]['source'], width, height, fps,
+					encoder, IP, port, image_directory)
+			else:
+				gstring = VideoFormat.getFormatCMD(getOS(), cam, fmtFound, width, height, fps, encoder, IP, port, image_directory)
 			print(f"[Pipeline] cam={cam}, port={port}, encoder={encoder}")
 			self.node.get_logger().info(f"Pipeline string: {gstring}")
 			
@@ -399,6 +514,9 @@ class VideoManager():
 		if ai_type == 1:
 			self.setJetsonCamera(cam, fmtFound, width, height, fps, encoder, IP, port)
 		elif ai_type == 2: # 海草 AI
+			# 取代成用API
+			self.node.get_logger().info(f"取代成用API設置海草攝影機: cam={cam}, fmt={fmtFound}, width={width}, height={height}, fps={fps}, encoder={encoder}, IP={IP}, port={port}")
+			return
 			self.setSeagrassCamera(cam, fmtFound, width, height, fps, encoder, IP, port)
 		self.pipelines[cam]['port'] = port
 		self.pipelines[cam]['encoder'] = encoder
